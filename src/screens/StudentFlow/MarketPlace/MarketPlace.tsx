@@ -53,7 +53,7 @@ const MarketPlace:React.FC<Props>=({navigation})=>{
 
 
 
-    <View  className='flex-1 justify-center bg-white '>
+    <View  className='flex-1 justify-evenly bg-white '>
     <KeyboardAvoidingView behavior='height'>
         <SafeAreaView/>
     <Username />
@@ -103,7 +103,8 @@ placeholderTextColor={Colors.gray}
         style={{fontFamily:'PoppinsMedium'}}
         className='text-base  text-center m-3 self-start'>{Strings.ST80}</Text>
         <FlatList
-         style={{elevation:20,borderRadius:20, shadowRadius:10, backgroundColor:Colors.white}}
+         style={{elevation:5, backgroundColor:Colors.white}}
+         className='rounded-2xl'
         data={sessions}
         renderItem={({item})=>{
             return(
@@ -135,12 +136,12 @@ placeholderTextColor={Colors.gray}
         keyExtractor={item=>{return item.id.toString()}}
         
         />
-        <TouchableOpacity className='self-center items-center my-3'>
+    </View>
+        <TouchableOpacity className='self-center items-center my-3 p-2'>
         <Text 
         style={{color: Colors.orange,fontFamily:'PoppinsBold'}}
         className='text-sm'>{Strings.ST81}</Text>
         </TouchableOpacity>
-    </View>
     <View className='mx-3  mb-10  justify-center' >
     <Text 
     style={{fontFamily:'PoppinsMedium'}}

@@ -66,7 +66,7 @@ const showFullListData=()=>{
     return (
         <View 
         className="w-auto rounded-2xl py-2 px-4 m-2 "
-        style={{elevation:20,shadowRadius:10, backgroundColor:Colors.white}}>
+        style={{elevation:5,shadowRadius:5, backgroundColor:Colors.white}}>
            
             <View className="flex-row justify-between">
 <View 
@@ -85,7 +85,7 @@ renderItem={({item}:{item:ListData})=>{
         <TouchableOpacity
         
         style={{backgroundColor: Colors.lightorange}}
-        className='w-auto rounded-full py-2 px-2 m-0.5 my-4  items-center flex-grow-0 '>
+        className=' rounded-full self-center py-2 px-2    m-0.5  items-center '>
             <Text
             
             style={{color: Colors.orange,textTransform: "uppercase",fontFamily:'PoppinsMedium'}}
@@ -108,7 +108,7 @@ renderItem={({item}:{item: ListData})=>{
         <TouchableOpacity
         
         style={{backgroundColor: Colors.lightorange}}
-        className='w-auto rounded-full py-2 px-2 m-0.5 my-4  items-center flex-grow-0 '>
+        className=' rounded-full self-center py-2 px-2    m-0.5  items-center '>
             <Text
              style={{color: Colors.orange,textTransform: "uppercase",fontFamily:'PoppinsMedium'}}
             className='text-sm '>{item.name}</Text>
@@ -129,7 +129,7 @@ keyExtractor={(item:{id:{toString: ()=> any}})=>{return  item.id.toString()}}
                 </TouchableOpacity>
 
 </View>
-<View style={{width:65,height:65,justifyContent:'center', bottom:50,borderRadius:50,shadowRadius:10,shadowColor:Colors.white,elevation:10,alignItems:'flex-end',alignSelf:'flex-end',backgroundColor:Colors.lightorange}}>
+<View style={{width:80,height:80,justifyContent:'center', bottom:60,borderRadius:50,shadowRadius:10,shadowColor:Colors.white,elevation:10,alignItems:'flex-end',alignSelf:'flex-end',backgroundColor:Colors.lightorange}}>
     <Text className="self-center text-sm font-bold">270EGP</Text>
 {/* <Image
             source={require('../../assets/tutorCardPic.png')}
