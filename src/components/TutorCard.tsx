@@ -71,7 +71,7 @@ const showFullListData=()=>{
             <View className="flex-row justify-between">
 <View 
 
-className="flex-row w-fit">
+className="flex-row flex-grow-0 w-fit">
 {fullList ? 
 
 (<View style={{width:175}}>
@@ -85,9 +85,10 @@ renderItem={({item}:{item:ListData})=>{
         <TouchableOpacity
         
         style={{backgroundColor: Colors.lightorange}}
-        className='w-auto rounded-full py-2 px-2 m-0.5 my-4  items-center '>
+        className='w-auto rounded-full py-2 px-2 m-0.5 my-4  items-center flex-grow-0 '>
             <Text
-            style={{color: Colors.orange,textTransform: "uppercase"}}
+            
+            style={{color: Colors.orange,textTransform: "uppercase",fontFamily:'PoppinsMedium'}}
             className='text-sm '>{item.name}</Text>
         </TouchableOpacity>
     )
@@ -102,14 +103,14 @@ keyExtractor={(item:{id:{toString: ()=> any}})=>{return  item.id.toString()}}
 
 data={listData.slice(0,2)}
 horizontal
-renderItem={({item,index})=>{
+renderItem={({item}:{item: ListData})=>{
     return(
         <TouchableOpacity
         
         style={{backgroundColor: Colors.lightorange}}
-        className='w-auto rounded-full py-2 px-2 m-0.5 my-4  items-center '>
+        className='w-auto rounded-full py-2 px-2 m-0.5 my-4  items-center flex-grow-0 '>
             <Text
-            style={{color: Colors.orange,textTransform: "uppercase"}}
+             style={{color: Colors.orange,textTransform: "uppercase",fontFamily:'PoppinsMedium'}}
             className='text-sm '>{item.name}</Text>
         </TouchableOpacity>
     )
@@ -123,7 +124,7 @@ keyExtractor={(item:{id:{toString: ()=> any}})=>{return  item.id.toString()}}
                 style={{backgroundColor: Colors.lightorange,}}
                 className=' rounded-full self-center py-2 px-4    m-0.5  items-center '>
                     <Text
-                    style={{color: Colors.orange,textTransform: "capitalize"}}
+                    style={{color: Colors.orange,textTransform: "capitalize",fontFamily:'PoppinsMedium'}}
                     className='text-sm self-center '>{moreLabel}</Text>
                 </TouchableOpacity>
 
@@ -145,8 +146,12 @@ keyExtractor={(item:{id:{toString: ()=> any}})=>{return  item.id.toString()}}
             className='rounded-full h-10 w-10 self-start '
             />
             <View className="justify-center">
-            <Text className="text-xl font-bold mx-2 ">{name}</Text>
-            <Text className="text-sm  mx-2">from {sessions} sessions</Text>
+            <Text className="text-base  mx-2 "
+            style={{fontFamily:'PoppinsBold'}}
+            >{name}</Text>
+            <Text 
+            style={{fontFamily:'Poppins'}}
+            className="text-xs  mx-2">from {sessions} sessions</Text>
             </View>
 
         </View>
@@ -156,15 +161,21 @@ keyExtractor={(item:{id:{toString: ()=> any}})=>{return  item.id.toString()}}
         </View>
         </View>
             <View className="justify-center">
-            <Text className="text-sm font-bold ">Bio</Text>
-            <Text  className="text-sm  ">{text}</Text>
+            <Text 
+            style={{fontFamily:'PoppinsMedium'}}
+            className="text-sm  ">Bio</Text>
+            <Text
+             style={{fontFamily:'PoppinsRegular'}}
+            className="text-xs  ">{text}</Text>
             </View>
             
           <TouchableOpacity
           style={{backgroundColor: Colors.orange}}
           className="h-12 w-auto px-10 rounded-full m-2 self-center justify-center"
           >
-            <Text className="text-white text-lg font-bold">View Profile</Text>
+            <Text 
+            style={{fontFamily:'PoppinsMedium'}}
+            className="text-white text-sm font-bold">View Profile</Text>
           </TouchableOpacity>
         </View>
     )

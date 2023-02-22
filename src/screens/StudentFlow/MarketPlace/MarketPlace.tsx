@@ -63,7 +63,10 @@ const MarketPlace:React.FC<Props>=({navigation})=>{
     <View className='flex-row w-fit justify-between items-center gap-x-4 h-12 m-4 my-1  p-3 rounded-full border border-gray-300'>
 
     <TextInput
+    style={{fontFamily:'PoppinsMedium'}}
+    className=' flex-1'
     placeholder='Add Classes'
+placeholderTextColor={Colors.gray}
     value={newClass}
     onChangeText={(text)=>{setNewClass(text)}}
     />
@@ -85,7 +88,9 @@ const MarketPlace:React.FC<Props>=({navigation})=>{
                 onPress={()=>{setBackgroundEnabled(index)}}
                 style={{backgroundColor: backgroundEnabled == index? Colors.lightorange: Colors.gray}}
                 className='w-auto rounded-full py-2 px-4 m-3  items-center '>
-                    <Text className='text-sm'>{item.name}</Text>
+                    <Text
+                    style={{fontFamily:'PoppinsMedium',color:Colors.orange}}
+                    className='text-sm'>{item.name}</Text>
                 </TouchableOpacity>
             )
         }}
@@ -94,7 +99,9 @@ const MarketPlace:React.FC<Props>=({navigation})=>{
         
     </View>
     <View className='mx-3 ' >
-        <Text className='text-xl font-medium text-center m-3 self-start'>{Strings.ST80}</Text>
+        <Text 
+        style={{fontFamily:'PoppinsMedium'}}
+        className='text-base  text-center m-3 self-start'>{Strings.ST80}</Text>
         <FlatList
          style={{elevation:20,borderRadius:20, shadowRadius:10, backgroundColor:Colors.white}}
         data={sessions}
@@ -106,19 +113,20 @@ const MarketPlace:React.FC<Props>=({navigation})=>{
                 className='  h-fit p-4 '>
 <View className='flex-row items-center h-fit justify-between'>
                     <Text
-                    style={{color:Colors.orange,backgroundColor:Colors.lightorange,textTransform:'uppercase'}}
-                    className='text-sm font-bold text-justify p-2 w-auto rounded-xl' >{item.status}</Text>
+                    style={{color:Colors.orange,backgroundColor:Colors.lightorange,textTransform:'uppercase',fontFamily:'PoppinsMedium'}}
+                    className='text-sm  text-justify p-2 w-auto rounded-xl' >{item.status}</Text>
                     <Text
-                    className='text-sm  text-justify font-medium w-auto' >{item.time}</Text>
+                    style={{fontFamily:'PoppinsMedium'}}
+                    className='text-sm  text-justify  w-auto' >{item.time}</Text>
     </View>
                     <Text
-                    style={{color:Colors.orange,fontSize:14}}
-                    className=' font-bold text-sm text-justify '>{item.type}</Text>
+                    style={{color:Colors.orange,fontFamily:'PoppinsRegular'}}
+                    className=' text-sm text-justify '>{item.type}</Text>
                     <Text
-                    style={{fontSize:16}}
-                    className='text-lg  font-normal text-justify '>{item.day}</Text>
+                    style={{fontFamily:'PoppinsRegular'}}
+                    className='text-base  font-normal text-justify '>{item.day}</Text>
                     <Text
-                     
+                      style={{fontFamily:'PoppinsRegular'}} 
                     className='text-sm text-justify '>{item.title}</Text>
                 </View>
                   
@@ -127,14 +135,16 @@ const MarketPlace:React.FC<Props>=({navigation})=>{
         keyExtractor={item=>{return item.id.toString()}}
         
         />
-        <TouchableOpacity className='self-center items-center m-3'>
+        <TouchableOpacity className='self-center items-center my-3'>
         <Text 
-        style={{color: Colors.orange}}
-        className='text-sm font-bold'>{Strings.ST81}</Text>
+        style={{color: Colors.orange,fontFamily:'PoppinsBold'}}
+        className='text-sm'>{Strings.ST81}</Text>
         </TouchableOpacity>
     </View>
     <View className='mx-3  mb-10  justify-center' >
-    <Text  className='text-xl font-medium text-center mx-3 self-start'>{Strings.ST83}</Text>
+    <Text 
+    style={{fontFamily:'PoppinsMedium'}}
+    className='text-base font-medium text-center mx-3 self-start'>{Strings.ST83}</Text>
         <TutorCard
         image='dp'
         data={TutorSubjects}

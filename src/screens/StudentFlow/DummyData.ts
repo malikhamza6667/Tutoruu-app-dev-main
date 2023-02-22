@@ -89,7 +89,8 @@ export const SessionInfo=[
         id: 0,
         Timing: '1pm on Tuesday 11/12',
         Location: 'https://zoom.us/j/4852701794',
-        Topic: 'Exam Revision'
+        Topic: 'Exam Revision',
+        Status:'completed'
     }
 ]
 export const ChatMessage=[
@@ -113,6 +114,14 @@ export const TutorInfo=
     {
         id: 0,
         Name: 'Youssef Harron',
+        
+    
+    }
+    export const ReviewRatings=
+    {
+        id: 0,
+        Review: 'Explains very well and helped me a lot',
+        date: '2/22/2022'
         
     
     }
