@@ -18,7 +18,7 @@ import Header from '../../components/CreatePost'
 const size = 20;
 const color = Colors.fadedgray;
 
-const messageData = [
+export const messageData = [
   {
     id: 1,
     sender: 'Victoria Hanson',

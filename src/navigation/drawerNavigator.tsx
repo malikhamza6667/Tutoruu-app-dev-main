@@ -15,7 +15,7 @@ import SettingsScreen from '../screens/StudentFlow/SettingsScreen';
 import MarketPlace from '../screens/StudentFlow/MarketPlace/MarketPlace';
 import Bubble from '../components/IconBubble';
 import SessionConfirmationMain from '../screens/StudentFlow/SessionConfirmation/SessionMain';
-
+import ClassesMainScreen from '../screens/StudentFlow/ClassScreen';
 const Drawer = createDrawerNavigator();
 
 interface Props {
@@ -131,6 +131,20 @@ headerTitleAlign:'center',
         component={ProfileScreen}
         options={{
           headerShown: (false),
+          drawerIcon: ({ focused, size }) => (
+            <AntDesign
+              name="user"
+              size={size}
+              color={Colors.black}
+            />
+          )
+        }} />
+      <Drawer.Screen
+        name='ClassesMainScreen'
+        component={ClassesMainScreen}
+        options={{
+          headerShown: (false),
+          drawerLabel:'Classes',
           drawerIcon: ({ focused, size }) => (
             <AntDesign
               name="user"
