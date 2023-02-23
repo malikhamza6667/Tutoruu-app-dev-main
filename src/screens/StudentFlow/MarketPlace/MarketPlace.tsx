@@ -53,14 +53,17 @@ const MarketPlace:React.FC<Props>=({navigation})=>{
 
 
 
-    <View  className='flex-1 justify-evenly bg-white '>
+    <View  className='flex-1 bg-white justify-evenly  '>
     <KeyboardAvoidingView behavior='height'>
         <SafeAreaView/>
+     
+
     <Username />
+        
     <View style={{borderBottomWidth:2,margin:5,borderColor: Colors.gray}}></View>
     <Spacer/>
 
-    <View className='flex-row w-fit justify-between items-center gap-x-4 h-12 m-4 my-1  p-3 rounded-full border border-gray-300'>
+    <View className='flex-row w-fit justify-between items-center gap-x-4  m-4 my-1  p-3 rounded-full border border-gray-300'>
 
     <TextInput
     style={{fontFamily:'PoppinsMedium'}}
@@ -87,7 +90,7 @@ placeholderTextColor={Colors.gray}
                 <TouchableOpacity
                 onPress={()=>{setBackgroundEnabled(index)}}
                 style={{backgroundColor: backgroundEnabled == index? Colors.lightorange: Colors.gray}}
-                className='w-auto rounded-full py-2 px-4 m-3  items-center '>
+                className=' rounded-full py-2 px-4 m-3  items-center '>
                     <Text
                     style={{fontFamily:'PoppinsMedium',color:Colors.orange}}
                     className='text-sm'>{item.name}</Text>
@@ -117,8 +120,8 @@ placeholderTextColor={Colors.gray}
               
                 <View
                
-                className='  h-fit p-4 '>
-<View className='flex-row items-center h-fit justify-between'>
+                className='  p-4 '>
+<View className='flex-row items-center justify-between'>
                     <Text
                     style={{color:Colors.orange,backgroundColor:Colors.lightorange,textTransform:'uppercase',fontFamily:'PoppinsMedium'}}
                     className='text-sm  text-justify p-2 w-auto rounded-xl' >{item.status}</Text>
