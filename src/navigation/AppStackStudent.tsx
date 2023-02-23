@@ -17,6 +17,7 @@ import PickLocation from '../screens/StudentFlow/PickLocationScreen';
 import RequestedScreen from '../screens/StudentFlow/TutorRequestedScreen';
 import SessionConfirmationMain from '../screens/StudentFlow/SessionConfirmation/SessionMain';
 import SessionReviewScreen from '../screens/StudentFlow/SessionConfirmation/SessionReview';
+import InboxScreen from '../screens/StudentFlow/Chat/Inbox';
 const Stack = createNativeStackNavigator();
 const MainStack: React.FC = () => {
     return (
@@ -37,6 +38,7 @@ const MainStack: React.FC = () => {
                 <Stack.Screen name='RequestedScreen' component={RequestedScreen} options={{ headerShown: (false) }} />
                 <Stack.Screen name='SessionConfirmationMain' component={SessionConfirmationMain} options={{ headerShown: (false) }} />
                 <Stack.Screen name='SessionReviewScreen' component={SessionReviewScreen} options={{ headerShown: (false) }} />
+                <Stack.Screen name='InboxScreen' component={InboxScreen} options={{ headerShown: (false) }} />
             </Stack.Navigator>
        
     )

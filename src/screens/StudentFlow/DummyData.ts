@@ -170,3 +170,47 @@ export const TutorInfo=
             image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMLOPnljLnmpKl2N8pnDHZvxmF06ndBeGXQhZawvYMdjajyMu-gZx6ukTiYpPOBtgCEqI&usqp=CAU'
         },
     ]
+
+
+
+
+    export const ChatMessages=[
+        {
+            id: 0,
+            Name: 'Victoria Hanson',
+            Message: 'Got it!! Thanks :)',
+            Time: '3 hrs ago',
+            messageNo: '2'
+        },
+        {
+            id: 1,
+            Name: 'Victoria Hanson',
+            Message: 'Got it!! Thanks :)',
+            Time: '3 hrs ago',
+            messageNo: '2'
+        },
+        {
+            id: 2,
+            Name: 'Victoria Hanson',
+            Message: 'Got it!! Thanks :)',
+            Time: '3 hrs ago',
+            messageNo: '2'
+        },
+    ]
+    export const ReadMessages=[
+        {
+            id: 0,
+            Name: 'Victoria Hanson',
+            Message: 'Got it!! Thanks :)',
+            Time: '3 hrs ago',
+           
+        },
+        {
+            id: 1,
+            Name: 'Victoria Hanson',
+            Message: 'Got it!! Thanks :)',
+            Time: '3 hrs ago',
+           
+        },
+       
+    ]
