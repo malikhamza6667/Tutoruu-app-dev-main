@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
         marginTop: 40,
     },
     card: {
-        shadowColor: 'gray',
+         shadowColor: 'gray',
         shadowOpacity: 0.2,
         shadowOffset: { width: 2, height: 5 },
         elevation: 2,

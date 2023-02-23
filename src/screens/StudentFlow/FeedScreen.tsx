@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
+
 // import { useTailwind } from 'tailwind-rn/dist'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import AntDesign from 'react-native-vector-icons/AntDesign'
@@ -14,7 +14,7 @@ import Spacer from '../../components/Spacer'
 import Colors from '../../../assets/Colors'
 import CreatePost from '../../components/CreatePost'
 import Header from '../../components/CreatePost'
-
+import { ScrollView } from 'react-native-virtualized-view'
 const size = 20;
 const color = Colors.fadedgray;
 

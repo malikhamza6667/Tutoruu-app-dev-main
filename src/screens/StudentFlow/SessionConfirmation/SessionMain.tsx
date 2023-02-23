@@ -80,7 +80,13 @@ const SessionConfirmationMain: React.FC<Props> = ({navigation}) => {
                 data={SessionInfo}
                 renderItem={({ item }) => {
                     return (
-                        <View className="w-auto rounded-3xl p-5 m-1" style={{ elevation: 3, backgroundColor: Colors.white }}>
+                        <View className="w-auto rounded-3xl p-5 m-1" style={{
+                            shadowColor: 'gray',
+                            shadowOpacity: 0.2,
+                            shadowOffset: { width: 2, height: 5 },
+                            elevation: 2,
+                        
+                        backgroundColor:Colors.white}}>
                             <View className='flex-row justify-between'>
                                 <View className='flex-row'>
                                     <Text style={{ fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}>Timing:</Text>
@@ -204,7 +210,13 @@ const SessionConfirmationMain: React.FC<Props> = ({navigation}) => {
                 style={{ fontFamily: 'PoppinsMedium' }}
                 className='mx-6 my-2 text-base'
             >Tutor</Text>
-            <View className="w-auto rounded-3xl p-5 flex-row m-1 justify-between" style={{ elevation: 3, backgroundColor: Colors.white }}>
+            <View className="w-auto rounded-3xl p-5 flex-row m-1 justify-between" style={{
+                            shadowColor: 'gray',
+                            shadowOpacity: 0.2,
+                            shadowOffset: { width: 2, height: 5 },
+                            elevation: 2,
+                        
+                        backgroundColor:Colors.white}}>
                 
                     <View className='flex-row justify-between gap-1'>
                     <Image
@@ -245,7 +257,13 @@ const SessionConfirmationMain: React.FC<Props> = ({navigation}) => {
                 data={ClassInfo}
                 renderItem={({ item }) => {
                     return (
-                        <View className="w-auto rounded-3xl p-5 m-1" style={{ elevation: 3, backgroundColor: Colors.white }}>
+                        <View className="w-auto rounded-3xl p-5 m-1"  style={{
+                            shadowColor: 'gray',
+                            shadowOpacity: 0.2,
+                            shadowOffset: { width: 2, height: 5 },
+                            elevation: 2,
+                        
+                        backgroundColor:Colors.white}}>
 
                             <Text style={{ textTransform: 'uppercase', fontFamily: 'PoppinsMedium', color: Colors.orange }}>{item.Title}</Text>
                             <Text className='text-base' style={{ textTransform: 'capitalize', fontFamily: 'PoppinsRegular' }}>{item.Desc}</Text>

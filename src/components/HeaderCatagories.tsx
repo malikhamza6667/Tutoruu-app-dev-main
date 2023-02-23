@@ -18,7 +18,7 @@ name:string
 const HeaderCatagories:React.FC<Props>=({data,padding,backgroundColor,BorderRadius})=>{
     let touchableStyles="  py-2 mx-1 rounded-full "
     if(BorderRadius){
-touchableStyles='py-2 mx-1 rounded-xl'
+touchableStyles='py-1 mx-1 rounded-xl'
     }
     
     const[selectedIndex,setSelectedIndex]=useState(0)

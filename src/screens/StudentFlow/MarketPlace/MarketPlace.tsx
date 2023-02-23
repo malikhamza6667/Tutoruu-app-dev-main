@@ -103,7 +103,13 @@ placeholderTextColor={Colors.gray}
         style={{fontFamily:'PoppinsMedium'}}
         className='text-base  text-center m-3 self-start'>{Strings.ST80}</Text>
         <FlatList
-         style={{elevation:5, backgroundColor:Colors.white}}
+          style={{
+            shadowColor: 'gray',
+            shadowOpacity: 0.2,
+            shadowOffset: { width: 2, height: 5 },
+            elevation: 2,
+        
+        backgroundColor:Colors.white}}
          className='rounded-2xl'
         data={sessions}
         renderItem={({item})=>{

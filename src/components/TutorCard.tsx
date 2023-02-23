@@ -66,7 +66,13 @@ const showFullListData=()=>{
     return (
         <View 
         className="w-auto rounded-2xl py-2 px-4 m-2 "
-        style={{elevation:5,shadowRadius:5, backgroundColor:Colors.white}}>
+        style={{
+            shadowColor: 'gray',
+            shadowOpacity: 0.2,
+            shadowOffset: { width: 2, height: 5 },
+            elevation: 2,
+        
+        backgroundColor:Colors.white}}>
            
             <View className="flex-row justify-between">
 <View 
@@ -129,13 +135,13 @@ keyExtractor={(item:{id:{toString: ()=> any}})=>{return  item.id.toString()}}
                 </TouchableOpacity>
 
 </View>
-<View style={{width:80,height:80,justifyContent:'center', bottom:60,borderRadius:50,shadowRadius:10,shadowColor:Colors.white,elevation:10,alignItems:'flex-end',alignSelf:'flex-end',backgroundColor:Colors.lightorange}}>
-    <Text className="self-center text-sm font-bold">270EGP</Text>
-{/* <Image
-            source={require('../../assets/tutorCardPic.png')}
-            style={{width:100,height:50,bottom:30,alignItems:'flex-end',alignSelf:'flex-end'}}
+<View style={{justifyContent:'center', bottom:50,borderRadius:50,shadowRadius:10,alignSelf:'flex-end'}}>
+    {/* <Text className="self-center text-sm font-bold">270EGP</Text> */}
+<Image
+            source={require('../../assets/newcardpic.jpg')}
+            style={{width:110,height:90,alignItems:'flex-end',alignSelf:'flex-end'}}
             resizeMode='contain'
-            /> */}
+            />
 </View>
 
             </View>

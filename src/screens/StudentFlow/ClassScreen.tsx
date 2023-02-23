@@ -55,15 +55,17 @@ const totalStudents = ClassStudents.length
 
     return(
         <View
-        style={{backgroundColor:Colors.white}}
-        className="flex-1 justify-evenly ">
+        style={{backgroundColor:Colors.white,flex:1,justifyContent:'center'}}
+        >
             <SafeAreaView/>
-           <View className="top-3   my-2">
+           <View  className="top-6 ">
 
            <Header headerTitle="CSCE 312"/>
            </View>
-           <Spacer/>
-         <View className="p-3 gap-1 top-5" >
+     
+         <View className="p-3 mt-2 " >
+            <View className="justify-center  p-2">
+
              <HeaderCatagories data={headerCatagories}/>
             <Text 
             style={{fontFamily:"PoppinsBold"}}
@@ -79,7 +81,7 @@ const totalStudents = ClassStudents.length
          renderItem={({item})=>{
             return(
                 <View
-                className="h-11 w-11"
+                className="h-10 w-10"
                 style={{borderWidth:2,borderRadius:50,backgroundColor:'gray',borderColor:Colors.white,marginLeft:-15,}}
                 >
                     <Image
@@ -87,7 +89,7 @@ const totalStudents = ClassStudents.length
                     source={{uri:item.image}}
                     resizeMode='contain'
                     
-                    className="rounded-full h-10 w-10 "
+                    className="rounded-full h-9 w-9 "
                     
                     />
 
@@ -95,13 +97,14 @@ const totalStudents = ClassStudents.length
             )
          }}
          />
+            </View>
 
-         <View>
-            <Text style={{fontFamily: 'PoppinsMedium'}} className='text-base p-1 m-2'>Posts</Text>
+         <View className="py-2 my-2 justify-between">
+            <Text style={{fontFamily: 'PoppinsMedium'}} className='text-base px-2 mx-3 my-1 '>Posts</Text>
            <PostCard data={messageDataClasses}/>
          </View>
-         <View>
-            <Text style={{fontFamily: 'PoppinsMedium'}} className='p-1 m-2 text-base'>Tutor</Text>
+         <View className=" py-1 justify-between">
+            <Text style={{fontFamily: 'PoppinsMedium'}} className='text-base px-2 mx-3 my-1 '>Tutor</Text>
 
             <TutorCard
         image='dp'

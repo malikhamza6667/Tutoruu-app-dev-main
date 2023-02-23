@@ -32,7 +32,12 @@ const PostCard:React.FC<Props>=({data})=>{
             return (
                 <View 
                 className=" rounded-3xl py-2 px-2 m-1 "
-                style={{elevation:5,shadowRadius:5, backgroundColor:Colors.white}}>
+                style={{ shadowColor: 'gray',
+                shadowOpacity: 0.2,
+                shadowOffset: { width: 2, height: 5 },
+                elevation: 2,
+            
+            backgroundColor:Colors.white}}>
                 <View className="flex-row items-center justify-evenly p-1">
                     <View className=" px-5">
                 <HeaderCatagories backgroundColor="yes" BorderRadius="yes" data={item.categories}/>
