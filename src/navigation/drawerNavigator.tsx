@@ -17,6 +17,11 @@ import Bubble from '../components/IconBubble';
 import SessionConfirmationMain from '../screens/StudentFlow/SessionConfirmation/SessionMain';
 import ClassesMainScreen from '../screens/StudentFlow/ClassScreen';
 import ChatScreen from '../screens/StudentFlow/Chat/ChatScreen';
+
+
+import TutorAppStack from './TutorAppStack';
+
+
 const Drawer = createDrawerNavigator();
 
 interface Props {
@@ -132,6 +137,20 @@ headerTitleAlign:'center',
         component={ProfileScreen}
         options={{
           headerShown: (false),
+          drawerIcon: ({ focused, size }) => (
+            <AntDesign
+              name="user"
+              size={size}
+              color={Colors.black}
+            />
+          )
+        }} />
+      <Drawer.Screen
+        name='TutorAppStack'
+        component={TutorAppStack}
+        options={{
+          headerShown: (false),
+          drawerLabel:'Become A Tutor',
           drawerIcon: ({ focused, size }) => (
             <AntDesign
               name="user"

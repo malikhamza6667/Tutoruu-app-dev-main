@@ -42,44 +42,54 @@ borderColor:Colors.gray,
       // Step 3: return the component
       <Bubble
         {...props}
+        
 containerStyle={{
     left:{
-    
-    margin:3,
+    backgroundColor:Colors.white,
+   
         justifyContent:'center',
-        padding:2,
+        
+        marginBottom:25
      
     },
     right:{
-        margin:3,
-
-    
-        justifyContent:'center',
-        padding:2 
+     
+   
+      justifyContent:'center',
+      
+      marginBottom:25
     }
 }}
         wrapperStyle={{
           right: {
             // Here is the color change
             backgroundColor: Colors.white,
-            
-            shadowColor: 'gray',
-            shadowOpacity: 0.2,
-            shadowOffset: { width: 2, height: 5 },
-            elevation: 2,
           
+            shadowColor: 'gray',
+            shadowOpacity: 0.1,
+            shadowOffset: { width: 2, height: 5 },
+            elevation: 10,
+            padding:15,
+           justifyContent:'center',
+           alignItems:'center',
+            borderBottomLeftRadius:15,
+            borderTopRightRadius:15,
+            borderTopLeftRadius:15,
+          borderBottomRightRadius:0
             
 
           },
           left:{
             backgroundColor: Colors.lightorange,
-            padding:10,
+            padding:15,
             shadowColor: 'gray',
             shadowOpacity: 0.2,
             shadowOffset: { width: 2, height: 5 },
-            elevation: 2,
-          
-        
+            elevation: 10,
+          borderBottomRightRadius:15,
+          borderTopRightRadius:15,
+          borderTopLeftRadius:15,
+        borderBottomLeftRadius:0
           }
         }}
        textStyle={{right: {
@@ -108,18 +118,20 @@ containerStyle={{
     {...props}
     imageStyle={{
         left:{
-            height:40,
-            width:40,
+        
+            height:50,
+            width:50,
             borderRadius:30,
         }
     }}
     containerStyle={
        {
         left:{
-           height: 75,
-           justifyContent:'center',
-           padding:2,
-            bottom:15
+        height:150,
+          margin:3,
+          justifyContent:'flex-end',
+          padding:2,
+      
         }
        }
     }

@@ -8,12 +8,17 @@ interface Props {
     title: string
     onChangeText: (text: string) => void
     placeholder?: string
-    secureTextEntry?: boolean
-
+    secureTextEntry?: boolean,
+    padding?:string
+multiline?:boolean
 }
 
 
 const Input: React.FC<Props> = (props) => {
+    let inputStyles='h-13  px-5 py-2 my-1 text-sm  border border-gray-300 rounded-3xl'
+if(props.multiline){
+    inputStyles='h-24   px-5  text-sm  border border-gray-300 rounded-3xl'
+}
     return (
         <View className="my-0.5 w-full  ">
             <Text
@@ -22,8 +27,10 @@ const Input: React.FC<Props> = (props) => {
                 {props.title}
             </Text>
             <TextInput
-         style={{fontFamily:'PoppinsRegular'}}
-            className=" h-13  px-5 py-2 my-1 text-sm  border border-gray-300 rounded-3xl"
+            multiline={props.multiline}
+            className={inputStyles}
+            style={{fontFamily:'PoppinsRegular'}}
+        
             value={props.value}    
             secureTextEntry={props.secureTextEntry || false}
                 onChangeText={props.onChangeText}
