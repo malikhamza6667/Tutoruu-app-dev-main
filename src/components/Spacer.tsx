@@ -13,7 +13,7 @@ const Spacer: React.FC<Props> = ({ children }) => {
 
 const styles = StyleSheet.create({
   spacer: {
-    marginBottom: hp('1'),
+    marginBottom: hp('2'),
   },
 })
 
