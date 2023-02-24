@@ -1,5 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 import Colors from "../../assets/Colors";
 
 const Username: React.FC = () => {
@@ -18,17 +20,17 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: Colors.white,
         flexDirection: 'row',
-        width: '100%',
-        paddingTop: '15%'
+        width: wp('100%'),
+        // paddingTop: '15%'
 
     },
     text: {
-        fontSize: 30,
+        fontSize: hp('3.3'),
         fontWeight: '700',
         lineHeight: 45,
     },
     student: {
-        fontSize: 14,
+        fontSize: hp('1.6'),
         fontWeight: '400',
         lineHeight: 21,
         color: Colors.black,
@@ -36,8 +38,8 @@ const styles = StyleSheet.create({
     },
     studentContainer: {
         justifyContent: 'center',
-        marginHorizontal: '10%',
-        marginTop: '1%'
+        marginHorizontal: hp('5%'),
+        marginTop: hp('1%')
     }
 })
 
