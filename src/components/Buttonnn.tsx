@@ -1,5 +1,6 @@
 import React from "react";
 import { TouchableOpacity, Text,Image,View } from 'react-native'
+import Colors from "../../assets/Colors";
 
 interface Props {
     title: string
@@ -8,12 +9,17 @@ interface Props {
     color: string
     titleColor?: string
 textSize?: number
+disabled?:boolean
 
 }
 
 
 
 const Button: React.FC<Props> = (props) => {
+    let buttonColor= Colors.white
+    if(props.color=='orange'){
+        buttonColor=Colors.orange
+    }
     //const[path,setPath]=useState('../../assets/googlelogo.png')
    let path=require('../../assets/facebooklogo.png')
     if(props.image != undefined){
@@ -35,14 +41,14 @@ const Button: React.FC<Props> = (props) => {
         
 
         <TouchableOpacity
-        style={{backgroundColor: props.color,elevation:5}}
+        style={{backgroundColor: props.disabled? Colors.gray: props.color,elevation:5}}
             className=" h-12 px-3 my-3 rounded-full justify-center"
             onPress={props.onPress}
         >
          {
 props.image == undefined || null? <Text
-style={{color: props.titleColor?props.titleColor:'white' ,alignSelf:'center',fontFamily:'PoppinsSemiBold'}}
-className="text-lg  text-white">
+style={{color: props.titleColor?props.titleColor:'white' ,alignSelf:'center',fontFamily:'PoppinsSemiBold',fontSize:props.textSize?props.textSize:18}}
+className=" text-white">
     {props.title}
 </Text> 
         :

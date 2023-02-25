@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import { GiftedChat, IMessage, InputToolbar,Bubble,Send, Avatar, Composer } from 'react-native-gifted-chat';
-import { View,Text,Image,TextInput, TouchableOpacity, StyleSheet  } from 'react-native';
+import { View,Text,Image,TextInput, TouchableOpacity, StyleSheet, SafeAreaView  } from 'react-native';
 import Header from '../../../components/Header';
 import Colors from '../../../../assets/Colors';
 
@@ -177,7 +177,12 @@ const {name}=route.params
   }, [])
   return (
     <View className='flex-1 bg-white'>
+      <View className='top-3'>
+<SafeAreaView/>
         <Header headerTitle='Chats'/>
+      </View>
+        <View className='flex-1 justify-evenly mt-2'>
+
         <View 
            style={{  shadowColor: 'gray',
            shadowOpacity: 0.2,
@@ -216,6 +221,7 @@ renderComposer={renderComposer}
     
   alwaysShowSend   
       />
+        </View>
     </View>
   );
 };

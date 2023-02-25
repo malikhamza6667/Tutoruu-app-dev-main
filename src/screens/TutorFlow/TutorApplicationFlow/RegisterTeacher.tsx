@@ -1,39 +1,44 @@
 import React,{useState} from 'react'
 import {View,Text,Image, TouchableOpacity,ScrollView, FlatList,TextInput, Platform,KeyboardAvoidingView, SafeAreaView} from 'react-native'
 
-import Colors from '../../../assets/Colors'
-import Divider from '../../components/Divider'
-import Header from '../../components/Header'
-import Spacer from '../../components/Spacer'
-import Input from '../../components/TextInput'
+import Colors from '../../../../assets/Colors'
+import Divider from '../../../components/Divider'
+import Header from '../../../components/Header'
+import Spacer from '../../../components/Spacer'
+import Input from '../../../components/TextInput'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { FontAwesome } from '@expo/vector-icons';
-import { Classes } from '../StudentFlow/DummyData'
-import Button from '../../components/Buttonnn'
+import { Classes } from '../../StudentFlow/DummyData'
+import Button from '../../../components/Buttonnn'
 
-const TutorRegister:React.FC=()=>{
+interface Props{
+    navigation: any
+}
+
+const TutorRegister:React.FC<Props>=({navigation})=>{
     const[bio,setBio]=useState('')
     const[PhoneNo,setPhoneNo]=useState('')
     const[ClassOf,setClassOf]=useState('')
     const [newClass, setNewClass] = useState('')
     const[major,setMajor]=useState('')
     const[gpa,setGpa]=useState('')
-    const[keyBoardBehavior,setKeyBoardBehavior]=useState(false)
+   
     return(
         <View className='flex-1 justify-evenly'>
             <SafeAreaView/>
         
 
-           <View>
+           <View className='top-5  mb-2'>
 
             <Header headerTitle='Tutor Application'/>
            </View>
-           
+           <View className='flex-1 my-1 justify-center'>
+
            <View className='px-5 py-3 border-b-2 border-gray-300'>
             <View className='flex-row gap-3 items-center'>
             <View className='items-center justify-center gap-2 '>
             <Image
-            source={require('./../../../assets/dp.jpg')}
+            source={require('./../../../../assets/dp.jpg')}
             className='h-20 w-20 rounded-full'
             resizeMode='contain'
             />
@@ -189,9 +194,11 @@ style={{width:wp('30%')}}
 <View className='px-2'>
     <Text style={{fontFamily:'PoppinsMedium'}} className='text-base px-3'>Tutoring Information</Text>
     <Button
-    color='orange'
+    color={Colors.orange}
     title='Save'
-    onPress={()=>{alert('Pressed')}}
+    onPress={()=>{navigation.navigate('TutorApplicationConfirmation',{
+        userName: 'Ragnar'
+    })}}
     />
 </View>
 
@@ -201,6 +208,7 @@ style={{width:wp('30%')}}
            </View>
     </KeyboardAvoidingView>
 </ScrollView>
+           </View>
        
          
            

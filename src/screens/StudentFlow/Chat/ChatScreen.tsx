@@ -11,14 +11,19 @@ interface Props{
 
 const ChatScreen:React.FC<Props>=({navigation})=>{
     return(
-        <SafeAreaView className="flex-1 bg-white">
+       
 
        
          
-           <View className=" justify-evenly flex-1">
+           <View className=" justify-between flex-1  bg-white">
+            <View className="top-5">
+            <SafeAreaView/>
            <Header headerTitle="Chats"/>
+            </View>
+            <View className=" flex-1 justify-around ">
+
             <View >
-                <Text className="text-base  px-5" style={{fontFamily:'PoppinsMedium'}}>Inbox</Text>
+                <Text className="text-base  px-5 py-5" style={{fontFamily:'PoppinsMedium'}}>Inbox</Text>
                 <FlatList
                 data={ChatMessages}
                 renderItem={({item})=>{
@@ -35,7 +40,7 @@ const ChatScreen:React.FC<Props>=({navigation})=>{
                 />
             </View>
             <View >
-                <Text className="text-base  px-5" style={{fontFamily:'PoppinsMedium'}}>This Week</Text>
+                <Text className="text-base   px-5 py-5" style={{fontFamily:'PoppinsMedium'}}>This Week</Text>
                 <FlatList
                 data={ReadMessages}
                 renderItem={({item})=>{
@@ -50,7 +55,7 @@ const ChatScreen:React.FC<Props>=({navigation})=>{
                 />
             </View>
             <View >
-                <Text className="text-base  px-5" style={{fontFamily:'PoppinsMedium'}}>Earlier</Text>
+                <Text className="text-base   px-5 py-5" style={{fontFamily:'PoppinsMedium'}}>Earlier</Text>
                 <FlatList
                 data={ReadMessages}
                 renderItem={({item})=>{
@@ -65,8 +70,9 @@ const ChatScreen:React.FC<Props>=({navigation})=>{
                 />
             </View>
            </View>
+            </View>
         
-        </SafeAreaView>
+        
     )
 }
 export default ChatScreen
