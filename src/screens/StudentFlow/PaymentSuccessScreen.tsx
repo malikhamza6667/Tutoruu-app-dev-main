@@ -33,7 +33,6 @@ const SuccessScreen: React.FC = () => {
     }
     return (
         <SafeAreaView style={styles.container}>
-            <Spacer />
             <Header headerTitle="Payment" />
             <View style={styles.innerContainer}>
                 <Completion

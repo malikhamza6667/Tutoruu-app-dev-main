@@ -1,6 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Text, TouchableOpacity, StyleSheet } from "react-native";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 import Colors from "../../assets/Colors";
 
 interface Props {
@@ -22,19 +24,18 @@ const Btn: React.FC<Props> = ({ text, route, width, height }) => {
 const styles = StyleSheet.create({
     btnStyles: {
         backgroundColor: Colors.orange,
-        height: 33,
-        borderRadius: 999,
+        height: hp('4'),
+        borderRadius: 50,
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'center',
-        marginTop: 20
+        marginTop: hp('2')
     },
     btnText: {
         color: Colors.white,
-        fontWeight: '700',
-        fontSize: 16,
+        fontFamily: 'PoppinsBold',
+        fontSize: hp('1.8'),
         lineHeight: 21,
-        fontStyle: 'normal'
     },
 });
 export default Btn;

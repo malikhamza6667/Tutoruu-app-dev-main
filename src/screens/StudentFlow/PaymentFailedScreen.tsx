@@ -17,26 +17,25 @@ import LanguageContext from '../../languages/languageContext';
 
 const FailedScreen: React.FC = () => {
     const contextState = useContext(LanguageContext);
-  
+
     let Strings: any = {}
     if (contextState != null) {
 
-      const  language = contextState.language
+        const language = contextState.language
         if (language === 'en') {
             Strings = Languages[0].texts
 
         }
-       else if (language === 'es'){
-            Strings = Languages[1].texts  
+        else if (language === 'es') {
+            Strings = Languages[1].texts
         }
-        else{
+        else {
             //default language if not any language provided
             Strings = Languages[0].texts
         }
     }
     return (
         <SafeAreaView style={styles.container}>
-            <Spacer />
             <Header
                 headerTitle="Payment"
             />
@@ -81,7 +80,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: hp('2%'),
-        fontWeight: '500',
+        fontFamily: 'PoppinsBold',
         lineHeight: 18,
         color: Colors.black,
     },
@@ -90,13 +89,13 @@ const styles = StyleSheet.create({
     },
     btnText: {
         fontSize: hp('2%'),
-        fontWeight: '700',
+        fontFamily: 'PoppinsBold',
         lineHeight: 21,
         color: Colors.orange
     },
     try: {
         textAlign: 'center',
-        fontWeight: '400',
+        fontFamily: 'PoppinsRegular',
         fontSize: hp('2%'),
         lineHeight: 21,
         color: Colors.black

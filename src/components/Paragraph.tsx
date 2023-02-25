@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         lineHeight: 21,
         fontStyle: 'normal',
         // backgroundColor:'red',
-        width:wp('65%')
+        width:wp('70%')
     },
 })
 

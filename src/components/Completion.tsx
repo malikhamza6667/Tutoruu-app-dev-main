@@ -15,7 +15,7 @@ const Completion: React.FC<Props> = ({ image, text, color }) => {
     return (
         <View>
             <Image source={image} style={styles.image} />
-            <Spacer />
+            {/* <Spacer /> */}
             <Text style={[styles.heading, { color }]}>{text}</Text>
         </View>
     )
@@ -24,7 +24,7 @@ const Completion: React.FC<Props> = ({ image, text, color }) => {
 const styles = StyleSheet.create({
     image: {
         height: hp('15%'),
-        width: wp('25%'),
+        width: wp('28%'),
         alignSelf: 'center',
         resizeMode: 'contain'
     },
