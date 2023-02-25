@@ -42,7 +42,8 @@ borderColor:Colors.gray,
       // Step 3: return the component
       <Bubble
         {...props}
-        
+
+        renderTime={() => null} 
 containerStyle={{
     left:{
     backgroundColor:Colors.white,

@@ -56,6 +56,7 @@ const Root: React.FC<Props> = ({ navigation }) => {
         name='Feed'
         component={FeedScreen}
         options={{
+          
           drawerIcon: ({ focused, size }) => (
             <AntDesign
               name="home"
