@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, TextInputComponent } from 'react-native';
 import Entypo from "react-native-vector-icons/Entypo";
 
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Colors from '../../assets/Colors';
 
 
@@ -14,14 +15,14 @@ const SettingsComponent: React.FC<Props> = ({ text, icon }) => {
         <TouchableOpacity style={styles.bg}>
             <View>{icon}</View>
             <Text> {text} </Text>
-            <Entypo name="chevron-right" style={styles.chevron} />
+            <FontAwesome name="chevron-right" style={styles.chevron} />
         </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
     chevron: {
-        fontSize: 20,
+        fontSize: 15,
         marginLeft: '90%',
         position: 'absolute',
     },

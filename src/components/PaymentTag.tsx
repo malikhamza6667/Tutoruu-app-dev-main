@@ -28,13 +28,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     text: {
-        fontWeight: '500',
+        fontFamily: 'PoppinsRegular',
         fontSize: hp('1.3%'),
         lineHeight: 15,
         color: Colors.orange
     },
     time: {
-        fontWeight: '500',
+        fontFamily: 'PoppinsRegular',
         fontSize: hp('1.8%'),
         lineHeight: 21,
     }
