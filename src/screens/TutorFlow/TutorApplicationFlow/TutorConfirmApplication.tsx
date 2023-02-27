@@ -47,7 +47,9 @@ const TutorApplicationConfirmation:React.FC<Props>=({navigation,route})=>{
 
 <View style={{height: hp('30%'),backgroundColor:'#FCF6EB'}} className='p-5  rounded-3xl'>
 
-    <ScrollView>
+    <ScrollView
+    showsVerticalScrollIndicator={false}
+    >
         <Text style={{fontFamily:'Poppins'}} className='text-xs'>
         Lorem ipsum dolor sit amet consectetur. Adipiscing diam morbi erat rutrum interdum hendrerit turpis. Dolor ut auctor proin auctor vitae porttitor. Pellentesque gravida integer consectetur non id nunc sed enim. Malesuada amet rhoncus et donec imperdiet. Eget pellentesque augue vel felis. Semper quis vestibulum et lorem bibendum. Quisque proin ligula rutrum eget. Vulputate libero at sem odio blandit donec massa auctor cursus. Bibendum commodo laoreet a mollis eget. Cras ut dui sed nunc maecenas. Sollicitudin nisl eu tristique non eu arcu in blandit pharetra. Tellus faucibus vel sed ut mattis id feugiat.
 In luctus vitae elit sit sollicitudin sed nibh. Pulvinar nunc massa quis molestie eget facilisis id. Iaculis sapien purus dui dis eleifend nunc elementum pharetra. Facilisis aliquet ullamcorper ac massa sapien ut enim. Tempus ac porta senectus nibh fermentum. Id blandit in auctor rutrum viverra odio sit. Lorem orci mauris augue purus adipiscing nibh purus ultrices. Dui ultrices pretium etiam feugiat habitant placerat. Facilisis enim amet sodales nisl tortor cras aliquet massa. Gravida fames egestas eget ipsum ultrices condimentum.
