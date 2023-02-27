@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import Colors from "../../assets/Colors";
 
-interface Props{
+interface Props {
     width: number;
     height: number;
     text: string;
@@ -22,7 +22,10 @@ const styles = StyleSheet.create({
         borderRadius: 99
     },
     text: {
-        color: Colors.orange
+        color: Colors.orange,
+        fontSize: 12,
+        fontFamily: 'PoppinsMedium',
+        lineHeight:18
     }
 })
 

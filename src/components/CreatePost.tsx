@@ -3,7 +3,7 @@ import { View, Image, Text, TextInput, StyleSheet, TouchableOpacity, Modal, Pres
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-
+import Entypo from 'react-native-vector-icons/Entypo'
 import Languages from '../languages'
 import LanguageContext from '../languages/languageContext'
 import Colors from "../../assets/Colors";
@@ -37,7 +37,7 @@ const CreatePost: React.FC = () => {
     return (
         <View style={styles.container}>
             <Image style={styles.avatar} source={{ uri: ('https://www.bootdey.com/img/Content/avatar/avatar1.png') }} />
-            <Field width={250} borderRadius={50} />
+            <Field width={wp('62')} borderRadius={50} />
             <TouchableOpacity style={styles.bubble} onPress={() => setModalVisible(true)} >
                 <AntDesign
                     name="arrowright"
@@ -45,18 +45,24 @@ const CreatePost: React.FC = () => {
                     color={Colors.white}
                 />
             </TouchableOpacity>
+
+            {/*******************   M O D A L   ***********************/}
             <View >
                 <Modal
                     animationType="slide"
                     transparent={true}
                     visible={modalVisible}
-                    onRequestClose={()=>{setModalVisible(!modalVisible)}}
+                    onRequestClose={() => { setModalVisible(!modalVisible) }}
                 >
                     <View style={styles.background}>
                         <View style={styles.modalView}>
                             {/* Modal content goes here */}
                             <View
-                                style={{ backgroundColor: Colors.white, padding: hp('2%'), borderRadius: 20, }}
+                                style={{
+                                    backgroundColor: Colors.white,
+                                    padding: hp('2%'),
+                                    borderRadius: 20,
+                                }}
                             >
                                 <View style={{ flexDirection: 'row' }}>
                                     <UserImage width={wp('10%')} height={hp('5%')} />
@@ -69,35 +75,82 @@ const CreatePost: React.FC = () => {
                                 <TextInput
                                     placeholder="Write anything..."
                                     placeholderTextColor={Colors.fadedgray}
-                                    style={[styles.input, { textAlignVertical: 'top', padding: hp('1%') }]}
+                                    style={[styles.input, { textAlignVertical: 'top', padding: hp('1.5%') }]}
                                     numberOfLines={5}
                                     multiline={true}
                                 />
+                                <View
+                                    style={{
+                                        position: 'absolute',
+                                        marginTop: hp('18'),
+                                        marginLeft: hp('38.3'),
+                                        padding: hp('2')
+                                    }}
+                                >
+                                    <Entypo
+                                        name="attachment"
+                                        color={Colors.orange}
+                                        style={styles.icon}
+                                    />
+                                </View>
                                 <Spacer />
                                 <Text style={styles.tags}>{Strings.ST66}</Text>
-                                <Spacer />
-                                <View style={{ flexDirection: 'row', }} >
-                                    <View style={{ marginRight: 5 }}>
+                                <View
+                                    style={{
+                                        flexDirection: 'row',
+                                        marginTop: hp('1'),
+                                        // backgroundColor:'pink'
+                                    }}
+                                >
+                                    <View style={{ marginRight: hp('1') }}>
                                         <Auc text="AUC" width={wp('12%')} height={hp('3.5%')} />
                                     </View>
-                                    <Auc text="GENERAL" width={wp('20%')} height={hp('3.5%')} />
+                                    {/* <Auc text="GENERAL" width={wp('20%')} height={hp('3.5%')} /> */}
+                                    <View
+                                        style={{
+                                            backgroundColor: Colors.lightorange,
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            borderRadius: 99,
+                                            width: wp('25%'),
+                                            flexDirection: 'row'
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                color: Colors.orange,
+                                                fontSize: 12,
+                                                fontFamily: 'PoppinsMedium',
+                                                lineHeight: 18
+                                            }}
+                                        >
+                                            GENERAL
+                                        </Text>
+                                        <AntDesign
+                                            name="caretdown"
+                                            size={hp('1')}
+                                            color={Colors.orange}
+                                            style={{
+                                                marginHorizontal: hp('1')
+                                            }}
+                                        />
+                                    </View>
                                 </View>
                                 <Spacer />
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                     <Text style={[styles.tags, { marginTop: hp('1%') }]}>{Strings.ST67}</Text>
                                     <TouchableOpacity
                                         onPress={() => setIsOn(!isOn)}
-                                    // style={{ marginRight: wp('3%') }}
                                     >
                                         {isOn ?
-                                            (<FontAwesome name="toggle-on" size={hp('4%')} color={Colors.orange} />)
+                                            (<FontAwesome name="toggle-off" size={hp('6%')} color={Colors.orange} />)
                                             :
-                                            (<FontAwesome name="toggle-off" size={hp('4%')} color={Colors.orange} />)
+                                            (<FontAwesome name="toggle-on" size={hp('6%')} color={Colors.orange} />)
                                         }
                                     </TouchableOpacity>
                                 </View>
                                 <TouchableOpacity>
-                                    <Btn text={Strings.ST68} width={wp('85%')} height={hp('4.5%')} route={''} />
+                                    <Btn text={Strings.ST68} width={wp('85%')} height={hp('4.8%')} route={''} />
                                 </TouchableOpacity>
                                 <Spacer />
                             </View>
@@ -111,7 +164,6 @@ const CreatePost: React.FC = () => {
 
 const styles = StyleSheet.create({
     container: {
-
         backgroundColor: Colors.white,
         flexDirection: 'row',
         alignItems: 'center',
@@ -128,18 +180,14 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     input: {
-        borderRadius: 10,
+        borderRadius: hp('2.5'),
         borderWidth: 1,
         borderColor: Colors.fadedgray,
         width: wp('86%'),
-        height: hp('10%'),
-        fontWeight: '500',
+        height: hp('13%'),
+        fontFamily: 'PoppinsRegular',
         fontSize: hp('1.5%'),
-        // padding: 70,
-        // lineHeight: 21,
-        // paddingBottom: 10
     },
-
     bubble: {
         backgroundColor: Colors.orange,
         width: wp('10%'),
@@ -152,14 +200,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        // marginTop: 22,
     },
     modalView: {
-        // height: '50%',
-        width: wp('95%'),
-        // backgroundColor: 'red',
+        width: wp('96%'),
         borderRadius: 20,
-        // padding: 15,
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
@@ -169,8 +213,6 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5,
     },
-
-
     background: {
         flex: 1,
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -179,18 +221,18 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 14,
-        fontWeight: '700',
+        fontFamily: 'PoppinsSemiBold',
         lineHeight: 21
     },
     email: {
         fontSize: hp('1.5%'),
-        fontWeight: '400',
+        fontFamily: 'PoppinsRegular',
         lineHeight: 21,
         color: Colors.orange
     },
     tags: {
-        fontWeight: '400',
-        fontSize: hp('1.5%'),
+        fontFamily: 'PoppinsRegular',
+        fontSize: hp('1.6%'),
         lineHeight: 21
     },
     placeholder: {
@@ -198,9 +240,12 @@ const styles = StyleSheet.create({
         top: 0,
         left: 0,
         fontSize: hp('2'),
-        // color: Colors.gray,
         color: 'red',
         paddingLeft: hp('1.6'),
+    },
+    icon: {
+        position: 'absolute',
+        fontSize: hp('2')
     }
 })
 

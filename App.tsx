@@ -7,14 +7,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { View } from 'react-native';
 import MainStack from './src/navigation/AppStackStudent';
 import * as SplashScreen from 'expo-splash-screen';
- import { useFonts } from 'expo-font';
+import { useFonts } from 'expo-font';
+import TutorAppStack from './src/navigation/TutorAppStack';
 const App: React.FC = () => {
- 
+
   return (
     <NavigationContainer>
-
-   
-     <StudentStackMain/>
+      <StudentStackMain />
+      {/* <TutorAppStack/> */}
     </NavigationContainer>
   );
 }
@@ -22,7 +22,7 @@ const App: React.FC = () => {
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
-const MyApp= () => {
+const MyApp = () => {
   const [fontsLoaded] = useFonts({
     'Poppins': require('./assets/fonts/Poppins-ExtraLight.ttf'),
     'PoppinsBold': require('./assets/fonts/Poppins-ExtraBold.ttf'),
@@ -30,7 +30,7 @@ const MyApp= () => {
     'PoppinsMedium': require('./assets/fonts/Poppins-Medium.ttf'),
     'PoppinsSemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
   });
-  
+
 
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
@@ -41,13 +41,13 @@ const MyApp= () => {
   if (!fontsLoaded) {
     return null;
   }
-  
-  return (
-    <View style={{flex:1}} onLayout={onLayoutRootView} >
 
-    <LanguageContext.Provider value={{ language: defaultLanguage }}>
-      <App />
-    </LanguageContext.Provider>
+  return (
+    <View style={{ flex: 1 }} onLayout={onLayoutRootView} >
+
+      <LanguageContext.Provider value={{ language: defaultLanguage }}>
+        <App />
+      </LanguageContext.Provider>
     </View>
   );
 };

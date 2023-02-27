@@ -14,13 +14,13 @@ const Paragraph: React.FC<Props> = ({ paragraphText }) => {
 const styles = StyleSheet.create({
     paragraph: {
         color: Colors.black,
-        fontWeight: '400',
+        fontFamily: 'PoppinsRegular',
         fontSize: hp('1.7'),
         textAlign: 'center',
         lineHeight: 21,
         fontStyle: 'normal',
         // backgroundColor:'red',
-        width:wp('70%')
+        // width: wp('70%')
     },
 })
 

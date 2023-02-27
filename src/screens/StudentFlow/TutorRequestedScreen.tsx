@@ -33,12 +33,11 @@ const RequestedScreen: React.FC = () => {
         <SafeAreaView style={styles.container}>
 
             <Header headerTitle="FILM 3021 Tutors" />
-            <Spacer />
             <View style={styles.innerContainer}>
                 <Image
                     source={require('../../../assets/requested.jpg')}
                     style={styles.image} />
-                <Spacer />
+                {/* <Spacer /> */}
                 <Text style={[styles.heading]}> {Strings.ST61} </Text>
                 <Spacer />
                 <Paragraph paragraphText={Strings.ST62} />
@@ -63,13 +62,13 @@ const styles = StyleSheet.create({
         height: hp('70%'),
         alignSelf: 'center',
         // margin: 10,
-        marginTop: hp('10%'),
+        marginTop: hp('7%'),
         // backgroundColor: "red"
     },
     heading: {
         fontStyle: 'normal',
         fontSize: hp('3%'),
-        fontWeight: '700',
+        fontFamily:'PoppinsSemiBold',
         lineHeight: 30,
         textAlign: 'center',
         textTransform: 'capitalize',
