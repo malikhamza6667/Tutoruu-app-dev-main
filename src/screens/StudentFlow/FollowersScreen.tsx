@@ -22,7 +22,8 @@ const Following: React.FC = () => {
             showsVerticalScrollIndicator={false}
             data={messageData}
             renderItem={renderItem}
-            keyExtractor={item => item.id.toString()} />
+            keyExtractor={item => item.id.toString()}
+        />
     )
 }
 const Screen2: React.FC = () => {
@@ -55,10 +56,17 @@ const renderItem = ({ item }) => {
         <View>
             <View style={styles.cardHeader}>
                 <Image style={styles.avatar} source={{ uri: item.avatar }} />
-                <Text style={styles.sender}>{item.sender}</Text>
-                <View style={{}}>
-                    <Auc width={wp('27%')} height={hp('4%')} text="FOLLOWING" />
+                <View
+                style={{
+                    marginLeft:hp('1')
+                }}
+                >
+                    <Text style={styles.sender}>{item.sender}</Text>
+                    <Text style={styles.Auc}>AUC</Text>
                 </View>
+                {/* <View style={{}}> */}
+                    <Auc width={wp('26%')} height={hp('3.2%')} text="FOLLOWING" />
+                {/* </View> */}
             </View>
         </View>
     )
@@ -69,7 +77,7 @@ const Followers: React.FC = () => {
     return (
         <SafeAreaView style={styles.container}>
             <Header headerTitle="Ragnar-Lothbrok" />
-            <Spacer />
+            {/* <Spacer /> */}
             <View style={{ flexDirection: 'row', backgroundColor: Colors.white }}>
                 <TouchableOpacity style={focused ? styles.InActiveButton : styles.ActiveButton
                 } onPress={() => {
@@ -113,13 +121,14 @@ const styles = StyleSheet.create({
         // justifyContent:'space-between'
     },
     avatar: {
-        width: wp('13%'),
-        height: hp('6%'),
+        width: wp('11%'),
+        height: hp('5%'),
+        resizeMode: 'contain',
         borderRadius: 50,
         marginHorizontal: wp('2%')
     },
     sender: {
-        fontWeight: '500',
+        fontFamily:'PoppinsMedium',
         fontSize: hp('1.5%'),
         lineHeight: 18,
         // backgroundColor: 'pink',
@@ -140,12 +149,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: wp('50%'),
-        backgroundColor: Colors.background,
-        shadowColor: Colors.gray,
-        shadowOpacity: 0.5,
-        shadowOffset: { width: 2, height: 5 },
+        backgroundColor: Colors.white,
+        shadowColor: 'gray',
+        shadowOpacity: 0.4,
+        shadowRadius: 5,
+        shadowOffset: { width: 0, height: 2 },
         elevation: 3,
     },
+    Auc: {
+        color: Colors.orange,
+        fontFamily: 'PoppinsRegular'
+    }
 })
 
 

@@ -46,19 +46,19 @@ const messageData = [
 ]
 const PickTime: React.FC = () => {
     const contextState = useContext(LanguageContext);
-  
+
     let Strings: any = {}
     if (contextState != null) {
 
-      const  language = contextState.language
-        if (language === 'es') {
+        const language = contextState.language
+        if (language === 'en') {
             Strings = Languages[0].texts
 
         }
-       else if (language === 'en'){
-            Strings = Languages[1].texts  
+        else if (language === 'es') {
+            Strings = Languages[1].texts
         }
-        else{
+        else {
             //default language if not any language provided
             Strings = Languages[0].texts
         }
@@ -94,16 +94,16 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
         width: wp('99%'),
-        height: hp('85%'),
+        height: hp('80%'),
         alignSelf: 'center',
-        paddingBottom: hp('2%'),
+        // paddingBottom: hp('2%'),
         // backgroundColor:'red'
     },
     card: {
         shadowColor: 'gray',
         shadowOpacity: 0.3,
         shadowOffset: { width: 0, height: 2 },
-        elevation: 2,
+        elevation: 15,
         backgroundColor: Colors.white,
         alignSelf: 'center',
         justifyContent: 'center',
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     },
     day: {
         fontSize: hp('2%'),
-        fontWeight: '400',
+        fontFamily: 'PoppinsMedium',
         lineHeight: 24,
         color: Colors.black
     },

@@ -14,7 +14,7 @@ import LanguageContext from '../../languages/languageContext';
 const messageData = [
     {
         id: 1,
-        status: 'online',
+        status: 'Online',
         subject: 'Financial Management',
         code: 'FIN201',
         rating: '4.74',
@@ -22,7 +22,7 @@ const messageData = [
     },
     {
         id: 2,
-        status: 'online',
+        status: 'Online',
         subject: 'Financial Management',
         code: "FIN201",
         rating: '4.74',
@@ -30,7 +30,7 @@ const messageData = [
     },
     {
         id: 3,
-        status: 'online',
+        status: 'Online',
         subject: 'Financial Management',
         code: "FIN201",
         rating: '4.74',
@@ -39,19 +39,19 @@ const messageData = [
 ]
 const PickClass: React.FC = () => {
     const contextState = useContext(LanguageContext);
-  
+
     let Strings: any = {}
     if (contextState != null) {
 
-      const  language = contextState.language
+        const language = contextState.language
         if (language === 'en') {
             Strings = Languages[0].texts
 
         }
-       else if (language === 'es'){
-            Strings = Languages[1].texts  
+        else if (language === 'es') {
+            Strings = Languages[1].texts
         }
-        else{
+        else {
             //default language if not any language provided
             Strings = Languages[0].texts
         }
@@ -59,7 +59,7 @@ const PickClass: React.FC = () => {
     return (
         <SafeAreaView style={styles.container}>
             <Header headerTitle={Strings.ST54} />
-            <Spacer />
+            {/* <Spacer /> */}
             <Spacer />
             <View style={styles.innerContainer}>
                 <FlatList
@@ -68,7 +68,7 @@ const PickClass: React.FC = () => {
                         return (
                             <View
                                 key={item.id}
-                                style={[styles.card, { width: wp('80%'), height: hp('18%') }]}>
+                                style={[styles.card, { width: wp('85%'), }]}>
                                 <View style={{ flexDirection: 'row' }}>
                                     <View style={styles.cardInner}>
                                         <Text style={[styles.text, { color: Colors.orange }]}>{item.status}</Text>
@@ -77,7 +77,6 @@ const PickClass: React.FC = () => {
                                     </View>
                                     <View style={styles.smallerView}>
                                         <View style={{ flexDirection: 'row', }}>
-
                                             <Text style={styles.rating}>{item.rating}</Text>
                                             <Entypo name="star" size={15} color={Colors.orange} />
                                         </View>
@@ -87,9 +86,7 @@ const PickClass: React.FC = () => {
                                                 // backgroundColor: 'yellow',
                                                 width: wp('20%'),
                                                 // marginRight:wp('6%')
-
                                             }}>
-
                                             <Text style={[styles.rating]}>{item.sessions}</Text>
                                             <Text style={styles.sessions}> sessions</Text>
                                         </View>
@@ -98,7 +95,7 @@ const PickClass: React.FC = () => {
                                 </View>
                                 <Spacer />
                                 {/* <Spacer /> */}
-                                <Btn text={Strings.ST55} route={''} width={118} height={33} />
+                                <Btn text={Strings.ST55} route={''} width={wp('30')} height={hp('4')} />
                             </View>
                         )
                     }}
@@ -117,22 +114,23 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
         width: wp('99%'),
-        height: hp('85%'),
+        height: hp('80%'),
         alignSelf: 'center',
-        paddingBottom: hp('2%'),
+        // paddingBottom: hp('2%'),
         // backgroundColor: 'red'
     },
     card: {
         shadowColor: 'gray',
-        shadowOpacity: 0.3,
-        shadowOffset: { width: 0, height: 2 },
-        elevation: 2,
+        shadowOpacity: 0.4,
+        shadowOffset: { width: 0, height: 2},
+        elevation: 15,
         backgroundColor: Colors.white,
+        shadowRadius: 5,
         // backgroundColor:'red',
         alignSelf: 'center',
         borderRadius: 20,
         padding: hp('1.5%'),
-        margin: hp('2.2%'),
+        margin: hp('1.3%'),
     },
     cardInner: {
         width: wp('57%'),
@@ -148,7 +146,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 12,
-        fontWeight: '300',
+        fontFamily: 'PoppinsRegular',
         lineHeight: 18,
     },
     day: {

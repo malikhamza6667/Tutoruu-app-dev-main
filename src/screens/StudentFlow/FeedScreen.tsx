@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 // import { useTailwind } from 'tailwind-rn/dist'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Feather from 'react-native-vector-icons/Feather'
-
 import Languages from '../../languages'
 import LanguageContext from '../../languages/languageContext'
 import ToggleButtons from '../../components/ToggleButtons'
@@ -15,6 +15,8 @@ import Colors from '../../../assets/Colors'
 import CreatePost from '../../components/CreatePost'
 import Header from '../../components/CreatePost'
 import { ScrollView } from 'react-native-virtualized-view'
+import Divider from '../../components/Divider';
+import Auc from '../../components/Auc';
 const size = 20;
 const color = Colors.fadedgray;
 
@@ -27,6 +29,7 @@ export const messageData = [
     senderType: 'user',
     avatar: 'https://www.bootdey.com/img/Content/avatar/avatar1.png',
     //image: 'https://www.bootdey.com/image/580x580/00BFFF/000000',
+    time: '5 mins ago '
   },
   {
     id: 2,
@@ -36,6 +39,7 @@ export const messageData = [
     senderType: 'other',
     avatar: 'https://www.bootdey.com/img/Content/avatar/avatar2.png',
     image: 'https://www.bootdey.com/image/580x580/FF00FF/000000',
+    time: '5 mins ago '
   },
   {
     id: 3,
@@ -45,6 +49,7 @@ export const messageData = [
     senderType: 'user',
     avatar: 'https://www.bootdey.com/img/Content/avatar/avatar3.png',
     image: 'https://www.bootdey.com/image/580x580/008000/000000',
+    time: '5 mins ago '
   },
 ]
 
@@ -56,22 +61,22 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
 
   const [count, setCount] = useState(0);
   const contextState = useContext(LanguageContext);
-  
+
   let Strings: any = {}
   if (contextState != null) {
 
-    const  language = contextState.language
-      if (language === 'en') {
-          Strings = Languages[0].texts
+    const language = contextState.language
+    if (language === 'en') {
+      Strings = Languages[0].texts
 
-      }
-     else if (language === 'es'){
-          Strings = Languages[1].texts  
-      }
-      else{
-          //default language if not any language provided
-          Strings = Languages[0].texts
-      }
+    }
+    else if (language === 'es') {
+      Strings = Languages[1].texts
+    }
+    else {
+      //default language if not any language provided
+      Strings = Languages[0].texts
+    }
   }
 
   const [Message, setMessage] = useState();
@@ -82,8 +87,8 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
   return (
 
     <View style={styles.container}>
-
       <Username />
+      <Divider />
       <ToggleButtons />
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -103,10 +108,36 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
 
             return (
               <View key={item.id} style={styles.card}>
-                <View style={{ justifyContent: 'center', padding: 10 }}>
+                <View style={{ padding: hp('2'), }}>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      // backgroundColor: 'pink',
+                      width: wp('73%'),
+                      alignSelf: 'flex-end',
+                      marginBottom: hp('0.4')
+                    }}
+                  >
+                    <View style={styles.aucContainer}>
+                      <Text style={styles.auc}>AUC</Text>
+                    </View>
+                    <View style={[styles.aucContainer, { marginLeft: hp('1') }]}>
+                      <Text style={styles.auc}>NOTES</Text>
+                    </View>
+                    <Text
+                      style={{
+                        alignSelf: 'center',
+                        marginLeft: hp('10'),
+                        color: Colors.fadedgray
+
+                      }}
+                    >{item.time}</Text>
+
+
+                  </View>
                   <View style={styles.cardHeader}>
                     <Image style={styles.avatar} source={{ uri: item.avatar }} />
-                    <View style={{ width: '70%' }} >
+                    <View style={{ width: '85%' }} >
                       <View style={{ flexDirection: 'row' }}>
                         <Text style={styles.sender}>{item.sender}</Text>
                         <Text style={[styles.sender, { color: Colors.orange, marginLeft: 10 }]}>{item.email}</Text>
@@ -179,35 +210,42 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor:'red',
-    alignItems: 'center'
+    // backgroundColor: 'red',
+    alignItems: 'center',
+    // justifyContent:'center'
   },
   cardHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: hp('1'),
+    // backgroundColor: 'yellow'
   },
   card: {
     borderRadius: 20,
-    margin: 10,
+    margin: hp('1'),
     backgroundColor: 'white',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     // alignSelf:'center',
-    // width:'90%'
+    width: wp('95%'),
+    shadowColor: 'gray',
+    shadowOpacity: 0.4,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 15,
+    shadowRadius: 5,
   },
   avatar: {
-    width: 40,
-    height: 40,
+    width: wp('10%'),
+    height: hp('5%'),
     borderRadius: 20,
-    marginHorizontal: 10,
   },
   cardBody: {
     flex: 1,
   },
   sender: {
-    fontSize: 14,
-    fontWeight: '400',
+    fontSize: hp('1.5'),
+    fontFamily: 'PoppinsRegular',
     lineHeight: 21,
+    marginHorizontal: hp('2')
   },
   cardImage: {
     width: '100%',
@@ -228,6 +266,19 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: '70%',
     alignSelf: 'flex-end'
+  },
+  aucContainer: {
+    backgroundColor: Colors.lightorange,
+    padding: hp('0.2'),
+    borderRadius: hp('0.5'),
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  auc: {
+    color: Colors.orange,
+    fontSize: 10,
+    lineHeight: 15,
+    fontFamily: 'PoppinsMedium'
   }
 })
 export default FeedScreen;
