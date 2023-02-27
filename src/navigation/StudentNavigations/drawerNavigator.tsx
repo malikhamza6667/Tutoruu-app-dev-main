@@ -6,20 +6,20 @@ import Fontisto from "react-native-vector-icons/Fontisto";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Entypo from 'react-native-vector-icons/Entypo'
 import Ionicons from "react-native-vector-icons/Ionicons"
-import Colors from '../../assets/Colors';
-import FeedScreen from '../screens/StudentFlow/FeedScreen';
-import AboutScreen from '../screens/StudentFlow/AboutScreen';
-import SupportScreen from '../screens/StudentFlow/SupportScreen';
-import ProfileScreen from '../screens/StudentFlow/ProfileScreen';
-import SettingsScreen from '../screens/StudentFlow/SettingsScreen';
-import MarketPlace from '../screens/StudentFlow/MarketPlace/MarketPlace';
-import Bubble from '../components/IconBubble';
-import SessionConfirmationMain from '../screens/StudentFlow/SessionConfirmation/SessionMain';
-import ClassesMainScreen from '../screens/StudentFlow/ClassScreen';
-import ChatScreen from '../screens/StudentFlow/Chat/ChatScreen';
+import Colors from '../../../assets/Colors';
+import FeedScreen from '../../screens/StudentFlow/FeedScreen';
+import AboutScreen from '../../screens/StudentFlow/AboutScreen';
+import SupportScreen from '../../screens/StudentFlow/SupportScreen';
+import ProfileScreen from '../../screens/StudentFlow/ProfileScreen';
+import SettingsScreen from '../../screens/StudentFlow/SettingsScreen';
+import MarketPlace from '../../screens/StudentFlow/MarketPlace/MarketPlace';
+import Bubble from '../../components/IconBubble';
+import SessionConfirmationMain from '../../screens/StudentFlow/SessionConfirmation/SessionMain';
+import ClassesMainScreen from '../../screens/StudentFlow/ClassScreen';
+import ChatScreen from '../../screens/StudentFlow/Chat/ChatScreen';
+import TutorApplicationFlowStack from './TeacherApplicationFlow';
 
 
-import TutorAppStack from './TutorAppStack';
 
 
 const Drawer = createDrawerNavigator();
@@ -66,7 +66,7 @@ const Root: React.FC<Props> = ({ navigation }) => {
           ),
           headerTitle: () =>
             <Image
-              source={require('../../assets/logo.jpg')}
+              source={require('./../../../assets/logo.jpg')}
               style={{ height: 38, width: 99, alignSelf: 'center' }} />,
               headerTitleAlign:'center',
           headerRight: () =>
@@ -106,7 +106,7 @@ const Root: React.FC<Props> = ({ navigation }) => {
           ),
           headerTitle: () =>
             <Image
-              source={require('../../assets/logo.jpg')}
+              source={require('./../../../assets/logo.jpg')}
               style={{ height: 38, width: 99, alignSelf: 'center' }} />,
 headerTitleAlign:'center',
           headerRight: () =>
@@ -147,8 +147,8 @@ headerTitleAlign:'center',
           )
         }} />
       <Drawer.Screen
-        name='TutorAppStack'
-        component={TutorAppStack}
+        name='TutorApplicationFlowStack'
+        component={TutorApplicationFlowStack}
         options={{
           headerShown: (false),
           drawerLabel:'Become A Tutor',

@@ -4,14 +4,19 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 
 import Colors from "../../assets/Colors";
 
-const Username: React.FC = () => {
+
+interface Props{
+    userType?: string
+}
+
+const Username: React.FC<Props> = ({userType}) => {
     return (
         <View style={styles.container}>
             <Text style={[styles.text, { marginLeft: '5%' }]}>Hey</Text>
             <Text style={[styles.text, { color: Colors.orange }]}> Ragnar</Text>
             <View style={styles.status} ></View>
             <View style={styles.studentContainer}>
-                <Text style={styles.student}>Student</Text>
+                <Text style={styles.student}>{userType? userType:  'Student'}</Text>
             </View>
         </View>
     )

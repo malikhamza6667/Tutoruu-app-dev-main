@@ -214,3 +214,23 @@ export const TutorInfo=
         },
        
     ]
+
+    export const SubjectsOffered=[
+        {
+            id: 0,
+            name: 'Marketing'
+        },
+        {
+            id: 1,
+            name: 'Econometrics'
+        },
+        {
+            id: 2,
+            name: 'Introduction to computer science'
+        },
+        {
+            id: 3,
+            name: 'Business Intelligence'
+        },
+
+    ]

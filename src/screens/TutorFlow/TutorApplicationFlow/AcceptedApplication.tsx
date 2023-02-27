@@ -1,12 +1,18 @@
 import React from 'react'
-import {View,Text, Image} from 'react-native'
+import {View,Text, Image,SafeAreaView} from 'react-native'
 import Header from '../../../components/Header'
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
 import Colors from '../../../../assets/Colors'
 import Button from '../../../components/Buttonnn'
 
-const ApplicationConfirmationStatus:React.FC=()=>{
+interface Props{
+  navigation : any
+}
+
+const ApplicationConfirmationStatus:React.FC<Props>=({navigation})=>{
     return(
+      <SafeAreaView className='flex-1 justify-center'>
+
         <View className='flex-1 justify-evenly bg-white'>
           <View className='top-5'>
             <Header headerTitle='Application Status'/>
@@ -32,13 +38,14 @@ const ApplicationConfirmationStatus:React.FC=()=>{
     textSize={14}
     title='Take Me There'
     color={Colors.orange}
-    onPress={()=>{alert('Pressed')}}
+    onPress={()=>{navigation.navigate('TutorAppStack')}}
     
     />
 
     </View>
           </View>
         </View>
+      </SafeAreaView>
     )
 }
 export default ApplicationConfirmationStatus
