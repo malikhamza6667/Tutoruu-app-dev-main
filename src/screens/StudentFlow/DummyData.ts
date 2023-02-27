@@ -232,5 +232,6 @@ export const TutorInfo=
             id: 3,
             name: 'Business Intelligence'
         },
+        
 
     ]
