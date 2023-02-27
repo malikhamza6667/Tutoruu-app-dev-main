@@ -13,8 +13,8 @@ const App: React.FC = () => {
 
   return (
     <NavigationContainer>
-      <StudentStackMain />
-      {/* <TutorAppStack/> */}
+      {/* <StudentStackMain /> */}
+      <TutorAppStack/>
     </NavigationContainer>
   );
 }

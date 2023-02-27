@@ -41,10 +41,10 @@ const Card: React.FC<Props> = ({ text, heading }) => {
 
 const styles = StyleSheet.create({
     card: {
-        shadowColor: 'gray',
-        shadowOpacity: 0.3,
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
         shadowOffset: { width: 0, height: 2 },
-        elevation: 15,
+        elevation: 7,
         backgroundColor: Colors.white,
         alignSelf: 'center',
         borderRadius: 20,
