@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import Feather from 'react-native-vector-icons/Feather'
 import Colors from '../../../assets/Colors';
 import Languages from '../../languages';
 import LanguageContext from '../../languages/languageContext';

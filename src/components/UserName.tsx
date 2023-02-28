@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import Colors from "../../assets/Colors";
+import Spacer from "./Spacer";
 
 
 interface Props{
@@ -12,7 +13,7 @@ interface Props{
 const Username: React.FC<Props> = ({userType}) => {
     return (
         <View style={styles.container}>
-            <Text style={[styles.text, { marginLeft: '5%' }]}>Hey</Text>
+            <Text style={[styles.text, { marginLeft: wp('5%') }]}>Hey</Text>
             <Text style={[styles.text, { color: Colors.orange }]}> Ragnar</Text>
             <View style={styles.status} ></View>
             <View style={styles.studentContainer}>
@@ -27,7 +28,8 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
         flexDirection: 'row',
         width: wp('100%'),
-        paddingTop: hp('2.5')
+        paddingTop: hp('3'),
+
     },
     text: {
         fontSize: hp('3.3'),

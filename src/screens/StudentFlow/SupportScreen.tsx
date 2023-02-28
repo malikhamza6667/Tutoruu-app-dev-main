@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet, KeyboardAvoidingView, ScrollView, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Colors from '../../../assets/Colors';
@@ -7,8 +7,7 @@ import Languages from '../../languages';
 import LanguageContext from '../../languages/languageContext';
 import Btn from "../../components/Button";
 import Header from "../../components/Header";
-
-
+import Spacer from "../../components/Spacer";
 interface Props {
     navigation: any;
 }
@@ -34,32 +33,45 @@ const SupportScreen: React.FC<Props> = ({ navigation }) => {
     }
     return (
         <SafeAreaView style={styles.container} >
-            <View style={styles.innerContainer}>
-
-                <Header headerTitle="Support" />
-                <View style={styles.para}>
-                    <Text style={styles.text} >{Strings.ST17} </Text>
-                    <Text style={[styles.text, { marginTop: hp('2') }]}>{Strings.ST18} </Text>
-                </View>
-                <Text style={styles.send}> {Strings.ST19} </Text>
-                <Text style={styles.label}> {Strings.ST20} </Text>
-                <TextInput
-                    placeholder="Doe.."
-                    placeholderTextColor={Colors.fadedgray}
-                    style={[styles.input, { textAlignVertical: 'top', padding: hp('2%') }]}
-                    numberOfLines={5}
-                    multiline={true}
-                />
-                <Text style={styles.label}> {Strings.ST21} </Text>
-                <TextInput
-                    placeholder="Doe.."
-                    placeholderTextColor={Colors.fadedgray}
-                    style={[styles.input, { textAlignVertical: 'top', padding: hp('2%'), height: hp('10'), borderRadius: hp('2') }]}
-                    numberOfLines={5}
-                    multiline={true}
-                />
-                <Btn text='Submit' route='Payment' width={wp('20%')} height={hp('4%')} />
-            </View>
+            <Header headerTitle="Support" />
+            <Spacer />
+            <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{ padding: 15 }}>
+                <KeyboardAvoidingView
+                    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                >
+                    <View style={styles.innerContainer}>
+                        <View style={styles.para}>
+                            <Text style={styles.text} >{Strings.ST17} </Text>
+                            <Text style={[styles.text, { marginTop: hp('2') }]}>{Strings.ST18} </Text>
+                        </View>
+                        <Text style={styles.send}> {Strings.ST19} </Text>
+                        <Text style={styles.label}> {Strings.ST20} </Text>
+                        <TextInput
+                            placeholder="Doe.."
+                            placeholderTextColor={Colors.black}
+                            style={[styles.input, { textAlignVertical: 'top', padding: hp('1%') }]}
+                        // numberOfLines={5}
+                        // multiline={true}
+                        />
+                        <Text style={styles.label}> {Strings.ST21} </Text>
+                        <TextInput
+                            placeholder="Doe.."
+                            placeholderTextColor={Colors.black}
+                            style={[
+                                styles.input,
+                                {
+                                    textAlignVertical: 'top',
+                                    padding: hp('1%'),
+                                    height: hp('13'),
+                                    borderRadius: hp('2')
+                                }]}
+                            numberOfLines={5}
+                            multiline={true}
+                        />
+                        <Btn text='Submit' route='Payment' width={wp('23%')} height={hp('4%')} />
+                    </View>
+                </KeyboardAvoidingView>
+            </ScrollView>
         </SafeAreaView>
     )
 };
@@ -67,20 +79,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: Colors.white,
-        // alignItems: 'center',
-        // justifyContent: "center"
     },
     innerContainer: {
         width: wp('95%'),
-        height: hp('100%'),
-        // backgroundColor: 'red', 
         alignSelf: 'center',
         margin: hp('1')
     },
     para: {
         alignSelf: 'center',
-        // backgroundColor: 'red',
-        marginTop: hp(10),
         justifyContent: 'center',
         textAlign: 'center',
         width: wp('90'),
@@ -88,18 +94,16 @@ const styles = StyleSheet.create({
     text: {
         fontSize: hp('1.7'),
         fontStyle: 'normal',
-        fontWeight: '400',
+        fontFamily: 'PoppinsRegular',
         lineHeight: 21,
         color: Colors.black,
-        // flexGrow: 1,
-        // textAlign:'center'
     },
     label: {
         fontSize: hp('1.5'),
-        fontWeight: '500',
+        fontFamily: 'PoppinsMedium',
         lineHeight: 21,
         fontStyle: 'normal',
-        marginLeft: hp('2'),
+        marginLeft: hp('3'),
         margin: hp('1')
     },
     input: {
@@ -108,21 +112,17 @@ const styles = StyleSheet.create({
         borderColor: Colors.fadedgray,
         width: wp('86%'),
         height: hp('5%'),
-        fontWeight: '500',
+        fontFamily:'Poppins',
         fontSize: hp('1.5%'),
-        // padding:hp('5'),
         alignSelf: 'center'
     },
     send: {
         fontStyle: 'normal',
-        fontWeight: '400',
+        fontFamily: 'PoppinsRegular',
         width: wp('90%'),
         fontSize: hp('1.7'),
         lineHeight: 21,
-        // marginLeft: 10,
         marginTop: hp('20%'),
-        // marginBottom: 20,
-        // backgroundColor: 'pink',
         alignSelf: 'center'
     }
 });

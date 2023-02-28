@@ -17,7 +17,7 @@ import Header from '../../components/CreatePost'
 import { ScrollView } from 'react-native-virtualized-view'
 import Divider from '../../components/Divider';
 import Auc from '../../components/Auc';
-const size = 20;
+const size = hp('1.8');
 const color = Colors.fadedgray;
 
 export const messageData = [
@@ -87,8 +87,10 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
   return (
 
     <View style={styles.container}>
+      {/* <Spacer/> */}
       <Username />
       <Divider />
+      <Spacer />
       <ToggleButtons />
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -137,15 +139,23 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
                   </View>
                   <View style={styles.cardHeader}>
                     <Image style={styles.avatar} source={{ uri: item.avatar }} />
-                    <View style={{ width: '85%' }} >
+                    <View style={{ width: wp('70%') }} >
                       <View style={{ flexDirection: 'row' }}>
                         <Text style={styles.sender}>{item.sender}</Text>
-                        <Text style={[styles.sender, { color: Colors.orange, marginLeft: 10 }]}>{item.email}</Text>
+                        <Text
+                          style={[
+                            styles.sender,
+                            {
+                              color: Colors.orange,
+                              marginLeft: hp('2')
+                            }]}>
+                          {item.email}
+                        </Text>
                       </View>
                       <Text style={styles.sender}>{item.text}</Text>
                     </View>
                   </View>
-                  <View style={styles.cardBody}>
+                  <View style={[styles.cardBody]}>
                     {item.image && <Image style={styles.cardImage} source={{ uri: item.image }} />}
                   </View>
                   <View style={styles.iconContainer}>
@@ -153,48 +163,56 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
                       onPress={() => {
                         setMessage(item.id)
                       }}
+                      style={styles.count}
                     >
                       <MaterialCommunityIcons
                         name='message-outline'
                         size={size}
                         color={message}
                       />
+                      <Text style={{ color: message, fontSize: hp('1.4') }}>32</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
                       onPress={() => {
                         setLike(item.id)
                       }}
+                      style={styles.count}
                     >
                       <AntDesign
                         name='like2'
                         size={size}
                         color={like}
                       />
+                      <Text style={{ color: like, fontSize: hp('1.4') }}>1k</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
                       onPress={() => {
                         setDislike(item.id)
                       }}
+                      style={styles.count}
                     >
                       <AntDesign
                         name='dislike2'
                         size={size}
                         color={dislike}
                       />
+                      <Text style={{ color: dislike, fontSize: hp('1.4') }}>7</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
                       onPress={() => {
                         setSave(item.id)
                       }}
+                      style={styles.count}
                     >
                       <Feather
                         name='bookmark'
                         size={size}
                         color={save}
                       />
+                      <Text style={{ color: save, fontSize: hp('1.4') }}>7</Text>
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -212,7 +230,8 @@ const styles = StyleSheet.create({
     flex: 1,
     // backgroundColor: 'red',
     alignItems: 'center',
-    // justifyContent:'center'
+    // justifyContent:'center',
+    backgroundColor: Colors.white
   },
   cardHeader: {
     flexDirection: 'row',
@@ -249,13 +268,11 @@ const styles = StyleSheet.create({
   },
   cardImage: {
     width: '100%',
-    height: 150,
-  },
-  cardText: {
-    backgroundColor: 'red'
+    height: hp('25'),
+    // resizeMode:'contain'
   },
   btn: {
-    padding: 12,
+    // padding: 12,
     margin: 10,
     borderRadius: 99
   },
@@ -279,6 +296,14 @@ const styles = StyleSheet.create({
     fontSize: 10,
     lineHeight: 15,
     fontFamily: 'PoppinsMedium'
+  },
+  count: {
+    flexDirection: 'row',
+
+  },
+  countColor: {
+    color: Colors.fadedgray,
+    fontFamily: 'Poppins'
   }
 })
 export default FeedScreen;

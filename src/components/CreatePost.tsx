@@ -172,7 +172,12 @@ const styles = StyleSheet.create({
         // height: 74,
         borderRadius: 20,
         alignSelf: 'center',
-        padding: hp('1%')
+        padding: hp('1%'),
+        shadowColor: 'gray',
+        shadowOpacity: 0.4,
+        shadowOffset: { width: 0, height: 2 },
+        elevation: 15,
+        shadowRadius: 5,
     },
     avatar: {
         width: wp('10%'),
@@ -190,8 +195,8 @@ const styles = StyleSheet.create({
     },
     bubble: {
         backgroundColor: Colors.orange,
-        width: wp('10%'),
-        height: hp('5'),
+        width: wp('7.2%'),
+        height: hp('3.2'),
         borderRadius: 50,
         alignItems: 'center',
         justifyContent: 'center'

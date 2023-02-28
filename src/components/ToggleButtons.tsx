@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import AntDesign from 'react-native-vector-icons/AntDesign'
 import Colors from "../../assets/Colors";
 
 
@@ -85,6 +86,8 @@ const ToggleButtons: React.FC = () => {
                         setFocused4(false);
                     }}>
                         <Text style={[styles.text, { color: focused1 ? Colors.orange : Colors.black }]} >AUC </Text>
+                        {focused1 ? <AntDesign name="caretdown" size={hp('1.3')} color={color} style={{ alignSelf: 'center' }} /> : null}
+
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.btn, { backgroundColor: focused2 ? Colors.lightorange : Colors.background }]} onPress={() => {
                         setSelectedData(Category1);
@@ -94,6 +97,7 @@ const ToggleButtons: React.FC = () => {
                         setFocused4(false);
                     }}>
                         <Text style={[styles.text, { color: focused2 ? Colors.orange : Colors.black }]}>General </Text>
+                        {focused2 ? <AntDesign name="caretdown" size={hp('1.3')} color={color} style={{ alignSelf: 'center' }} /> : null}
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.btn, { backgroundColor: focused3 ? Colors.lightorange : Colors.background }]} onPress={() => {
                         setSelectedData(Category2);
@@ -103,6 +107,7 @@ const ToggleButtons: React.FC = () => {
                         setFocused4(false);
                     }}>
                         <Text style={[styles.text, { color: focused3 ? Colors.orange : Colors.black }]}>Questions </Text>
+                        {focused3 ? <AntDesign name="caretdown" size={hp('1.3')} color={color} style={{ alignSelf: 'center' }} /> : null}
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.btn, { backgroundColor: focused4 ? Colors.lightorange : Colors.background }]} onPress={() => {
                         setSelectedData(Category3);
@@ -113,6 +118,7 @@ const ToggleButtons: React.FC = () => {
                         setFocused5(false);
                     }}>
                         <Text style={[styles.text, { color: focused4 ? Colors.orange : Colors.black }]}>Tips & Tricks</Text>
+                        {focused4 ? <AntDesign name="caretdown" size={hp('1.3')} color={color} style={{ alignSelf: 'center' }} /> : null}
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.btn, { backgroundColor: focused5 ? Colors.lightorange : Colors.background }]} onPress={() => {
                         setSelectedData(Category3);
@@ -123,6 +129,7 @@ const ToggleButtons: React.FC = () => {
                         setFocused5(true);
                     }}>
                         <Text style={[styles.text, { color: focused5 ? Colors.orange : Colors.black }]}>Tips & Tricks</Text>
+                        {focused5 ? <AntDesign name="caretdown" size={hp('1.3')} color={color} style={{ alignSelf: 'center' }} /> : null}
                     </TouchableOpacity>
 
 
@@ -145,6 +152,7 @@ const styles = StyleSheet.create({
         padding: hp('0.7'),
         margin: hp('0.5'),
         borderRadius: hp('1.5'),
+        flexDirection: "row",
         // height:30,
         // width:69
     },

@@ -23,7 +23,7 @@ const Stack = createNativeStackNavigator();
 const MainStack: React.FC = () => {
     return (
        
-            <Stack.Navigator  >
+            <Stack.Navigator initialRouteName='PickLocation' >
                 <Stack.Screen name='Root' component={Root} options={{ headerShown: (false) }} />
                 <Stack.Screen name='Payment' component={PaymentScreen} options={{ headerShown: (false) }} />
                 <Stack.Screen name='Notification' component={Notification} options={{ headerShown: (false) }} />
@@ -40,7 +40,6 @@ const MainStack: React.FC = () => {
                 <Stack.Screen name='SessionConfirmationMain' component={SessionConfirmationMain} options={{ headerShown: (false) }} />
                 <Stack.Screen name='SessionReviewScreen' component={SessionReviewScreen} options={{ headerShown: (false) }} />
                 <Stack.Screen name='TutorAppStack' component={TutorAppStack} options={{ headerShown: (false) }} />
-               
             </Stack.Navigator>
        
     )
