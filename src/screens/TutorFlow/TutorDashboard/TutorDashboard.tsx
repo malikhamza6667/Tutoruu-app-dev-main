@@ -14,6 +14,7 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-nati
 
 
 import Input from '../../../components/TextInput';
+import Button from '../../../components/Buttonnn';
 
 
 
@@ -88,82 +89,32 @@ const renderItem=({ item }: { item: {id:number,name:string} })=>{
     }
 
   return (
-<SafeAreaView className='flex-1 justify-between bg-white'>
+<SafeAreaView className='flex-1 justify-center bg-white'>
+  
+<View className='flex-1 justify-evenly' >
+  <View>
 <Username userType='Tutor'/>
-<View className='flex-1 pt-5 gap-2' >
-  <View >
+  </View>
+  <View style={{top:hp('1%')}} className=' py-3'>
+
 <Box text='Connect to your google calendar to sync your sessions with your schedule. '/>
   </View>
-  <View className='flex-1 justify-center'>
+<View className='self-center py-3'>
+ <Button
+ title='Update Scehedule'
+ onPress={()=>{alert('Pressed')}}
+ color={Colors.orange}
+ textSize={14}
+ 
+ /> 
 
-<ScrollView contentContainerStyle={{paddingBottom:5,justifyContent:'space-between'}}>
-
-
-
-    <View className='p-7 m-1 self-center justify-evenly rounded-3xl ' style={{width:wp('95%'),
-  shadowColor: 'black',
-  shadowOpacity: 0.3,
-  shadowOffset: { width: 0, height: 2 },
-  elevation: 3,
-  backgroundColor: Colors.white,
-}} >
-    <Text style={{fontFamily: 'PoppinsBold'}} className='text-base'>Tutor Profile</Text>
-   
-                            <FlatList
-                                showsHorizontalScrollIndicator={false}
-                                data={SubjectsOffered}
-                                horizontal
-                                renderItem={renderItem}
-                                keyExtractor={(item: { id: { toString: () => any } }) => { return item.id.toString() }}
-                            />
-                      
-                        
-                        
-                       
-                    
-                   
-
-          
-
-<View className='flex-row  justify-between items-center'>
-  
-    <View style={{width:wp('50%')}}>
-    <Input
-    value={rate}
-onChangeText={(text)=>{setRate(text)}}
-title='Rate'
-    />
- </View>
- <View >
-<Text style={{fontFamily: 'PoppinsMedium'}}>{isOn? 'In Person': 'Online'}</Text>
-    <TouchableOpacity
-onPress={() => setIsOn(!isOn)}
-// style={{ marginRight: wp('3%') }}
->
-{isOn ?
-    (<FontAwesome name="toggle-on" size={hp('7%')} color={Colors.orange} />)
-    :
-    (<FontAwesome name="toggle-off" size={hp('7%')} color={Colors.orange} />)
-}
-</TouchableOpacity>
- </View>
-    </View>   
- <TouchableOpacity className='self-center   flex-row gap-x-2 mt-3  p-3'>
-    <Text style={{fontFamily: 'PoppinsBold',color:Colors.orange}} className=''>Schedule</Text>
-    <AntDesign name="gift" size={20} color={Colors.orange} />
- </TouchableOpacity>
-    </View>
-
-
-
-
-
+</View>
 
 
 <View className='px-5'>
 <Text style={{fontFamily: 'PoppinsBold'}} className='text-base p-3'>Tutoruu Academy</Text>
     <View 
-    className='p-7 px-10 m-1 self-center justify-evenly rounded-3xl ' style={{width:wp('95%'),
+    className='p-5 px-10 m-1 self-center justify-evenly rounded-3xl ' style={{width:wp('95%'),
     shadowColor: 'black',
     shadowOpacity: 0.3,
     shadowOffset: { width: 0, height: 2 },
@@ -177,14 +128,49 @@ onPress={() => setIsOn(!isOn)}
         <Text style={{fontFamily: 'PoppinsRegular'}} className='text-sm'>
         This lesson is an introduction to our Tutoruu Academy series where you will learn essential lessons to succeed in your Tutoring Journey.
         </Text>
+       <TouchableOpacity 
+       style={{backgroundColor:Colors.orange}}
+       className='gap-x-1 my-3 flex-row items-center self-center px-5 py-3 rounded-full'>
+       <AntDesign name="videocamera" size={24} color={Colors.white} />
+        <Text style={{fontFamily:'PoppinsBold',color:Colors.white}} >Watch</Text>
+       </TouchableOpacity>
 
 
     </View>
 </View>
-</ScrollView>
+<View className='px-5'>
+<Text style={{fontFamily: 'PoppinsBold'}} className='text-base p-3'>Upcoming Sessions</Text>
+    <View 
+    className='p-5 px-10 m-1 self-center justify-evenly rounded-3xl ' style={{width:wp('95%'),
+    shadowColor: 'black',
+    shadowOpacity: 0.3,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 3,
+    backgroundColor: Colors.white,
+  }}
+    >
+        <Text style={{fontFamily: 'PoppinsMedium'}} className='text-base'>
+        No upcoming sessions
+        </Text>
+        <Text style={{fontFamily: 'PoppinsRegular'}} className='text-sm'>
+        Want to get more sessions? Watch Tutoruu academy videos to get the know-how.
+        </Text>
+
+
+    </View>
+<TouchableOpacity className='self-center m-5'>
+  <Text
+  style={{fontFamily: 'PoppinsBold',color:Colors.orange}}
+  >View All Sessions</Text>
+</TouchableOpacity>
+</View>
+  
+ 
+
+
   </View>
 
-</View>
+
 </SafeAreaView>
   )
 }
