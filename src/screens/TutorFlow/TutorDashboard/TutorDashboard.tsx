@@ -15,6 +15,7 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-nati
 
 import Input from '../../../components/TextInput';
 import Button from '../../../components/Buttonnn';
+import Divider from '../../../components/Divider';
 
 
 
@@ -94,24 +95,24 @@ const renderItem=({ item }: { item: {id:number,name:string} })=>{
 <View className='flex-1 justify-evenly' >
   <View>
 <Username userType='Tutor'/>
+<Divider/>
   </View>
-  <View style={{top:hp('1%')}} className=' py-3'>
+  <View style={{top:hp('2%')}} className=' py-3'>
 
 <Box text='Connect to your google calendar to sync your sessions with your schedule. '/>
   </View>
 <View className='self-center py-3'>
- <Button
- title='Update Scehedule'
- onPress={()=>{alert('Pressed')}}
- color={Colors.orange}
- textSize={14}
- 
- /> 
+<TouchableOpacity 
+       style={{backgroundColor:Colors.orange}}
+       className='gap-x-1 my-3 flex-row items-center self-center px-6 py-2.5 rounded-full'>
+      
+        <Text style={{fontFamily:'PoppinsBold',color:Colors.white}} >Update Schedule</Text>
+       </TouchableOpacity>
 
 </View>
 
 
-<View className='px-5'>
+<View className='px-5 my-2'>
 <Text style={{fontFamily: 'PoppinsBold'}} className='text-base p-3'>Tutoruu Academy</Text>
     <View 
     className='p-5 px-10 m-1 self-center justify-evenly rounded-3xl ' style={{width:wp('95%'),
@@ -130,15 +131,16 @@ const renderItem=({ item }: { item: {id:number,name:string} })=>{
         </Text>
        <TouchableOpacity 
        style={{backgroundColor:Colors.orange}}
-       className='gap-x-1 my-3 flex-row items-center self-center px-5 py-3 rounded-full'>
-       <AntDesign name="videocamera" size={24} color={Colors.white} />
+       className='gap-x-2  mt-3 flex-row items-center justify-center self-center px-4 py-2 rounded-full'>
+      
+       <Entypo name="video-camera" size={22} color={Colors.white}/>
         <Text style={{fontFamily:'PoppinsBold',color:Colors.white}} >Watch</Text>
        </TouchableOpacity>
 
 
     </View>
 </View>
-<View className='px-5'>
+<View className='px-5 my-2'>
 <Text style={{fontFamily: 'PoppinsBold'}} className='text-base p-3'>Upcoming Sessions</Text>
     <View 
     className='p-5 px-10 m-1 self-center justify-evenly rounded-3xl ' style={{width:wp('95%'),

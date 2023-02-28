@@ -265,7 +265,15 @@ export const TutorInfo=
         {
             id: 0,
             type: 'online',
-            status: 'awaiting comfirmation',
+            status: 'completed',
+            time: "2.30 PM",
+            day: 'Monday',
+            title: 'Macro Economics 135'
+        },
+        {
+            id: 0,
+            type: 'online',
+            status: 'completed',
             time: "2.30 PM",
             day: 'Monday',
             title: 'Macro Economics 135'
