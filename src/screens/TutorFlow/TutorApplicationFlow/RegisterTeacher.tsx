@@ -10,6 +10,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import { FontAwesome } from '@expo/vector-icons';
 import { Classes } from '../../StudentFlow/DummyData'
 import Button from '../../../components/Buttonnn'
+import Card from '../../../components/Card'
 
 interface Props{
     navigation: any
@@ -34,11 +35,11 @@ const TutorRegister:React.FC<Props>=({navigation})=>{
 
             <Header headerTitle='Tutor Application'/>
            </View>
-           <View className='flex-1 my-1 justify-center'>
+           <View className='flex-1 my-1  justify-center'>
 
            <View className='px-5 py-3 border-b-2 border-gray-300'>
             <View className='flex-row gap-3 items-center'>
-            <View className='items-center justify-center gap-2 '>
+            <View className='items-center  p-1 justify-center gap-2 '>
             <Image
             source={require('./../../../../assets/dp.jpg')}
             className='h-20 w-20 rounded-full'
@@ -195,7 +196,17 @@ style={{width:wp('30%')}}
                 </View>
 <View className='px-2'>
     <Text style={{fontFamily:'PoppinsMedium'}} className='text-base px-3'>Tutoring Information</Text>
-    <Button
+   <View>
+    
+    <Text>Transcript</Text>
+    <Text>transcript_ragnar_2023.pdf</Text>
+   </View>
+</View>
+
+
+
+<View>
+<Button
     color={Colors.orange}
     title='Save'
     onPress={()=>{navigation.navigate('TutorApplicationConfirmation',{
@@ -203,10 +214,6 @@ style={{width:wp('30%')}}
     })}}
     />
 </View>
-
-
-
-
            </View>
     </KeyboardAvoidingView>
 </ScrollView>

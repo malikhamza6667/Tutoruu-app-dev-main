@@ -22,9 +22,11 @@ import Divider from '../../../components/Divider';
 
 
 
+interface Props{
+  navigation: any
+}
 
-
-const TutorDashboard = () => {
+const TutorDashboard:React.FC<Props> = ({navigation}) => {
     const windowWidth = useWindowDimensions().width;
     const[rate,setRate]=useState('175')
     const[isOn,setIsOn]=useState(true)
@@ -160,7 +162,9 @@ const renderItem=({ item }: { item: {id:number,name:string} })=>{
 
 
     </View>
-<TouchableOpacity className='self-center m-5'>
+<TouchableOpacity className='self-center m-5'
+onPress={()=>{navigation.navigate('TutorSessions')}}
+>
   <Text
   style={{fontFamily: 'PoppinsBold',color:Colors.orange}}
   >View All Sessions</Text>

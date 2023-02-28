@@ -247,13 +247,17 @@ export const TutorInfo=
             title: 'Macro Economics 135'
         },
         {
-            id: 0,
+            id: 1,
             type: 'online',
             status: 'comfirmed',
             time: "2.30 PM",
             day: 'Monday',
             title: 'Macro Economics 135'
         },
+        
+    ]
+
+    export const completedSessions=[
         {
             id: 0,
             type: 'online',
@@ -263,7 +267,7 @@ export const TutorInfo=
             title: 'Macro Economics 135'
         },
         {
-            id: 0,
+            id: 1,
             type: 'online',
             status: 'completed',
             time: "2.30 PM",
@@ -271,7 +275,7 @@ export const TutorInfo=
             title: 'Macro Economics 135'
         },
         {
-            id: 0,
+            id: 2,
             type: 'online',
             status: 'completed',
             time: "2.30 PM",
