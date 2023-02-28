@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet,SafeAreaView,TouchableOpacity ,FlatList,useWindowDimensions,ScrollView } from 'react-native'
+import { View, Text, StyleSheet,TouchableOpacity,SafeAreaView ,FlatList,useWindowDimensions,ScrollView } from 'react-native'
 import React,{useState,useEffect} from 'react'
 
 import { Entypo, FontAwesome,AntDesign,Fontisto,SimpleLineIcons,FontAwesome5 } from '@expo/vector-icons';
@@ -20,6 +20,8 @@ import Input from '../../../components/TextInput';
 
 
 
+
+
 const TutorDashboard = () => {
     const windowWidth = useWindowDimensions().width;
     const[rate,setRate]=useState('175')
@@ -28,6 +30,23 @@ const TutorDashboard = () => {
     const[columns,setColumns]=useState(2)
     const[loading,setLoading]=useState(false)
     const[key,setKey]=useState('')
+    const size = SubjectsOffered.length - 2;
+    const label = '+' + size.toString()
+
+
+    const [fullList, setFullList] = useState(false)
+    const [moreLabel, setMoreLabel] = useState(label)
+    const showFullListData = () => {
+      setFullList(!fullList)
+      if (fullList === true) {
+
+          setMoreLabel('+' + size.toString())
+      }
+      else {
+          setMoreLabel('-' + size.toString())
+      }
+  }
+
     const handleLayout = () => {
         const columnWidth =10;
         const maxNumColumns = Math.floor(windowWidth / columnWidth);
@@ -39,7 +58,7 @@ const TutorDashboard = () => {
         setColumns(numColumns);
         setKey(key => (key === '1' ? '2' : '1'));
       }, [windowWidth]);
-const renderItem=({item})=>{
+const renderItem=({ item }: { item: {id:number,name:string} })=>{
     
     return(
         <Chip
@@ -69,58 +88,62 @@ const renderItem=({item})=>{
     }
 
   return (
- <SafeAreaView className='flex-1 justify-center bg-white'>
-<View className='justify-evenly flex-1'>
-    <View>
-   <Username userType='Tutor'/>
-   <View className='border border-gray-400'></View>
-    </View>
-    <View>
-    <Box text='Connect to your google calendar to sync your sessions with your schedule. '/>
-    </View>
-   
+<SafeAreaView className='flex-1 justify-between bg-white'>
+<Username userType='Tutor'/>
+<View className='flex-1 pt-5 gap-2' >
+  <View >
+<Box text='Connect to your google calendar to sync your sessions with your schedule. '/>
+  </View>
+  <View className='flex-1 justify-center'>
+
+<ScrollView contentContainerStyle={{paddingBottom:5,justifyContent:'space-between'}}>
 
 
-    <View className='self-center p-7 ' style={{width:wp('90%'),
+
+    <View className='p-7 m-1 self-center justify-evenly rounded-3xl ' style={{width:wp('95%'),
   shadowColor: 'black',
   shadowOpacity: 0.3,
   shadowOffset: { width: 0, height: 2 },
-  elevation: 15,
+  elevation: 3,
   backgroundColor: Colors.white,
 }} >
     <Text style={{fontFamily: 'PoppinsBold'}} className='text-base'>Tutor Profile</Text>
-  <View className=' justify-between  ' onLayout={handleLayout} >
- 
-{ !loading && <FlatList
-data={SubjectsOffered}
-showsHorizontalScrollIndicator={false}
-contentContainerStyle={{padding:10}}
-horizontal
-renderItem={renderItem}
-key={key}
-keyExtractor={(item)=>{return item.id.toString()}}
-/>}
-    </View>      
+   
+                            <FlatList
+                                showsHorizontalScrollIndicator={false}
+                                data={SubjectsOffered}
+                                horizontal
+                                renderItem={renderItem}
+                                keyExtractor={(item: { id: { toString: () => any } }) => { return item.id.toString() }}
+                            />
+                      
+                        
+                        
+                       
+                    
+                   
 
-<View className='flex-row  justify-center gap-x-20 items-center'>
+          
+
+<View className='flex-row  justify-between items-center'>
   
-    <View style={{width:wp('40%')}}>
+    <View style={{width:wp('50%')}}>
     <Input
     value={rate}
 onChangeText={(text)=>{setRate(text)}}
 title='Rate'
     />
  </View>
- <View className='gap-2'>
+ <View >
 <Text style={{fontFamily: 'PoppinsMedium'}}>{isOn? 'In Person': 'Online'}</Text>
     <TouchableOpacity
 onPress={() => setIsOn(!isOn)}
 // style={{ marginRight: wp('3%') }}
 >
 {isOn ?
-    (<FontAwesome name="toggle-on" size={hp('4%')} color={Colors.orange} />)
+    (<FontAwesome name="toggle-on" size={hp('7%')} color={Colors.orange} />)
     :
-    (<FontAwesome name="toggle-off" size={hp('4%')} color={Colors.orange} />)
+    (<FontAwesome name="toggle-off" size={hp('7%')} color={Colors.orange} />)
 }
 </TouchableOpacity>
  </View>
@@ -132,35 +155,37 @@ onPress={() => setIsOn(!isOn)}
     </View>
 
 
-<View className='self-center p-7 ' style={{width:wp('90%'),
-  shadowColor: 'black',
-  shadowOpacity: 0.3,
-  shadowOffset: { width: 0, height: 2 },
-  elevation: 15,
-  backgroundColor: Colors.white,
-}}>
-<Text style={{fontFamily: 'PoppinsBold'}} className='text-base'>Tutor Academy</Text>
-    <View>
-        <Text>
+
+
+
+
+
+<View className='px-5'>
+<Text style={{fontFamily: 'PoppinsBold'}} className='text-base p-3'>Tutoruu Academy</Text>
+    <View 
+    className='p-7 px-10 m-1 self-center justify-evenly rounded-3xl ' style={{width:wp('95%'),
+    shadowColor: 'black',
+    shadowOpacity: 0.3,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 3,
+    backgroundColor: Colors.white,
+  }}
+    >
+        <Text style={{fontFamily: 'PoppinsMedium'}} className='text-base'>
         Episode 1 - Starting out with Tutoruu Academy
         </Text>
-        <Text>
+        <Text style={{fontFamily: 'PoppinsRegular'}} className='text-sm'>
         This lesson is an introduction to our Tutoruu Academy series where you will learn essential lessons to succeed in your Tutoring Journey.
         </Text>
 
 
     </View>
 </View>
-  
-   
-  
-    
-
-
-
+</ScrollView>
+  </View>
 
 </View>
- </SafeAreaView>
+</SafeAreaView>
   )
 }
 
@@ -227,3 +252,23 @@ export default TutorDashboard
 //   }
 
 // })
+
+
+{/* <SafeAreaView className='flex-1 justify-evenly '>
+   
+<View className='bg-green-400'>
+   <Username userType='Tutor'/>
+   <View className='border border-gray-400'></View>
+    </View>
+
+    <View className='bg-yellow-300 '>
+    <Box text='Connect to your google calendar to sync your sessions with your schedule. '/>
+    </View>
+   <ScrollView contentContainerStyle={{paddingBottom:20}}>
+
+  </View>   
+
+
+  
+   </ScrollView>
+</SafeAreaView> */}
