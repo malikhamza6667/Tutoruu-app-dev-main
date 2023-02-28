@@ -235,3 +235,39 @@ export const TutorInfo=
         
 
     ]
+
+
+   export  const sessions = [
+        {
+            id: 0,
+            type: 'online',
+            status: 'awaiting comfirmation',
+            time: "2.30 PM",
+            day: 'Monday',
+            title: 'Macro Economics 135'
+        },
+        {
+            id: 0,
+            type: 'online',
+            status: 'comfirmed',
+            time: "2.30 PM",
+            day: 'Monday',
+            title: 'Macro Economics 135'
+        },
+        {
+            id: 0,
+            type: 'online',
+            status: 'completed',
+            time: "2.30 PM",
+            day: 'Monday',
+            title: 'Macro Economics 135'
+        },
+        {
+            id: 0,
+            type: 'online',
+            status: 'awaiting comfirmation',
+            time: "2.30 PM",
+            day: 'Monday',
+            title: 'Macro Economics 135'
+        },
+    ]
