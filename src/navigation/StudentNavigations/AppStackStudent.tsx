@@ -40,6 +40,7 @@ const MainStack: React.FC = () => {
                 <Stack.Screen name='SessionConfirmationMain' component={SessionConfirmationMain} options={{ headerShown: (false) }} />
                 <Stack.Screen name='SessionReviewScreen' component={SessionReviewScreen} options={{ headerShown: (false) }} />
                 <Stack.Screen name='TutorAppStack' component={TutorAppStack} options={{ headerShown: (false) }} />
+                <Stack.Screen name='InboxScreen' component={InboxScreen} options={{ headerShown: (false) }} />
             </Stack.Navigator>
        
     )

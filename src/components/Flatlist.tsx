@@ -37,8 +37,9 @@ const messageData = [
 
 interface Props {
     view: string;
+    title?: string
 }
-const CardList: React.FC<Props> = ({ view }) => {
+const CardList: React.FC<Props> = ({ view,title }) => {
     const contextState = useContext(LanguageContext);
   
     let Strings: any = {}
@@ -76,7 +77,7 @@ const CardList: React.FC<Props> = ({ view }) => {
     return (
         <View>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Heading title={Strings.ST40} />
+                <Heading title={title?title: Strings.ST40} />
                 <FlatList
                     horizontal
                     showsHorizontalScrollIndicator={false}

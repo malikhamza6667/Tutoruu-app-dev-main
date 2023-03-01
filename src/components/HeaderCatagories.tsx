@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import {View ,Text,TouchableOpacity,FlatList } from 'react-native'
+import {View ,Text,TouchableOpacity,FlatList, ScrollView } from 'react-native'
 import Colors from "../../assets/Colors";
 
 interface Props{
@@ -29,12 +29,36 @@ touchableStyles='py-1 mx-1 rounded-xl'
 
 
        return(
-
-<View>
-        <FlatList
+<View >
+    <ScrollView contentContainerStyle={{padding:3,flexDirection:'row'}}>
+    {
+    data.map((item:{name:string,id:number},index:number)=>{
+        return(
+    
+            <TouchableOpacity 
+            onPress={()=>{
+            setSelectedIndex(index)
+            }}
+            
+            className={touchableStyles}
+            style={{backgroundColor: backgroundColor ? Colors.lightorange: index==selectedIndex ?  Colors.orange:Colors.gray,
+            paddingHorizontal: padding? padding: 15,
+            }}
+            
+            >
+                <Text
+                style={{fontFamily:'PoppinsMedium',color: backgroundColor ? Colors.orange: selectedIndex ==index ?Colors.white:Colors.black,
+            textTransform:'uppercase'}}
+                >{item.name}</Text>
+            </TouchableOpacity>
+        )
+    })
+  }
+    </ScrollView>
+        {/* <FlatList
        
         data={data}
-        horizontal
+      horizontal
         renderItem={({item,index}:{item:ListProps,index:number})=>{
            
 return(
@@ -58,11 +82,9 @@ return(
 )
         }}
         keyExtractor={(item)=>{return item.id.toString()}}
-        />
-
-
-
-      
+        /> */}
+  
+  
 </View>
     )
 }

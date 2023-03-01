@@ -14,7 +14,9 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '500',
         lineHeight: 24,
-        marginLeft: 10
+        marginLeft: 10,
+        fontFamily: 'PoppinsMedium',
+        textTransform: 'capitalize'
     }
 })
 

@@ -183,12 +183,16 @@ const {name}=route.params
       </View>
         <View className='flex-1 justify-evenly mt-2'>
 
-        <View 
+        <TouchableOpacity
            style={{  shadowColor: 'gray',
            shadowOpacity: 0.2,
            shadowOffset: { width: 2, height: 5 },
            elevation: 5,backgroundColor:Colors.white}}
-        className=' py-4 px-5 flex-row'>
+        className=' py-4 px-5 flex-row'
+        onPress={()=>{navigation.navigate('StudentProfileScreen',{
+          name
+        })}}
+        >
             
         <Image
         source={require('../../../../assets/dp.jpg')}
@@ -203,7 +207,7 @@ const {name}=route.params
         
 
         </View>
-        </View>
+      </TouchableOpacity>
       <GiftedChat
          messages={messages}
          onSend={onSend}

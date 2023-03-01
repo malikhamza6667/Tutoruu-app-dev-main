@@ -3,6 +3,7 @@ import {View,FlatList,TouchableOpacity,StyleSheet,Image,Text} from 'react-native
 import Colors from "../../assets/Colors";
 import { Feather,AntDesign,MaterialCommunityIcons,FontAwesome,EvilIcons } from '@expo/vector-icons';
 import HeaderCatagories from "./HeaderCatagories";
+import { widthPercentageToDP } from "react-native-responsive-screen";
 interface Props{
     data:any
 }
@@ -16,11 +17,12 @@ const PostCard:React.FC<Props>=({data})=>{
   const [Dislike, setDislike] = useState()
   const [Save, setSave] = useState()
     return(
-        <View>
+        <View className="self-center" style={{width: widthPercentageToDP('95%')}}>
  <FlatList
           showsVerticalScrollIndicator={false}
-          data={data.slice(0,1)}
-          
+          data={data}
+          horizontal
+          showsHorizontalScrollIndicator={false}
           // renderItem={RenderItem}
           renderItem={({ item }) => {
 
@@ -33,16 +35,22 @@ const PostCard:React.FC<Props>=({data})=>{
                 <View 
                 className=" rounded-3xl py-2 px-2 m-1 "
                 style={{ shadowColor: 'gray',
-                shadowOpacity: 0.2,
+                shadowOpacity: 0.1,
+                
                 shadowOffset: { width: 2, height: 5 },
-                elevation: 2,
-            
+                elevation: 5,
+                
+            width:widthPercentageToDP('92%'),
             backgroundColor:Colors.white}}>
                 <View className="flex-row items-center justify-evenly p-1">
-                    <View className=" px-5">
+                  <View className="flex-row items-center justify-evenly" style={{width:widthPercentageToDP('90%')}}>
+
+<View  style={{width:widthPercentageToDP('50%')}}>
                 <HeaderCatagories backgroundColor="yes" BorderRadius="yes" data={item.categories}/>
                         </View>
 <Text style={{fontFamily:'PoppinsMedium',color: Colors.gray}} >{item.time}</Text>
+                    </View>
+                
                     </View>
                 <View style={{ justifyContent: 'center', padding: 10 }}>
                   <View className="flex-row gap-1  items-center">

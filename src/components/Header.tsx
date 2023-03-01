@@ -4,18 +4,20 @@ import { useNavigation } from '@react-navigation/native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
-
+import { Ionicons } from '@expo/vector-icons';
+import Colors from '../../assets/Colors';
 interface Props {
     headerTitle: string;
+    ChatIcon?: boolean
 }
-const Header: React.FC<Props> = ({ headerTitle }) => {
+const Header: React.FC<Props> = ({ headerTitle,ChatIcon }) => {
     const navigation = useNavigation()
     return (
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}
-            className='gap-4 p-1'
+        <View style={{ flexDirection: 'row', alignItems: 'center',width: wp('100%') }}
+            className='justify-between px-2 py-4'
         >
 
-            <View>
+            <View className=' p-1'>
 
                 <TouchableOpacity
 
@@ -24,13 +26,30 @@ const Header: React.FC<Props> = ({ headerTitle }) => {
                 </TouchableOpacity>
             </View>
             <View
-                className='p-3'
-                style={{ flex: 0.8 }}
+                className='p-3 '
+                
             >
 
                 <Text
 
                     style={{ fontFamily: 'PoppinsMedium' }} className='self-center ' > {headerTitle} </Text>
+            </View>
+       <View
+               className='p-3 '
+            >{
+                ChatIcon && 
+                <TouchableOpacity
+                style={{backgroundColor:Colors.lightorange}}
+                className='p-3 mb-5 rounded-full'
+                onPress={()=>{navigation.goBack()}}
+                >
+
+                    <Ionicons name="chatbubbles" size={24} color={Colors.orange} />
+                </TouchableOpacity>
+
+            }
+                
+
             </View>
         </View>
     )
