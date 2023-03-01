@@ -103,10 +103,11 @@ const renderItem=({ item }: { item: {id:number,name:string} })=>{
 
 <Box text='Connect to your google calendar to sync your sessions with your schedule. '/>
   </View>
-<View className='self-center py-3'>
+<View className='self-center py-4'>
 <TouchableOpacity 
-       style={{backgroundColor:Colors.orange}}
-       className='gap-x-1 my-3 flex-row items-center self-center px-6 py-2.5 rounded-full'>
+       style={{backgroundColor:Colors.orange,width: wp('55%'),height: hp('5%')}}
+     
+       className='gap-x-1 my-3 flex-row items-center justify-center self-center px-6 py-2.5 rounded-full'>
       
         <Text style={{fontFamily:'PoppinsBold',color:Colors.white}} >Update Schedule</Text>
        </TouchableOpacity>
@@ -132,7 +133,7 @@ const renderItem=({ item }: { item: {id:number,name:string} })=>{
         This lesson is an introduction to our Tutoruu Academy series where you will learn essential lessons to succeed in your Tutoring Journey.
         </Text>
        <TouchableOpacity 
-       style={{backgroundColor:Colors.orange}}
+      style={{backgroundColor:Colors.orange,width: wp('30%'),height: hp('5%')}}
        className='gap-x-2  mt-3 flex-row items-center justify-center self-center px-4 py-2 rounded-full'>
       
        <Entypo name="video-camera" size={22} color={Colors.white}/>
@@ -142,7 +143,7 @@ const renderItem=({ item }: { item: {id:number,name:string} })=>{
 
     </View>
 </View>
-<View className='px-5 my-2'>
+<View className='px-5 my-2' >
 <Text style={{fontFamily: 'PoppinsBold'}} className='text-base p-3'>Upcoming Sessions</Text>
     <View 
     className='p-5 px-10 m-1 self-center justify-evenly rounded-3xl ' style={{width:wp('95%'),
