@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, FlatList, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, Image, ImageBackground } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import Colors from "../../assets/Colors";
@@ -159,14 +159,17 @@ const TutorCard: React.FC<Props> = ({ text, name, data, image, sessions }) => {
                     </TouchableOpacity>
 
                 </View>
-                <View style={{ justifyContent: 'center', bottom: 50, borderRadius: 50, shadowRadius: 10, alignSelf: 'flex-end' }}>
-                    {/* <Text className="self-center text-sm font-bold">270EGP</Text> */}
-                    <Image
-                        source={require('../../assets/newcardpic.jpg')}
-                        style={{ width: 110, height: 90, alignItems: 'flex-end', alignSelf: 'flex-end' }}
-                        resizeMode='contain'
-                    />
+                <ImageBackground
+                style={{ height:hp('10%'),width:wp('40%'),justifyContent: 'center', bottom: 50, borderRadius: 50, shadowRadius: 10, alignSelf: 'flex-end' }}
+                source={require('./../../assets/paymentback.jpg')}
+            resizeMode='contain'
+                >
+                <View >
+                    <Text className="self-center text-sm font-bold">270EGP</Text>
+                    
                 </View>
+
+                </ImageBackground>
 
             </View>
             <View className="justify-between flex-row">

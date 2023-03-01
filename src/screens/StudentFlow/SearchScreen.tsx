@@ -3,7 +3,8 @@ import {
     Text,
     View,
     StyleSheet,
-    SafeAreaView
+    SafeAreaView,
+    ScrollView
 } from "react-native";
 
 
@@ -15,7 +16,38 @@ import Spacer from "../../components/Spacer";
 import CardList from "../../components/Flatlist";
 import Languages from '../../languages';
 import LanguageContext from '../../languages/languageContext';
+import HeaderCatagories from "../../components/HeaderCatagories";
+import { SearchCatagories, TutorSubjects } from "./DummyData";
+import TutorCard from "../../components/TutorCard";
+import PostCard from "../../components/PostCard";
 
+
+const messageDataClasses=[
+    {
+        id: 1,
+        sender: 'Victoria Hanson',
+        email: '@vicky23hanson',
+        text: 'Lorem ipsum dolor sit amit dolor connectsur?',
+        senderType: 'user',
+        avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMLOPnljLnmpKl2N8pnDHZvxmF06ndBeGXQhZawvYMdjajyMu-gZx6ukTiYpPOBtgCEqI&usqp=CAU',
+        comments: 32,
+        likes: '1k',
+        dislikes: 7,
+        share:7,
+        categories:[
+            {
+                id: 0,
+                name: 'Auc'
+            },
+            {
+                id: 1,
+                name: 'Notes'
+            }
+        ],
+        time: '5 mins ago'
+        //image: 'https://www.bootdey.com/image/580x580/00BFFF/000000',
+      },
+]
 
 const SearchScreen: React.FC = () => {
     const contextState = useContext(LanguageContext);
@@ -37,27 +69,54 @@ const SearchScreen: React.FC = () => {
         }
     }
     return (
-       
+       <SafeAreaView className="flex-1 justify-center">
             <View 
-            style={{backgroundColor:Colors.white}}
+             style={{backgroundColor:Colors.white}}
             className="flex-1 justify-evenly ">
- <SafeAreaView / >
+ 
+
     <View>
 
             <Header headerTitle="Search" />
     </View>
-    <View 
-    style={{flex:0.9}}
-   >
-
-            <View style={styles.innerContainer}>
             <Spacer />
             <Bar/>
-            <Spacer />
-            <CardList view={Strings.ST31} />
-            </View>
+            <View className="py-3 px-2">
+        <HeaderCatagories activeBackgroundColor={Colors.lightorange} activeTitleColor={Colors.orange} data={SearchCatagories}/>
     </View>
+            <Spacer />
+    <ScrollView contentContainerStyle={{padding:5}}>
+    
+
+           
+            <View className='mx-1  mb-3 justify-center' >
+                            <Text
+                               style={{fontFamily:'PoppinsMedium'}}
+                                className='text-base text-center mx-3 self-start'>Tutor</Text>
+                            <TutorCard
+                                image='dp'
+                                data={TutorSubjects}
+                                name='Youssef Harron'
+                                sessions='4'
+                                text='PhD student in the Industrial & Systems Engineering Department…'
+                                key={'hamza'}
+                            />
+                        </View>
+                        <Spacer />
+                        
+            <CardList view={Strings.ST31} />
+            <Spacer />
+            <View className="py-2 my-2 justify-between">
+            <Text style={{fontFamily: 'PoppinsMedium'}} className='text-base px-2 mx-3 my-1 '>Posts</Text>
+           <PostCard data={messageDataClasses}/>
+         </View>
+            
+    
+            
+</ScrollView>
                 </View>
+
+       </SafeAreaView>
    
     )
 }

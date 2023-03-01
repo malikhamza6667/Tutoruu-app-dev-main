@@ -6,6 +6,8 @@ interface Props{
     data: any,
     padding?:string|undefined
     backgroundColor?: string|undefined
+    activeBackgroundColor?: string|undefined
+    activeTitleColor?: string|undefined
    
     BorderRadius?:string
 }
@@ -15,7 +17,7 @@ id: number
 name:string
 }
 
-const HeaderCatagories:React.FC<Props>=({data,padding,backgroundColor,BorderRadius})=>{
+const HeaderCatagories:React.FC<Props>=({data,padding,backgroundColor,BorderRadius,activeBackgroundColor,activeTitleColor})=>{
     let touchableStyles="  py-2 mx-1 rounded-full "
     if(BorderRadius){
 touchableStyles='py-1 mx-1 rounded-xl'
@@ -41,13 +43,13 @@ touchableStyles='py-1 mx-1 rounded-xl'
             }}
             
             className={touchableStyles}
-            style={{backgroundColor: backgroundColor ? Colors.lightorange: index==selectedIndex ?  Colors.orange:Colors.gray,
+            style={{backgroundColor: backgroundColor ? Colors.lightorange: index==selectedIndex ? activeBackgroundColor?activeBackgroundColor:  Colors.orange:'#F2F4F5',
             paddingHorizontal: padding? padding: 15,
             }}
             
             >
                 <Text
-                style={{fontFamily:'PoppinsMedium',color: backgroundColor ? Colors.orange: selectedIndex ==index ?Colors.white:Colors.black,
+                style={{fontFamily:'PoppinsMedium',color: backgroundColor ? Colors.orange: selectedIndex ==index ? activeTitleColor?activeTitleColor: Colors.white:Colors.black,
             textTransform:'uppercase'}}
                 >{item.name}</Text>
             </TouchableOpacity>

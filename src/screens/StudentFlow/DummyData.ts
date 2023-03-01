@@ -283,3 +283,29 @@ export const TutorInfo=
             title: 'Macro Economics 135'
         },
     ]
+
+
+    export const SearchCatagories = [
+   
+        {
+            id: 1,
+            name: 'All'
+        },
+        {
+            id: 2,
+            name: 'Classes'
+        },
+        {
+            id: 3,
+            name: 'Tutor'
+        },
+        {
+            id: 4,
+            name: 'Post'
+        },
+       
+       
+       
+    
+    
+    ]
