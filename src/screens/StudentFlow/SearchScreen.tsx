@@ -72,24 +72,24 @@ const SearchScreen: React.FC = () => {
        <SafeAreaView className="flex-1 justify-center">
             <View 
              style={{backgroundColor:Colors.white}}
-            className="flex-1 justify-evenly ">
+            className="flex-1 top-2 justify-evenly ">
+ 
+            <Header headerTitle="Search" />
+
  
 
-    <View>
-
-            <Header headerTitle="Search" />
-    </View>
             <Spacer />
             <Bar/>
+    
             <View className="py-3 px-2">
         <HeaderCatagories activeBackgroundColor={Colors.lightorange} activeTitleColor={Colors.orange} data={SearchCatagories}/>
     </View>
             <Spacer />
-    <ScrollView contentContainerStyle={{padding:5}}>
+    <ScrollView contentContainerStyle={{paddingTop:15,paddingBottom:10,paddingHorizontal:5}}>
     
 
            
-            <View className='mx-1  mb-3 justify-center' >
+            <View className='mx-1  mb-3 justify-center ' >
                             <Text
                                style={{fontFamily:'PoppinsMedium'}}
                                 className='text-base text-center mx-3 self-start'>Tutor</Text>
