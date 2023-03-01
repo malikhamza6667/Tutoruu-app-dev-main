@@ -160,8 +160,8 @@ const TutorCard: React.FC<Props> = ({ text, name, data, image, sessions }) => {
 
                 </View>
                 <ImageBackground
-                style={{ height:hp('10%'),width:wp('40%'),justifyContent: 'center', bottom: 50, borderRadius: 50, shadowRadius: 10, alignSelf: 'flex-end' }}
-                source={require('./../../assets/paymentback.jpg')}
+                style={{ height:hp('10%'),width:wp('30%'),justifyContent: 'center', bottom: 45, alignSelf: 'flex-end'}}
+                source={require('./../../assets/Egp.png')}
             resizeMode='contain'
                 >
                 <View >
