@@ -1,10 +1,11 @@
 import React, { useState,useEffect } from 'react';
 import { GiftedChat, IMessage, InputToolbar,Bubble,Send, Avatar, Composer } from 'react-native-gifted-chat';
-import { View,Text,Image,TextInput, TouchableOpacity, StyleSheet, SafeAreaView, AsyncStorage  } from 'react-native';
+import { View,Text,Image,TextInput, TouchableOpacity, StyleSheet, SafeAreaView, AsyncStorage, Modal  } from 'react-native';
 import Header from '../../../components/Header';
 import Colors from '../../../../assets/Colors';
 import { heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import RUUICARD from '../../../components/RuuiCard';
+import { StatusBar } from 'expo-status-bar';
 
 interface Props{
     navigation: any,
@@ -156,15 +157,19 @@ const InboxScreenRunAI: React.FC<Props> = ({navigation,route}) => {
 
 const[showRuuiCard,setShowRuuiCard]=useState(false)
 useEffect(()=>{
+  const isNewUser=()=>{
     AsyncStorage.getItem('RuuiFirstTime').then((val)=>{
-        console.log(val)
-        if(val=='FirstTimeCompleted'){
-            setShowRuuiCard(false)
-        }
-        else{
-            setShowRuuiCard(true)
-        }
-    })
+      console.log(val)
+      if(val=='FirstTimeCompleted'){
+          setShowRuuiCard(false)
+      }
+      else{
+          setShowRuuiCard(true)
+      }
+  })
+  }
+  isNewUser()
+    return console.log('cleanUp')
 },[])
 
   const [messages, setMessages] = useState<IMessage[]>([]);
@@ -190,71 +195,88 @@ useEffect(()=>{
   }, [])
   return (
     <SafeAreaView className='flex-1 justify-center'> 
-{
-    showRuuiCard ? <RUUICARD/> 
-    :
-    <View className='flex-1 bg-white justify-evenly'>
-        
-    <View className='justify-end ' style={{height: hp('12%')}}>
-       <Header headerTitle='Chats'/>
+
+<View className='flex-1 bg-white justify-evenly'>
+  <Modal
+  visible={showRuuiCard}
+  transparent={true}
+  statusBarTranslucent={true}
+  style={{flex:1, }}
+  onRequestClose={()=>{setShowRuuiCard(false)}}
+
+  >
+     <StatusBar style='inverted'/>
+  <View style={{
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 22,
+      backgroundColor: 'rgba(0,0,0,0.6)',
+    }}>
+
+      <RUUICARD onCancelPress={()=>{setShowRuuiCard(false)}}/> 
     </View>
-
-     
-       <View className='flex-1 justify-evenly'>
-
-       <TouchableOpacity
-          style={{  shadowColor: 'gray',
-          shadowOpacity: 0.2,
-          shadowOffset: { width: 2, height: 5 },
-          elevation: 5,borderColor:Colors.lightorange,borderWidth:2,
-          backgroundColor:Colors.white
-       
-       }}
-       className=' py-5 px-5 flex-row '
-      
-       >
-           
-       <Image
-       source={require('./../../../../assets/ruuai.png')}
-       resizeMode='contain'
-     
-       />
-       <View className='px-3 justify-center'   >
-    <View className='flex-row'>
-
-         <Text style={{fontFamily:'PoppinsBold'}} className='text-xl mr-2 justify-between'>RUU</Text>
-         <Text  style={{fontFamily:'PoppinsBold',color:Colors.orange}} className='text-xl justify-between'>AI</Text>
-       </View>
-
-       
-     
-       <Text style={{fontFamily:'PoppinsMedium',textTransform:'uppercase'}} className='text-sm'>Online</Text>
-
-       
-
-       </View>
-     </TouchableOpacity>
-     <GiftedChat
-        messages={messages}
-        onSend={onSend}
-        user={{
-          _id: 1,
-        }}
+  </Modal>
+ 
         
-        renderInputToolbar={CustomInputToolbar}
-      renderBubble={renderBubble}
-      renderSend={renderSend}
-renderAvatar={renderAvatar}
-messagesContainerStyle={{ paddingBottom:80,}}
-renderComposer={renderComposer}
-      showUserAvatar
-   
- alwaysShowSend   
-     />
+        <View className='justify-center' style={{height: hp('12%')}}>
+           <Header headerTitle='Chats'/>
+        </View>
+    
+         
+           <View className='flex-1 justify-evenly'>
+    
+           <TouchableOpacity
+              style={{  shadowColor: 'gray',
+              shadowOpacity: 0.2,
+              shadowOffset: { width: 2, height: 5 },
+              elevation: 5,borderColor:Colors.lightorange,borderWidth:2,
+              backgroundColor:Colors.white
+           
+           }}
+           className=' py-5 px-5 flex-row '
+          
+           >
+               
+           <Image
+           source={require('./../../../../assets/ruuai.png')}
+           resizeMode='contain'
+         
+           />
+           <View className='px-3 justify-center'   >
+        <View className='flex-row'>
+    
+             <Text style={{fontFamily:'PoppinsBold'}} className='text-xl mr-2 justify-between'>RUU</Text>
+             <Text  style={{fontFamily:'PoppinsBold',color:Colors.orange}} className='text-xl justify-between'>AI</Text>
+           </View>
+    
+           
+         
+           <Text style={{fontFamily:'PoppinsMedium',textTransform:'uppercase'}} className='text-sm'>Online</Text>
+    
+           
+    
+           </View>
+         </TouchableOpacity>
+         <GiftedChat
+            messages={messages}
+            onSend={onSend}
+            user={{
+              _id: 1,
+            }}
+            
+            renderInputToolbar={CustomInputToolbar}
+          renderBubble={renderBubble}
+          renderSend={renderSend}
+    renderAvatar={renderAvatar}
+    messagesContainerStyle={{ paddingBottom:80,}}
+    renderComposer={renderComposer}
+          showUserAvatar
+       
+     alwaysShowSend   
+         />
+           </View>
        </View>
-   </View>
-}
-   
     </SafeAreaView>
   );
 };
