@@ -12,9 +12,10 @@ type: string,
 status: string,
 title:string
 day: string
+onPress?: ()=>void
 }
 
-const SessionCard:React.FC<Props>=({time,type,status,title,day})=>{
+const SessionCard:React.FC<Props>=({time,type,status,title,day,onPress})=>{
 
     return(
         
@@ -73,6 +74,7 @@ const SessionCard:React.FC<Props>=({time,type,status,title,day})=>{
                                 </View>
                                 {
                                     status == 'awaiting comfirmation' && <TouchableOpacity 
+                                    onPress={onPress}
                                     style={{backgroundColor:Colors.orange}}
                                     className='self-end py-2.5 px-7 rounded-full'>
                                         <Text

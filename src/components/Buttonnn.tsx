@@ -1,5 +1,6 @@
 import React from "react";
 import { TouchableOpacity, Text,Image,View } from 'react-native'
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import Colors from "../../assets/Colors";
 
 interface Props {
@@ -10,7 +11,8 @@ interface Props {
     titleColor?: string
 textSize?: number
 disabled?:boolean
-
+width?:any
+height?:any
 }
 
 
@@ -41,8 +43,10 @@ const Button: React.FC<Props> = (props) => {
         
 
         <TouchableOpacity
-        style={{backgroundColor: props.disabled? Colors.gray: props.color,elevation:5}}
-            className=" h-12 px-3 my-3 rounded-full justify-center"
+        style={{backgroundColor: props.disabled? Colors.gray: props.color,elevation:5,
+            height: props.height?props.height: hp('7%'),
+            width:props.width?props.width: wp('90%')}}
+            className=" px-3 my-3 rounded-full justify-center"
             onPress={props.onPress}
         >
          {

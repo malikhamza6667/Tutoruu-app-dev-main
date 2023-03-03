@@ -10,19 +10,26 @@ import { completedSessions, sessions } from '../../StudentFlow/DummyData'
 
 import { heightPercentageToDP as hp,widthPercentageToDP as wp } from 'react-native-responsive-screen'
 
-const TutorSessions:React.FC =()=>{
+interface Props{
+    navigation:any
+}
+
+const TutorSessions:React.FC <Props>=({navigation})=>{
     return(
        <SafeAreaView className='justify-center flex-1 bg-white'>
 
         
            
-            <View className=' top-3 justify-evenly flex-1'>
+            <View className='  justify-center flex-1'>
+                <View className=' py-2' style={{height:hp('20%')}}>
+
             <Header headerTitle='Sessions'/>
             <Box text='Connect to your google calendar to sync your sessions with your schedule. '/>
-<View className=' gap-y-3'>
+                </View>
 
-            <View className='px-5'>
-            <Text style={{fontFamily: 'PoppinsBold'}} className='text-base p-3'>Upcoming Sessions</Text>
+
+            <View className='px-3 ' style={{height: hp('80%')}}>
+            <Text style={{fontFamily: 'PoppinsBold'}} className='text-base  px-4 py-2'>Upcoming Sessions</Text>
 <View  style={{height:hp('35%')}}>
             <FlatList
             showsVerticalScrollIndicator={false}
@@ -38,7 +45,9 @@ const TutorSessions:React.FC =()=>{
                         title={item.title}
                         time={item.time}
                         type={item.type}
-                        
+                        onPress={()=>{navigation.navigate('SessionsConfirmation',{
+                            item
+                        })}}
                         />
                     
                     
@@ -51,9 +60,9 @@ const TutorSessions:React.FC =()=>{
             />
 
 </View>
-            </View>
-            <View className='px-5' style={{height:hp('35%')}}>
-            <Text style={{fontFamily: 'PoppinsBold'}} className='text-base p-3'>Past Sessions</Text>
+          
+            <View className=' p-2 ' style={{height:hp('40%')}}>
+            <Text style={{fontFamily: 'PoppinsBold'}} className='text-base p-2'>Past Sessions</Text>
 
             <FlatList
             contentContainerStyle={{paddingBottom:10}}
@@ -61,7 +70,7 @@ const TutorSessions:React.FC =()=>{
             data={completedSessions}
             renderItem={({item})=>{
                 return(
-                    <View    className="w-auto rounded-2xl py-1 px-4 m-2 "
+                    <View   className="w-auto rounded-2xl py-1 px-4 m-2 "
                     style={styles.listCard}>
 
                        <SessionCard

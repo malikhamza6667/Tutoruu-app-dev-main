@@ -18,6 +18,7 @@ import SessionConfirmationMain from '../../screens/StudentFlow/SessionConfirmati
 import ClassesMainScreen from '../../screens/StudentFlow/ClassScreen';
 import ChatScreen from '../../screens/StudentFlow/Chat/ChatScreen';
 import TutorApplicationFlowStack from './TeacherApplicationFlow';
+import InboxScreenRunAI from '../../screens/StudentFlow/RunAi/RunAiInbox';
 
 
 
@@ -132,6 +133,20 @@ headerTitleAlign:'center',
               </TouchableOpacity>
             </View>
             ]
+        }} />
+      <Drawer.Screen
+        name='InboxScreenRunAI'
+        component={InboxScreenRunAI}
+        options={{
+          headerShown: (false),
+          drawerLabel: 'Run AI',
+          drawerIcon: ({ focused, size }) => (
+            <AntDesign
+              name="user"
+              size={size}
+              color={Colors.black}
+            />
+          )
         }} />
       <Drawer.Screen
         name='Profile'
