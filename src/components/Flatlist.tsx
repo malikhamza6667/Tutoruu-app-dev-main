@@ -7,6 +7,7 @@ import {
     StyleSheet,
     ScrollView
 } from 'react-native'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
 import Colors from "../../assets/Colors";
@@ -39,21 +40,21 @@ interface Props {
     view: string;
     title?: string
 }
-const CardList: React.FC<Props> = ({ view,title }) => {
+const CardList: React.FC<Props> = ({ view, title }) => {
     const contextState = useContext(LanguageContext);
-  
+
     let Strings: any = {}
     if (contextState != null) {
 
-      const  language = contextState.language
+        const language = contextState.language
         if (language === 'es') {
             Strings = Languages[0].texts
 
         }
-       else if (language === 'en'){
-            Strings = Languages[1].texts  
+        else if (language === 'en') {
+            Strings = Languages[1].texts
         }
-        else{
+        else {
             //default language if not any language provided
             Strings = Languages[0].texts
         }
@@ -77,7 +78,7 @@ const CardList: React.FC<Props> = ({ view,title }) => {
     return (
         <View>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Heading title={title?title: Strings.ST40} />
+                <Heading title={title ? title : Strings.ST40} />
                 <FlatList
                     horizontal
                     showsHorizontalScrollIndicator={false}
@@ -93,35 +94,37 @@ const CardList: React.FC<Props> = ({ view,title }) => {
 const styles = StyleSheet.create({
 
     container: {
-        flex: 1,
-        marginTop: 40,
+        // flex: 1,
+        // marginTop: 40,
     },
     card: {
-        shadowColor: 'gray',
+        shadowColor: 'black',
         shadowOpacity: 0.2,
-        shadowOffset: { width: 2, height: 5 },
+        shadowOffset: { width: 0, height: 2 },
         elevation: 2,
-        height: 112,
-        width: 304,
+        // height: 112,
+        height: hp('13'),
+        width: wp('75'),
+        shadowRadius: 5,
         backgroundColor: Colors.white,
         alignSelf: 'center',
         borderRadius: 20,
         alignItems: 'center',
-        margin: 10,
+        margin: hp('1'),
         justifyContent: 'center',
-        padding: 5,
+        padding: hp('0.8'),
         flexDirection: 'row'
     },
     cardText: {
-        fontSize: 16,
-        fontWeight: '400',
+        fontSize: hp('1.8'),
+       fontFamily:'PoppinsRegular',
         lineHeight: 24,
         color: Colors.black,
-        alignSelf: 'stretch'
+        // alignSelf: 'stretch'
     },
     subject: {
-        fontSize: 12,
-        fontWeight: '500',
+        fontSize: hp('1.5'),
+        fontFamily:'PoppinsMedium',
         lineHeight: 18,
         color: Colors.orange,
         alignSelf: 'flex-start',

@@ -68,7 +68,8 @@ const ToggleButtons: React.FC = () => {
                     // backgroundColor: 'pink',
                     backgroundColor: Colors.white,
                     width: wp('100%'),
-                    padding: hp('1')
+                    padding: hp('1'),
+                    marginTop:hp('1')
                 }}>
                 <ScrollView
                     horizontal
@@ -96,7 +97,7 @@ const ToggleButtons: React.FC = () => {
                         setFocused3(false);
                         setFocused4(false);
                     }}>
-                        <Text style={[styles.text, { color: focused2 ? Colors.orange : Colors.black }]}>General </Text>
+                        <Text style={[styles.text, { color: focused2 ? Colors.orange : Colors.black }]}>GENERAL </Text>
                         {focused2 ? <AntDesign name="caretdown" size={hp('1.3')} color={color} style={{ alignSelf: 'center' }} /> : null}
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.btn, { backgroundColor: focused3 ? Colors.lightorange : Colors.background }]} onPress={() => {
@@ -106,7 +107,7 @@ const ToggleButtons: React.FC = () => {
                         setFocused3(true);
                         setFocused4(false);
                     }}>
-                        <Text style={[styles.text, { color: focused3 ? Colors.orange : Colors.black }]}>Questions </Text>
+                        <Text style={[styles.text, { color: focused3 ? Colors.orange : Colors.black }]}>QUESTIONS </Text>
                         {focused3 ? <AntDesign name="caretdown" size={hp('1.3')} color={color} style={{ alignSelf: 'center' }} /> : null}
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.btn, { backgroundColor: focused4 ? Colors.lightorange : Colors.background }]} onPress={() => {
@@ -117,7 +118,7 @@ const ToggleButtons: React.FC = () => {
                         setFocused4(true);
                         setFocused5(false);
                     }}>
-                        <Text style={[styles.text, { color: focused4 ? Colors.orange : Colors.black }]}>Tips & Tricks</Text>
+                        <Text style={[styles.text, { color: focused4 ? Colors.orange : Colors.black }]}>TIPS $ TRICKS</Text>
                         {focused4 ? <AntDesign name="caretdown" size={hp('1.3')} color={color} style={{ alignSelf: 'center' }} /> : null}
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.btn, { backgroundColor: focused5 ? Colors.lightorange : Colors.background }]} onPress={() => {
@@ -128,7 +129,7 @@ const ToggleButtons: React.FC = () => {
                         setFocused4(false);
                         setFocused5(true);
                     }}>
-                        <Text style={[styles.text, { color: focused5 ? Colors.orange : Colors.black }]}>Tips & Tricks</Text>
+                        <Text style={[styles.text, { color: focused5 ? Colors.orange : Colors.black }]}>TIPS $ TRICKS</Text>
                         {focused5 ? <AntDesign name="caretdown" size={hp('1.3')} color={color} style={{ alignSelf: 'center' }} /> : null}
                     </TouchableOpacity>
 
@@ -149,10 +150,12 @@ const ToggleButtons: React.FC = () => {
 }
 const styles = StyleSheet.create({
     btn: {
-        padding: hp('0.7'),
+        paddingHorizontal: hp('.9'),
+        paddingVertical:hp('0.7'),
         margin: hp('0.5'),
         borderRadius: hp('1.5'),
         flexDirection: "row",
+        // width:wp('20%')
         // height:30,
         // width:69
     },
@@ -178,7 +181,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 12,
-        fontWeight: '500',
+        fontFamily:'PoppinsMedium',
         lineHeight: 18
     }
 })
