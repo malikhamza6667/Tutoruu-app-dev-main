@@ -21,6 +21,7 @@ import TutorApplicationFlowStack from './TeacherApplicationFlow';
 import InboxScreenRunAI from '../../screens/StudentFlow/RunAi/RunAiInbox';
 
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import BAPScreen from '../../screens/StudentFlow/Bap/BapScreen';
 
 
 const Drawer = createDrawerNavigator();
@@ -149,7 +150,21 @@ const Root: React.FC<Props> = ({ navigation }) => {
         component={InboxScreenRunAI}
         options={{
           headerShown: (false),
-          drawerLabel: 'Run AI',
+          drawerLabel: 'Ruu AI',
+          drawerIcon: ({ focused, size }) => (
+            <AntDesign
+              name="user"
+              size={size}
+              color={Colors.black}
+            />
+          )
+        }} />
+      <Drawer.Screen
+        name='BAPScreen'
+        component={BAPScreen}
+        options={{
+          headerShown: (false),
+          drawerLabel: 'Brand Ambassador Program',
           drawerIcon: ({ focused, size }) => (
             <AntDesign
               name="user"

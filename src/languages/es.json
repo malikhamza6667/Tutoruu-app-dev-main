@@ -73,14 +73,19 @@
   "ST72": "matricularse en Tutoruu",
   "ST73": "Ya tienes una cuenta ? ",
   "ST74": "Olvidaste tu contraseña ",
-  "ST75":"Leave your email and we’ll send you a link to update your password and log into your account ",
+  "ST75":"Deje su correo electrónico y le enviaremos un enlace para actualizar su contraseña e iniciar sesión en su cuenta",
   "ST76": "actualiza tu contraseña ",
-  "ST77":"Update your password and log into your account",
+  "ST77":"Actualice su contraseña e inicie sesión en su cuenta",
   "ST78": "revisa tu correo",
-  "ST79":"Click on the magic link you just received to verify it’s really you.",
+  "ST79":"Haz clic en el enlace mágico que acabas de recibir para verificar que realmente eres tú.",
   "ST80":"próximas sesiones",
   "ST81":"ver todas las sesiones",
   "ST82":"completa la configuración de tu cuenta",
   "ST83":"Recomendaciones de tutores",
-  "ST84":"Elija una ubicación"
+  "ST84":"Elija una ubicación",
+  "ST85":"¿Qué es el Programa de Embajadores de Marca?",
+  "ST86":"Es una campaña de marketing que pone el mensaje de nuestra empresa en manos de embajadores con objetivos específicos en mente, como mejorar las ventas, cultivar una reputación y generar reconocimiento de marca.",
+  "ST87":"Como embajador de la marca, se espera que publique el mensaje de Tutoruu a través de contenido generado por el usuario, marketing de afiliación y trucos de concientización.",
+  "ST88":"La función de este puesto es dar a conocer Tutoruu dentro y fuera del campus, para alcanzar un índice de rendimiento clave (KPI) específico.",
+  "ST89":"La compensación por este puesto es de 5000 EGP por semestre. Si cree que tiene lo que se necesita, complete el formulario a continuación para recibir más detalles."
 }
