@@ -36,7 +36,7 @@ const BAPScreen:React.FC<Props>=({navigation})=>{
 
     </View>
     <View className='px-5 justify-start gap-y-5 order-1' style={{height:hp('85%')}}>
-     <Text style={{fontFamily: 'PoppinsBold',lineHeight: 24,alignSelf: 'stretch'}} className=' pr-3 text-base'>{Strings.ST85}</Text>
+     <Text style={{fontFamily: 'PoppinsBold',lineHeight: 24,alignSelf: 'stretch',}} className=' pr-3 text-base'>{Strings.ST85}</Text>
      <Text style={{fontFamily: 'PoppinsRegular'}} className='text-sm'>{Strings.ST86}</Text>
      <Text style={{fontFamily: 'PoppinsRegular'}} className='text-sm'>{Strings.ST87}</Text>
      <Text style={{fontFamily: 'PoppinsRegular'}} className='text-sm'>{Strings.ST88}</Text>
