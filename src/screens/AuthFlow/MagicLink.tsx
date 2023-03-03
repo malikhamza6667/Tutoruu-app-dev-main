@@ -6,9 +6,10 @@ import Button from '../../components/Buttonnn'
 import Colors from '../../../assets/Colors'
 import Languages from '../../languages'
 import LanguageContext from '../../languages/languageContext'
-import { Fontisto } from '@expo/vector-icons';
+import { Fontisto ,FontAwesome} from '@expo/vector-icons';
 import RouteNames from '../RouteNames'
-
+import { heightPercentageToDP as hp ,widthPercentageToDP as wp} from 'react-native-responsive-screen'
+import AuthHeader from '../../components/AuthHeader'
 
 interface Props {
     navigation: any
@@ -36,39 +37,38 @@ const MagicLink: React.FC<Props> = ({ navigation }) => {
     }
     return (
   
-
-            <View 
-            style={{backgroundColor:Colors.orange}}
-            className='flex-1 justify-between'>
-                <SafeAreaView/>
-                <StatusBar style='light' />
-                <View className='self-center '>
-                    <Image
-                        source={require('../../../assets/authlogo.png')}
-                        resizeMode='contain'
-                        className='h-40 w-40'
-                    />
-                </View>
-                <View style={{flex:0.6}}>
-                    <View className='justify-center items-center'>
-
-                        <Fontisto name="email" size={60} color="white" />
-                    </View>
-                    <View className='self-center justify-center m-5 items-center'>
-
-                        <Text className='text-white text-2xl text-center font-bold self-center'>
-                            {Strings.ST78}!
-                        </Text>
-                        <Text className='text-white text-sm text-center  self-center'>
-                            {Strings.ST79}
-                        </Text>
-                    </View>
-
-
-                </View>
-
+<SafeAreaView className='flex-1 justify-center'>
+<StatusBar style='light' />
+    <View 
+    style={{backgroundColor:Colors.orange}}
+    className='flex-1 justify-evenly'>
+       
+      <AuthHeader/>
+        <View style={{height: hp('90%')}} className='justify-center pb-16'>
+            <View className='justify-center items-center'>
+          
+                <Fontisto name="email" size={60} color="white" />
             </View>
-      
+            <View className='self-center justify-center m-5 items-center'>
+
+                <Text
+                style={{fontFamily: 'PoppinsBold'}}
+                className='text-white text-xl text-center  self-center'>
+                    {Strings.ST78}!
+                </Text>
+                <Text 
+                 style={{fontFamily: 'PoppinsRegular'}}
+                className='text-white px-3 text-sm text-center  self-center'>
+                    {Strings.ST79}
+                </Text>
+            </View>
+
+
+        </View>
+
+    </View>
+
+</SafeAreaView>
     )
 }
 export default MagicLink;

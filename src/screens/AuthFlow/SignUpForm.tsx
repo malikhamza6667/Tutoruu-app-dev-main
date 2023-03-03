@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native'
+import { View, Text, Image, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, ScrollView } from 'react-native'
 import Input from '../../components/TextInput'
 import { StatusBar } from 'expo-status-bar'
 import Languages from '../../languages'
@@ -9,7 +9,7 @@ import RouteNames from '../RouteNames'
 import Button from '../../components/Buttonnn'
 import Colors from '../../../assets/Colors'
 import { Picker } from '@react-native-picker/picker';
-
+import { heightPercentageToDP as hp ,widthPercentageToDP as wp} from 'react-native-responsive-screen'
 interface Props {
     navigation: any
 }
@@ -43,65 +43,80 @@ const SignUpForm: React.FC<Props> = ({ navigation }) => {
     }
     return (
        
-
+<SafeAreaView className='flex-1 justify-center'>
+<StatusBar style='light' />
             <View 
             style={{backgroundColor:Colors.orange}}
             className='flex-1 justify-center'>
-                <SafeAreaView/>
-                <StatusBar style='light' />
-                <View className=' h-20 justify-center' >
+
+              
+             
+            
+              
+                <View className='justify-center' style={{height: hp('10%'),top: hp('2%')}}>
                     <Image
                         source={require('../../../assets/authlogo.png')}
                         resizeMode='contain'
-                        className='h-48 w-48 self-center'
+                        className='h-40 w-40 self-center'
                     />
                 </View>
-                <View>
+                <View className=' py-7' style={{height: hp('85%')}}>
 
                     <Text
                     style={{fontFamily:'PoppinsBold'}}
-                    className='text-white text-2xl py-2  self-center'>
+                    className='text-white text-xl py-2  self-center'>
                         {Strings.ST72}
                     </Text>
-                    <View className='bg-white p-3 mx-3 my-2 justify-center rounded-2xl'>
+                    <View className='bg-white py-4 mx-3 my-2 items-center justify-center rounded-[20px]'>
+                       <View>
+
                         <Input
                             value={name}
                             title='Name'
                             placeholder='Enter Your Name'
                             onChangeText={(text) => { setName(text) }}
                         />
+                       </View>
+                       <View>
+
                         <Input
                             value={email}
                             title='Email'
                             placeholder='Enter Your Email'
                             onChangeText={(text) => { setEmail(text) }}
                         />
+                       </View>
                         <View className='flex-row justify-between'>
-<View  style={{width:175}}
->
+
+
+<View>
 
                             <Input
                                 value={userName}
                                 title='User Name'
+                                width={wp('45%')}
                                 placeholder='Enter A UserName'
                                 onChangeText={(text) => { setUserName(text) }}
                             />
 </View>
+
+
+
                             <View 
-                          
-                            className=" flex-1 p-1 pl-5 ">
+                          className=' justify-center items-end gap-y-1.5 pb-1'
+                            style={{width: wp('40%')}}>
                                 <Text
                                  style={{fontFamily:'PoppinsMedium'}}
-                                    className="text-center mx-3  text-sm  self-start"
+                                    className="text-center   text-sm  self-center"
                                 >University</Text>
                                 <View
-                               
+                                style={{width: wp('32%'),justifyContent:'center',height: hp('5%')}}
                                     className=" border border-gray-300 h-11 w-fit rounded-3xl"
-                                  style={{justifyContent:'center',marginVertical:5,}}
+                                 
                                 >
                                     <Picker
                             placeholder='Select Your Uni'
-                           style={{color: 'black'}}
+                           
                            
                                         selectedValue={selectedUni}
                                         onValueChange={(itemValue, itemIndex) =>
@@ -116,6 +131,7 @@ const SignUpForm: React.FC<Props> = ({ navigation }) => {
                             </View>
 
                         </View>
+<View>
 
                         <Input
                             value={phoneNo}
@@ -124,6 +140,9 @@ const SignUpForm: React.FC<Props> = ({ navigation }) => {
                             onChangeText={(text) => { setPhoneNo(text) }}
 
                         />
+</View>
+<View>
+
                         <Input
                             value={password}
                             title='Password'
@@ -131,6 +150,10 @@ const SignUpForm: React.FC<Props> = ({ navigation }) => {
                             onChangeText={(text) => { setPassword(text) }}
 
                         />
+</View>
+
+<View>
+
                         <Input
                             value={confirmPassword}
                             title='Confirm Password'
@@ -138,9 +161,14 @@ const SignUpForm: React.FC<Props> = ({ navigation }) => {
                             onChangeText={(text) => { setConfirmPassword(text) }}
 
                         />
+</View>
                         <Button
+                        
+                        height={hp('5%')}
+                        width={wp('85%')}
                             color={Colors.orange}
                             title='Create Account'
+                           
                             //image='https://png.pngtree.com/png-vector/20190411/ourmid/pngtree-vector-forward-icon-png-image_925823.jpg'
                             image='arrowright'
                             onPress={() => {
@@ -167,7 +195,9 @@ const SignUpForm: React.FC<Props> = ({ navigation }) => {
 
                     </View>
                 </View>
+              
             </View>
+</SafeAreaView>
         
     )
 }

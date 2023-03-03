@@ -21,6 +21,7 @@ const Input: React.FC<Props> = (props) => {
     let inputStyles='  px-5 py-2 my-1 text-sm  border border-gray-300 rounded-3xl'
 
     return (
+        
         <View className="my-0.5 w-full  ">
             <Text
             style={{fontFamily:'PoppinsMedium'}}
@@ -30,7 +31,7 @@ const Input: React.FC<Props> = (props) => {
             <TextInput
             multiline={props.multiline}
             className={inputStyles}
-            style={{fontFamily:'PoppinsRegular',width: props.width?props.width:wp('90%')
+            style={{fontFamily:'PoppinsRegular',width: props.width?props.width:wp('85%')
             
             ,height:props.height? props.height: hp('5%'),alignItems:'flex-start'}}
         

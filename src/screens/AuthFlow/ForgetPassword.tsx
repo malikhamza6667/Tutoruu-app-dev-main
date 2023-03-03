@@ -10,7 +10,8 @@ import { AntDesign } from '@expo/vector-icons';
 import RouteNames from '../RouteNames'
 import Button from '../../components/Buttonnn'
 import Colors from '../../../assets/Colors'
-
+import { heightPercentageToDP as hp ,widthPercentageToDP as wp} from 'react-native-responsive-screen'
+import AuthHeader from '../../components/AuthHeader'
 interface Props {
     navigation: any
 }
@@ -37,30 +38,30 @@ const ForgetPassword: React.FC<Props> = ({ navigation }) => {
     }
     return (
       
-
+<SafeAreaView className='flex-1 justify-center'>
+<StatusBar style='light' />
             <View className='flex-1 justify-between '
             style={{backgroundColor:Colors.orange}}
             >
                 <SafeAreaView/>
-                <StatusBar style='light' />
-                <View className='self-center h-30'>
-                    <Image
-                        source={require('../../../assets/authlogo.png')}
-                        resizeMode='contain'
-                        className='h-40 w-40'
-                    />
-                </View>
-                <View style={{flex:0.7}}>
+              
+            <AuthHeader/>
+                <View style={{height: hp('90%')}} className='justify-center pb-16'>
                     <View className='self-center justify-center m-5 items-center'>
 
-                        <Text className='text-white text-2xl text-center font-bold self-center'>
+                        <Text
+                        style={{fontFamily:'PoppinsBold'}}
+                        className='text-white text-xl text-center self-center'>
                             {Strings.ST74}
                         </Text>
-                        <Text className='text-white text-sm text-center  self-center'>
+                        <Text 
+                        style={{fontFamily:'PoppinsRegular'}}
+                        className='text-white text-sm text-center px-4 py-2 self-center'>
                             {Strings.ST75}
                         </Text>
                     </View>
-                    <View className='bg-white m-4 p-5 justify-center rounded-xl'>
+                    <View className='bg-white mx-4 p-5 items-center justify-center rounded-[20px]'>
+                       <View>
                         <Input
                             value={email}
                             title='Email'
@@ -68,7 +69,11 @@ const ForgetPassword: React.FC<Props> = ({ navigation }) => {
                             onChangeText={(text) => { setEmail(text) }}
                         />
 
+                       </View>
+
                         <Button
+                        height={hp('5%')}
+                        width={wp('85%')}
                         image='arrowright'
                             color={Colors.orange}
                             title='Send Password Reset Link'
@@ -81,6 +86,7 @@ const ForgetPassword: React.FC<Props> = ({ navigation }) => {
                 </View>
 
             </View>
+</SafeAreaView>
     
     )
 }

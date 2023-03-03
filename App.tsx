@@ -5,17 +5,16 @@ import LanguageContext from './src/languages/languageContext';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { View } from 'react-native';
-import MainStack from './src/navigation/StudentNavigations/AppStackStudent';
+
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
-import TutorAppStack from './src/navigation/TutorNavigations/TutorAppStack';
-import StudentStackMain from './src/navigation/StudentNavigations/StudentMainStack';
+
+import MainAppRoutes from './src/navigation/AppRoutes/MainNavigationRoutes';
 const App: React.FC = () => {
 
   return (
     <NavigationContainer>
-      <StudentStackMain />
-      {/* <TutorAppStack/> */}
+   <MainAppRoutes/>
     </NavigationContainer>
   );
 }

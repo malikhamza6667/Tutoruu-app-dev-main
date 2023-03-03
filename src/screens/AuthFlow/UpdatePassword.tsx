@@ -10,7 +10,8 @@ import LanguageContext from '../../languages/languageContext'
 import { AntDesign } from '@expo/vector-icons';
 import RouteNames from '../RouteNames'
 
-
+import { heightPercentageToDP as hp,widthPercentageToDP as wp } from 'react-native-responsive-screen'
+import AuthHeader from '../../components/AuthHeader'
 interface Props {
     navigation: any
 }
@@ -37,32 +38,31 @@ const UpdatePassword: React.FC<Props> = ({ navigation }) => {
         }
     }
     return (
-    
-
+    <SafeAreaView className='flex-1 justify-center'>
+   <StatusBar style='light' />
             <View className='flex-1 justify-between'
             style={{backgroundColor:Colors.orange}}
             >
-                <SafeAreaView/>
-                <StatusBar style='light' />
-                <View className='self-center h-30'>
-                    <Image
-                        source={require('../../../assets/authlogo.png')}
-                        resizeMode='contain'
-                        className='h-40 w-40'
-                    />
-                </View>
-                <View style={{flex:0.9,paddingVertical:10}}>
+               
+             
+               <AuthHeader/>
+                <View style={{height: hp('85%')}} className='justify-center pb-20 '>
                     <View className='self-center justify-center m-5 items-center'>
 
-                        <Text className='text-white text-2xl text-center font-bold self-center'>
+                        <Text 
+                        style={{fontFamily: 'PoppinsBold'}}
+                        className='text-white text-xl text-center  self-center'>
                             {Strings.ST76}
                         </Text>
-                        <Text className='text-white text-lg text-center  self-center'>
+                        <Text 
+                         style={{fontFamily: 'PoppinsRegular'}}
+                        className='text-white text-sm px-4 py-2 text-center  self-center'>
                             {Strings.ST77}
                         </Text>
                     </View>
 
-                    <View className='bg-white m-4 p-5 py-6 justify-center rounded-xl'>
+                    <View className='bg-white mx-4 px-3 py-6 items-center justify-center rounded-[20px]'>
+<View>
 
                         <Input
                             value={password}
@@ -71,6 +71,9 @@ const UpdatePassword: React.FC<Props> = ({ navigation }) => {
                             onChangeText={(text) => { setPassword(text) }}
                             secureTextEntry
                         />
+</View>
+<View>
+
                         <Input
                             value={confirmPassword}
                             title='Confirm Password'
@@ -78,7 +81,10 @@ const UpdatePassword: React.FC<Props> = ({ navigation }) => {
                             onChangeText={(text) => { setConfirmPassword(text) }}
                             secureTextEntry
                         />
+</View>
                         <Button
+                        height={hp('5%')}
+                        width={wp('85%')}
                         image='arrowright'
                             color={Colors.orange}
                             title='Update Password'
@@ -91,6 +97,8 @@ const UpdatePassword: React.FC<Props> = ({ navigation }) => {
                 </View>
 
             </View>
+    </SafeAreaView>
+
     
     )
 }

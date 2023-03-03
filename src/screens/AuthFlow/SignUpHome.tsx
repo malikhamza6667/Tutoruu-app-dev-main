@@ -8,6 +8,8 @@ import Languages from '../../languages'
 import LanguageContext from '../../languages/languageContext'
 
 import RouteNames from '../RouteNames'
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
+import AuthHeader from '../../components/AuthHeader'
 
 
 interface Props {
@@ -36,37 +38,28 @@ const SignUpHome: React.FC<Props> = ({ navigation }) => {
     return (
   
         <SafeAreaView style={{flex:1,backgroundColor:Colors.orange,justifyContent:'space-around'}}>
-
+  <StatusBar style='light' />
 <View
         style={{ flex:1 }}
-        className='justify-evenly'>
-                <StatusBar style='light' />
+        className='justify-center'>
+              
                 
+              <AuthHeader/>
                 <View 
-          style={{flex:0.2}}
-          className=' mt-3 items-center'>
-              <Image
-                  source={require('../../../assets/authlogo.png')}
-                  resizeMode='contain'
-                  className='w-48 h-48'
-              />
-
-
-          </View>
-                <View 
-               style={{flex:0.8}}
-                className=' justify-center' >
+               style={{height:hp('90%')}}
+                className='justify-center ' >
 
                     <Text
                     style={{fontFamily:'PoppinsSemiBold'}}
-                    className='text-white text-2xl self-center'>
+                    className='text-white text-xl self-center'>
                         {Strings.ST72}
                     </Text>
                     <View
                     style={{backgroundColor:Colors.white}}
-                    className='m-3 px-2 py-3 justify-center rounded-2xl'>
+                    className='m-3 px-2 py-6 justify-center rounded-[20px]'>
                         <Button
-                      
+                      height={hp('6%')}
+                      elevation={3}
                             color={Colors.white}
                             titleColor={Colors.black}
                             title='Sign Up With Google'
@@ -76,7 +69,7 @@ const SignUpHome: React.FC<Props> = ({ navigation }) => {
                         />
 
                         <Button
-                       
+                         height={hp('6%')}
                             color={Colors.blue}
                             title='Sign Up With Facebook'
                           //  image='https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/800px-Facebook_f_logo_%282021%29.svg.png'
@@ -86,6 +79,7 @@ const SignUpHome: React.FC<Props> = ({ navigation }) => {
                         <Button
                             color={Colors.orange}
 image='arrowright'
+height={hp('6%')}
                             title='Sign Up With University Email'
                             //image='https://png.pngtree.com/png-vector/20190411/ourmid/pngtree-vector-forward-icon-png-image_925823.jpg'
                             onPress={() => { navigation.navigate(RouteNames.SignUpForm) }}

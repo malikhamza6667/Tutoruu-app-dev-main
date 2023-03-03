@@ -13,6 +13,8 @@ textSize?: number
 disabled?:boolean
 width?:any
 height?:any
+alignSelfText?:any
+elevation?: any
 }
 
 
@@ -43,10 +45,10 @@ const Button: React.FC<Props> = (props) => {
         
 
         <TouchableOpacity
-        style={{backgroundColor: props.disabled? Colors.gray: props.color,elevation:5,
+        style={{backgroundColor: props.disabled? Colors.gray: props.color,elevation:props.elevation?props.elevation: 0,
             height: props.height?props.height: hp('7%'),
             width:props.width?props.width: wp('90%')}}
-            className=" px-3 my-3 rounded-full justify-center"
+            className=" px-3 my-2 rounded-full justify-center"
             onPress={props.onPress}
         >
          {
@@ -56,19 +58,21 @@ className=" text-white">
     {props.title}
 </Text> 
         :
-        <View className="flex-row justify-between items-center">
-
-            <Image 
+        <View className="flex-row  items-center">
+<View style={{width:wp('15%')}}>
+<Image 
           
           source={path}
             resizeMode='contain'
             className='rounded-full h-7 w-7 self-start'
             />
-           <View className= "w-full items-start">
+</View>
+           
+           <View className= " items-center justify-center" style={{width:wp('60%')}}>
 
             <Text
-            style={{color: props.titleColor?props.titleColor:'white',fontSize:props.textSize?props.textSize:14,fontFamily:'PoppinsBold',textAlign:'center'}}
-            className="  mx-1 text-white self-center text-right">
+            style={{color: props.titleColor?props.titleColor:'white',fontSize:props.textSize?props.textSize:14,fontFamily:'PoppinsBold',textAlign:'center',alignSelf:props.alignSelfText?props.alignSelfText: 'center'}}
+            className="  mx-1 text-white  text-right">
                 {props.title}
             </Text>
            </View>

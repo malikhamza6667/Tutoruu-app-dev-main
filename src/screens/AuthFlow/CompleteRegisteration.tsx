@@ -10,6 +10,8 @@ import RouteNames from '../RouteNames'
 import Button from '../../components/Buttonnn'
 import Colors from '../../../assets/Colors'
 import { Picker } from '@react-native-picker/picker'
+import { heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native-responsive-screen'
+import AuthHeader from '../../components/AuthHeader'
 interface Props {
     navigation: any
     route: any
@@ -40,57 +42,60 @@ const CompleteRegisteration: React.FC<Props> = ({ navigation, route }) => {
         }
     }
     return (
-       
-
+       <SafeAreaView className='flex-1 justify-center'>
+          <StatusBar style='light' />
             <View 
             style={{backgroundColor:Colors.orange}}
             className='flex-1 justify-between'>
-                <SafeAreaView/>
-                <StatusBar style='light' />
-                <View className='  h-10 justify-center m-3' >
-                    <Image
-                        source={require('../../../assets/authlogo.png')}
-                        resizeMode='contain'
-                        className='h-40 w-40 self-center'
-                    />
-                </View>
-                <View style={{flex:0.8}}>
+              
+              
+              <AuthHeader/>
+                <View style={{height: hp('80%')}} className='justify-center pb-20'>
 
-                    <Text className='text-white text-2xl text-center p-2 m-2 font-bold self-center'>
+                    <Text
+                    style={{fontFamily: 'PoppinsBold'}}
+                    className='text-white text-xl text-center px-4 m-1 self-center'>
                         {Strings.ST82}
                     </Text>
-                    <View className='bg-white m-5 p-5 justify-center rounded-xl'>
-                    <View className='flex-row justify-evenly'>
-<View  style={{flex:1}}>
+                    <View className='bg-white items-center m-3 p-5 justify-center rounded-[20px]'>
+                    <View className='flex-row justify-between'>
+
+
+<View>
 
                             <Input
                                 value={userName}
                                 title='User Name'
+                                width={wp('45%')}
                                 placeholder='Enter A UserName'
                                 onChangeText={(text) => { setUserName(text) }}
                             />
 </View>
+
+
+
                             <View 
-                            style={{justifyContent:'center'}}
-                            className=" flex-1 m-1 p-1">
+                          className=' justify-center items-end gap-y-1.5 pb-1'
+                            style={{width: wp('40%')}}>
                                 <Text
-                                    className="text-center mx-3 font-bold  text-sm text-black self-start"
+                                 style={{fontFamily:'PoppinsMedium'}}
+                                    className="text-center   text-sm  self-center"
                                 >University</Text>
                                 <View
-                               
-                                    className=" border border-gray-300 h-11 rounded-3xl"
-                                  style={{justifyContent:'center',marginVertical:5,marginHorizontal:10}}
+                                style={{width: wp('32%'),justifyContent:'center',height: hp('5%')}}
+                                    className=" border border-gray-300 h-11 w-fit rounded-3xl"
+                                 
                                 >
                                     <Picker
                             placeholder='Select Your Uni'
-                           style={{color: 'black'}}
+                           
                            
                                         selectedValue={selectedUni}
                                         onValueChange={(itemValue, itemIndex) =>
                                            {
                                             setSelectedUni(itemValue)}
                                         }>
-                                        <Picker.Item label="Java" value="java" />
+                                        <Picker.Item label="Doe.." value="java" />
                                         <Picker.Item label="JavaScript" value="js" />
                                     </Picker>
                                 </View
@@ -98,6 +103,7 @@ const CompleteRegisteration: React.FC<Props> = ({ navigation, route }) => {
                             </View>
 
                         </View>
+                        <View>
                         <Input
                             value={PhoneNo}
                             title='Phone'
@@ -105,10 +111,14 @@ const CompleteRegisteration: React.FC<Props> = ({ navigation, route }) => {
                             onChangeText={(text) => { setPhoneNo(text) }}
 
                         />
+
+                        </View>
                         <Button
                          image='arrowright'
                             color={Colors.orange}
                             title='Create Account'
+                            height={hp('5%')}
+                            width={wp('85%')}
                             onPress={() => { navigation.navigate(RouteNames.MagicLink) }}
                         />
 
@@ -117,6 +127,8 @@ const CompleteRegisteration: React.FC<Props> = ({ navigation, route }) => {
                 </View>
 
             </View>
+       </SafeAreaView>
+
        
     )
 }
