@@ -6,6 +6,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Feather from 'react-native-vector-icons/Feather'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Languages from '../../languages'
 import LanguageContext from '../../languages/languageContext'
 import ToggleButtons from '../../components/ToggleButtons'
@@ -17,7 +18,7 @@ import Header from '../../components/CreatePost'
 import { ScrollView } from 'react-native-virtualized-view'
 import Divider from '../../components/Divider';
 import Auc from '../../components/Auc';
-const size = hp('1.8');
+const size = hp('2');
 const color = Colors.fadedgray;
 
 export const messageData = [
@@ -38,7 +39,7 @@ export const messageData = [
     text: "Lorem ipsum dolor sit amit dolor connectsur",
     senderType: 'other',
     avatar: 'https://www.bootdey.com/img/Content/avatar/avatar2.png',
-    image: 'https://www.bootdey.com/image/580x580/FF00FF/000000',
+    image: 'https://img.freepik.com/premium-photo/think-outside-box-school-green-blackboard_36051-447.jpg?size=626&ext=jpg&uid=R94214209&ga=GA1.1.1081558094.1677063520&semt=sph',
     time: '5 mins ago '
   },
   {
@@ -48,7 +49,7 @@ export const messageData = [
     text: "Lorem ipsum dolor sit amit dolor connectsur",
     senderType: 'user',
     avatar: 'https://www.bootdey.com/img/Content/avatar/avatar3.png',
-    image: 'https://www.bootdey.com/image/580x580/008000/000000',
+    image: 'https://img.freepik.com/free-photo/paper-education-information-university-text_1150-1616.jpg?size=626&ext=jpg&uid=R94214209&ga=GA1.1.1081558094.1677063520&semt=sph',
     time: '5 mins ago '
   },
 ]
@@ -89,14 +90,15 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
     <View style={styles.container}>
       {/* <Spacer/> */}
       <Username />
+      {/* <Spacer /> */}
       <Divider />
-      <Spacer />
       <ToggleButtons />
       <ScrollView
         showsVerticalScrollIndicator={false}
       >
-        <Spacer />
+        {/* <Spacer /> */}
         <CreatePost />
+        {/* <Spacer/> */}
         <FlatList
           showsVerticalScrollIndicator={false}
           data={messageData}
@@ -109,7 +111,7 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
             const save = item.id === Save ? Colors.orange : Colors.fadedgray
 
             return (
-              <View key={item.id} style={styles.card}>
+              <View key={item.id} style={[styles.card]}>
                 <View style={{ padding: hp('2'), }}>
                   <View
                     style={{
@@ -129,17 +131,20 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
                     <Text
                       style={{
                         alignSelf: 'center',
-                        marginLeft: hp('10'),
-                        color: Colors.fadedgray
+                        marginLeft: hp('12'),
+                        color: Colors.fadedgray,
+                        fontFamily:'PoppinsRegular',
+                        // backgroundColor:'pink',
+                        fontSize:hp('1.2')
 
                       }}
                     >{item.time}</Text>
 
 
                   </View>
-                  <View style={styles.cardHeader}>
+                  <View style={[styles.cardHeader]}>
                     <Image style={styles.avatar} source={{ uri: item.avatar }} />
-                    <View style={{ width: wp('70%') }} >
+                    <View style={{ width: wp('70%')}} >
                       <View style={{ flexDirection: 'row' }}>
                         <Text style={styles.sender}>{item.sender}</Text>
                         <Text
@@ -207,10 +212,13 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
                       }}
                       style={styles.count}
                     >
-                      <Feather
-                        name='bookmark'
-                        size={size}
+                      <MaterialCommunityIcons
+                        name='share-outline'
+                        size={hp('2.5')}
                         color={save}
+                        style={{
+                          // backgroundColor:'pink',
+                        }}
                       />
                       <Text style={{ color: save, fontSize: hp('1.4') }}>7</Text>
                     </TouchableOpacity>
@@ -237,11 +245,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: hp('1'),
+    // width:'100%'
     // backgroundColor: 'yellow'
   },
   card: {
     borderRadius: 20,
     margin: hp('1'),
+    // marginTop:hp('1'),
     backgroundColor: 'white',
     // justifyContent: 'center',
     // alignSelf:'center',
@@ -256,9 +266,11 @@ const styles = StyleSheet.create({
     width: wp('10%'),
     height: hp('5%'),
     borderRadius: 20,
+    marginBottom:hp('2.3')
   },
   cardBody: {
-    flex: 1,
+    // flex: 1,
+    width:'100%'
   },
   sender: {
     fontSize: hp('1.5'),
@@ -269,7 +281,6 @@ const styles = StyleSheet.create({
   cardImage: {
     width: '100%',
     height: hp('25'),
-    // resizeMode:'contain'
   },
   btn: {
     // padding: 12,
@@ -279,10 +290,13 @@ const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: '10%',
-    marginTop: 10,
-    width: '70%',
-    alignSelf: 'flex-end'
+    // marginHorizontal: hp('15%'),
+    marginTop: hp('2'),
+    marginLeft:hp('7'),
+    width: wp('55%'),
+    // alignSelf: 'flex-end',
+    // alignSelf:'center'
+    // backgroundColor:'pink'
   },
   aucContainer: {
     backgroundColor: Colors.lightorange,
@@ -295,7 +309,8 @@ const styles = StyleSheet.create({
     color: Colors.orange,
     fontSize: 10,
     lineHeight: 15,
-    fontFamily: 'PoppinsMedium'
+    fontFamily: 'PoppinsMedium',
+    paddingHorizontal:hp('0.6')
   },
   count: {
     flexDirection: 'row',

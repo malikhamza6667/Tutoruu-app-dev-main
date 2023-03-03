@@ -19,7 +19,7 @@ import ClassesMainScreen from '../../screens/StudentFlow/ClassScreen';
 import ChatScreen from '../../screens/StudentFlow/Chat/ChatScreen';
 import TutorApplicationFlowStack from './TeacherApplicationFlow';
 
-
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 
 const Drawer = createDrawerNavigator();
@@ -27,7 +27,7 @@ const Drawer = createDrawerNavigator();
 interface Props {
   navigation: any;
 }
-const size = 25;
+const size = hp('2.5');
 const color = Colors.orange;
 const Root: React.FC<Props> = ({ navigation }) => {
   return (
@@ -38,7 +38,7 @@ const Root: React.FC<Props> = ({ navigation }) => {
         headerLeft: () =>
           <Entypo
             name='menu'
-            size={size}
+            size={hp('3')}
             color={color}
             style={{ marginLeft: 10 }}
             onPress={navigation.toggleDrawer}
@@ -56,7 +56,7 @@ const Root: React.FC<Props> = ({ navigation }) => {
         name='Feed'
         component={FeedScreen}
         options={{
-          
+
           drawerIcon: ({ focused, size }) => (
             <AntDesign
               name="home"
@@ -67,8 +67,14 @@ const Root: React.FC<Props> = ({ navigation }) => {
           headerTitle: () =>
             <Image
               source={require('./../../../assets/logo.jpg')}
-              style={{ height: 38, width: 99, alignSelf: 'center' }} />,
-              headerTitleAlign:'center',
+              style={{
+                height: hp('5'),
+                width: wp('22'),
+                alignSelf: 'center',
+                resizeMode: 'contain'
+              }}
+            />,
+          headerTitleAlign: 'center',
           headerRight: () =>
             [<View style={styles.icon} >
               <TouchableOpacity
@@ -79,7 +85,6 @@ const Root: React.FC<Props> = ({ navigation }) => {
                       name="bell-o"
                       size={size}
                       color={color}
-                      style={{ marginHorizontal: 10 }}
                     />} />
               </TouchableOpacity>
               <TouchableOpacity
@@ -107,8 +112,14 @@ const Root: React.FC<Props> = ({ navigation }) => {
           headerTitle: () =>
             <Image
               source={require('./../../../assets/logo.jpg')}
-              style={{ height: 38, width: 99, alignSelf: 'center' }} />,
-headerTitleAlign:'center',
+              style=
+              {{
+                height: hp('2'),
+                width: wp('5'),
+                alignSelf: 'center'
+              }}
+            />,
+          headerTitleAlign: 'center',
           headerRight: () =>
             [<View style={styles.icon} >
               <TouchableOpacity
@@ -119,7 +130,6 @@ headerTitleAlign:'center',
                       name="bell-o"
                       size={size}
                       color={color}
-                      style={{ marginHorizontal: 10 }}
                     />} />
               </TouchableOpacity>
               <TouchableOpacity
@@ -151,7 +161,7 @@ headerTitleAlign:'center',
         component={TutorApplicationFlowStack}
         options={{
           headerShown: (false),
-          drawerLabel:'Become A Tutor',
+          drawerLabel: 'Become A Tutor',
           drawerIcon: ({ focused, size }) => (
             <AntDesign
               name="user"
@@ -165,7 +175,7 @@ headerTitleAlign:'center',
         component={ChatScreen}
         options={{
           headerShown: (false),
-          drawerLabel:'Chat',
+          drawerLabel: 'Chat',
           drawerIcon: ({ focused, size }) => (
             <AntDesign
               name="user"
@@ -179,7 +189,7 @@ headerTitleAlign:'center',
         component={ClassesMainScreen}
         options={{
           headerShown: (false),
-          drawerLabel:'Classes',
+          drawerLabel: 'Classes',
           drawerIcon: ({ focused, size }) => (
             <AntDesign
               name="user"
@@ -188,12 +198,12 @@ headerTitleAlign:'center',
             />
           )
         }} />
-         <Drawer.Screen
+      <Drawer.Screen
         name='SessionConfirmationMain'
         component={SessionConfirmationMain}
         options={{
           headerShown: (false),
-          drawerLabel:'Session Confirmation',
+          drawerLabel: 'Session Confirmation',
           drawerIcon: ({ focused, size }) => (
             <AntDesign
               name="user"
@@ -247,6 +257,7 @@ headerTitleAlign:'center',
 const styles = StyleSheet.create({
   icon: {
     flexDirection: 'row',
+    marginRight:hp(1)
   },
 })
 

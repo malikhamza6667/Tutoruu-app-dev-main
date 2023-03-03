@@ -3,10 +3,10 @@ import {
     Text,
     View,
     StyleSheet,
-    SafeAreaView,
+   
     ScrollView
 } from "react-native";
-
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import Colors from "../../../assets/Colors";
 import Bar from "../../components/Bar";
@@ -69,30 +69,38 @@ const SearchScreen: React.FC = () => {
         }
     }
     return (
-       <SafeAreaView className="flex-1 justify-center">
-            <View 
-             style={{backgroundColor:Colors.white}}
-            className="flex-1 top-2 justify-evenly ">
- 
-            <Header headerTitle="Search" />
-
- 
-
-            <Spacer />
-            <Bar/>
+       <SafeAreaView 
+    //    className="flex-1 justify-center"
+       style={{
+        backgroundColor:Colors.white,
+        flex:1
     
-            <View className="py-3 px-2">
+    }}
+       >
+           <Header headerTitle="Search" />
+            <View 
+             
+            className="flex-1 top-2 justify-evenly "
+            >
+ 
+
+ 
+
+    {/* <Spacer/> */}
+            <Bar/>
+            <View className="py-2 px-3">
         <HeaderCatagories activeBackgroundColor={Colors.lightorange} activeTitleColor={Colors.orange} data={SearchCatagories}/>
     </View>
-            <Spacer />
-    <ScrollView contentContainerStyle={{paddingTop:15,paddingBottom:10,paddingHorizontal:5}}>
+            {/* <Spacer /> */}
+    <ScrollView contentContainerStyle={{paddingHorizontal:5}}>
     
 
            
             <View className='mx-1  mb-3 justify-center ' >
                             <Text
                                style={{fontFamily:'PoppinsMedium'}}
-                                className='text-base text-center mx-3 self-start'>Tutor</Text>
+                                className='text-base text-center mx-3 py-4 self-start'>Tutors</Text>
+                               
                             <TutorCard
                                 image='dp'
                                 data={TutorSubjects}

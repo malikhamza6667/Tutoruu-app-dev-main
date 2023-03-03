@@ -10,14 +10,22 @@ interface Props {
     headerTitle: string;
     ChatIcon?: boolean
 }
-const Header: React.FC<Props> = ({ headerTitle,ChatIcon }) => {
+const Header: React.FC<Props> = ({ headerTitle, ChatIcon }) => {
     const navigation = useNavigation()
     return (
-        <View style={{ flexDirection: 'row', alignItems: 'center',width: wp('100%') }}
-            className='justify-between px-2 py-4'
+        <View
+            style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                width: wp('100%'),
+                // backgroundColor:'pink'
+            }}
+        // className='justify-between px-2 py-1'
         >
 
-            <View className=' p-1'>
+            <View 
+            // className=' p-1'
+            >
 
                 <TouchableOpacity
 
@@ -27,28 +35,34 @@ const Header: React.FC<Props> = ({ headerTitle,ChatIcon }) => {
             </View>
             <View
                 className='p-3 '
-                
+                style={{
+                    alignItems:'center',
+                    // backgroundColor:'red',
+                    width:wp('80%')
+                }}
+
             >
 
                 <Text
 
-                    style={{ fontFamily: 'PoppinsMedium' }} className='self-center ' > {headerTitle} </Text>
+                    style={{ fontFamily: 'PoppinsMedium' , textAlign:'center'}} > {headerTitle} </Text>
             </View>
-       <View
-               className='p-3 '
-            >{
-                ChatIcon && 
-                <TouchableOpacity
-                style={{backgroundColor:Colors.lightorange}}
-                className='p-3 mb-5 rounded-full'
-                onPress={()=>{navigation.goBack()}}
-                >
+            <View
+                // className='p-3 '
+            >
+                {
+                    ChatIcon &&
+                    <TouchableOpacity
+                        style={{ backgroundColor: Colors.lightorange }}
+                        className='p-3 mb-5 rounded-full'
+                        onPress={() => { navigation.goBack() }}
+                    >
 
-                    <Ionicons name="chatbubbles" size={24} color={Colors.orange} />
-                </TouchableOpacity>
+                        <Ionicons name="chatbubbles" size={24} color={Colors.orange} />
+                    </TouchableOpacity>
 
-            }
-                
+                }
+
 
             </View>
         </View>
