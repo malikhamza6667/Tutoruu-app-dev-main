@@ -1,7 +1,7 @@
-import { View, Text, StyleSheet,TouchableOpacity,SafeAreaView ,FlatList,useWindowDimensions,ScrollView } from 'react-native'
-import React,{useState,useEffect} from 'react'
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, FlatList, useWindowDimensions, ScrollView } from 'react-native'
+import React, { useState, useEffect } from 'react'
 
-import { Entypo, FontAwesome,AntDesign,Fontisto,SimpleLineIcons,FontAwesome5 } from '@expo/vector-icons';
+import { Entypo, FontAwesome, AntDesign, Fontisto, SimpleLineIcons, FontAwesome5 } from '@expo/vector-icons';
 import { Dimensions } from 'react-native';
 import DashboardHeader from '../../../components/DashboardHeader';
 import Username from '../../../components/UserName';
@@ -10,62 +10,63 @@ import { SubjectsOffered } from '../../StudentFlow/DummyData';
 
 import { Chip } from 'react-native-elements';
 import Colors from '../../../../assets/Colors';
-import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 
 import Input from '../../../components/TextInput';
 import Button from '../../../components/Buttonnn';
 import Divider from '../../../components/Divider';
+import Spacer from '../../../components/Spacer';
 
 
 
 
 
 
-interface Props{
+interface Props {
   navigation: any
 }
 
-const TutorDashboard:React.FC<Props> = ({navigation}) => {
-    const windowWidth = useWindowDimensions().width;
-    const[rate,setRate]=useState('175')
-    const[isOn,setIsOn]=useState(true)
-    const[numColumns,setNumColumns]=useState(2)
-    const[columns,setColumns]=useState(2)
-    const[loading,setLoading]=useState(false)
-    const[key,setKey]=useState('')
-    const size = SubjectsOffered.length - 2;
-    const label = '+' + size.toString()
+const TutorDashboard: React.FC<Props> = ({ navigation }) => {
+  const windowWidth = useWindowDimensions().width;
+  const [rate, setRate] = useState('175')
+  const [isOn, setIsOn] = useState(true)
+  const [numColumns, setNumColumns] = useState(2)
+  const [columns, setColumns] = useState(2)
+  const [loading, setLoading] = useState(false)
+  const [key, setKey] = useState('')
+  const size = SubjectsOffered.length - 2;
+  const label = '+' + size.toString()
 
 
-    const [fullList, setFullList] = useState(false)
-    const [moreLabel, setMoreLabel] = useState(label)
-    const showFullListData = () => {
-      setFullList(!fullList)
-      if (fullList === true) {
+  const [fullList, setFullList] = useState(false)
+  const [moreLabel, setMoreLabel] = useState(label)
+  const showFullListData = () => {
+    setFullList(!fullList)
+    if (fullList === true) {
 
-          setMoreLabel('+' + size.toString())
-      }
-      else {
-          setMoreLabel('-' + size.toString())
-      }
+      setMoreLabel('+' + size.toString())
+    }
+    else {
+      setMoreLabel('-' + size.toString())
+    }
   }
 
-    const handleLayout = () => {
-        const columnWidth =10;
-        const maxNumColumns = Math.floor(windowWidth / columnWidth);
-        console.log(maxNumColumns)
-        setNumColumns(maxNumColumns);
-   
-      };
-      useEffect(() => {
-        setColumns(numColumns);
-        setKey(key => (key === '1' ? '2' : '1'));
-      }, [windowWidth]);
-const renderItem=({ item }: { item: {id:number,name:string} })=>{
-    
-    return(
-        <Chip
+  const handleLayout = () => {
+    const columnWidth = 10;
+    const maxNumColumns = Math.floor(windowWidth / columnWidth);
+    console.log(maxNumColumns)
+    setNumColumns(maxNumColumns);
+
+  };
+  useEffect(() => {
+    setColumns(numColumns);
+    setKey(key => (key === '1' ? '2' : '1'));
+  }, [windowWidth]);
+  const renderItem = ({ item }: { item: { id: number, name: string } }) => {
+
+    return (
+      <Chip
         key={item.id}
         title={item.name}
         icon={{
@@ -75,110 +76,130 @@ const renderItem=({ item }: { item: {id:number,name:string} })=>{
           color: Colors.red,
         }}
         iconRight
-        
-        buttonStyle={{backgroundColor:'#F2F4F5'}}
-        titleStyle={{color:Colors.black,fontFamily:'PoppinsMedium',textTransform:'uppercase'}}
-        containerStyle={{ marginVertical: 15,marginHorizontal:4, height: hp('5%') }}
-        
-         onPress={()=>{
-            
-            setLoading(true)
-            SubjectsOffered.filter((obj)=>{return obj.id !== item.id})
-        setLoading(false)
+
+        buttonStyle={{ backgroundColor: '#F2F4F5' }}
+        titleStyle={{ color: Colors.black, fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}
+        containerStyle={{ marginVertical: 15, marginHorizontal: 4, height: hp('5%') }}
+
+        onPress={() => {
+
+          setLoading(true)
+          SubjectsOffered.filter((obj) => { return obj.id !== item.id })
+          setLoading(false)
         }}
-            
-      />  
+
+      />
     )
-    }
+  }
 
   return (
-<SafeAreaView className='flex-1 justify-center bg-white'>
-  
-<View className='flex-1 justify-evenly' >
-  <View>
-<Username userType='Tutor'/>
-<Divider/>
-  </View>
-  <View style={{top:hp('2%')}} className=' py-3'>
+    <SafeAreaView className='flex-1 justify-center bg-white'>
 
-<Box text='Connect to your google calendar to sync your sessions with your schedule. '/>
-  </View>
-<View className='self-center py-4'>
-<TouchableOpacity 
-       style={{backgroundColor:Colors.orange,width: wp('55%'),height: hp('5%')}}
-     
-       className='gap-x-1 my-3 flex-row items-center justify-center self-center px-6 py-2.5 rounded-full'>
-      
-        <Text style={{fontFamily:'PoppinsBold',color:Colors.white}} >Update Schedule</Text>
-       </TouchableOpacity>
+      <View
+        className='flex-1 justify-evenly'
+      >
+        <View>
+          <Spacer />
+          <Username userType='Tutor' />
+          <Divider />
+        </View>
+        {/* <Spacer/> */}
+        <View
+          style={{ top: hp('3.5%') }}
+        // className=' py-3'
+        >
 
-</View>
+          <Box text='Connect to your google calendar to sync your sessions with your schedule. ' />
+        </View>
+        <Spacer />
+        <View className='self-center py-4'>
+          <TouchableOpacity
+            style={{
+              backgroundColor: Colors.orange,
+              width: wp('40%'),
+              height: hp('3.7%'),
+              marginTop: hp('3'),
+              alignItems: 'center',
+              borderRadius: 20,
+              justifyContent: 'center'
+            }}
 
+          // className='gap-x-1 my-3 items-center justify-center self-center py-2.5 rounded-full'
+          >
 
-<View className='px-5 my-2'>
-<Text style={{fontFamily: 'PoppinsBold'}} className='text-base p-3'>Tutoruu Academy</Text>
-    <View 
-    className='p-5 px-10 m-1 self-center justify-evenly rounded-3xl ' style={{width:wp('95%'),
-    shadowColor: 'black',
-    shadowOpacity: 0.3,
-    shadowOffset: { width: 0, height: 2 },
-    elevation: 3,
-    backgroundColor: Colors.white,
-  }}
-    >
-        <Text style={{fontFamily: 'PoppinsMedium'}} className='text-base'>
-        Episode 1 - Starting out with Tutoruu Academy
-        </Text>
-        <Text style={{fontFamily: 'PoppinsRegular'}} className='text-sm'>
-        This lesson is an introduction to our Tutoruu Academy series where you will learn essential lessons to succeed in your Tutoring Journey.
-        </Text>
-       <TouchableOpacity 
-      style={{backgroundColor:Colors.orange,width: wp('30%'),height: hp('5%')}}
-       className='gap-x-2  mt-3 flex-row items-center justify-center self-center px-4 py-2 rounded-full'>
-      
-       <Entypo name="video-camera" size={22} color={Colors.white}/>
-        <Text style={{fontFamily:'PoppinsBold',color:Colors.white}} >Watch</Text>
-       </TouchableOpacity>
+            <Text style={{ fontFamily: 'PoppinsBold', color: Colors.white }} >Update Schedule</Text>
+          </TouchableOpacity>
+
+        </View>
 
 
-    </View>
-</View>
-<View className='px-5 my-2' >
-<Text style={{fontFamily: 'PoppinsBold'}} className='text-base p-3'>Upcoming Sessions</Text>
-    <View 
-    className='p-5 px-10 m-1 self-center justify-evenly rounded-3xl ' style={{width:wp('95%'),
-    shadowColor: 'black',
-    shadowOpacity: 0.3,
-    shadowOffset: { width: 0, height: 2 },
-    elevation: 3,
-    backgroundColor: Colors.white,
-  }}
-    >
-        <Text style={{fontFamily: 'PoppinsMedium'}} className='text-base'>
-        No upcoming sessions
-        </Text>
-        <Text style={{fontFamily: 'PoppinsRegular'}} className='text-sm'>
-        Want to get more sessions? Watch Tutoruu academy videos to get the know-how.
-        </Text>
+        <View className='px-4 '>
+          <Text style={{ fontFamily: 'PoppinsBold' }} className='text-base p-2'>Tutoruu Academy</Text>
+          <View
+            className='p-5 px-6 m-1 self-center justify-evenly rounded-3xl ' style={{
+              width: wp('95%'),
+              shadowColor: 'black',
+              shadowOpacity: 0.3,
+              shadowOffset: { width: 0, height: 2 },
+              elevation: 15,
+              backgroundColor: Colors.white,
+            }}
+          >
+            <Text style={{ fontFamily: 'PoppinsMedium' }} className='text-base'>
+              Episode 1 - Starting out with Tutoruu Academy
+            </Text>
+            <Text style={{ fontFamily: 'PoppinsRegular' }} className='text-sm'>
+              This lesson is an introduction to our Tutoruu Academy series where you will learn essential lessons to succeed in your Tutoring Journey.
+            </Text>
+            <TouchableOpacity
+              style={{ backgroundColor: Colors.orange, width: wp('30%'), height: hp('4.2%') }}
+              className='gap-x-2  mt-3 flex-row items-center justify-center self-center px-4 py-2 rounded-full'>
+
+              <Entypo name="video-camera" size={22} color={Colors.white} />
+              <Text style={{ fontFamily: 'PoppinsBold', color: Colors.white }} >Watch</Text>
+            </TouchableOpacity>
 
 
-    </View>
-<TouchableOpacity className='self-center m-5'
-onPress={()=>{navigation.navigate('TutorSessions')}}
->
-  <Text
-  style={{fontFamily: 'PoppinsBold',color:Colors.orange}}
-  >View All Sessions</Text>
-</TouchableOpacity>
-</View>
-  
- 
+          </View>
+        </View>
+        <View className='px-5 my-2' >
+          <Text style={{ fontFamily: 'PoppinsBold' }} className='text-base p-3'>Upcoming Sessions</Text>
+          <View
+            className='p-5 px-6 m-1 self-center justify-evenly rounded-3xl ' style={{
+              width: wp('95%'),
+              shadowColor: 'black',
+              shadowOpacity: 0.3,
+              shadowOffset: { width: 0, height: 2 },
+              elevation: 15,
+              backgroundColor: Colors.white,
+            }}
+          >
+            <Text style={{ fontFamily: 'PoppinsMedium' }} className='text-base'>
+              No upcoming sessions
+            </Text>
+            <Spacer />
+            <Text style={{ fontFamily: 'PoppinsRegular' }} className='text-sm'>
+              Want to get more sessions? Watch Tutoruu academy videos to get the know-how.
+            </Text>
 
 
-  </View>
+          </View>
+          <TouchableOpacity className='self-center m-5'
+            onPress={() => { navigation.navigate('TutorSessions') }}
+          >
+            <Text
+              style={{ fontFamily: 'PoppinsBold', color: Colors.orange }}
+            >View All Sessions</Text>
+          </TouchableOpacity>
+        </View>
 
 
-</SafeAreaView>
+
+
+      </View>
+
+
+    </SafeAreaView>
   )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, View, Image } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Fontisto from "react-native-vector-icons/Fontisto";
 import AntDesign from "react-native-vector-icons/AntDesign";
@@ -22,7 +23,7 @@ const Drawer = createDrawerNavigator();
 interface Props {
   navigation: any;
 }
-const size = 25;
+const size = hp('2.5');
 const color = Colors.orange;
 const TutorRoot: React.FC<Props> = ({ navigation }) => {
   return (
@@ -33,9 +34,9 @@ const TutorRoot: React.FC<Props> = ({ navigation }) => {
         headerLeft: () =>
           <Entypo
             name='menu'
-            size={size}
+            size={hp('3')}
             color={color}
-            style={{ marginLeft: 10 }}
+            style={{ marginLeft: hp('1') }}
             onPress={navigation.toggleDrawer}
           />,
         drawerActiveBackgroundColor: Colors.lightorange,
@@ -62,8 +63,13 @@ const TutorRoot: React.FC<Props> = ({ navigation }) => {
           headerTitle: () =>
             <Image
               source={require('./../../../assets/logo.jpg')}
-              style={{ height: 38, width: 99, alignSelf: 'center' }} />,
-              headerTitleAlign:'center',
+              style={{
+                height: hp('5'),
+                width: wp('22'),
+                alignSelf: 'center',
+                resizeMode: 'contain'
+              }} />,
+          headerTitleAlign: 'center',
           headerRight: () =>
             [<View style={styles.icon} >
               <TouchableOpacity
@@ -74,7 +80,7 @@ const TutorRoot: React.FC<Props> = ({ navigation }) => {
                       name="bell-o"
                       size={size}
                       color={color}
-                      style={{ marginHorizontal: 10 }}
+                    // style={{ marginHorizontal: 10 }}
                     />} />
               </TouchableOpacity>
               <TouchableOpacity
@@ -88,30 +94,31 @@ const TutorRoot: React.FC<Props> = ({ navigation }) => {
             </View>
             ]
         }} />
-       <Drawer.Screen
+      <Drawer.Screen
         name='ChatScreen'
         component={ChatScreen}
         options={{
           headerShown: (false),
-          drawerLabel:'Chat',
+          drawerLabel: 'Chat',
           drawerIcon: ({ focused, size }) => (
             <Entypo name="chat" size={24} color={color} />
           )
         }} />
-   
-    
-     
-     
-         
-    
-   
-     
+
+
+
+
+
+
+
+
     </Drawer.Navigator>
   )
 }
 const styles = StyleSheet.create({
   icon: {
     flexDirection: 'row',
+    marginRight: hp(1)
   },
 })
 

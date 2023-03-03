@@ -46,7 +46,7 @@ const SessionCard:React.FC<Props>=({time,type,status,title,day,onPress})=>{
                                         // borderRightColor: 'pink',
                                         // borderWidth:1
                                     }}
-                                    className='p-1' >{status}</Text>
+                                    className='p-0.5 px-2' >{status}</Text>
                             </View>
                             <View>
                             <Text
