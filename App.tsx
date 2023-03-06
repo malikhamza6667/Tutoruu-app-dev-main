@@ -10,6 +10,11 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
 
 import MainAppRoutes from './src/navigation/AppRoutes/MainNavigationRoutes';
+import store from './src/redux/store/Store';
+import { Provider } from 'react-redux';
+import { ApolloProvider } from 'react-apollo';
+import { client } from './src/graphQLApollo/ClientInstance';
+
 const App: React.FC = () => {
 
   return (
@@ -45,9 +50,14 @@ const MyApp = () => {
   return (
     <View style={{ flex: 1 }} onLayout={onLayoutRootView} >
 
+
+<Provider store={store}>
+
       <LanguageContext.Provider value={{ language: defaultLanguage }}>
         <App />
       </LanguageContext.Provider>
+</Provider>
+
     </View>
   );
 };

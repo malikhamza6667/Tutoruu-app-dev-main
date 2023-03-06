@@ -22,6 +22,7 @@ import InboxScreenRunAI from '../../screens/StudentFlow/RunAi/RunAiInbox';
 
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import BAPScreen from '../../screens/StudentFlow/Bap/BapScreen';
+import UserList from '../../screens/StudentFlow/DummyScreenApi/DummyScreen';
 
 
 const Drawer = createDrawerNavigator();
@@ -165,6 +166,20 @@ const Root: React.FC<Props> = ({ navigation }) => {
         options={{
           headerShown: (false),
           drawerLabel: 'Brand Ambassador Program',
+          drawerIcon: ({ focused, size }) => (
+            <AntDesign
+              name="user"
+              size={size}
+              color={Colors.black}
+            />
+          )
+        }} />
+      <Drawer.Screen
+        name='UserList'
+        component={UserList}
+        options={{
+          headerShown: (false),
+          drawerLabel: 'UserList',
           drawerIcon: ({ focused, size }) => (
             <AntDesign
               name="user"

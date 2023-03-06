@@ -9,7 +9,7 @@ import AppRoutes from './AppRoutes';
 const stack = createNativeStackNavigator()
 
 const MainAppRoutes: React.FC = () => {
-    const  [isLogged,setIsLogged]=useState(false)
+    const  [isLogged,setIsLogged]=useState(true)
     return (
         
         <stack.Navigator screenOptions={{headerShown:false}}>

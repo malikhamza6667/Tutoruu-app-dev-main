@@ -19,7 +19,7 @@ import SessionConfirmationMain from '../../screens/StudentFlow/SessionConfirmati
 import SessionReviewScreen from '../../screens/StudentFlow/SessionConfirmation/SessionReview';
 import InboxScreen from '../../screens/StudentFlow/Chat/Inbox';
 import TutorAppStack from '../TutorNavigations/TutorAppStack';
-import BAPScreen from '../../screens/StudentFlow/Bap/BapScreen';
+
 const Stack = createNativeStackNavigator();
 const MainStack: React.FC = () => {
     return (
@@ -42,6 +42,7 @@ const MainStack: React.FC = () => {
                 <Stack.Screen name='SessionReviewScreen' component={SessionReviewScreen} options={{ headerShown: (false) }} />
                 <Stack.Screen name='TutorAppStack' component={TutorAppStack} options={{ headerShown: (false) }} />
                 <Stack.Screen name='InboxScreen' component={InboxScreen} options={{ headerShown: (false) }} />
+            
              
             </Stack.Navigator>
        
