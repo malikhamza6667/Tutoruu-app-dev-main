@@ -10,13 +10,14 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
 import TutorAppStack from './src/navigation/TutorNavigations/TutorAppStack';
 import MainAppRoutes from './src/navigation/AppRoutes/MainNavigationRoutes';
+import MainStack from './src/navigation/StudentNavigations/AppStackStudent';
 const App: React.FC = () => {
 
   return (
     <NavigationContainer>
-   {/* <MainAppRoutes/> */}
+   <MainAppRoutes/>
    {/* <TutorAppStack/> */}
-   <MainStack/>
+   
     </NavigationContainer>
   );
 }
@@ -48,12 +49,12 @@ const MyApp = () => {
     <View style={{ flex: 1 }} onLayout={onLayoutRootView} >
 
 
-<Provider store={store}>
+
 
       <LanguageContext.Provider value={{ language: defaultLanguage }}>
         <App />
       </LanguageContext.Provider>
-</Provider>
+
 
     </View>
   );
