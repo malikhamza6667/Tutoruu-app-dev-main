@@ -17,7 +17,10 @@ const Field: React.FC<Props> = ({ borderRadius, width, height }) => {
             <TextInput
                 placeholder="Doe.."
                 placeholderTextColor={Colors.black}
-                style={[styles.input, { borderRadius, width, height }]} />
+                style={[styles.input, { borderRadius, width, height, textAlignVertical: 'top', padding: hp('2%')  }]}
+                multiline={true}
+                
+                />
         </View>
     )
 }
@@ -26,8 +29,9 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 50,
         borderColor: Colors.gray,
-        padding: hp('1%'),
-        margin: hp('1')
+        // padding: hp('1%'),
+        margin: hp('1'),
+        // fontFamily:'PoppinsRegular'
     },
 })
 

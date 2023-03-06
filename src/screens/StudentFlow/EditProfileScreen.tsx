@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, Text, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView ,TextInput} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Colors from "../../../assets/Colors";
@@ -22,19 +22,19 @@ interface Props {
 
 const Edit: React.FC<Props> = ({ followers }) => {
     const contextState = useContext(LanguageContext);
-  
+
     let Strings: any = {}
     if (contextState != null) {
 
-      const  language = contextState.language
+        const language = contextState.language
         if (language === 'en') {
             Strings = Languages[0].texts
 
         }
-       else if (language === 'es'){
-            Strings = Languages[1].texts  
+        else if (language === 'es') {
+            Strings = Languages[1].texts
         }
-        else{
+        else {
             //default language if not any language provided
             Strings = Languages[0].texts
         }
@@ -56,34 +56,54 @@ const Edit: React.FC<Props> = ({ followers }) => {
             <Spacer />
             <Spacer />
             <View style={styles.innerContainer}>
-                <View style={{ justifyContent: 'center', alignSelf: 'center', width: '95%', }}>
-                    <Heading title={Strings.ST26} />
-                    <Field height={hp('15%')} borderRadius={20} width={wp('87%')} />
-                </View>
-                <Spacer />
-                <View style={styles.grid}>
-                    <View style={styles.row1} >
-                        <View style={styles.box1}>
-                            <Heading title={Strings.ST34} />
-                            <Field borderRadius={50} width={wp('44%')} height={hp('4%')} />
+                <ScrollView
+                    // keyboardShouldPersistTaps="handled"
+                    // contentContainerStyle={{ padding: 10 }}
+                    showsVerticalScrollIndicator={false}
+                    style={
+                        {
+                            // backgroundColor:'red'
+                        }
+                    }
+                >
+                    <KeyboardAvoidingView
+                    // behavior={Platform.OS =  1   == 'ios' ? 'padding' : 'height'}
+                    >
+                        <View style={{ justifyContent: 'center', alignSelf: 'center', width: '95%', }}>
+                            <Heading title={Strings.ST26} />
+                            {/* <Field height={hp('15%')} borderRadius={20} width={wp('87%')} /> */}
+                            <TextInput 
+                            placeholder="Doe"
+                            multiline={true}
+                            style={[styles.input,{ textAlignVertical: 'top', padding: hp('2%') }]}
+                             />
                         </View>
-                        <View style={styles.box2}>
-                            <Heading title={Strings.ST35} />
-                            <Field borderRadius={50} width={wp('30%')} height={hp('4%')} />
+                        <Spacer />
+                        <View style={styles.grid}>
+                            <View style={styles.row1} >
+                                <View style={styles.box1}>
+                                    <Heading title={Strings.ST34} />
+                                    <Field borderRadius={50} width={wp('44%')} height={hp('6%')} />
+                                </View>
+                                <View style={styles.box2}>
+                                    <Heading title={Strings.ST35} />
+                                    <Field borderRadius={50} width={wp('30%')} height={hp('6%')} />
+                                </View>
+                            </View>
+                            <Spacer />
+                            <View style={styles.row2}>
+                                <View style={styles.box3}>
+                                    <Heading title={Strings.ST36} />
+                                    <Field borderRadius={50} width={wp('44%')} height={hp('6%')} />
+                                </View>
+                                <View style={styles.box4}>
+                                    <Heading title={Strings.ST37} />
+                                    <Field borderRadius={40} width={wp('30%')} height={hp('6%')} />
+                                </View>
+                            </View>
                         </View>
-                    </View>
-                    <Spacer />
-                    <View style={styles.row2}>
-                        <View style={styles.box3}>
-                            <Heading title={Strings.ST36} />
-                            <Field borderRadius={50} width={wp('44%')} height={hp('4%')} />
-                        </View>
-                        <View style={styles.box4}>
-                            <Heading title={Strings.ST37} />
-                            <Field borderRadius={40} width={wp('30%')} height={hp('4%')} />
-                        </View>
-                    </View>
-                </View>
+                    </KeyboardAvoidingView>
+                </ScrollView>
             </View>
             <Btn text={Strings.ST38} width={wp('85%')} height={hp('6%')} />
         </SafeAreaView>
@@ -143,6 +163,20 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         lineHeight: 21,
         color: Colors.orange
+    },
+    input:{
+        backgroundColor: Colors.white,
+        borderWidth: 1,
+        borderColor: Colors.gray,
+        borderRadius: 20,
+        // color: Colors.black,
+        // fontSize: hp(1.2),
+        fontFamily:'PoppinsRegular',
+        lineHeight: 12,
+        width: wp("82"),
+        height: hp("15"),
+        padding: hp('1%'),
+        margin: hp('1')
     }
 })
 

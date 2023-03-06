@@ -112,14 +112,17 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
 
             return (
               <View key={item.id} style={[styles.card]}>
-                <View style={{ padding: hp('2'), }}>
+                <View
+                  style={{ padding: hp('2') }}
+                >
                   <View
                     style={{
                       flexDirection: 'row',
                       // backgroundColor: 'pink',
-                      width: wp('73%'),
+                      width: wp('72%'),
                       alignSelf: 'flex-end',
-                      marginBottom: hp('0.4')
+                      marginBottom: hp('0.4'),
+
                     }}
                   >
                     <View style={styles.aucContainer}>
@@ -131,11 +134,11 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
                     <Text
                       style={{
                         alignSelf: 'center',
-                        marginLeft: hp('12'),
+                        marginLeft: hp('11'),
                         color: Colors.fadedgray,
-                        fontFamily:'PoppinsRegular',
+                        fontFamily: 'PoppinsRegular',
                         // backgroundColor:'pink',
-                        fontSize:hp('1.2')
+                        fontSize: hp('1.2')
 
                       }}
                     >{item.time}</Text>
@@ -144,7 +147,7 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
                   </View>
                   <View style={[styles.cardHeader]}>
                     <Image style={styles.avatar} source={{ uri: item.avatar }} />
-                    <View style={{ width: wp('70%')}} >
+                    <View style={{ width: wp('70%') }} >
                       <View style={{ flexDirection: 'row' }}>
                         <Text style={styles.sender}>{item.sender}</Text>
                         <Text
@@ -160,70 +163,71 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
                       <Text style={styles.sender}>{item.text}</Text>
                     </View>
                   </View>
-                  <View style={[styles.cardBody]}>
-                    {item.image && <Image style={styles.cardImage} source={{ uri: item.image }} />}
-                  </View>
-                  <View style={styles.iconContainer}>
-                    <TouchableOpacity
-                      onPress={() => {
-                        setMessage(item.id)
-                      }}
-                      style={styles.count}
-                    >
-                      <MaterialCommunityIcons
-                        name='message-outline'
-                        size={size}
-                        color={message}
-                      />
-                      <Text style={{ color: message, fontSize: hp('1.4') }}>32</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                      onPress={() => {
-                        setLike(item.id)
-                      }}
-                      style={styles.count}
-                    >
-                      <AntDesign
-                        name='like2'
-                        size={size}
-                        color={like}
-                      />
-                      <Text style={{ color: like, fontSize: hp('1.4') }}>1k</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                      onPress={() => {
-                        setDislike(item.id)
-                      }}
-                      style={styles.count}
-                    >
-                      <AntDesign
-                        name='dislike2'
-                        size={size}
-                        color={dislike}
-                      />
-                      <Text style={{ color: dislike, fontSize: hp('1.4') }}>7</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                      onPress={() => {
-                        setSave(item.id)
-                      }}
-                      style={styles.count}
-                    >
-                      <MaterialCommunityIcons
-                        name='share-outline'
-                        size={hp('2.5')}
-                        color={save}
-                        style={{
-                          // backgroundColor:'pink',
-                        }}
-                      />
-                      <Text style={{ color: save, fontSize: hp('1.4') }}>7</Text>
-                    </TouchableOpacity>
-                  </View>
                 </View>
+                <View style={[styles.cardBody]}>
+                  {item.image && <Image style={styles.cardImage} source={{ uri: item.image }} />}
+                </View>
+                <View style={styles.iconContainer}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      setMessage(item.id)
+                    }}
+                    style={styles.count}
+                  >
+                    <MaterialCommunityIcons
+                      name='message-outline'
+                      size={size}
+                      color={message}
+                    />
+                    <Text style={{ color: message, fontSize: hp('1.4') }}>32</Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    onPress={() => {
+                      setLike(item.id)
+                    }}
+                    style={styles.count}
+                  >
+                    <AntDesign
+                      name='like2'
+                      size={size}
+                      color={like}
+                    />
+                    <Text style={{ color: like, fontSize: hp('1.4') }}>1k</Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    onPress={() => {
+                      setDislike(item.id)
+                    }}
+                    style={styles.count}
+                  >
+                    <AntDesign
+                      name='dislike2'
+                      size={size}
+                      color={dislike}
+                    />
+                    <Text style={{ color: dislike, fontSize: hp('1.4') }}>7</Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    onPress={() => {
+                      setSave(item.id)
+                    }}
+                    style={styles.count}
+                  >
+                    <MaterialCommunityIcons
+                      name='share-outline'
+                      size={hp('2.5')}
+                      color={save}
+                      style={{
+                        // backgroundColor:'pink',
+                      }}
+                    />
+                    <Text style={{ color: save, fontSize: hp('1.4') }}>7</Text>
+                  </TouchableOpacity>
+                </View>
+
               </View>
             )
           }}
@@ -243,10 +247,11 @@ const styles = StyleSheet.create({
   },
   cardHeader: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: hp('1'),
-    // width:'100%'
-    // backgroundColor: 'yellow'
+    // alignItems: 'center',
+    // marginBottom: hp('1'),
+    // width:'100%',
+    // backgroundColor: 'yellow',
+    // padding:hp('2')
   },
   card: {
     borderRadius: 20,
@@ -266,11 +271,11 @@ const styles = StyleSheet.create({
     width: wp('10%'),
     height: hp('5%'),
     borderRadius: 20,
-    marginBottom:hp('2.3')
+    marginBottom: hp('2.3')
   },
   cardBody: {
     // flex: 1,
-    width:'100%'
+    width: '100%'
   },
   sender: {
     fontSize: hp('1.5'),
@@ -281,22 +286,20 @@ const styles = StyleSheet.create({
   cardImage: {
     width: '100%',
     height: hp('25'),
+    // backgroundColor:'orange'
   },
-  btn: {
-    // padding: 12,
-    margin: 10,
-    borderRadius: 99
-  },
+
   iconContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     // marginHorizontal: hp('15%'),
-    marginTop: hp('2'),
-    marginLeft:hp('7'),
+    // marginTop: hp('2'),
+    marginLeft: hp('7'),
     width: wp('55%'),
     // alignSelf: 'flex-end',
     // alignSelf:'center'
-    // backgroundColor:'pink'
+    // backgroundColor:'pink',
+    padding: hp('1')
   },
   aucContainer: {
     backgroundColor: Colors.lightorange,
@@ -310,7 +313,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     lineHeight: 15,
     fontFamily: 'PoppinsMedium',
-    paddingHorizontal:hp('0.6')
+    paddingHorizontal: hp('0.6')
   },
   count: {
     flexDirection: 'row',

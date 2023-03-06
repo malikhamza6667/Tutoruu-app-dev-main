@@ -42,10 +42,13 @@ const CompleteRegisteration: React.FC<Props> = ({ navigation, route }) => {
         }
     }
     return (
-       <SafeAreaView className='flex-1 justify-center'>
+       <SafeAreaView 
+       style={{backgroundColor:Colors.orange}}
+       className='flex-1 justify-center'
+       >
           <StatusBar style='light' />
             <View 
-            style={{backgroundColor:Colors.orange}}
+          
             className='flex-1 justify-between'>
               
               
