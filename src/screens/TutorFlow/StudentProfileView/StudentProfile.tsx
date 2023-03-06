@@ -10,6 +10,7 @@ import Languages from "../../../languages";
 import CardList from "../../../components/Flatlist";
 import PostCard from "../../../components/PostCard";
 import Divider from "../../../components/Divider";
+import { heightPercentageToDP as hp,widthPercentageToDP as wp } from "react-native-responsive-screen";
 
 interface Props{
     navigation: any,
@@ -91,10 +92,12 @@ const StudentProfileScreen: React.FC<Props>=({navigation,route})=>{
     }
     return(
 
-       <SafeAreaView className="flex-1 justify-center">
-        
-<View className="flex-1 justify-evenly bg-white">
-<Header headerTitle={name} ChatIcon={true}/>
+       <SafeAreaView className="flex-1 justify-center bg-white">
+      <View className="justify-center" style={{height: hp('10%')}}>
+      <Header headerTitle={name} ChatIcon={true}/>
+        </View>  
+<View className="flex-1 justify-evenly ">
+
 <View
         className=' py-4 px-5 flex-row'
         >

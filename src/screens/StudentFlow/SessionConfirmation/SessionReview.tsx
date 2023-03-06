@@ -5,22 +5,71 @@ import Header from '../../../components/Header';
 import { ChatMessage, ClassInfo, ReviewRatings, SessionInfo, TutorInfo } from '../DummyData';
 import { FontAwesome } from '@expo/vector-icons';
 import StarRatings from '../../../components/StarRatings';
-
+import { Entypo } from '@expo/vector-icons';
+import { heightPercentageToDP as hp,widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import Button from '../../../components/Buttonnn';
+import { ScrollView } from 'react-native-virtualized-view';
 const SessionReviewScreen: React.FC = () => {
-    
-    return (
-        <View    style={{ backgroundColor: Colors.white }}
-        className='flex-1 justify-evenly'>
-       
-    <View className='  justify-center'>
-            <Header headerTitle='Confirmation' />
-        </View>
+    const [modalVisible, setModalVisible] = useState(false);
 
+    const CancelDiaglogue:React.FC=()=>{
+        return(
+           
+
+            <Modal
+            presentationStyle='overFullScreen'
+        style={{flex:1}}
+              animationType="slide"
+              transparent={true}
+              visible={modalVisible}
+              onRequestClose={() => {
+              
+                setModalVisible(!modalVisible);
+              }}>
+              <View style={styles.centeredView}>
+                <View 
+                style={styles.modalViewParent}>
+                    <TouchableOpacity
+                    onPress={()=>{setModalVisible(!modalVisible)}}
+                    className='self-end '>
+
+                <Entypo name="circle-with-cross" size={30} color={Colors.fadedgray} />
+                    </TouchableOpacity>
+                    <View style={styles.modalView}>
+                  <Text style={{fontFamily:'PoppinsBold'}}
+                  className='text-center'
+                  >Are you sure you want to cancel this session?</Text>
+                  <Text style={{fontFamily:'PoppinsRegular'}}
+                  className='text-center'
+                  >You Can Always Book An Other Session With Youseff Haroon</Text>
+                  <Pressable
+                   style={{backgroundColor:Colors.red}}
+                   className='px-16 py-3 my-3 rounded-full justify-center items-center'
+                    onPress={() => setModalVisible(!modalVisible)}>
+                    <Text style={{fontFamily:'PoppinsSemiBold'}} className='text-white'>Cancel</Text>
+                  </Pressable>
+                  </View>
+                </View>
+              </View>
+            </Modal>
+          
+        
+        )
+    }
+    return (
+        <SafeAreaView  className=' justify-center bg-white flex-1'>
+<View className='justify-center' style={{height:hp('10%')}}>
+<Header headerTitle='Confirmation' />
+</View>
+
+        <View    style={{ backgroundColor: Colors.white,height:hp('90%') }} >
+<CancelDiaglogue/>
+            <ScrollView>
         <View >
 
             <Text
                 style={{ fontFamily: 'PoppinsMedium' }}
-                className='mx-6 my-2 text-base'
+                className='mx-4 my-1 text-base'
             >Session Info</Text>
             <FlatList
                 data={SessionInfo}
@@ -66,12 +115,12 @@ const SessionReviewScreen: React.FC = () => {
             />
         </View>
 
-        <View >
+        <View className='my-2' >
         <Text
                 style={{ fontFamily: 'PoppinsMedium' }}
-                className='mx-6 my-2 text-base'
+                className='mx-4 my-1 text-base'
             >Payment</Text>
-            <View className='px-6 pb-5 pt-1 justify-start'>
+            <View className='px-4  justify-start'>
         
 
                   
@@ -85,12 +134,12 @@ const SessionReviewScreen: React.FC = () => {
           
         </View>
 
-        <View>
+        <View className='mt-5'>
             <Text
                 style={{ fontFamily: 'PoppinsMedium' }}
-                className='mx-6 my-2 text-base'
+                className='mx-4 text-base'
             >Rating</Text>
-             <View className="w-auto rounded-3xl px-5 py-4 gap-1 m-1 justify-between" style={{ elevation: 3, backgroundColor: Colors.white }}>
+             <View className="w-auto rounded-[20px] px-5 py-4 gap-1 m-1 justify-between" style={{ elevation: 3, backgroundColor: Colors.white }}>
                 
               
                
@@ -120,11 +169,11 @@ const SessionReviewScreen: React.FC = () => {
         <View>
             <Text
                 style={{ fontFamily: 'PoppinsMedium' }}
-                className='mx-6 my-2 text-base'
+                className='mx-4 mt-3 text-base'
             >Tutor</Text>
-            <View className="w-auto rounded-3xl p-5 flex-row m-1 justify-between" style={{ elevation: 3, backgroundColor: Colors.white }}>
+            <View className=" rounded-[20px] items-center px-3 py-5 flex-row m-1 justify-between" style={{ elevation: 3, backgroundColor: Colors.white }}>
                 
-                    <View className='flex-row justify-between gap-1'>
+                    <View className='flex-row  justify-between gap-1'>
                     <Image
                         source={require('./../../../../assets/dp.jpg')}
                         resizeMode='contain'
@@ -140,16 +189,15 @@ const SessionReviewScreen: React.FC = () => {
                     </View>
                     </View>
 
-                
-                <TouchableOpacity
-                    style={{ backgroundColor: Colors.orange }}
-                    className='justify-center px-8 py-2 self-end items-center rounded-full'
-                >
-                    <Text
-                        style={{ fontFamily: 'PoppinsBold' }}
-                        className='text-white'
-                    >View Profile</Text>
-                </TouchableOpacity>
+                    <Button
+                            textSize={14}
+                            title='View Profile'
+                            color={Colors.orange}
+                            width={wp('35%')}
+                            height={hp('5%')}
+                            onPress={() => { alert('pressed') }}
+                        />
+             
             </View>
 
         </View>
@@ -176,7 +224,72 @@ const SessionReviewScreen: React.FC = () => {
             />
         </View>
 
+        <View>
+            <Text
+                style={{ fontFamily: 'PoppinsMedium' }}
+                className='mx-4 my-1 text-base'
+            >Chat</Text>
+            <FlatList
+                data={ChatMessage}
+                renderItem={({ item }) => {
+                    return (
+
+                        <TouchableOpacity style={{ backgroundColor: Colors.lightorange }}
+                            className='px-2 flex-row items-center justify-between'
+                        >
+                            <View
+                                className='p-2 flex-row items-center'
+                            >
+
+
+                                <Image
+
+                                    source={require('../../../../assets/dp.jpg')}
+                                    className='rounded-full'
+                                    resizeMode='contain'
+                                />
+                                <View className='px-2'>
+                                    <Text style={{ fontFamily: 'PoppinsRegular' }}>{item.Name}</Text>
+                                    <Text style={{ fontFamily: 'Poppins' }}>{item.Message}</Text>
+                                </View>
+
+                            </View>
+                            <View className='p-1 gap-1  mx-2'>
+                                <Text style={{ fontFamily: 'Poppins' }}
+                                    className='text-sm'
+                                >{item.Time}</Text>
+                                <View
+                                    className='self-end justify-center items-center px-2.5 py-0.5 rounded-full'
+                                    style={{ backgroundColor: Colors.orange }}>
+
+                                    <Text
+                                        style={{ fontFamily: 'PoppinsMedium' }}
+                                        className=' text-white '
+                                    >{item.messageNo}</Text>
+                                </View>
+                            </View>
+
+                        </TouchableOpacity>
+                    )
+                }}
+                keyExtractor={(item, index) => { return item.id.toString() }}
+            />
         </View>
+
+
+        <View className='justify-center' style={{height: hp('10%')}}>
+            <TouchableOpacity
+            onPress={()=>{setModalVisible(!modalVisible)}}
+                className='justify-center items-center'
+            >
+                <Text
+                    style={{ color: Colors.red, fontFamily: 'PoppinsBold' }}
+                >Cancel</Text>
+            </TouchableOpacity>
+        </View>
+</ScrollView>
+        </View>
+        </SafeAreaView>
    
     )
 }
@@ -187,3 +300,38 @@ const SessionReviewScreen: React.FC = () => {
 
 export default SessionReviewScreen;
 
+const styles = StyleSheet.create({
+    centeredView: {
+     flex: 1,
+     backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 22,
+      
+    },
+    modalView: {
+   
+      backgroundColor: 'white',
+  
+      paddingHorizontal: 35,
+      paddingVertical: 5,
+      alignItems: 'center',
+     
+    },
+   
+    modalViewParent:{ 
+        margin: 10,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        padding: 15,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,   
+    }
+  });

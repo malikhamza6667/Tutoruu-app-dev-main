@@ -11,12 +11,14 @@ interface Props{
 
 const ApplicationConfirmationStatus:React.FC<Props>=({navigation})=>{
     return(
-      <SafeAreaView className='flex-1 justify-center'>
-
-        <View className='flex-1 justify-evenly bg-white'>
-          <View className='top-5'>
-            <Header headerTitle='Application Status'/>
-          </View>
+      <SafeAreaView className='flex-1 bg-white justify-center'>
+<View className='justify-center' style={{height:hp('10%')}}>
+<Header headerTitle='Application Status'/>
+</View>
+        <View 
+        style={{height: hp('90%'),paddingBottom: hp('20%')}}
+        className='justify-evenly items-center bg-white'>
+         
           <View className='px-8 gap-2 flex-1 justify-center'>
             <Image
             source={require('./../../../../assets/payment.jpg')}
@@ -33,8 +35,9 @@ const ApplicationConfirmationStatus:React.FC<Props>=({navigation})=>{
     style={{fontFamily:'PoppinsRegular',textAlign:'center'}}>
        Head to your new tutor dashboard and start teaching
     </Text>
-    <View className='px-16'>
+    <View className='items-center'>
     <Button
+    width={wp('55%')}
     textSize={14}
     title='Take Me There'
     color={Colors.orange}

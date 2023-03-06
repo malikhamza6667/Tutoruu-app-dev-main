@@ -13,8 +13,12 @@ interface Props{
 const Username: React.FC<Props> = ({userType}) => {
     return (
         <View style={styles.container}>
-            <Text style={[styles.text, { marginLeft: wp('5%') }]}>Hey</Text>
-            <Text style={[styles.text, { color: Colors.orange }]}> Ragnar</Text>
+            <Text 
+            className="text-[30px]"
+            style={[styles.text, { marginLeft: wp('5%') }]}>Hey</Text>
+            <Text 
+              className="text-[30px]"
+            style={[styles.text, { color: Colors.orange }]}> Ragnar</Text>
             <View style={styles.status} ></View>
             <View style={styles.studentContainer}>
                 <Text style={styles.student}>{userType? userType:  'Student'}</Text>
@@ -32,7 +36,6 @@ const styles = StyleSheet.create({
 
     },
     text: {
-        fontSize: hp('3.3'),
         fontFamily: 'PoppinsBold',
         lineHeight: 45,
     },

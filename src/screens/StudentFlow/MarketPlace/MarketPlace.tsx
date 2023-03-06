@@ -112,10 +112,10 @@ const MarketPlace: React.FC<Props> = ({ navigation }) => {
                                                 style={{
                                                     fontFamily: 'PoppinsMedium',
                                                     color: backgroundEnabled == index ? Colors.orange : Colors.black,
-                                                    fontWeight: '500',
-                                                    fontSize: hp('1.3')
+                                                   textTransform:'uppercase'
+                                                   
                                                 }}
-                                            // className='text-sm'
+                                            className='text-xs'
                                             >
                                                 {item.name}
                                             </Text>
@@ -143,26 +143,21 @@ const MarketPlace: React.FC<Props> = ({ navigation }) => {
                             <Text
                                 style={{
                                     fontFamily: 'PoppinsMedium',
-                                    fontSize: hp('1.9'),
-                                    fontWeight: '500',
-                                    lineHeight: 24,
-                                    // backgroundColor: 'red',
-                                    marginHorizontal: hp('2'),
-                                    marginVertical: hp('1')
+                                
                                 }}
-                                className=' text-center  self-start'>{Strings.ST80}</Text>
+                                className='m-2 mx-5 text-center text-base self-start'>{Strings.ST80}</Text>
                             <View
-                                className="w-auto rounded-2xl py-1 px-4 m-2 "
+                                className="rounded-2xl py-1 px-4 m-2 "
                                 style={{
                                     backgroundColor: Colors.white,
-                                    borderRadius: 10,
-                                    padding: 40,
-                                    marginVertical: 10,
+                                  
+                                   
+                                   
                                     shadowColor: 'gray',
                                     shadowOpacity: 0.4,
                                     shadowOffset: { width: 0, height: 2 },
                                     shadowRadius: 5,
-                                    elevation: 15,
+                                    elevation: 10,
                                 }}
                             >
                                 <View
@@ -179,17 +174,7 @@ const MarketPlace: React.FC<Props> = ({ navigation }) => {
                                     }}
                                 >
                                     <View
-                                    // style={{
-                                    //     position: 'absolute',
-                                    //     bottom: 0,
-                                    //     left: 0,
-                                    //     right: 0,
-                                    //     height: 5,
-                                    //     shadowColor: 'black',
-                                    //     shadowOpacity: 0.2,
-                                    //     shadowOffset: { width: 0, height: 5 },
-                                    //     elevation: 5,
-                                    // }}
+                                   
                                     >
 
 
@@ -256,13 +241,13 @@ const MarketPlace: React.FC<Props> = ({ navigation }) => {
                                     fontFamily: 'PoppinsBold',
                                     // backgroundColor:'pink',
                                     fontSize: hp('1.5'),
-                                    fontWeight: '700',
+                                  
                                     lineHeight: 21
 
                                 }}
                                 className='text-sm'>{Strings.ST81}</Text>
                         </TouchableOpacity>
-                        <View className='mx-1  mb-3 justify-center' >
+                        <View className='mx-1 mt-1 mb-2 justify-center' >
                             <Text
                                 style={{
                                     fontFamily: 'PoppinsBold',

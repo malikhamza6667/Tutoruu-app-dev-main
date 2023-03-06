@@ -16,23 +16,19 @@ const ApplicationStatus: React.FC<Props> = ({ navigation }) => {
 
     return (
 
-
+<SafeAreaView className='flex-1 bg-white justify-center'>
+<View className='justify-center' style={{height: hp('10%')}}>
+<Header headerTitle='Application Status' />
+</View>
         <View
-            className='flex-1 justify-evenly  bg-white'
+            className=' justify-center '
+            style={{height: hp('90%'),paddingBottom: hp('20%')}}
+            
         >
-            {/* <SafeAreaView
-                 style={{
-                     flex: 1
-                 }}
-             > */}
-            <View className='top-6'>
-                <Header headerTitle='Application Status' />
-            </View>
+           
+            
             <View
-                className='px-3  gap-y-2 flex-1 '
-                style={{
-                    // backgroundColor:'pink',
-                }}
+                className='px-3  gap-y-2'
             >
                 <Image
                     source={require('./../../../../assets/Vector.png')}
@@ -50,7 +46,7 @@ const ApplicationStatus: React.FC<Props> = ({ navigation }) => {
                 </Text>
 
                 <Spacer />
-                <View className='px-5 py-5 rounded-3xl flex-row justify-between'
+                <View className='px-5 py-5 rounded-[20px] flex-row justify-between'
 
                     style={{
                         shadowColor: 'black',
@@ -79,6 +75,7 @@ const ApplicationStatus: React.FC<Props> = ({ navigation }) => {
             </View>
             {/* </SafeAreaView> */}
         </View>
+</SafeAreaView>
     )
 }
 export default ApplicationStatus

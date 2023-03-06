@@ -1,11 +1,13 @@
 import React, { useState,useEffect } from 'react';
 import { GiftedChat, IMessage, InputToolbar,Bubble,Send, Avatar, Composer } from 'react-native-gifted-chat';
-import { View,Text,Image,TextInput, TouchableOpacity, StyleSheet, SafeAreaView, AsyncStorage, Modal  } from 'react-native';
+import { View,Text,Image,TextInput, TouchableOpacity, StyleSheet, SafeAreaView, Modal  } from 'react-native';
 import Header from '../../../components/Header';
 import Colors from '../../../../assets/Colors';
 import { heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import RUUICARD from '../../../components/RuuiCard';
 import { StatusBar } from 'expo-status-bar';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 interface Props{
     navigation: any,
@@ -194,9 +196,11 @@ useEffect(()=>{
     ])
   }, [])
   return (
-    <SafeAreaView className='flex-1 justify-center'> 
-
-<View className='flex-1 bg-white justify-evenly'>
+    <SafeAreaView className='flex-1 bg-white justify-center'> 
+  <View className='justify-center' style={{height: hp('10%')}}>
+           <Header headerTitle='Chat'/>
+        </View>
+<View className=' bg-white justify-evenly' style={{height: hp('90%')}}>
   <Modal
   visible={showRuuiCard}
   transparent={true}
@@ -219,9 +223,7 @@ useEffect(()=>{
   </Modal>
  
         
-        <View className='justify-center' style={{height: hp('12%')}}>
-           <Header headerTitle='Chats'/>
-        </View>
+      
     
          
            <View className='flex-1 justify-evenly'>

@@ -6,6 +6,7 @@ import Colors from '../../../../assets/Colors'
 import Header from '../../../components/Header'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+
 import Button from '../../../components/Buttonnn'
 
 interface Props{
@@ -18,12 +19,17 @@ const TutorApplicationConfirmation:React.FC<Props>=({navigation,route})=>{
     const[buttonEnable,setButtonEnable]=useState(false)
     const[isOn,setIsOn]=useState(false)
     return(
-<View className='flex-1 justify-evenly bg-white'>
-    <SafeAreaView />
-    <View className='top-3'>
+        <SafeAreaView className='flex-1 justify-center bg-white'>
+            <View className='justify-center' style={{height: hp('10%')}}>
+        
    <Header headerTitle='Application Status'/>
-    </View>
-    <View className='flex-1 justify-evenly'>
+    
+            </View>
+
+<View className='justify-evenly' style={{height: hp('90%')}}>
+   
+    
+    
 
    <View className='px-5 '>
     <View className='flex-row gap-1'>
@@ -113,9 +119,10 @@ disabled={!isOn}
 
 />
 </View>
-    </View>
+ 
    
    </View>
+        </SafeAreaView>
     )
 }
 export default TutorApplicationConfirmation

@@ -4,6 +4,8 @@ import { View,Text,Image,TextInput, TouchableOpacity, StyleSheet, SafeAreaView  
 import Header from '../../../components/Header';
 import Colors from '../../../../assets/Colors';
 
+import { heightPercentageToDP as hp,widthPercentageToDP as wp } from 'react-native-responsive-screen';
+
 interface Props{
     navigation: any,
     route: any
@@ -176,11 +178,13 @@ const {name}=route.params
     ])
   }, [])
   return (
-    <View className='flex-1 bg-white'>
-      <View className='top-3'>
-<SafeAreaView/>
-        <Header headerTitle='Chats'/>
-      </View>
+    <SafeAreaView className='flex-1 bg-white justify-center'>
+ <View  className='justify-center' style={{height: hp('10%')}}>
+
+<Header headerTitle='Chats'/>
+</View>
+    <View className='justify-between ' style={{height: hp('90%')}}>
+     
         <View className='flex-1 justify-evenly mt-2'>
 
         <TouchableOpacity
@@ -227,6 +231,7 @@ renderComposer={renderComposer}
       />
         </View>
     </View>
+    </SafeAreaView>
   );
 };
 

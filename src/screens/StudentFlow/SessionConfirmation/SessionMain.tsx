@@ -6,6 +6,8 @@ import { ChatMessage, ClassInfo, SessionInfo, TutorInfo } from '../DummyData';
 import { FontAwesome } from '@expo/vector-icons';
 import StarRatings from '../../../components/StarRatings';
 import { Entypo } from '@expo/vector-icons';
+import { heightPercentageToDP as hp,widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import Button from '../../../components/Buttonnn';
 
 interface Props{
     navigation : any
@@ -17,9 +19,10 @@ const SessionConfirmationMain: React.FC<Props> = ({navigation}) => {
     const CancelDiaglogue:React.FC=()=>{
         return(
            
+
             <Modal
-          //  presentationStyle='overFullScreen'
-          style={styles.centeredView}
+            presentationStyle='overFullScreen'
+        style={{flex:1}}
               animationType="slide"
               transparent={true}
               visible={modalVisible}
@@ -53,28 +56,29 @@ const SessionConfirmationMain: React.FC<Props> = ({navigation}) => {
                 </View>
               </View>
             </Modal>
+          
         
         )
     }
     return (
-        <View    style={{ backgroundColor: Colors.white }}
-        className='flex-1 justify-evenly'>
-    {
-        modalVisible &&  <View className='flex-1 justify-center'>
-        <CancelDiaglogue/>
-        
-                    </View>
-
-    }       
-    <View className='  justify-center'>
+        <SafeAreaView className='flex-1 justify-center bg-white'>
+ 
+     <View className='justify-center '  style={{height:hp('10%')}}> 
             <Header headerTitle='Confirmation' />
         </View>
+        <View    
+        className='flex-1 justify-evenly'>
+         
+        <CancelDiaglogue/>
+        
+             
+   
 
         <View >
 
             <Text
                 style={{ fontFamily: 'PoppinsMedium' }}
-                className='mx-6 my-2 text-base'
+                className='mx-4 my-1 text-base'
             >Session Info</Text>
             <FlatList
                 data={SessionInfo}
@@ -129,24 +133,24 @@ const SessionConfirmationMain: React.FC<Props> = ({navigation}) => {
         <View >
         <Text
                 style={{ fontFamily: 'PoppinsMedium' }}
-                className='mx-6 my-2 text-base'
+                className='mx-4 text-base'
             >Payment</Text>
-            <View className='px-6 pb-5 pt-1 flex-row justify-between items-center'>
+            <View className='px-4 pr-7 flex-row justify-between items-center'>
         
 
                   
                     <Text
                         className='text-base'
                         style={{ fontFamily: 'PoppinsMedium' }}>170 EGP</Text>
-                          <TouchableOpacity
-                          onPress={()=>{navigation.navigate('SessionReviewScreen')}}
-                    style={{ backgroundColor: Colors.orange }}
-                    className='px-8 py-1.5 rounded-full'
-                >
-                    <Text
-                        className='text-white'
-                        style={{ fontFamily: 'PoppinsBold' }}>Pay Now</Text>
-                </TouchableOpacity>
+                        <Button
+                            textSize={14}
+                            title='Pay Now'
+                            color={Colors.orange}
+                            width={wp('30%')}
+                            height={hp('5%')}
+                            onPress={() => { navigation.navigate('SessionReviewScreen') }}
+                        />
+                  
                 
 
             </View>
@@ -156,7 +160,7 @@ const SessionConfirmationMain: React.FC<Props> = ({navigation}) => {
         <View>
             <Text
                 style={{ fontFamily: 'PoppinsMedium' }}
-                className='mx-6 my-2 text-base'
+                className='mx-4 my-1 text-base'
             >Chat</Text>
             <FlatList
                 data={ChatMessage}
@@ -208,9 +212,9 @@ const SessionConfirmationMain: React.FC<Props> = ({navigation}) => {
         <View>
             <Text
                 style={{ fontFamily: 'PoppinsMedium' }}
-                className='mx-6 my-2 text-base'
+                className='mx-4  text-base'
             >Tutor</Text>
-            <View className="w-auto rounded-3xl p-5 flex-row m-1 justify-between" style={{
+            <View className="w-auto rounded-2xl p-4 py-5 flex-row m-1 justify-between" style={{
                             shadowColor: 'gray',
                             shadowOpacity: 0.2,
                             shadowOffset: { width: 2, height: 5 },
@@ -251,13 +255,13 @@ const SessionConfirmationMain: React.FC<Props> = ({navigation}) => {
         <View>
             <Text
                 style={{ fontFamily: 'PoppinsMedium' }}
-                className='mx-6 my-2 text-base'
+                className='mx-4  text-base'
             >Class</Text>
             <FlatList
                 data={ClassInfo}
                 renderItem={({ item }) => {
                     return (
-                        <View className="w-auto rounded-3xl p-5 m-1"  style={{
+                        <View className="w-auto rounded-2xl p-5 m-1"  style={{
                             shadowColor: 'gray',
                             shadowOpacity: 0.2,
                             shadowOffset: { width: 2, height: 5 },
@@ -285,6 +289,7 @@ const SessionConfirmationMain: React.FC<Props> = ({navigation}) => {
             </TouchableOpacity>
         </View>
         </View>
+        </SafeAreaView>
    
     )
 }

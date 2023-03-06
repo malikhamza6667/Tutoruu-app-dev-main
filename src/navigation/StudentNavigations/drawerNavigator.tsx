@@ -6,6 +6,7 @@ import Fontisto from "react-native-vector-icons/Fontisto";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Entypo from 'react-native-vector-icons/Entypo'
 import Ionicons from "react-native-vector-icons/Ionicons"
+import { MaterialCommunityIcons,MaterialIcons } from '@expo/vector-icons';
 import Colors from '../../../assets/Colors';
 import FeedScreen from '../../screens/StudentFlow/FeedScreen';
 import AboutScreen from '../../screens/StudentFlow/AboutScreen';
@@ -117,10 +118,11 @@ const Root: React.FC<Props> = ({ navigation }) => {
               source={require('./../../../assets/logo.jpg')}
               style=
               {{
-                height: hp('2'),
-                width: wp('5'),
+                height: hp('5%'),
+                width: wp('20%'),
                 alignSelf: 'center'
               }}
+              resizeMode='contain'
             />,
           headerTitleAlign: 'center',
           headerRight: () =>
@@ -153,11 +155,7 @@ const Root: React.FC<Props> = ({ navigation }) => {
           headerShown: (false),
           drawerLabel: 'Ruu AI',
           drawerIcon: ({ focused, size }) => (
-            <AntDesign
-              name="user"
-              size={size}
-              color={Colors.black}
-            />
+            <MaterialCommunityIcons name="bird" size={size} color="black" />
           )
         }} />
       <Drawer.Screen
@@ -165,16 +163,13 @@ const Root: React.FC<Props> = ({ navigation }) => {
         component={BAPScreen}
         options={{
           headerShown: (false),
+          
           drawerLabel: 'Brand Ambassador Program',
           drawerIcon: ({ focused, size }) => (
-            <AntDesign
-              name="user"
-              size={size}
-              color={Colors.black}
-            />
+            <MaterialIcons name="notification-important" size={size} color="black" />
           )
         }} />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name='UserList'
         component={UserList}
         options={{
@@ -187,7 +182,7 @@ const Root: React.FC<Props> = ({ navigation }) => {
               color={Colors.black}
             />
           )
-        }} />
+        }} /> */}
       <Drawer.Screen
         name='Profile'
         component={ProfileScreen}
@@ -208,11 +203,7 @@ const Root: React.FC<Props> = ({ navigation }) => {
           headerShown: (false),
           drawerLabel: 'Become A Tutor',
           drawerIcon: ({ focused, size }) => (
-            <AntDesign
-              name="user"
-              size={size}
-              color={Colors.black}
-            />
+            <FontAwesome name="graduation-cap" size={size} color="black" />
           )
         }} />
       <Drawer.Screen
@@ -222,11 +213,7 @@ const Root: React.FC<Props> = ({ navigation }) => {
           headerShown: (false),
           drawerLabel: 'Chat',
           drawerIcon: ({ focused, size }) => (
-            <AntDesign
-              name="user"
-              size={size}
-              color={Colors.black}
-            />
+            <Ionicons name="chatbubble" size={size} color="black" />
           )
         }} />
       <Drawer.Screen
@@ -236,11 +223,7 @@ const Root: React.FC<Props> = ({ navigation }) => {
           headerShown: (false),
           drawerLabel: 'Classes',
           drawerIcon: ({ focused, size }) => (
-            <AntDesign
-              name="user"
-              size={size}
-              color={Colors.black}
-            />
+            <MaterialIcons name="schedule" size={size} color="black" />
           )
         }} />
       <Drawer.Screen

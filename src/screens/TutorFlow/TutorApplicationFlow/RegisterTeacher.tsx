@@ -81,19 +81,21 @@ const TutorRegister: React.FC<Props> = ({ navigation }) => {
 
     return (
         <SafeAreaView className='flex-1 bg-white justify-center'>
-
-            <View className='flex-1 justify-evenly'>
-
+<View className='justify-center' style={{height: hp('8%')}}>
 
 
-                <View className='mb-2' style={{ top: hp('2%') }}>
+<Header headerTitle='Tutor Application' />
 
-                    <Header headerTitle='Tutor Application' />
-                </View>
-                <View className='flex-1'>
+</View>
+            <View style={{height:hp('90%')}} className=' justify-evenly'>
+
+
+
+              
+              
 
                 
-                        <View className='flex-row px-5 py-2  items-center'>
+                        <View className='flex-row px-1   items-center' style={{borderColor:Colors.gray,borderBottomWidth:2}}>
                             <View className='items-center '
                             style={{width:wp('25%'),height:hp('15%')
                             
@@ -173,7 +175,7 @@ const TutorRegister: React.FC<Props> = ({ navigation }) => {
                             </View>
 
                         </View>
-                        <Divider/>
+                        
                  
 
                     <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
@@ -182,23 +184,23 @@ const TutorRegister: React.FC<Props> = ({ navigation }) => {
 
                         <ScrollView contentContainerStyle={{  paddingBottom: 10 }}>
 
-                            <View className='gap-3 px-5 py-5 justify-center '>
-                                <View className=''>
+                            <View className=' px-3 py-3 justify-evenly'>
+                                
+                                <View className='px-2'>
                                     <Input
                                         value={bio}
                                         onChangeText={(text) => { setBio(text) }}
                                         title='Bio'
                                         multiline
                                         height={hp('15%')}
+                                        width={wp('90%')}
                                     />
 
                                 </View>
-                                <View className='flex-row   justify-between   '>
-                                    <View
-                                        style={{ width: wp('50%') }}
-                                        className=' m-1'
 
-                                    >
+
+                                <View className='flex-row  items-center justify-between  px-2 '>
+                                    <View>
 
                                         <Input
                                             width={wp('45%')}
@@ -208,9 +210,7 @@ const TutorRegister: React.FC<Props> = ({ navigation }) => {
 
                                         />
                                     </View>
-                                    <View className=' m-1  '
-                                        style={{ width: wp('30%') }}
-                                    >
+                                    <View >
                                         <Input
                                             width={wp('30%')}
                                             value={ClassOf}
@@ -222,6 +222,7 @@ const TutorRegister: React.FC<Props> = ({ navigation }) => {
                                     </View>
                                 </View>
                                 <View >
+                                    <Text style={{fontFamily:'PoppinsMedium'}} className='mx-6'>Classes</Text>
 
                                     <View className='flex-row justify-between self-center items-center gap-x-4  m-1 my-1  p-2 rounded-full border border-gray-300'>
 
@@ -285,6 +286,7 @@ const TutorRegister: React.FC<Props> = ({ navigation }) => {
 
                                     </View>
                                 </View>
+
                                 <View className='flex-row   justify-between   '>
                                     <View
 
@@ -316,7 +318,7 @@ const TutorRegister: React.FC<Props> = ({ navigation }) => {
 
                                     </View>
                                    
-                                    <View className='flex-row rounded-2xl justify-evenly my-5 px-2 py-4'
+                                    <View className='flex-row rounded-2xl  justify-evenly my-5 mx-2 px-2 py-4'
                                         style={{
                                             backgroundColor: Colors.white,
                                          
@@ -375,18 +377,20 @@ const TutorRegister: React.FC<Props> = ({ navigation }) => {
 
 
 
-                                <View className=''>
+                                <View className='px-2'>
                                     <Input
                                         value={longQuestionOne}
                                         onChangeText={(text) => { setLongQuestionOne(text) }}
                                         title='Long-Form  Question 1 '
                                         multiline
                                         height={hp('15%')}
+                                        width={wp('90%')}
                                     />
 
                                 </View>
-                                <View className=''>
+                                <View className='px-2'>
                                     <Input
+                                    width={wp('90%')}
                                         value={longQuestionTwo}
                                         onChangeText={(text) => { setLongQuestionTwo(text) }}
                                         title='Long-Form  Question 2 '
@@ -395,13 +399,14 @@ const TutorRegister: React.FC<Props> = ({ navigation }) => {
                                     />
 
                                 </View>
-                                <View className=''>
+                                <View className='px-2'>
                                     <Input
                                         value={longQuestionThree}
                                         onChangeText={(text) => { setLongQuestionThree(text) }}
                                         title='Long-Form  Question-3 '
                                         multiline
                                         height={hp('15%')}
+                                        width={wp('90%')}
                                     />
 
                                 </View>
@@ -432,7 +437,7 @@ const TutorRegister: React.FC<Props> = ({ navigation }) => {
 
 
 
-            </View>
+        
         </SafeAreaView>
     )
 }

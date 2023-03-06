@@ -4,7 +4,7 @@ import ChatCard from "../../../components/ChatCard";
 import Header from "../../../components/Header";
 import Spacer from "../../../components/Spacer";
 import { ChatMessages, ReadMessages } from "../DummyData";
-
+import { heightPercentageToDP as hp,widthPercentageToDP as wp } from 'react-native-responsive-screen';
 interface Props{
     navigation : any
 }
@@ -14,12 +14,12 @@ const ChatScreen:React.FC<Props>=({navigation})=>{
        
 
        
-         
-           <View className=" justify-between flex-1  bg-white">
-            <View className="top-5">
-            <SafeAreaView/>
+         <SafeAreaView className="flex-1 bg-white">
+  <View className="justify-end" style={{height:hp('10%')}}>
            <Header headerTitle="Chats"/>
             </View>
+           <View className=" justify-evenly" style={{height: hp('90%')}}>
+          
             <View className=" flex-1 justify-around ">
 
             <View >
@@ -71,6 +71,7 @@ const ChatScreen:React.FC<Props>=({navigation})=>{
             </View>
            </View>
             </View>
+         </SafeAreaView>
         
         
     )

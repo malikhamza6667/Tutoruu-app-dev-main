@@ -10,7 +10,7 @@ import PostCard from "../../components/PostCard";
 import TutorCard from "../../components/TutorCard";
 import Spacer from "../../components/Spacer";
 
-
+import { heightPercentageToDP as hp,widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 const headerCatagories=[{
     id:0,
@@ -48,25 +48,51 @@ const messageDataClasses=[
         time: '5 mins ago'
         //image: 'https://www.bootdey.com/image/580x580/00BFFF/000000',
       },
+    {
+        id: 2,
+        sender: 'Victoria Hanson',
+        email: '@vicky23hanson',
+        text: 'Lorem ipsum dolor sit amit dolor connectsur?',
+        senderType: 'user',
+        avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMLOPnljLnmpKl2N8pnDHZvxmF06ndBeGXQhZawvYMdjajyMu-gZx6ukTiYpPOBtgCEqI&usqp=CAU',
+        comments: 32,
+        likes: '1k',
+        dislikes: 7,
+        share:7,
+        categories:[
+            {
+                id: 0,
+                name: 'Auc'
+            },
+            {
+                id: 1,
+                name: 'Notes'
+            }
+        ],
+        time: '5 mins ago'
+        //image: 'https://www.bootdey.com/image/580x580/00BFFF/000000',
+      },
 ]
 const ClassesMainScreen:React.FC=()=>{
 const totalStudents = ClassStudents.length
 
 
     return(
+        <SafeAreaView className="flex-1 bg-white">
+<View className="justify-center" style={{height: hp('10%')}}>
+<Header headerTitle="CSCE 312"/>
+</View>
         <View
-        style={{backgroundColor:Colors.white,flex:1,justifyContent:'center'}}
+        className="justify-evenly  px-3 "
+        style={{height: hp('90%')}}
         >
-            <SafeAreaView/>
-           <View  className="top-6 ">
-
-           <Header headerTitle="CSCE 312"/>
-           </View>
-     
-         <View className="p-3 mt-2 " >
-            <View className="justify-center  p-2">
+          
+        
+            <View className="justify-center">
 
              <HeaderCatagories data={headerCatagories}/>
+             <View className=" px-3">
+
             <Text 
             style={{fontFamily:"PoppinsBold"}}
             className="text-xl">Introduction to Computer Architecture</Text>
@@ -75,7 +101,7 @@ const totalStudents = ClassStudents.length
                  className='text-sm'
          >{totalStudents} Students</Text>
          <FlatList
-        contentContainerStyle={{paddingHorizontal:20}}
+        contentContainerStyle={{paddingHorizontal:15}}
          horizontal
          data={ClassStudents.slice(0,5)}
          renderItem={({item})=>{
@@ -97,14 +123,15 @@ const totalStudents = ClassStudents.length
             )
          }}
          />
+             </View>
             </View>
 
-         <View className="py-2 my-2 justify-between">
-            <Text style={{fontFamily: 'PoppinsMedium'}} className='text-base px-2 mx-3 my-1 '>Posts</Text>
+         <View className="py-3  my-1 ">
+            <Text style={{fontFamily: 'PoppinsMedium'}} className='text-base px-2 mx-3 '>Posts</Text>
            <PostCard data={messageDataClasses}/>
          </View>
-         <View className=" py-1 justify-between">
-            <Text style={{fontFamily: 'PoppinsMedium'}} className='text-base px-2 mx-3 my-1 '>Tutor</Text>
+         <View className=" py-3 my-1 ">
+            <Text style={{fontFamily: 'PoppinsMedium'}} className='text-base px-2 mx-3 '>Tutor</Text>
 
             <TutorCard
         image='dp'
@@ -115,8 +142,9 @@ const totalStudents = ClassStudents.length
         key={'hamza'}
         />
          </View>
-         </View>
+   
         </View>
+        </SafeAreaView>
     )
 }
 

@@ -17,10 +17,10 @@ const Header: React.FC<Props> = ({ headerTitle, ChatIcon }) => {
             style={{
                 flexDirection: 'row',
                 alignItems: 'center',
-                width: wp('100%'),
-                // backgroundColor:'pink'
+              
+        
             }}
-        // className='justify-between px-2 py-1'
+        className='justify-between px-1 mt-2 pr-2 pt-3  '
         >
 
             <View 
@@ -28,17 +28,19 @@ const Header: React.FC<Props> = ({ headerTitle, ChatIcon }) => {
             >
 
                 <TouchableOpacity
-
+style={{width: wp('25%'),height: hp('5%')}}
+className=' justify-center'
                     onPress={() => navigation.goBack()} >
                     <FontAwesome name="chevron-left" style={styles.back} />
                 </TouchableOpacity>
             </View>
             <View
-                className='p-3 '
+                className='pb-3   '
                 style={{
-                    alignItems:'center',
-                    // backgroundColor:'red',
-                    width:wp('80%')
+                   // alignItems:'center',
+justifyContent:'center',
+                    
+                    width:wp('50%')
                 }}
 
             >
@@ -48,13 +50,19 @@ const Header: React.FC<Props> = ({ headerTitle, ChatIcon }) => {
                     style={{ fontFamily: 'PoppinsMedium' , textAlign:'center'}} > {headerTitle} </Text>
             </View>
             <View
-                // className='p-3 '
+            className='mb-2'
+            style={{width: wp('25%'),height: hp('5%')}}
+            >
+
+            <View
+                 className='flex-1 items-center'
+             
             >
                 {
                     ChatIcon &&
                     <TouchableOpacity
                         style={{ backgroundColor: Colors.lightorange }}
-                        className='p-3 mb-5 rounded-full'
+                        className='p-2 rounded-full'
                         onPress={() => { navigation.goBack() }}
                     >
 
@@ -64,6 +72,7 @@ const Header: React.FC<Props> = ({ headerTitle, ChatIcon }) => {
                 }
 
 
+            </View>
             </View>
         </View>
     )
