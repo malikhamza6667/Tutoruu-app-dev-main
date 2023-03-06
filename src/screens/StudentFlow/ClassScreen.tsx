@@ -78,17 +78,17 @@ const totalStudents = ClassStudents.length
 
 
     return(
-        <SafeAreaView className="flex-1 bg-white">
-<View className="justify-center" style={{height: hp('10%')}}>
+        <SafeAreaView className="flex-1 justify-center bg-white">
+<View className="justify-center " style={{height: hp('10%')}}>
 <Header headerTitle="CSCE 312"/>
 </View>
         <View
-        className="justify-evenly  px-3 "
+        className="justify-evenly  px-3  "
         style={{height: hp('90%')}}
         >
           
         
-            <View className="justify-center">
+            <View className="justify-center " >
 
              <HeaderCatagories data={headerCatagories}/>
              <View className=" px-3">
@@ -126,11 +126,11 @@ const totalStudents = ClassStudents.length
              </View>
             </View>
 
-         <View className="py-3  my-1 ">
+         <View className="py-3  " >
             <Text style={{fontFamily: 'PoppinsMedium'}} className='text-base px-2 mx-3 '>Posts</Text>
            <PostCard data={messageDataClasses}/>
          </View>
-         <View className=" py-3 my-1 ">
+         <View className=" py-3 " >
             <Text style={{fontFamily: 'PoppinsMedium'}} className='text-base px-2 mx-3 '>Tutor</Text>
 
             <TutorCard

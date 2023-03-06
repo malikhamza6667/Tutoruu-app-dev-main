@@ -75,7 +75,11 @@ const SessionReviewScreen: React.FC = () => {
                 data={SessionInfo}
                 renderItem={({ item }) => {
                     return (
-                        <View className="w-fit gap-1 rounded-3xl p-5 m-1 justify-evenly" style={{ elevation: 3, backgroundColor: Colors.white }}>
+                        <View className="w-fit gap-1 rounded-3xl p-5 m-1 justify-evenly" style={{ shadowColor: 'gray',
+                        shadowOpacity: 0.4,
+                        shadowOffset: { width: 0, height: 2 },
+                        shadowRadius: 5,
+                        elevation: 10, backgroundColor: Colors.white }}>
                            <View className='px-5 py-2 my-2 self-start rounded-full' style={{backgroundColor:Colors.lightorange}}>
                             <Text 
                             style={{fontFamily:'PoppinsMedium',textTransform:'uppercase',color:Colors.orange}}>{item.Status}</Text>
@@ -139,7 +143,11 @@ const SessionReviewScreen: React.FC = () => {
                 style={{ fontFamily: 'PoppinsMedium' }}
                 className='mx-4 text-base'
             >Rating</Text>
-             <View className="w-auto rounded-[20px] px-5 py-4 gap-1 m-1 justify-between" style={{ elevation: 3, backgroundColor: Colors.white }}>
+             <View className="w-auto rounded-[20px] px-5 py-4 gap-1 m-1 justify-between" style={{  shadowColor: 'gray',
+                                    shadowOpacity: 0.4,
+                                    shadowOffset: { width: 0, height: 2 },
+                                    shadowRadius: 5,
+                                    elevation: 10, backgroundColor: Colors.white }}>
                 
               
                
@@ -171,7 +179,11 @@ const SessionReviewScreen: React.FC = () => {
                 style={{ fontFamily: 'PoppinsMedium' }}
                 className='mx-4 mt-3 text-base'
             >Tutor</Text>
-            <View className=" rounded-[20px] items-center px-3 py-5 flex-row m-1 justify-between" style={{ elevation: 3, backgroundColor: Colors.white }}>
+            <View className=" rounded-[20px] items-center px-3 py-5 flex-row m-1 justify-between" style={{  shadowColor: 'gray',
+                                    shadowOpacity: 0.4,
+                                    shadowOffset: { width: 0, height: 2 },
+                                    shadowRadius: 5,
+                                    elevation: 10, backgroundColor: Colors.white }}>
                 
                     <View className='flex-row  justify-between gap-1'>
                     <Image
@@ -211,7 +223,13 @@ const SessionReviewScreen: React.FC = () => {
                 data={ClassInfo}
                 renderItem={({ item }) => {
                     return (
-                        <View className="w-auto rounded-3xl p-5 m-1" style={{ elevation: 3, backgroundColor: Colors.white }}>
+                        <View className="w-auto rounded-3xl p-5 m-1" style={{ 
+                            shadowColor: 'gray',
+                                    shadowOpacity: 0.4,
+                                    shadowOffset: { width: 0, height: 2 },
+                                    shadowRadius: 5,
+                                    elevation: 10, backgroundColor: Colors.white
+                         }}>
 
                             <Text style={{ textTransform: 'uppercase', fontFamily: 'PoppinsMedium', color: Colors.orange }}>{item.Title}</Text>
                             <Text

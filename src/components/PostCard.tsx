@@ -35,13 +35,12 @@ const PostCard:React.FC<Props>=({data})=>{
                 <View 
                 className=" rounded-3xl py-2 px-2 m-1 "
                 style={{ shadowColor: 'gray',
-                shadowOpacity: 0.1,
-                
-                shadowOffset: { width: 2, height: 5 },
-                elevation: 5,
-                
+                shadowOpacity: 0.4,
+                shadowOffset: { width: 0, height: 2 },
+                shadowRadius: 5,
+                elevation: 10, backgroundColor: Colors.white,
             width:widthPercentageToDP('92%'),
-            backgroundColor:Colors.white}}>
+           }}>
                 <View className="flex-row items-center justify-evenly p-1">
                   <View className="flex-row items-center justify-evenly" style={{width:widthPercentageToDP('90%')}}>
 

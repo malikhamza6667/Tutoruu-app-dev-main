@@ -15,14 +15,14 @@ const ChatScreen:React.FC<Props>=({navigation})=>{
 
        
          <SafeAreaView className="flex-1 bg-white">
-  <View className="justify-end" style={{height:hp('10%')}}>
+  <View className="justify-center" style={{height:hp('10%')}}>
            <Header headerTitle="Chats"/>
             </View>
-           <View className=" justify-evenly" style={{height: hp('90%')}}>
+           <View  style={{height: hp('90%')}}>
           
-            <View className=" flex-1 justify-around ">
+   
 
-            <View >
+            <View  >
                 <Text className="text-base  px-5 py-5" style={{fontFamily:'PoppinsMedium'}}>Inbox</Text>
                 <FlatList
                 data={ChatMessages}
@@ -70,7 +70,7 @@ const ChatScreen:React.FC<Props>=({navigation})=>{
                 />
             </View>
            </View>
-            </View>
+          
          </SafeAreaView>
         
         

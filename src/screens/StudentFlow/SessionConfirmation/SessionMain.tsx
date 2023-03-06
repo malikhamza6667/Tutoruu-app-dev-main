@@ -86,11 +86,12 @@ const SessionConfirmationMain: React.FC<Props> = ({navigation}) => {
                     return (
                         <View className="w-auto rounded-3xl p-5 m-1" style={{
                             shadowColor: 'gray',
-                            shadowOpacity: 0.2,
-                            shadowOffset: { width: 2, height: 5 },
-                            elevation: 2,
+                            shadowOpacity: 0.4,
+                            shadowOffset: { width: 0, height: 2 },
+                            shadowRadius: 5,
+                            elevation: 10, backgroundColor: Colors.white
                         
-                        backgroundColor:Colors.white}}>
+                      }}>
                             <View className='flex-row justify-between'>
                                 <View className='flex-row'>
                                     <Text style={{ fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}>Timing:</Text>
@@ -216,11 +217,10 @@ const SessionConfirmationMain: React.FC<Props> = ({navigation}) => {
             >Tutor</Text>
             <View className="w-auto rounded-2xl p-4 py-5 flex-row m-1 justify-between" style={{
                             shadowColor: 'gray',
-                            shadowOpacity: 0.2,
-                            shadowOffset: { width: 2, height: 5 },
-                            elevation: 2,
-                        
-                        backgroundColor:Colors.white}}>
+                            shadowOpacity: 0.4,
+                            shadowOffset: { width: 0, height: 2 },
+                            shadowRadius: 5,
+                            elevation: 10, backgroundColor: Colors.white}}>
                 
                     <View className='flex-row justify-between gap-1'>
                     <Image
@@ -263,11 +263,10 @@ const SessionConfirmationMain: React.FC<Props> = ({navigation}) => {
                     return (
                         <View className="w-auto rounded-2xl p-5 m-1"  style={{
                             shadowColor: 'gray',
-                            shadowOpacity: 0.2,
-                            shadowOffset: { width: 2, height: 5 },
-                            elevation: 2,
-                        
-                        backgroundColor:Colors.white}}>
+                            shadowOpacity: 0.4,
+                            shadowOffset: { width: 0, height: 2 },
+                            shadowRadius: 5,
+                            elevation: 10, backgroundColor: Colors.white}}>
 
                             <Text style={{ textTransform: 'uppercase', fontFamily: 'PoppinsMedium', color: Colors.orange }}>{item.Title}</Text>
                             <Text className='text-base' style={{ textTransform: 'capitalize', fontFamily: 'PoppinsRegular' }}>{item.Desc}</Text>
