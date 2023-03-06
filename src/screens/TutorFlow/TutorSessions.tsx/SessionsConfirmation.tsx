@@ -25,6 +25,7 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
             style={{
                 flex: 1,
                 backgroundColor: Colors.white
+                // backgroundColor:'pink'
             }}
         >
             <View
@@ -45,7 +46,9 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
                     <View >
 
                         <Text
-                            style={{ fontFamily: 'PoppinsMedium' }}
+                            style={{
+                                fontFamily: 'PoppinsMedium'
+                            }}
                             className='mx-4 my-1 text-base'
                         >Session Info</Text>
                         <FlatList
@@ -65,33 +68,58 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
                                             // alignSelf: 'center'
                                         }}>
                                         <View className='flex-row justify-between'>
-                                            <View className='flex-row'>
-                                                <Text style={{ fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}>Timing:</Text>
-                                                <Text className='mx-1' style={{ fontFamily: 'PoppinsBold' }}>{item.Timing}</Text>
+                                            <View className='flex-row py-1'  >
+                                                <Text
+                                                    style={{
+                                                        fontFamily: 'PoppinsMedium',
+                                                        textTransform: 'uppercase'
+                                                    }}
+                                                >Timing:</Text>
+                                                <Text
+                                                    className='mx-1'
+                                                    style={{
+                                                        fontFamily: 'PoppinsBold'
+                                                    }}
+                                                >{item.Timing}</Text>
                                             </View>
 
                                             <View>
-                                                <FontAwesome name="edit" size={20} color={Colors.orange} />
+                                                <FontAwesome
+                                                    name="edit"
+                                                    size={20}
+                                                    color={Colors.orange}
+                                                />
                                             </View>
                                         </View>
 
 
-                                        <View className='flex-row'>
+                                        <View className='flex-row py-1'>
                                             <Text
-                                                style={{ fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}
+                                                style={{
+                                                    fontFamily: 'PoppinsMedium',
+                                                    textTransform: 'uppercase'
+                                                }}
                                             >Location:</Text>
                                             <Text
                                                 className='mx-1'
-                                                style={{ fontFamily: 'PoppinsBold', color: Colors.orange }}
+                                                style={{
+                                                    fontFamily: 'PoppinsBold',
+                                                    color: Colors.orange
+                                                }}
                                             >{item.Location}</Text>
                                         </View>
-                                        <View className='flex-row'>
+                                        <View className='flex-row py-2'>
                                             <Text
-                                                style={{ fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}
+                                                style={{
+                                                    fontFamily: 'PoppinsMedium',
+                                                    textTransform: 'uppercase'
+                                                }}
                                             >Topic:</Text>
                                             <Text
                                                 className='mx-1'
-                                                style={{ fontFamily: 'PoppinsBold' }}
+                                                style={{
+                                                    fontFamily: 'PoppinsBold'
+                                                }}
                                             >{item.Topic}</Text>
                                         </View>
 
@@ -105,16 +133,23 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
                     <Spacer />
                     <View >
                         <Text
-                            style={{ fontFamily: 'PoppinsMedium' }}
+                            style={{
+                                fontFamily: 'PoppinsMedium'
+                            }}
                             className='mx-6 my-2 text-base'
                         >Payment</Text>
-                        <View className='px-6 pb-5 pt-1 flex-row justify-between items-center'>
+                        <View
+                            className='px-6 pb-5 pt-1 flex-row justify-between items-center'
+                        >
 
 
 
                             <Text
                                 className='text-base'
-                                style={{ fontFamily: 'PoppinsMedium' }}>170 EGP</Text>
+                                style={{
+                                    fontFamily: 'PoppinsMedium'
+                                }}
+                            >170 EGP</Text>
 
 
 
@@ -122,9 +157,13 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
 
                     </View>
 
-                    <View>
+                    <View
+
+                    >
                         <Text
-                            style={{ fontFamily: 'PoppinsMedium' }}
+                            style={{
+                                fontFamily: 'PoppinsMedium'
+                            }}
                             className='mx-6 my-2 text-base'
                         >Chat</Text>
                         <FlatList
@@ -132,11 +171,20 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
                             renderItem={({ item }) => {
                                 return (
 
-                                    <TouchableOpacity style={{ backgroundColor: Colors.lightorange }}
-                                        className='px-2 flex-row items-center justify-between'
+                                    <TouchableOpacity
+                                        style={{
+                                            shadowColor: 'black',
+                                            shadowOpacity: 0.9,
+                                            shadowOffset: { width: 0, height: 2 },
+                                            elevation: 15,
+                                            shadowRadius: 5,
+                                            backgroundColor: Colors.lightorange
+                                        }}
+                                        className='px-2 py-2 flex-row items-center justify-between'
                                     >
                                         <View
                                             className='p-2 flex-row items-center'
+
                                         >
 
 
@@ -147,21 +195,35 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
                                                 resizeMode='contain'
                                             />
                                             <View className='px-2'>
-                                                <Text style={{ fontFamily: 'PoppinsRegular' }}>{item.Name}</Text>
-                                                <Text style={{ fontFamily: 'Poppins' }}>{item.Message}</Text>
+                                                <Text
+                                                    style={{
+                                                        fontFamily: 'PoppinsRegular'
+                                                    }}>{item.Name}</Text>
+                                                <Text
+                                                    style={{
+                                                        fontFamily: 'Poppins'
+                                                    }}>{item.Message}</Text>
                                             </View>
 
                                         </View>
                                         <View className='p-1 gap-1  mx-2'>
-                                            <Text style={{ fontFamily: 'Poppins' }}
+                                            <Text
+                                                style={{
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: hp('1.3')
+                                                }}
                                                 className='text-sm'
                                             >{item.Time}</Text>
                                             <View
                                                 className='self-end justify-center items-center px-2.5 py-0.5 rounded-full'
-                                                style={{ backgroundColor: Colors.orange }}>
+                                                style={{
+                                                    backgroundColor: Colors.orange
+                                                }}>
 
                                                 <Text
-                                                    style={{ fontFamily: 'PoppinsMedium' }}
+                                                    style={{
+                                                        fontFamily: 'PoppinsMedium'
+                                                    }}
                                                     className=' text-white '
                                                 >{item.messageNo}</Text>
                                             </View>
@@ -176,21 +238,20 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
 
                     <View>
                         <Text
-                            style={{ fontFamily: 'PoppinsMedium' }}
+                            style={{
+                                fontFamily: 'PoppinsMedium'
+                            }}
                             className='mx-6 my-2 text-base'
                         >Student</Text>
                         <View
-                            className="w-auto rounded-3xl p-3 flex-row m-1 justify-between"
+                            className="w-auto rounded-3xl p-3 py-5 flex-row m-1 justify-between"
                             style={{
                                 shadowColor: 'gray',
                                 shadowOpacity: 0.3,
                                 shadowOffset: { width: 0, height: 2 },
                                 elevation: 15,
                                 shadowRadius: 5,
-                                // width:wp('95%'),
                                 backgroundColor: Colors.white,
-                                // alignSelf:'center',
-                                padding:hp('3')
                             }}>
 
                             <View className='flex-row justify-between gap-1'>
@@ -202,16 +263,27 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
                                 <View>
 
                                     <Text
-                                        style={{ fontFamily: 'PoppinsBold' }}
+                                        style={{
+                                            fontFamily: 'PoppinsBold'
+                                        }}
                                         className='text-base'
                                     >{TutorInfo.Name}</Text>
-                                    <Text style={{ fontFamily: 'PoppinsMedium', color: Colors.orange, textTransform: 'uppercase' }} className='text-xs'>AUC</Text>
+                                    <Text
+                                        style={{
+                                            fontFamily: 'PoppinsMedium',
+                                            color: Colors.orange,
+                                            textTransform: 'uppercase'
+                                        }}
+                                        className='text-xs'
+                                    >AUC</Text>
                                 </View>
                             </View>
 
 
                             <TouchableOpacity
-                                style={{ backgroundColor: Colors.orange }}
+                                style={{
+                                    backgroundColor: Colors.orange
+                                }}
                                 className='justify-center px-8 py-2 self-end items-center rounded-full'
                             >
                                 <Text
@@ -225,7 +297,9 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
 
                     <View>
                         <Text
-                            style={{ fontFamily: 'PoppinsMedium' }}
+                            style={{
+                                fontFamily: 'PoppinsMedium'
+                            }}
                             className='mx-6 my-2 text-base'
                         >Class</Text>
                         <FlatList
@@ -234,15 +308,27 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
                                 return (
                                     <View className="w-auto rounded-3xl p-5 m-1" style={{
                                         shadowColor: 'gray',
-                                        shadowOpacity: 0.2,
-                                        shadowOffset: { width: 2, height: 5 },
+                                        shadowOpacity: 0.3,
+                                        shadowOffset: { width: 0, height: 2 },
                                         elevation: 5,
-
+                                        shadowRadius: 5,
                                         backgroundColor: Colors.white
                                     }}>
 
-                                        <Text style={{ textTransform: 'uppercase', fontFamily: 'PoppinsMedium', color: Colors.orange }}>{item.Title}</Text>
-                                        <Text className='text-base' style={{ textTransform: 'capitalize', fontFamily: 'PoppinsRegular' }}>{item.Desc}</Text>
+                                        <Text
+                                            style={{
+                                                textTransform: 'uppercase',
+                                                fontFamily: 'PoppinsMedium',
+                                                color: Colors.orange
+                                            }}
+                                        >{item.Title}</Text>
+                                        <Text
+                                            className='text-base'
+                                            style={{
+                                                textTransform: 'capitalize',
+                                                fontFamily: 'PoppinsRegular'
+                                            }}
+                                        >{item.Desc}</Text>
                                     </View>
                                 )
                             }}
@@ -252,12 +338,15 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
                 </ScrollView>
 
 
-                <View className='items-center pb-1' style={{ zIndex: -1 }} >
+                <View
+                    className='items-center pb-1'
+                    style={{ zIndex: -1 }}
+                >
 
                     <Button
 
                         title='Accept'
-                        width={wp('95%')}
+                        width={wp('90%')}
                         onPress={() => { alert('Pressed') }}
                         color={Colors.orange}
                         titleColor={Colors.white}
@@ -268,7 +357,10 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
                         className='justify-center items-center mt-1 mb-1'
                     >
                         <Text
-                            style={{ color: Colors.orange, fontFamily: 'PoppinsBold' }}
+                            style={{
+                                color: Colors.orange,
+                                fontFamily: 'PoppinsBold'
+                            }}
                         >Reject</Text>
                     </TouchableOpacity>
                 </View>

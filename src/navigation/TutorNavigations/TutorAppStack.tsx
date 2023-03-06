@@ -20,7 +20,6 @@ const TutorAppStack:React.FC=()=>{
     <Stack.Screen component={TutorSessions} name='TutorSessions'/>
     <Stack.Screen component={StudentProfileScreen} name='StudentProfileScreen'/>
     <Stack.Screen component={SessionsConfirmation} name='SessionsConfirmation'/>
-   
 </Stack.Navigator>
     )
 }

@@ -8,18 +8,15 @@ import { View } from 'react-native';
 
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
-
+import TutorAppStack from './src/navigation/TutorNavigations/TutorAppStack';
 import MainAppRoutes from './src/navigation/AppRoutes/MainNavigationRoutes';
-import store from './src/redux/store/Store';
-import { Provider } from 'react-redux';
-import { ApolloProvider } from 'react-apollo';
-import { client } from './src/graphQLApollo/ClientInstance';
-
 const App: React.FC = () => {
 
   return (
     <NavigationContainer>
-   <MainAppRoutes/>
+   {/* <MainAppRoutes/> */}
+   {/* <TutorAppStack/> */}
+   <MainStack/>
     </NavigationContainer>
   );
 }
