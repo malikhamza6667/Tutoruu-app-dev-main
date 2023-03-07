@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, FlatList, TouchableOpacity, Image, Modal, Pressable, Alert, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, Image, Modal, Pressable, Alert, StyleSheet,  } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../../../../assets/Colors';
 import Header from '../../../components/Header';
@@ -11,6 +11,7 @@ import { TutorInfo, ChatMessage, ClassInfo, SessionInfo, } from '../../StudentFl
 import Button from '../../../components/Buttonnn';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import Spacer from '../../../components/Spacer';
+import { ScrollView } from 'react-native-virtualized-view';
 interface Props {
     navigation: any
 }
@@ -28,19 +29,20 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
                 // backgroundColor:'pink'
             }}
         >
+              <View style={{ height: hp('10%') }} className='justify-center'>
+
+              <Header headerTitle='Confirmation' />
+                </View>
             <View
-            // style={{ backgroundColor: Colors.white }}
-            // className='flex-1  justify-evenly'
+            style={{ backgroundColor: Colors.white,height: hp('90%') }}
+            className='  justify-evenly'
             >
 
-                {/* <View style={{ height: heightPercentageToDP('15%') }} className='justify-center'> */}
-
-                <Header headerTitle='Confirmation' />
-                {/* </View> */}
+              
 
                 <Spacer />
                 <ScrollView
-                //  className='gap-1'
+             
                 >
 
                     <View >
@@ -339,8 +341,9 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
 
 
                 <View
-                    className='items-center pb-1'
-                    style={{ zIndex: -1 }}
+                    className='items-center  pb-4 justify-between'
+
+                    style={{ height: hp('15%') , zIndex: 1}}
                 >
 
                     <Button

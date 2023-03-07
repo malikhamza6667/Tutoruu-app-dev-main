@@ -1,10 +1,14 @@
 import React, { useState,useEffect } from 'react';
 import { GiftedChat, IMessage, InputToolbar,Bubble,Send, Avatar, Composer } from 'react-native-gifted-chat';
-import { View,Text,Image,TextInput, TouchableOpacity, StyleSheet, SafeAreaView  } from 'react-native';
+import { View,Text,Image,TextInput, TouchableOpacity, StyleSheet,ScrollView,KeyboardAvoidingView, SafeAreaView, Platform  } from 'react-native';
 import Header from '../../../components/Header';
 import Colors from '../../../../assets/Colors';
 
+
 import { heightPercentageToDP as hp,widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import MessageBox from '../../../components/MessageBox';
+import { ImageAdress } from '../DummyData';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 interface Props{
     navigation: any,
@@ -145,7 +149,7 @@ containerStyle={{
     return (
         <Composer
         {...props}
-              
+           
         />
    
     );
@@ -178,61 +182,128 @@ const {name}=route.params
     ])
   }, [])
   return (
-    <SafeAreaView className='flex-1 bg-white justify-center'>
- <View  className='justify-center' style={{height: hp('10%')}}>
+    <SafeAreaView className='flex-1 bg-white justify-center'> 
+    <View className='justify-center' style={{height: hp('10%')}}>
+             <Header headerTitle='Chat'/>
+          </View>
+         
 
-<Header headerTitle='Chats'/>
-</View>
-    <View className='justify-between ' style={{height: hp('90%')}}>
-     
-        <View className='flex-1 justify-evenly mt-2'>
+  <View className=' bg-white justify-evenly' style={{height: hp('90%')}}>
 
-        <TouchableOpacity
-           style={{  shadowColor: 'gray',
-           shadowOpacity: 0.2,
-           shadowOffset: { width: 2, height: 5 },
-           elevation: 5,backgroundColor:Colors.white}}
-        className=' py-4 px-5 flex-row'
-        onPress={()=>{navigation.navigate('StudentProfileScreen',{
-          name
-        })}}
-        >
+          
+      <View style={{height: hp('15%')}} >
+  
+             <TouchableOpacity
+                style={{  shadowColor: 'gray',
+                shadowOpacity: 0.2,
+                shadowOffset: { width: 2, height: 5 },
+                elevation: 5,borderColor:Colors.lightorange,borderWidth:2,
+                backgroundColor:Colors.white
+             
+             }}
+             onPress={()=>{navigation.navigate('StudentProfileScreen',{name:'Ragnar'})}}
+             className=' py-5 px-5 flex-row '
             
-        <Image
-        source={require('../../../../assets/dp.jpg')}
-        resizeMode='contain'
-        className='h-20 w-20 rounded-full'
-        />
-        <View className='px-3 justify-center'   >
-        <Text style={{fontFamily:'PoppinsBold'}} className='text-xl'>{name}</Text>
+             >
+                 
+             <Image
+             source={require('./../../../../assets/dp.jpg')}
+             resizeMode='contain'
+             style={{height: hp('10%'),width: wp('25%')}}
+           
+             />
+             <View className='px-3 justify-center'   >
+          <View className='flex-row'>
       
-        <Text style={{fontFamily:'PoppinsMedium',textTransform:'uppercase'}} className='text-sm'>Online</Text>
+               <Text style={{fontFamily:'PoppinsBold'}} className='text-xl mr-2 justify-between'>Ragnar Lothbrok</Text>
+          
+             </View>
+      
+             
+           
+             <Text style={{fontFamily:'PoppinsMedium',textTransform:'uppercase'}} className='text-sm'>Online</Text>
+      
+             
+      
+             </View>
+           </TouchableOpacity>
+      </View>
+        
+      
+           
+        
+                <KeyboardAvoidingView contentContainerStyle={{paddingTop:10}}   style={{height: hp('75%')}}     behavior={Platform.OS === 'ios' ? 'padding' : 'padding'}
+    >
+
+  <GiftedChat
+            messages={messages}
+            onSend={onSend}
+            user={{
+              _id: 1,
+            }}
+            
+            renderInputToolbar={CustomInputToolbar}
+          renderBubble={renderBubble}
+          renderSend={renderSend}
+    renderAvatar={renderAvatar}
+    
+    messagesContainerStyle={{ maxHeight: hp('60%'),paddingBottom:50,}}
+    renderComposer={renderComposer}
+    maxComposerHeight={hp('10%')}
+    
+          showUserAvatar
+       
+     alwaysShowSend   
+         />
+
+  </KeyboardAvoidingView>
+     
+            
+
 
         
-
-        </View>
-      </TouchableOpacity>
-      <GiftedChat
-         messages={messages}
-         onSend={onSend}
-         user={{
-           _id: 1,
-         }}
+           
+         </View>
          
-         renderInputToolbar={CustomInputToolbar}
-       renderBubble={renderBubble}
-       renderSend={renderSend}
-renderAvatar={renderAvatar}
-messagesContainerStyle={{ paddingBottom:80,}}
-renderComposer={renderComposer}
-       showUserAvatar
-    
-  alwaysShowSend   
-      />
-        </View>
-    </View>
-    </SafeAreaView>
+      </SafeAreaView>
   );
 };
 
 export default InboxScreen;
+
+
+{/* <KeyboardAvoidingView style={{flex:1}} contentContainerStyle={{flexGrow:1,}} behavior='height'>
+<View style={{height: hp('60%')}} className='justify-end' >
+    <ScrollView>
+         <MessageBox radiusLeft={2} color={Colors.lightorange} message='Lorem ipsum dolor sit amit?' image={ImageAdress}/>
+         <MessageBox radiusRight={2} directionRight={true}  message='Lorem ipsum dolor sit amit?' image={ImageAdress}/>
+         <MessageBox radiusLeft={2} color={Colors.lightorange} message='Lorem ipsum dolor sit amit?' image={ImageAdress}/>
+         <MessageBox radiusRight={2} directionRight={true}  message='Lorem ipsum dolor sit amit?' image={ImageAdress}/>
+       
+</ScrollView>
+</View>
+
+        <View style={{height: hp('15%')}} className='justify-center'>
+           <View
+           
+           className=' flex-row justify-between items-center gap-x-4  m-4 my-1  p-1 rounded-full border border-gray-300'>
+
+<TextInput
+    style={{ fontFamily: 'PoppinsMedium' }}
+    className=' flex-1'
+    placeholder='Enter A Message'
+    placeholderTextColor={Colors.gray}
+   
+/>
+<TouchableOpacity
+    style={{backgroundColor: Colors.orange}}
+    className="rounded-full p-2"
+>
+
+<AntDesign name="arrowright" size={24} color={Colors.white} />
+</TouchableOpacity>
+</View>
+          </View>   
+
+    
+           </KeyboardAvoidingView> */}

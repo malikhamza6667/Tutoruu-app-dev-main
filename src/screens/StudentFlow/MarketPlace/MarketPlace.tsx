@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { SafeAreaView, TextInput, TouchableOpacity, Text, ScrollView, View, FlatList, KeyboardAvoidingView } from 'react-native'
+import { SafeAreaView, TextInput, TouchableOpacity, Text, View, FlatList, KeyboardAvoidingView } from 'react-native'
 // import { SafeAreaView } from 'react-native-safe-area-context';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
@@ -15,6 +15,7 @@ import Username from '../../../components/UserName';
 import Spacer from '../../../components/Spacer';
 import TutorCard from '../../../components/TutorCard';
 import Divider from '../../../components/Divider';
+import { ScrollView } from 'react-native-virtualized-view';
 
 const sessions = [
     {
@@ -52,7 +53,7 @@ const MarketPlace: React.FC<Props> = ({ navigation }) => {
     const [backgroundEnabled, setBackgroundEnabled] = useState(0)
     const [newClass, setNewClass] = useState('')
     return (
-        <SafeAreaView>
+        <SafeAreaView className='justify-center flex-1'>
             <ScrollView
                 showsVerticalScrollIndicator={false}
             >
@@ -64,11 +65,9 @@ const MarketPlace: React.FC<Props> = ({ navigation }) => {
                     }}
                 >
                     <KeyboardAvoidingView behavior='height'>
-                        <SafeAreaView />
+                       
                         <Spacer />
                         <Username />
-
-                        {/* <View style={{borderBottomWidth:2,margin:5,borderColor: Colors.gray}}></View> */}
                         <Divider />
                         <Spacer />
 

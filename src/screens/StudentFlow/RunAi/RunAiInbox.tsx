@@ -1,12 +1,17 @@
 import React, { useState,useEffect } from 'react';
 import { GiftedChat, IMessage, InputToolbar,Bubble,Send, Avatar, Composer } from 'react-native-gifted-chat';
-import { View,Text,Image,TextInput, TouchableOpacity, StyleSheet, SafeAreaView, Modal  } from 'react-native';
+import { View,Text,Image,TextInput, TouchableOpacity, StyleSheet,ScrollView, SafeAreaView, Modal,KeyboardAvoidingView  } from 'react-native';
 import Header from '../../../components/Header';
 import Colors from '../../../../assets/Colors';
 import { heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import RUUICARD from '../../../components/RuuiCard';
 import { StatusBar } from 'expo-status-bar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import MessageBox from '../../../components/MessageBox';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { ImageAdress } from '../DummyData';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+
 
 
 interface Props{
@@ -200,6 +205,8 @@ useEffect(()=>{
   <View className='justify-center' style={{height: hp('10%')}}>
            <Header headerTitle='Chat'/>
         </View>
+        <ScrollView>
+
 <View className=' bg-white justify-evenly' style={{height: hp('90%')}}>
   <Modal
   visible={showRuuiCard}
@@ -223,11 +230,8 @@ useEffect(()=>{
   </Modal>
  
         
-      
-    
-         
-           <View className='flex-1 justify-evenly'>
-    
+    <View style={{height: hp('15%')}} >
+
            <TouchableOpacity
               style={{  shadowColor: 'gray',
               shadowOpacity: 0.2,
@@ -260,7 +264,76 @@ useEffect(()=>{
     
            </View>
          </TouchableOpacity>
-         <GiftedChat
+    </View>
+      
+    
+         
+          
+<View style={{height: hp('75%')}}>
+
+  <KeyboardAvoidingView style={{flex:1}} contentContainerStyle={{flexGrow:1,}} behavior='height'>
+<View style={{height: hp('60%')}} >
+    <ScrollView collapsable={true}>
+         <MessageBox radiusLeft={2} color='rgba(254, 131, 3, 0.6)' message='Hello this is Ruu, I’m here to help you with
+your academics in university. Ask me 
+anything!' image={ImageAdress}/>
+         <MessageBox radiusRight={2} directionRight={true}  message='Hello this is Ruu, I’m here to help you with
+your academics in university. Ask me 
+anything!' image={ImageAdress}/>
+         <MessageBox radiusLeft={2} color='rgba(254, 131, 3, 0.6)' message='Hello this is Ruu, I’m here to help you with
+your academics in university. Ask me 
+anything!' image={ImageAdress}/>
+         <MessageBox radiusRight={2} directionRight={true}  message='Hello this is Ruu, I’m here to help you with
+your academics in university. Ask me 
+anything!' image={ImageAdress}/>
+         <MessageBox radiusLeft={2} color='rgba(254, 131, 3, 0.6)' message='Hello this is Ruu, I’m here to help you with
+your academics in university. Ask me 
+anything!' image={ImageAdress}/>
+         <MessageBox radiusRight={2} directionRight={true}  message='Hello this is Ruu, I’m here to help you with
+your academics in university. Ask me 
+anything!' image={ImageAdress}/>
+</ScrollView>
+</View>
+
+        <View style={{height: hp('15%')}} className='justify-center'>
+           <View
+           
+           className=' flex-row justify-between items-center gap-x-4  m-4 my-1  p-1 rounded-full border border-gray-300'>
+
+<TextInput
+    style={{ fontFamily: 'PoppinsMedium' }}
+    className=' flex-1'
+    placeholder='Enter A Message'
+    placeholderTextColor={Colors.gray}
+   
+/>
+<TouchableOpacity
+    style={{backgroundColor: Colors.orange}}
+    className="rounded-full p-2"
+>
+
+<AntDesign name="arrowright" size={24} color={Colors.white} />
+</TouchableOpacity>
+</View>
+          </View>   
+
+    
+           </KeyboardAvoidingView>
+</View>
+      
+         
+       </View>
+        </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+export default InboxScreenRunAI;
+
+
+
+//this is gifted chat code
+   {/* <GiftedChat
             messages={messages}
             onSend={onSend}
             user={{
@@ -276,11 +349,4 @@ useEffect(()=>{
           showUserAvatar
        
      alwaysShowSend   
-         />
-           </View>
-       </View>
-    </SafeAreaView>
-  );
-};
-
-export default InboxScreenRunAI;
+         /> */}
