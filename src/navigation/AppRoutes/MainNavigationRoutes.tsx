@@ -9,16 +9,15 @@ import AppRoutes from './AppRoutes';
 const stack = createNativeStackNavigator()
 
 const MainAppRoutes: React.FC = () => {
-    const  [isLogged,setIsLogged]=useState(true)
+    const  [isLogged,setIsLogged]=useState(false)
     return (
         
         <stack.Navigator screenOptions={{headerShown:false}}>
-     {
-        isLogged ? 
+    
         <stack.Screen component={AppRoutes} name='AppRoutes'/>
-        :
+        
         <stack.Screen component={AuthStack} name='AuthStack'/>
-     }
+     
         </stack.Navigator>
     )
 }

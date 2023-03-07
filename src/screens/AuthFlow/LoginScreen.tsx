@@ -101,7 +101,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                                 color={Colors.orange}
                                 title='Login'
                                 textSize={14}
-                                onPress={() => { navigation.navigate('MainStackStudent') }}
+                                onPress={() => { navigation.navigate('AppRoutes') }}
                             />
                             <View className='justify-center  justify-items-center flex-row gap-4 pb-3'>
 
