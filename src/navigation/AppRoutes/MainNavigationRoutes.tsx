@@ -14,9 +14,9 @@ const MainAppRoutes: React.FC = () => {
         
         <stack.Navigator screenOptions={{headerShown:false}}>
     
+        <stack.Screen component={AuthStack} name='AuthStack'/>
         <stack.Screen component={AppRoutes} name='AppRoutes'/>
         
-        <stack.Screen component={AuthStack} name='AuthStack'/>
      
         </stack.Navigator>
     )
