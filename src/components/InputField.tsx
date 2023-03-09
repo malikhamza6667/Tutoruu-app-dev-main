@@ -8,19 +8,17 @@ interface Props {
 
     width: number;
     borderRadius: number;
-    height: number;
-
 }
-const Field: React.FC<Props> = ({ borderRadius, width, height }) => {
+const Field: React.FC<Props> = ({ borderRadius, width }) => {
     return (
         <View>
             <TextInput
                 placeholder="Doe.."
                 placeholderTextColor={Colors.black}
-                style={[styles.input, { borderRadius, width, height, textAlignVertical: 'top', padding: hp('2%')  }]}
+                style={[styles.input, { borderRadius, width, textAlignVertical: 'top', padding: hp('1%') }]}
                 multiline={true}
-                
-                />
+
+            />
         </View>
     )
 }
@@ -31,6 +29,7 @@ const styles = StyleSheet.create({
         borderColor: Colors.gray,
         // padding: hp('1%'),
         margin: hp('1'),
+        height: hp('4.8')
         // fontFamily:'PoppinsRegular'
     },
 })
