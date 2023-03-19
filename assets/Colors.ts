@@ -7,7 +7,8 @@ const Colors = {
   gray: "#DCDCDC",
   fadedgray: "#CFCDCB",
   blue: '#268EED',
-  red:'#FE5757'
+  red:'#FE5757',
+  neutralShadow:'rgba(207, 205, 203, 1)'
 };
 
 export default Colors;
