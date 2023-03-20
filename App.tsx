@@ -11,15 +11,28 @@ import Colors from './assets/Colors';
 
 import { Button as Buttonnn } from '@rneui/base';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
-import { Switch } from './src/components/Switch/Switch';
-import { Icon } from './src/components/Icon/Icon';
-import { Avatar } from './src/components/Avatar/Avatar';
+import TutorCard from './src/components/TutorCard/TutorCard';
 import { Card } from './src/layouts/Card/Card';
-import { Popup } from './src/components/Popup/Popup';
-import { Notification } from './src/components/Notification/Notification';
+import { TutorSubjects, user } from './src/screens/DummyData';
+import HorizontalList from './src/layouts/HorizontalList/HorizontalList';
+
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
+
+
+interface Item {
+  id: number;
+  name: string;
+}
+
+const data: Item[] = [
+  { id: 1, name: 'Item 1' },
+  { id: 2, name: 'Item 2' },
+  { id: 3, name: 'Item 3' },
+];
+
+
 const MyApp = () => {
   const [enableButton, setEnableButton] = useState(true)
   const [fontsLoaded] = useFonts({
@@ -46,15 +59,30 @@ const MyApp = () => {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', backgroundColor: 'white' }} onLayout={onLayoutRootView} >
-      <Notification
-      text="Hello world"
-      image="https://i.pravatar.cc/300"
-      link="https://google.com"
-      is_read={false}
-      onClick={() => {
-        console.log('Notification clicked');
-      }}
-    />
+ <TutorCard
+ classes={TutorSubjects}
+ user={user}
+ num_sessions={4}
+ rating={2}
+ onPress={()=>{alert('Pressed')}}
+ rate={'270 EGP'}
+ text={'PhD student in the Industrial & Systems Engineering Department…'}
+ />
+<View className='my-3 p-2'>
+
+<HorizontalList
+      data={data}
+      renderItem={({ item }) => 
+      
+      <Card>
+<Text>{item.name}</Text>
+      </Card>
+      }
+      keyExtractor={(item) => item.id.toString()}
+
+/>
+</View>
+
     </View>
   );
 };

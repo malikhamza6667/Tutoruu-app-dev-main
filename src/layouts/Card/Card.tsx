@@ -5,13 +5,16 @@ import {
     widthPercentageToDP as wp
 } from "react-native-responsive-screen";
 import tw from 'twrnc';
-type Props = {}
+type Props = {
+    children: React.ReactNode;
+}
 
-export const Card: React.FC<Props> = () => {
+
+export const Card: React.FC<Props> = ({children}) => {
     return (
         <View 
         style={{
-                height: hp('15%'),
+                // height: hp('15%'),
                 width: wp('90%'),
                 alignSelf: 'center',
                 shadowColor: 'black',
@@ -25,7 +28,7 @@ export const Card: React.FC<Props> = () => {
                 backgroundColor: "#fff", // Add backgroundColor property
             }}
             testID="card" >
-
+{children}
         </View>
     )
 }

@@ -1,15 +1,18 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 import { Card } from './Card';
-
+import {View,Text} from 'react-native'
 describe('Card', () => {
   it('renders correctly', () => {
-    const { getByTestId } = render(<Card />);
+    const { getByTestId } = render(<Card>
+      <View>
+        <Text>Hey</Text>
+      </View>
+    </Card>);
     const card = getByTestId('card');
 
     expect(card).toBeDefined();
     expect(card.props.style.backgroundColor).toEqual('#fff'); // Check background color
-    expect(card.props.style.height).toEqual(expect.any(Number)); // Check height
     expect(card.props.style.width).toEqual(expect.any(Number)); // Check width
     expect(card.props.style.borderRadius).toEqual(20); // Check border radius
     expect(card.props.style.shadowColor).toEqual('black'); // Check shadow color

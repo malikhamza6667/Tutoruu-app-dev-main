@@ -30,7 +30,7 @@ export const Popup: React.FC<PopupProps> = ({ opened, closeModal, children }) =>
                         { width: wp('90%'), height: hp('35%'), borderRadius: wp('7%') }
                     ]}
                 >
-                    <TouchableOpacity style={tw`absolute top-0 right-0 p-4`} onPress={handleCloseModal} testID="close-button">
+                   <TouchableOpacity style={tw`absolute top-0 right-0 p-4`} onPress={handleCloseModal} testID="close-button">
                         <Icon name="times" size={20} />
                     </TouchableOpacity>
                     {children}

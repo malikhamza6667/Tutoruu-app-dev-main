@@ -34,7 +34,17 @@ export const Avatar: React.FC<Props> = ({ size, showCap, image }) => {
         return (
             <View style={[tw` w-5rem flex items-center justify-center`]}>
                 <Image source={image} style={[...avatarStyles]} resizeMode="contain" testID="avatarImage" />
-                <Image source={capImage} style={[...capStyles]} resizeMode="contain" testID="capImage" />
+                <Image source={capImage}
+                
+                
+                style={[{
+                    width: 22,
+                    height: 22,
+                    top: -15,
+                    left: -6,
+                    zIndex: 60,
+                    position: "absolute"
+                  }]} resizeMode="contain" testID="capImage" />
             </View>
         );
     }
