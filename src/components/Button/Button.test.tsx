@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
-import { useFonts } from 'expo-font';
 import Button from './Button';
 
 
