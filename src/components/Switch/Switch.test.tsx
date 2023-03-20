@@ -10,5 +10,4 @@ describe("Switch", () => {
         fireEvent.press(switchButton);
         expect(onPressMock).toHaveBeenCalled();
     });
-
 });

@@ -15,6 +15,8 @@ import { Switch } from './src/components/Switch/Switch';
 import { Icon } from './src/components/Icon/Icon';
 import { Avatar } from './src/components/Avatar/Avatar';
 import { Card } from './src/layouts/Card/Card';
+import { Popup } from './src/components/Popup/Popup';
+import { Notification } from './src/components/Notification/Notification';
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
@@ -27,7 +29,11 @@ const MyApp = () => {
     'PoppinsMedium': require('./assets/fonts/Poppins-Medium.ttf'),
     'PoppinsSemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
   });
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
+  const handleCloseModal = () => {
+    const opened = false;
+  };
 
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
@@ -39,9 +45,16 @@ const MyApp = () => {
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', backgroundColor:'white' }} onLayout={onLayoutRootView} >
-      {/* <Text>This is Main App</Text>  */}
-      <Card/>
+    <View style={{ flex: 1, justifyContent: 'center', backgroundColor: 'white' }} onLayout={onLayoutRootView} >
+      <Notification
+      text="Hello world"
+      image="https://i.pravatar.cc/300"
+      link="https://google.com"
+      is_read={false}
+      onClick={() => {
+        console.log('Notification clicked');
+      }}
+    />
     </View>
   );
 };
