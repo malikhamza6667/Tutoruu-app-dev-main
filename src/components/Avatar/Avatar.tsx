@@ -1,89 +1,72 @@
 import React from 'react';
 import tw from 'twrnc';
-import { Image, View, Style } from 'react-native';
+import { Image, View } from 'react-native';
 
 type Props = {
-    size: string;
+    size: 'small'|'medium'|'large';
     showCap: boolean;
     image: any;
 };
 
-export const Avatar: React.FC<Props> = ({ size, showCap, image }) => {
-    const avatarStyles = [tw`rounded-full`];
-
+const Avatar: React.FC<Props> = ({ size, showCap, image }) => {
+    let avatarStyles = "rounded-full";
+    let marginBottom=0
+let marginRight=0
     if (size === 'small') {
-        avatarStyles.push(tw`w-8 h-8 `,);
+        avatarStyles= "rounded-full  w-8 h-8 mr[-3.5] mb[-3] "
+       
+        marginRight=-3.5
+        marginBottom=-3
     } else if (size === 'medium') {
-        avatarStyles.push(tw`w-12 h-12`);
+        avatarStyles= "rounded-full  w-12 h-12 mr[-4] mb[-5] "
+        marginRight=-4.5
+        marginBottom=-4
+      
     } else if (size === 'large') {
-        avatarStyles.push(tw`w-16 h-16`);
+        avatarStyles= "rounded-full  w-16 h-16 mr[-6] mb[-7]"
+        marginRight=-5
+        marginBottom=-5.5
+       
     }
     // Choose the appropriate cap style based on size prop value
-    let capStyles: Style[] = [];
+    let capStylesTailwind='absolute w-11 h-11 '
+   
     if (size === 'small') {
-        capStyles = [tw`absolute w-11 h-11 z-60`, { top: -7, right: 19 }];
+        capStylesTailwind='absolute w-11 h-11 ' 
+       
     } else if (size === 'medium') {
-        capStyles = [tw`absolute w-16.2 h-17 z-50`, { top: -13, right: 10 }];
+        capStylesTailwind='absolute w-16.2 h-17 ' 
+      
     } else if (size === 'large') {
-        capStyles = [tw`absolute w-22 h-22 z-60`, { top: -15, left: -6 }];
+        capStylesTailwind='absolute w-22.5 h-22.5 ' 
+        
+      
     }
-    if (showCap) {
-        const capImage = require('../../../assets/dpframe.png');
-        // const capStylesLarge = [tw`absolute w-22 h-22 z-60`, { top: -15, left: -6 }];
+    const capImage = require('../../../assets/dpframe.png');
+    return(
+        <View>
 
-        return (
-            <View style={[tw` w-5rem flex items-center justify-center`]}>
-                <Image source={image} style={[...avatarStyles]} resizeMode="contain" testID="avatarImage" />
-                <Image source={capImage}
-                
-                
-                style={[{
-                    width: 22,
-                    height: 22,
-                    top: -15,
-                    left: -6,
-                    zIndex: 60,
-                    position: "absolute"
-                  }]} resizeMode="contain" testID="capImage" />
-            </View>
-        );
-    }
+            {
+            showCap ?
+            (<View style={[tw` w-5rem  items-center justify-center`]}>
+            <Image
+       
+             source={{uri:image}} style={[tw`${avatarStyles}`,{marginBottom:marginBottom,marginRight:marginRight}]} resizeMode="contain" testID="avatarImage" />
+            <Image source={capImage}
+            
+            
+            style={[tw`${capStylesTailwind}`,{zIndex:1}]} resizeMode="contain" testID="capImage" />
+        </View>)
+        :
+        <Image source={{uri:image}} style={tw`${avatarStyles}`} resizeMode="contain" testID="avatarImage" />
+           }
+        </View>
 
-    return <Image source={image} style={[...avatarStyles]} resizeMode="contain" testID="avatarImage" />;
+    )
+
 };
 
+export default Avatar
 
 
-// export const Avatar: React.FC<Props> = ({ size, showCap, image }) => {
-//     const avatarStyles = [tw`rounded-full`];
-
-//     if (size === 'small') {
-//         avatarStyles.push(tw`w-8 h-8`);
-//     } else if (size === 'medium') {
-//         avatarStyles.push(tw`w-12 h-12`);
-//     } else if (size === 'large') {
-//         avatarStyles.push(tw`w-16 h-16`);
-//     }
-
-//     let capStyles;
-
-//     if (showCap) {
-//         const capImage = require('../../../assets/dpframe.png');
-
-//         if (size === 'large') {
-//             capStyles = [tw`absolute w-64.8 h-64.8 z-50`, { right: 10, top: -13 }];
-//         } else {
-//             capStyles = [tw`absolute w-48 h-48 z-30`, { right: 0, top: 0 }];
-//         }
-
-//         return (
-//             <View style={[tw`w-5rem flex items-center justify-center`]}>
-//                 <Image source={image} style={[...avatarStyles]} resizeMode="contain" testID="avatarImage" />
-//                 <Image source={capImage} style={[...capStyles]} testID="capImage" />
-//             </View>
-//         );
-//     }
-
-//     return <Image source={image} style={[...avatarStyles]} testID="avatarImage" />;
-// };
 

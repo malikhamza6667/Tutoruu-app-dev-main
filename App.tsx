@@ -15,6 +15,10 @@ import TutorCard from './src/components/TutorCard/TutorCard';
 import { Card } from './src/layouts/Card/Card';
 import { TutorSubjects, user } from './src/screens/DummyData';
 import HorizontalList from './src/layouts/HorizontalList/HorizontalList';
+import SessionCard from './src/components/SessionCard/SessionCard';
+import Auth from './src/layouts/Auth/Auth';
+import Input from './src/components/Input/Input';
+import  Avatar from './src/components/Avatar/Avatar';
 
 
 SplashScreen.preventAutoHideAsync();
@@ -35,6 +39,7 @@ const data: Item[] = [
 
 const MyApp = () => {
   const [enableButton, setEnableButton] = useState(true)
+  const [email, setEmail] = useState('')
   const [fontsLoaded] = useFonts({
     'Poppins': require('./assets/fonts/Poppins-ExtraLight.ttf'),
     'PoppinsBold': require('./assets/fonts/Poppins-ExtraBold.ttf'),
@@ -58,8 +63,69 @@ const MyApp = () => {
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', backgroundColor: 'white' }} onLayout={onLayoutRootView} >
- <TutorCard
+    <View style={{ flex: 1, justifyContent:'center'}} onLayout={onLayoutRootView} >
+    <View className='p-3'>
+
+      <Avatar
+      showCap
+      size='small'
+      image={"https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?cs=srgb&dl=pexels-pixabay-39866.jpg&fm=jpg"}
+      />
+    </View>
+    <View className='p-3'>
+      <Avatar
+      showCap
+      size='medium'
+      image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMLOPnljLnmpKl2N8pnDHZvxmF06ndBeGXQhZawvYMdjajyMu-gZx6ukTiYpPOBtgCEqI&usqp=CAU"}
+      />
+      </View>
+
+      <View className='p-3'>
+      <Avatar
+      showCap
+      size='large'
+      image={"https://images.pexels.com/photos/2726111/pexels-photo-2726111.jpeg?cs=srgb&dl=pexels-masha-raymers-2726111.jpg&fm=jpg"}
+      />
+      </View>
+      {/* <Auth
+      title='Sign Up For Tutoruu'
+      subTitle='Already have Account ?'
+      pressableSubtitleText='Login'
+      onPressSubtitle={()=>{alert('Pressed')}}
+       footerTitle='Reset-Password'
+       onPressfooterTitle={()=>{alert('Pressed')}}
+      >
+        <View className='py-3 justify-center items-center'>
+
+<Input
+size='large'
+value={email}
+onChangeText={(text)=>{setEmail(text)}}
+title='Password'
+placeholder='Doe'
+/>
+<Input
+size='large'
+value={email}
+onChangeText={(text)=>{setEmail(text)}}
+title='Password'
+placeholder='Doe'
+/>
+<View className='my-2 self-center items-center'>
+
+<Button
+onPress={()=>{alert('Pressed')}}
+icon={'AntDesign arrowright 24 white'}
+shape='default'
+text='Create Account'
+width={wp('80%')}
+height={hp('5%')}
+/>
+</View>
+
+        </View>
+      </Auth> */}
+ {/* <TutorCard
  classes={TutorSubjects}
  user={user}
  num_sessions={4}
@@ -69,19 +135,11 @@ const MyApp = () => {
  text={'PhD student in the Industrial & Systems Engineering Department…'}
  />
 <View className='my-3 p-2'>
+ <SessionCard 
+        class_name='Math' with='John Doe' created_date='2020-01-01' time='12:00 P.M' day='Monday' is_accepted={false} 
+         is_completed={false} payment_fulfilled={false} payment_amount={"200"} location='123 Main St' />   
 
-<HorizontalList
-      data={data}
-      renderItem={({ item }) => 
-      
-      <Card>
-<Text>{item.name}</Text>
-      </Card>
-      }
-      keyExtractor={(item) => item.id.toString()}
-
-/>
-</View>
+</View> */}
 
     </View>
   );
