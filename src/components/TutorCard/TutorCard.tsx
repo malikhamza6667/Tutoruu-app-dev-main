@@ -56,7 +56,7 @@ const showFullListData = () => {
 }
     return(
         <Card>
-            <View style={tw`p-2`}>
+            <View style={[{paddingHorizontal:hp('3%'),paddingVertical:wp('2%')}] }>
             <View style={[tw`flex-row justify-between`]}>
             <View
               style={[tw`flex-row flex-grow-0 `,{width:wp('65%')}]}
@@ -110,12 +110,12 @@ keyExtractor={(item: { id: { toString: () => any } }) => { return item.id.toStri
                     </TouchableOpacity>
             </View> 
             <ImageBackground
-                style={{ height: hp('11%'), width: wp('18%'), justifyContent: 'center', bottom: hp('5%'), alignSelf: 'flex-end' }}
+                style={{ height: hp('11%'), width: wp('18%'), justifyContent: 'center', bottom: hp('7%'), alignSelf: 'flex-end' }}
                 source={require('./../../../assets/Egp.png')}
                 resizeMode='contain'
             >
                 <View >
-                    <Text className="self-center text-sm " style={{ fontFamily: 'PoppinsBold' }}>{rate}</Text>
+                    <Text className="self-center text-xs " style={{ fontFamily: 'PoppinsBold' }}>{rate}</Text>
 
                 </View>
 

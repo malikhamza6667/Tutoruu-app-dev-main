@@ -24,7 +24,7 @@ export const Card: React.FC<Props> = ({children}) => {
                 borderRadius: 20,
                 shadowRadius: 5,
                 justifyContent: 'center',
-                paddingHorizontal: wp('3%'),
+            //    paddingHorizontal: wp('3%'),
                 backgroundColor: "#fff", // Add backgroundColor property
             }}
             testID="card" >

@@ -44,39 +44,46 @@ describe('Avatar', () => {
     const smallAvatarImage = getByTestIdSmall('avatarImage');
     const smallCapImage = getByTestIdSmall('capImage');
 
-    expect(smallAvatarImage.props.style).toEqual({
-    width: 32, // size for small
-      height: 32, // size for small
-      borderRadius: 9999, // half of width and height,
-      // marginRight: -3.5, // adjusted margin
-      // marginBottom: -3 // adjusted margin
-    });
-
-    expect(smallCapImage.props.style[0]).toEqual({
-      width: 11, // size for small cap
-      height: 11, // size for small cap
-      right: 0,
-      top: 0
-    });
+    expect(smallAvatarImage.props.style).toEqual([
+      {
+        width: 32, // size for small
+        height: 32, // size for small
+        borderRadius: 9999, // half of width and height
+        marginRight: -3.5, // adjusted margin
+        marginBottom: -3, // adjusted margin
+      },
+    ]);
+    
+    expect(smallCapImage.props.style).toEqual([
+      {
+        width: 11, // size for small cap
+        height: 11, // size for small cap
+        right: 0,
+        top: 0,
+      },
+    ]);
 
     const largeProps = { ...defaultProps };
     const { getByTestId: getByTestIdLarge } = render(<Avatar size='large' {...largeProps} showCap />);
     const largeAvatarImage = getByTestIdLarge('avatarImage');
     const largeCapImage = getByTestIdLarge('capImage');
 
-    expect(largeAvatarImage.props.style[0]).toEqual({
-      width: 256, // size for large
-      height: 256, // size for large
-      borderRadius: 9999, // half of width and height
-      // marginRight: -5.5, // adjusted margin
-      // marginBottom: -5 // adjusted margin
-    });
-
-    expect(largeCapImage.props.style).toEqual({
-      width: 225, // size for large cap
-      height: 22.5, // size for large cap
-      right: 10,
-      top: -13 // adjusted position
-    });
-  });
-});
+    expect(largeAvatarImage.props.style).toEqual([
+      {
+        width: 256, // size for large
+        height: 256, // size for large
+        borderRadius: 9999, // half of width and height
+        marginRight: -5.5, // adjusted margin
+        marginBottom: -5, // adjusted margin
+      },
+    ]);
+    
+    expect(largeCapImage.props.style).toEqual([
+      {
+        width: 225, // size for large cap
+        height: 22.5, // size for large cap
+        right: 10,
+        top: -13, // adjusted position
+      },
+    ]);
+   

@@ -19,7 +19,7 @@ import SessionCard from './src/components/SessionCard/SessionCard';
 import Auth from './src/layouts/Auth/Auth';
 import Input from './src/components/Input/Input';
 import  Avatar from './src/components/Avatar/Avatar';
-
+import Post from './src/components/Post/PostCard';
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
@@ -48,7 +48,10 @@ const MyApp = () => {
     'PoppinsSemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
   });
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  const[islike,setisLiked]=useState(false)
+  const[isDislike,setisDisLiked]=useState(false)
+  const[isSaved,setisSaved]=useState(false)
+  const[commented,setIsCommented]=useState(false)
   const handleCloseModal = () => {
     const opened = false;
   };
@@ -64,7 +67,20 @@ const MyApp = () => {
 
   return (
     <View style={{ flex: 1, justifyContent:'center'}} onLayout={onLayoutRootView} >
-    <View className='p-3'>
+  
+ {/* <Post text='Hello world This Is New Post' user={{ name: 'John Doe',
+ image: 'https://i.pravatar.cc/300', username: '@john johndoe',
+  bio: 'Hello world This Is New Post', is_tutor: true }} 
+  date='2020-01-01' comments_count={3} likes_count={3}
+   dislikes_count={3} is_liked={islike} is_disliked={isDislike} is_saved={isSaved} 
+   on_dislike_Pressed={()=>{setisDisLiked(!isDislike)}}
+   on_like_Pressed={()=>{setisLiked(!islike)}}
+   onSaved={()=>{setisSaved(!isSaved)}}
+is_anonymous={false} tags={['tag1', 'Note']} 
+attachement='https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-837358.jpg&fm=jpg'
+ /> */}
+  
+    {/* <View className='p-3'>
 
       <Avatar
       showCap
@@ -86,7 +102,7 @@ const MyApp = () => {
       size='large'
       image={"https://images.pexels.com/photos/2726111/pexels-photo-2726111.jpeg?cs=srgb&dl=pexels-masha-raymers-2726111.jpg&fm=jpg"}
       />
-      </View>
+      </View> */}
       {/* <Auth
       title='Sign Up For Tutoruu'
       subTitle='Already have Account ?'
@@ -125,7 +141,14 @@ height={hp('5%')}
 
         </View>
       </Auth> */}
- {/* <TutorCard
+ 
+{/* <View className='my-3 p-2'>
+ <SessionCard 
+        class_name='Math' with='John Doe' created_date='2020-01-01' time='12:00 P.M' day='Monday' is_accepted={false} 
+         is_completed={false} payment_fulfilled={false} payment_amount={"200"} location='123 Main St' />   
+
+</View> */}
+<TutorCard
  classes={TutorSubjects}
  user={user}
  num_sessions={4}
@@ -134,13 +157,7 @@ height={hp('5%')}
  rate={'270 EGP'}
  text={'PhD student in the Industrial & Systems Engineering Department…'}
  />
-<View className='my-3 p-2'>
- <SessionCard 
-        class_name='Math' with='John Doe' created_date='2020-01-01' time='12:00 P.M' day='Monday' is_accepted={false} 
-         is_completed={false} payment_fulfilled={false} payment_amount={"200"} location='123 Main St' />   
-
-</View> */}
-
+ 
     </View>
   );
 };

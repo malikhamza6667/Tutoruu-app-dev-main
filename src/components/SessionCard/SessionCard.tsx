@@ -39,7 +39,7 @@ const SessionCard:React.FC<Props>=({time,
         <Card>
 
              <View
-                     style={tw`p-2` }
+                     style={[{paddingHorizontal:hp('3%'),paddingVertical:wp('2%')}] }
                     >
                         <View
                           

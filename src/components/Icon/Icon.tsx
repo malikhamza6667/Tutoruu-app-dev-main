@@ -13,11 +13,13 @@ import {
     MaterialIcons,
     Feather
 } from '@expo/vector-icons';
-
+import Colors from '../../../assets/Colors';
 type IconProps = {
     family: 'FontAwesome' | 'Feather' | 'AntDesign' | 'Ionicons' | 'Entypo' | 'MaterialCommunityIcons' | 'FontAwesome5' | 'MaterialIcons';
     name: string;
+    color: string
     size: 'small' | 'medium' | 'large';
+    onPressIcon?:()=>void
 } & TouchableOpacityProps;
 
 const iconComponents = {
@@ -37,12 +39,12 @@ const iconSizes = {
     large: 40,
 };
 
-export const Icon: React.FC<IconProps> = ({ name, size, onPress, family, ...rest }) => {
+export const Icon: React.FC<IconProps> = ({ name, size, onPress, color,family, ...rest }) => {
     const IconComponent = iconComponents[family];
     const iconSize = iconSizes[size];
     return (
         <TouchableOpacity onPress={onPress} {...rest}  testID="icon">
-            <IconComponent name={name} size={iconSize} />
+            <IconComponent name={name} size={iconSize} color={color} />
         </TouchableOpacity>
     );
 };
