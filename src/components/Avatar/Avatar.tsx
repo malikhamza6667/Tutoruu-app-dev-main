@@ -13,17 +13,17 @@ const Avatar: React.FC<Props> = ({ size, showCap, image }) => {
     let marginBottom=0
 let marginRight=0
     if (size === 'small') {
-        avatarStyles= "rounded-full  w-8 h-8 mr[-3.5] mb[-3] "
+        avatarStyles= "rounded-full  w-8 h-8  "
        
         marginRight=-3.5
         marginBottom=-3
     } else if (size === 'medium') {
-        avatarStyles= "rounded-full  w-12 h-12 mr[-4] mb[-5] "
+        avatarStyles= "rounded-full  w-12 h-12  "
         marginRight=-4.5
         marginBottom=-4
       
     } else if (size === 'large') {
-        avatarStyles= "rounded-full  w-16 h-16 mr[-6] mb[-7]"
+        avatarStyles= "rounded-full  w-20 h-20 "
         marginRight=-5
         marginBottom=-5.5
        
@@ -35,10 +35,10 @@ let marginRight=0
         capStylesTailwind='absolute w-11 h-11 ' 
        
     } else if (size === 'medium') {
-        capStylesTailwind='absolute w-16.2 h-17 ' 
+        capStylesTailwind='absolute w-16 h-16 ' 
       
     } else if (size === 'large') {
-        capStylesTailwind='absolute w-22.5 h-22.5 ' 
+        capStylesTailwind='absolute w-24 h-24 ' 
         
       
     }
@@ -50,7 +50,7 @@ let marginRight=0
             showCap ?
             (<View style={[tw` w-5rem  items-center justify-center`]}>
             <Image
-       
+
              source={{uri:image}} style={[tw`${avatarStyles}`,{marginBottom:marginBottom,marginRight:marginRight}]} resizeMode="contain" testID="avatarImage" />
             <Image source={capImage}
             

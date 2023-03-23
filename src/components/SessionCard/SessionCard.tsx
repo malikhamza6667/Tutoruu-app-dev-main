@@ -3,10 +3,10 @@ import React from 'react'
 
 import {View,Text,FlatList,TouchableOpacity} from 'react-native'
 import { heightPercentageToDP as hp,widthPercentageToDP as wp } from 'react-native-responsive-screen'
+import tw from 'twrnc';
 import Colors from '../../../assets/Colors'
 import { Card } from '../../layouts/Card/Card'
 import Button from '../Button/Button'
-import tw from 'twrnc';
 
 interface Props{
     class_name: string,

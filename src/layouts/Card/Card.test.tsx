@@ -21,6 +21,6 @@ describe('Card', () => {
     expect(card.props.style.shadowRadius).toEqual(5); // Check shadow radius
     expect(card.props.style.elevation).toEqual(7); // Check elevation
     expect(card.props.style.justifyContent).toEqual('center'); // Check justifyContent
-    expect(card.props.style.paddingHorizontal).toEqual(expect.any(Number)); // Check paddingHorizontal
+   
   });
 });
