@@ -30,7 +30,7 @@ type Props={
 
 
 
-        <View style={[tw`p-3 mx-2 rounded-lg justify-center`,styles.mine,styles.container]}>
+        <View style={[tw` mx-2 rounded-lg justify-center`,styles.mine,styles.container]}>
             <Text style={{fontFamily:'PoppinsMedium'}}>{text}</Text>
         </View>
         <View testID="avatar" >
@@ -52,7 +52,7 @@ size='small'
         />
     </View>
         
-                <View style={[tw`p-3 mx-2 rounded-lg justify-center`,styles.notMine,styles.container]}>
+                <View style={[tw`mx-2 rounded-lg justify-center`,styles.notMine,styles.container]}>
                     <Text style={{fontFamily:'PoppinsMedium'}}>{text}</Text>
                 </View>
                         </View>)
@@ -69,8 +69,9 @@ size='small'
     container:{
         elevation:3,
         bottom: hp('1%'),
-        maxHeight:hp('15%'),
-        height:hp('8%'),
+    padding: hp('2%')
+        // maxHeight:hp('15%'),
+        // height:hp('8%'),
     },
 
     mine:{

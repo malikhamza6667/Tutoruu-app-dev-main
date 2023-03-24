@@ -29,11 +29,14 @@ const ChatPreview:React.FC<Props>=({
     unread_count,
     onPress
 })=>{
+   
+     
+      
     return(
 <TouchableOpacity 
 testID="chat-preview"
 onPress={onPress}
-style={[tw`flex-row justify-between px-3 `,{height:hp('8%'),backgroundColor:unread_count==0? Colors.gray:Colors.lightorange}]}>
+style={[tw`flex-row justify-between px-3 my-0.1`,{height:hp('8%'),backgroundColor:unread_count==0? Colors.gray:Colors.lightorange}]}>
    <View className="flex-row items-center self-center">
    <Avatar
    size='small'
@@ -43,11 +46,11 @@ style={[tw`flex-row justify-between px-3 `,{height:hp('8%'),backgroundColor:unre
    <View style={[tw`mx-2`]}>
 
     <Text style={[tw`text-base`,{fontFamily:'PoppinsRegular'}]}>{user.name}</Text>
-    <Text  style={[tw`text-sm `,{fontFamily:'Poppins'}]}>{last_message}</Text>
+    <Text  style={[tw`text-sm `,{fontFamily:'Poppins'}]}>{last_message.length < 15? last_message: last_message.split(' ').slice(0, 3).join(' ') + '...'}</Text>
    </View>
    </View>
    <View style={[tw`justify-between items-center my-1`]}>
-    <Text style={[tw`text-sm `,{fontFamily:'Poppins'}]}>{last_message_date}</Text>
+    <Text numberOfLines={1}  style={[tw`text-sm `,{fontFamily:'Poppins'}]}>{last_message_date}</Text>
     {
         unread_count > 0 &&
         <View style={[tw`py-1 px-2.5 items-center rounded-full`,{backgroundColor:Colors.orange}]}>

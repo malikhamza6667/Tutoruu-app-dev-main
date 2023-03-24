@@ -22,6 +22,9 @@ import  Avatar from './src/components/Avatar/Avatar';
 import Post from './src/components/Post/PostCard';
 import ChatMessage from './src/components/ChatMessage/ChatMessage';
 import ChatPreview from './src/components/ChatPreview/ChatPreview';
+import Review from './src/components/Review/Review';
+import Details from './src/layouts/Details/Details';
+import Base from './src/layouts/Base/Base';
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
@@ -162,15 +165,53 @@ const MyApp = () => {
  
 //     </View>
     <View style={{ flex: 1, justifyContent:'center'}} onLayout={onLayoutRootView}>
-<ChatMessage 
-text='Hello world'
+{/* <ChatMessage 
+text='Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world  '
  date='2020-01-01'
  sender_image='https://i.pravatar.cc/300'
- mine={false} />
+ mine={true} /> */}
 
+
+{/* <Review text='Explains very well and helped me a lot' 
+author_name='John Doe'
+ author_image='https://i.pravatar.cc/300'
+  class_name='Calculas 1' date='01/01/2023' rating={5} /> */}
+<Base
+isTutor={true}
+userName='Ragnar'
+>
+  <View className='justify-evenly'>
+
+  <View>
+    <Text className='px-4 py-2'>Today</Text>
  <ChatPreview 
 user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe' }} 
-last_message='Hello world' last_message_date='2020-01-01' unread_count={0} />
+last_message='Hello world Hello world Hello world Hello world Hello world' last_message_date='2020-01-01' unread_count={0} /> 
+ <ChatPreview 
+user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe' }} 
+last_message='Hello world' last_message_date='2020-01-01' unread_count={3} /> 
+    </View>
+  <View>
+    <Text className='px-4 py-2'>Earlier</Text>
+ <ChatPreview 
+user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe' }} 
+last_message='Hello world' last_message_date='2020-01-01' unread_count={0} /> 
+ <ChatPreview 
+user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe' }} 
+last_message='Hello world' last_message_date='2020-01-01' unread_count={0} /> 
+    </View>
+  <View>
+    <Text className='px-4 py-2'>This Month</Text>
+ <ChatPreview 
+user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe' }} 
+last_message='Hello world' last_message_date='2020-01-01' unread_count={0} /> 
+ <ChatPreview 
+user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe' }} 
+last_message='Hello world' last_message_date='2020-01-01' unread_count={0} /> 
+    </View>
+  </View>
+
+</Base>
     </View>
   );
 };

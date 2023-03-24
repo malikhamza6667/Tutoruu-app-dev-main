@@ -145,7 +145,7 @@ keyExtractor={(item: { id: { toString: () => any } }) => { return item.id.toStri
 
                 </View>
                 <View style={tw`self-center`}>
-<StarRatings rating={rating}/>
+<StarRatings isDisable rating={rating}/>
                 </View>
             </View>
 
