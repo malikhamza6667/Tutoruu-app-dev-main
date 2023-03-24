@@ -32,6 +32,7 @@ type Props = {
     onFocus?: () => void;
     onBlur?: () => void;
     onChangeText: (text: string) => void;
+    testID?: string;
 };
 
 const Input: React.FC<Props> = ({
@@ -47,6 +48,7 @@ const Input: React.FC<Props> = ({
     autocomplete,
     disabled,
     readonly,
+    testID,
     max,
     min,
     step,
@@ -137,6 +139,7 @@ const Input: React.FC<Props> = ({
                         onFocus={onFocus}
                         onBlur={onBlur}
                         onChangeText={handleTextChange}
+                        testID={testID}
                     />
                 </View>
 

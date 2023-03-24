@@ -35,7 +35,7 @@ type ButtonProps = {
     image?: string,
     textColor?: string,
     imagePosition?: 'left' | 'right'
-    testID?:string
+    testID?: string
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
@@ -74,7 +74,7 @@ const Button: React.FC<ButtonProps> = (props) => {
                 // If The Button's Shape Is Round
                 <TouchableOpacity
                     disabled={props.disabled}
-                    testID={props.testID?props.testID:"button"}
+                    testID={props.testID ? props.testID : "button"}
                     style={[tw`${buttonStyles}`, {
                         height: props.height ? props.height : hp('8%'),
                         width: props.width ? props.width : wp('16%'),
@@ -89,7 +89,7 @@ const Button: React.FC<ButtonProps> = (props) => {
                 // If The Button's Shape Is Not Round
                 <TouchableOpacity
                     disabled={props.disabled}
-                    testID={props.testID?props.testID:"button"}
+                    testID={props.testID ? props.testID : "button"}
                     style={[tw`${buttonStyles}`, {
                         justifyContent: 'space-between',
                         height: props.height ? props.height : hp('6%'),
@@ -131,7 +131,7 @@ const Button: React.FC<ButtonProps> = (props) => {
                                 <View className="flex-[0.15]  justify-center">
                                     <Image
 
-                                        source={{ uri: props.image }}
+                                        source={props.image}
                                         resizeMode='contain'
                                         fadeDuration={0}
                                         style={[tw`rounded-full h-7 w-7`]}

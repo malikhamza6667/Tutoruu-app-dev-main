@@ -30,6 +30,9 @@ import ClassCard from './src/components/ClassCard/ClassCard';
 import CourseCard from './src/components/CourseCard/CourseCard';
 import { Popup } from './src/components/Popup/Popup';
 import { PostPopup } from './src/components/PostPopup/PostPopup';
+import { Separator } from './src/components/Separator/Separator';
+import Login from './src/screens/Auth/Login/Login';
+import Signup from './src/screens/Auth/Signup/Signup';
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
 
@@ -174,7 +177,7 @@ text='Hello world Hello world Hello world Hello world Hello world Hello world He
 author_name='John Doe'
  author_image='https://i.pravatar.cc/300'
   class_name='Calculas 1' date='01/01/2023' rating={5} /> */}
-      <Text>hello</Text>
+      {/* <Text>hello</Text> */}
       {/* <Input
         size='Xlarge'
         value={email}
@@ -184,15 +187,50 @@ author_name='John Doe'
         height={'70%'}
 
       /> */}
-      <TouchableOpacity>
- <Text>create post</Text> 
-  </TouchableOpacity>
-      <PostPopup
+      {/* <TouchableOpacity>
+        <Text>create post</Text>
+      </TouchableOpacity> */}
+      {/* <PostPopup
         opened={true}
         post={{ text: 'Hello world', tags: ['tag1', 'tag2'], attachment: 'https://i.pravatar.cc/300' }}
         onClose={() => console.log('PostPopup closed')}
         onOpen={() => console.log('PostPopup opened')}
-      />
+      /> */}
+      {/* <Separator type='line' /> */}
+      {/* <Auth
+           title='Sign Up For Tutoruu'
+           subTitle='Already have Account ?'
+           pressableSubtitleText='Login'
+           onPressSubtitle={()=>{alert('Pressed')}}
+            footerTitle='Reset-Password'
+            onPressfooterTitle={()=>{alert('Pressed')}}
+           >
+             <View className='py-3 justify-center items-center'>
+
+     <Input
+     size='large'
+     value={email}
+     onChangeText={(text)=>{setEmail(text)}}
+     title='Password'
+     placeholder='Doe'
+     />
+
+     <View className='my-2 self-center items-center'>
+
+     <Button
+     onPress={()=>{alert('Pressed')}}
+     icon={'AntDesign arrowright 24 white'}
+     shape='default'
+     text='Create Account'
+     width={wp('80%')}
+     height={hp('5%')}
+     />
+     </View>
+
+             </View>
+           </Auth> */}
+           {/* <Login/> */}
+           <Signup/>
     </View>
   );
 };
