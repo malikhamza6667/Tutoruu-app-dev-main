@@ -7,9 +7,12 @@ import Colors from '../../../assets/Colors';
 type Props={
     rating: number
     isDisable?: boolean
+    numStars?: number
+    size?: number
+
 }
 
-const StarRatings:React.FC<Props> =({rating,isDisable})=>{
+const StarRatings:React.FC<Props> =({rating,isDisable,numStars,size})=>{
     const [starCount,setStartCount]=useState(rating)
 const onStarRatingPress=(rating: number)=>{
     setStartCount(rating)
@@ -20,14 +23,14 @@ const onStarRatingPress=(rating: number)=>{
       <AirbnbRating
       
       starContainerStyle={{alignSelf:'flex-start'}}
-      ratingContainerStyle={{width:widthPercentageToDP('22%')}}
+      ratingContainerStyle={{width: numStars?widthPercentageToDP('4%'): widthPercentageToDP('22%')}}
 reviewColor={Colors.orange}
 isDisabled={isDisable}
 showRating={false}
 defaultRating={starCount}
 selectedColor={Colors.orange}
-      count={5}
-      size={12}
+      count={numStars?numStars: 5}
+      size={size? size :12}
       />
     {/* <Rating
     startingValue={5}

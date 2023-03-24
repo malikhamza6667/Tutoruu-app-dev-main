@@ -35,6 +35,7 @@ type ButtonProps = {
     image?: string,
     textColor?: string,
     imagePosition?: 'left' | 'right'
+    testID?:string
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
@@ -73,7 +74,7 @@ const Button: React.FC<ButtonProps> = (props) => {
                 // If The Button's Shape Is Round
                 <TouchableOpacity
                     disabled={props.disabled}
-                    testID="button"
+                    testID={props.testID?props.testID:"button"}
                     style={[tw`${buttonStyles}`, {
                         height: props.height ? props.height : hp('8%'),
                         width: props.width ? props.width : wp('16%'),
@@ -88,7 +89,7 @@ const Button: React.FC<ButtonProps> = (props) => {
                 // If The Button's Shape Is Not Round
                 <TouchableOpacity
                     disabled={props.disabled}
-                    testID="button"
+                    testID={props.testID?props.testID:"button"}
                     style={[tw`${buttonStyles}`, {
                         justifyContent: 'space-between',
                         height: props.height ? props.height : hp('6%'),

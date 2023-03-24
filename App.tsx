@@ -25,6 +25,9 @@ import ChatPreview from './src/components/ChatPreview/ChatPreview';
 import Review from './src/components/Review/Review';
 import Details from './src/layouts/Details/Details';
 import Base from './src/layouts/Base/Base';
+import SlotsCard from './src/components/SlotsCard/SlotsCard';
+import ClassCard from './src/components/ClassCard/ClassCard';
+import CourseCard from './src/components/CourseCard/CourseCard';
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
@@ -182,33 +185,19 @@ userName='Ragnar'
 >
   <View className='justify-evenly'>
 
-  <View>
-    <Text className='px-4 py-2'>Today</Text>
- <ChatPreview 
-user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe' }} 
-last_message='Hello world Hello world Hello world Hello world Hello world' last_message_date='2020-01-01' unread_count={0} /> 
- <ChatPreview 
-user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe' }} 
-last_message='Hello world' last_message_date='2020-01-01' unread_count={3} /> 
-    </View>
-  <View>
-    <Text className='px-4 py-2'>Earlier</Text>
- <ChatPreview 
-user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe' }} 
-last_message='Hello world' last_message_date='2020-01-01' unread_count={0} /> 
- <ChatPreview 
-user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe' }} 
-last_message='Hello world' last_message_date='2020-01-01' unread_count={0} /> 
-    </View>
-  <View>
-    <Text className='px-4 py-2'>This Month</Text>
- <ChatPreview 
-user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe' }} 
-last_message='Hello world' last_message_date='2020-01-01' unread_count={0} /> 
- <ChatPreview 
-user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe' }} 
-last_message='Hello world' last_message_date='2020-01-01' unread_count={0} /> 
-    </View>
+ <SlotsCard slots={[{ date: '2020-01-01', available_times: [12, 13, 14] }]} />
+ <ClassCard name='Introduction to Computer Science' desc='CSCE 1520' />
+ 
+ <CourseCard
+ name='Financial Management' 
+ desc='Fin201' 
+ rating={5} 
+ reviews_count={4.73} 
+ num_sessions={13} 
+ in_person={false}
+ onPress={()=>{alert('Pressed')}}
+ /> 
+
   </View>
 
 </Base>

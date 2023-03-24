@@ -18,7 +18,7 @@ type IconProps = {
     family: 'FontAwesome' | 'Feather' | 'AntDesign' | 'Ionicons' | 'Entypo' | 'MaterialCommunityIcons' | 'FontAwesome5' | 'MaterialIcons';
     name: string;
     color: string
-    size: 'small' | 'medium' | 'large';
+    size: 'small' | 'medium' | 'large'|'xsmall';
     onPressIcon?:()=>void
 } & TouchableOpacityProps;
 
@@ -34,6 +34,7 @@ const iconComponents = {
 
 };
 const iconSizes = {
+    xsmall:14,
     small: 20,
     medium: 30,
     large: 40,
