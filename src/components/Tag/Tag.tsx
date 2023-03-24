@@ -12,6 +12,8 @@ import {
     Feather
 } from '@expo/vector-icons';
 type TagProps = {
+    isPressed: boolean
+    width: any;
     type: 'primary' | 'neutral'
     shape: 'round' | 'square';
     icon: 'FontAwesome' | 'Feather' | 'AntDesign' | 'Ionicons' | 'Entypo' | 'MaterialCommunityIcons' | 'FontAwesome5' | 'MaterialIcons';
@@ -31,26 +33,28 @@ const iconComponents = {
     FontAwesome5: FontAwesome5,
 };
 
-export const Tag: React.FC<TagProps> = ({ type,shape, icon, iconPosition, name, children }) => {
-    const IconComponent = iconComponents[icon]; const [isPressed, setIsPressed] = useState(false);
+export const Tag: React.FC<TagProps> = ({ isPressed, width, type, shape, icon, iconPosition, name, children }) => {
+    const IconComponent = iconComponents[icon];
+    // const [isPressed, setIsPressed] = useState(false);
 
 
     return (
-        <TouchableOpacity onPress={() => setIsPressed(!isPressed)} testID='tag'>
+        <TouchableOpacity testID='tag'>
             <View
-                style={[
-                    tw`rounded-md p-2.5 flex-row  justify-between  items-center `,
-                    isPressed ? tw`bg-orange-200 ` : tw`bg-gray-200`,
-                    shape === 'square' ? tw`rounded-lg` : tw`rounded-full`,
+                style={[{ width: width },
+                tw`rounded-md p-2 px-3 flex-row  justify-between  items-center `,
+                isPressed ? tw`bg-orange-100 ` : tw`bg-gray-200`,
+                shape === 'square' ? tw`rounded-lg` : tw`rounded-full`,
+                type === 'primary' ? tw`bg-orange-200` : tw`bg-gray-200`
                 ]}
             >
                 <Text style={[
-                    isPressed ? tw`text-orange-500` : tw`text-black`,
+                    type === 'primary' ? tw`text-orange-500` : tw`text-black`, { fontFamily: 'PoppinsMedium' }
                 ]}>
                     {children}
                 </Text>
                 {
-                    icon && isPressed &&
+                    icon && isPressed == true &&
                     <IconComponent
                         name={name}
                         size={10}

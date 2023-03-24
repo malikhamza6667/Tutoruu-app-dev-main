@@ -11,7 +11,7 @@ import { AntDesign, Ionicons, FontAwesome, Entypo, MaterialCommunityIcons, FontA
 
 
 type Props = {
-    size?: 'small' | 'medium' | 'large';
+    size?: 'small' | 'medium' | 'large' | 'Xlarge';
     placeholder?: string;
     icon?: string
     iconPosition?: 'right' | 'left'
@@ -27,15 +27,17 @@ type Props = {
     max?: number;
     min?: number;
     step?: number;
-    title?:string
+    title?: string
+    height: any
     onFocus?: () => void;
     onBlur?: () => void;
     onChangeText: (text: string) => void;
 };
 
 const Input: React.FC<Props> = ({
+    height,
     title,
-    size ,
+    size,
     icon,
     placeholder,
     value,
@@ -61,6 +63,7 @@ const Input: React.FC<Props> = ({
     let maxwidth = parseInt(wp(`${max}%`).toString())
     let minWidth = parseInt(wp(`${min}%`).toString())
     let width = wp('75%')
+    if (size == 'Xlarge') { width = wp('90%'), height=hp('12%') }
     if (size == 'large') { width = wp('80%') }
     if (size == 'medium') { width = wp('60%') }
     if (size == 'small') { width = wp('40%') }
@@ -114,108 +117,107 @@ const Input: React.FC<Props> = ({
         <View>
             {/* If there is No Icon In Text Input */}
             {!icon &&
-            
-            <View>
-              {title &&  <Text style={[tw`px-5 py-1`,{fontFamily:'PoppinsSemiBold'}]}>{title}</Text>}
 
-                <TextInput
-                testID='Input'
-                    style={[tw` items-center border border border-gray-400 rounded-3xl px-3 `, {fontFamily:'PoppinsRegular', width: width, height: hp('5%') }]}
-    
-                    placeholder={placeholder}
-                    value={text}
-                    secureTextEntry={invisbilePassword}
-                    keyboardType={keyboardtype as KeyboardTypeOptions}
-                    clearButtonMode={clearable ? 'always' : 'never'}
-                    autoCompleteType={autocomplete}
-                    editable={!disabled && !readonly}
-                    maxLength={maxwidth ? maxwidth : wp('90%')}
-                    minLength={minWidth ? minWidth : wp('30%')}
-                    step={step}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onChangeText={handleTextChange}
-                />
+                <View>
+                    {title && <Text style={[tw`px-5 py-1`, { fontFamily: 'PoppinsSemiBold' }]}>{title}</Text>}
+
+                    <TextInput
+                        testID='Input'
+                        style={[tw` items-center border border border-gray-400 rounded-3xl px-3 `, { fontFamily: 'PoppinsRegular', width: width, height: height }]}
+                        placeholder={placeholder}
+                        value={text}
+                        secureTextEntry={invisbilePassword}
+                        keyboardType={keyboardtype as KeyboardTypeOptions}
+                        clearButtonMode={clearable ? 'always' : 'never'}
+                        autoCompleteType={autocomplete}
+                        editable={!disabled && !readonly}
+                        maxLength={maxwidth ? maxwidth : wp('90%')}
+                        minLength={minWidth ? minWidth : wp('30%')}
+                        step={step}
+                        onFocus={onFocus}
+                        onBlur={onBlur}
+                        onChangeText={handleTextChange}
+                    />
                 </View>
-            
+
             }
             {/* If there is Icon  And Icon Position Is On Left Side*/}
             {
                 icon && !iconPosition &&
                 <View>
-                    {title &&  <Text style={[tw`px-5 py-1`,{fontFamily:'PoppinsSemiBold'}]}>{title}</Text>}
-                <View 
-                testID='Input'
-                style={[tw`flex-row justify-between items-center border border border-gray-400 rounded-3xl `, { width: width, height: hp('5%') }]} >
-                  
-                    <TextInput
-                       style={{fontFamily:'PoppinsRegular'}}
-                        className=' flex-1  px-3'
-                        placeholder={placeholder}
-                        value={text}
-                        secureTextEntry={invisbilePassword}
-                        keyboardType={keyboardtype as KeyboardTypeOptions}
-                        clearButtonMode={clearable ? 'always' : 'never'}
-                        autoCompleteType={autocomplete}
-                        editable={!disabled && !readonly}
-                        maxLength={maxwidth ? maxwidth : wp('90%')}
-                        minLength={minWidth ? minWidth : wp('30%')}
-                        step={step}
-                        onFocus={onFocus}
-                        onBlur={onBlur}
-                        onChangeText={handleTextChange}
-                    />
-                      <TouchableOpacity
-                        className='flex-[0.15]'
-                        onPress={onIconPressed}
-                        testID='input-icon'
-                        style={[tw`rounded-full justify-center items-center py-1.5 mx-1`, { backgroundColor: iconBackground ? iconBackground : 'transparent' }]}
-                    >
-                        <IconFamily    name={iconName} size={parseInt(Iconsize)} color={color} />
+                    {title && <Text style={[tw`px-5 py-1`, { fontFamily: 'PoppinsSemiBold' }]}>{title}</Text>}
+                    <View
+                        testID='Input'
+                        style={[tw`flex-row justify-between items-center border border border-gray-400 rounded-3xl `, { width: width, height: hp('5%') }]} >
 
-                    </TouchableOpacity>
-                </View>
-                
+                        <TextInput
+                            style={{ fontFamily: 'PoppinsRegular' }}
+                            className=' flex-1  px-3'
+                            placeholder={placeholder}
+                            value={text}
+                            secureTextEntry={invisbilePassword}
+                            keyboardType={keyboardtype as KeyboardTypeOptions}
+                            clearButtonMode={clearable ? 'always' : 'never'}
+                            autoCompleteType={autocomplete}
+                            editable={!disabled && !readonly}
+                            maxLength={maxwidth ? maxwidth : wp('90%')}
+                            minLength={minWidth ? minWidth : wp('30%')}
+                            step={step}
+                            onFocus={onFocus}
+                            onBlur={onBlur}
+                            onChangeText={handleTextChange}
+                        />
+                        <TouchableOpacity
+                            className='flex-[0.15]'
+                            onPress={onIconPressed}
+                            testID='input-icon'
+                            style={[tw`rounded-full justify-center items-center py-1.5 mx-1`, { backgroundColor: iconBackground ? iconBackground : 'transparent' }]}
+                        >
+                            <IconFamily name={iconName} size={parseInt(Iconsize)} color={color} />
+
+                        </TouchableOpacity>
                     </View>
 
+                </View>
 
-            } 
+
+            }
             {
                 icon && iconPosition == 'left' &&
                 <View>
-                    {title &&  <Text style={[tw`px-5 py-1`,{fontFamily:'PoppinsSemiBold'}]}>{title}</Text>}
-                <View 
-                testID='Input'
-                style={[tw`flex-row justify-between items-center border border border-gray-400 rounded-3xl `, { width: width, height: hp('5%') }]} >
-                    <TouchableOpacity
-                        className='flex-[0.15]'
-                        onPress={onIconPressed}
-                        testID='input-icon'
-                        style={[tw`rounded-full justify-center items-center py-1.5 mx-1`, { backgroundColor: iconBackground ? iconBackground : 'transparent' }]}
-                    >
-                        <IconFamily    name={iconName} size={parseInt(Iconsize)} color={color} />
+                    {title && <Text style={[tw`px-5 py-1`, { fontFamily: 'PoppinsSemiBold' }]}>{title}</Text>}
+                    <View
+                        testID='Input'
+                        style={[tw`flex-row justify-between items-center border border border-gray-400 rounded-3xl `, { width: width, height: hp('5%') }]} >
+                        <TouchableOpacity
+                            className='flex-[0.15]'
+                            onPress={onIconPressed}
+                            testID='input-icon'
+                            style={[tw`rounded-full justify-center items-center py-1.5 mx-1`, { backgroundColor: iconBackground ? iconBackground : 'transparent' }]}
+                        >
+                            <IconFamily name={iconName} size={parseInt(Iconsize)} color={color} />
 
-                    </TouchableOpacity>
-                    <TextInput
-                       style={{fontFamily:'PoppinsRegular'}}
-                        className=' flex-1  px-3'
-                        placeholder={placeholder}
-                        value={text}
-                        secureTextEntry={invisbilePassword}
-                        keyboardType={keyboardtype as KeyboardTypeOptions}
-                        clearButtonMode={clearable ? 'always' : 'never'}
-                        autoCompleteType={autocomplete}
-                        editable={!disabled && !readonly}
-                        maxLength={maxwidth ? maxwidth : wp('90%')}
-                        minLength={minWidth ? minWidth : wp('30%')}
-                        step={step}
-                        onFocus={onFocus}
-                        onBlur={onBlur}
-                        onChangeText={handleTextChange}
-                    />
-                </View>
-                
+                        </TouchableOpacity>
+                        <TextInput
+                            style={{ fontFamily: 'PoppinsRegular' }}
+                            className=' flex-1  px-3'
+                            placeholder={placeholder}
+                            value={text}
+                            secureTextEntry={invisbilePassword}
+                            keyboardType={keyboardtype as KeyboardTypeOptions}
+                            clearButtonMode={clearable ? 'always' : 'never'}
+                            autoCompleteType={autocomplete}
+                            editable={!disabled && !readonly}
+                            maxLength={maxwidth ? maxwidth : wp('90%')}
+                            minLength={minWidth ? minWidth : wp('30%')}
+                            step={step}
+                            onFocus={onFocus}
+                            onBlur={onBlur}
+                            onChangeText={handleTextChange}
+                        />
                     </View>
+
+                </View>
 
 
             }
@@ -223,43 +225,43 @@ const Input: React.FC<Props> = ({
             {
                 icon && iconPosition == 'right' &&
                 <View>
- {title &&  <Text style={[tw`px-5 py-1`,{fontFamily:'PoppinsSemiBold'}]}>{title}</Text>}
-                <View
-                testID='Input'
-                    style={[tw`flex-row justify-between items-center border border border-gray-400 rounded-3xl `, { width: width, height: hp('5%') }]}
-                >
-
-                    <TextInput
-                        className=' flex-1  px-3'
-style={{fontFamily:'PoppinsRegular'}}
-                        placeholder={placeholder}
-                        value={text}
-                        secureTextEntry={invisbilePassword}
-                        keyboardType={keyboardtype as KeyboardTypeOptions}
-                        clearButtonMode={clearable ? 'always' : 'never'}
-                        autoCompleteType={autocomplete}
-                        editable={!disabled && !readonly}
-                        maxLength={maxwidth ? maxwidth : wp('90%')}
-                        minLength={minWidth ? minWidth : wp('30%')}
-                        step={step}
-                        onFocus={onFocus}
-                        onBlur={onBlur}
-                        onChangeText={handleTextChange}
-                    />
-
-                    <TouchableOpacity
-                        className='flex-[0.15]'
-                        onPress={onIconPressed}
-                        testID='input-icon'
-                        style={[tw`rounded-full justify-center items-center py-1.5 mx-1`, { backgroundColor: iconBackground ? iconBackground : 'transparent' }]}
+                    {title && <Text style={[tw`px-5 py-1`, { fontFamily: 'PoppinsSemiBold' }]}>{title}</Text>}
+                    <View
+                        testID='Input'
+                        style={[tw`flex-row justify-between items-center border border border-gray-400 rounded-3xl `, { width: width, height: hp('5%') }]}
                     >
-                        <IconFamily
-                        
-                        name={iconName} size={parseInt(Iconsize)} color={color} />
 
-                    </TouchableOpacity>
-                </View>
+                        <TextInput
+                            className=' flex-1  px-3'
+                            style={{ fontFamily: 'PoppinsRegular' }}
+                            placeholder={placeholder}
+                            value={text}
+                            secureTextEntry={invisbilePassword}
+                            keyboardType={keyboardtype as KeyboardTypeOptions}
+                            clearButtonMode={clearable ? 'always' : 'never'}
+                            autoCompleteType={autocomplete}
+                            editable={!disabled && !readonly}
+                            maxLength={maxwidth ? maxwidth : wp('90%')}
+                            minLength={minWidth ? minWidth : wp('30%')}
+                            step={step}
+                            onFocus={onFocus}
+                            onBlur={onBlur}
+                            onChangeText={handleTextChange}
+                        />
+
+                        <TouchableOpacity
+                            className='flex-[0.15]'
+                            onPress={onIconPressed}
+                            testID='input-icon'
+                            style={[tw`rounded-full justify-center items-center py-1.5 mx-1`, { backgroundColor: iconBackground ? iconBackground : 'transparent' }]}
+                        >
+                            <IconFamily
+
+                                name={iconName} size={parseInt(Iconsize)} color={color} />
+
+                        </TouchableOpacity>
                     </View>
+                </View>
             }
 
         </View>
