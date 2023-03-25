@@ -33,6 +33,14 @@ import { PostPopup } from './src/components/PostPopup/PostPopup';
 import { Separator } from './src/components/Separator/Separator';
 import Login from './src/screens/Auth/Login/Login';
 import Signup from './src/screens/Auth/Signup/Signup';
+import ResetPassword from './src/screens/Auth/ResetPassword/ResetPassword';
+import CompleteRegistration from './src/screens/Auth/CompleteRegistration/CompleteRegistration';
+import UpdatePassword from './src/screens/Auth/UpdatePassword/UpdatePassword';
+import MagicLink from './src/screens/Auth/MagicLink/MagicLink';
+import About from './src/screens/About/About';
+import Feed from './src/screens/Feed/Feed';
+import Seacrh from './src/screens/Search/Search';
+import Marketplace from './src/screens/Marketplace/Marketplace';
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
 
@@ -229,8 +237,16 @@ author_name='John Doe'
 
              </View>
            </Auth> */}
-           {/* <Login/> */}
-           <Signup/>
+      {/* <Login/> */}
+      {/* <Signup/> */}
+      {/* <ResetPassword /> */}
+      {/* <CompleteRegistration/> */}
+      {/* <UpdatePassword/> */}
+      {/* <MagicLink/> */}
+      {/* <About/> */}
+      {/* <Feed /> */}
+      <Seacrh/>
+      {/* <Marketplace/> */}
     </View>
   );
 };

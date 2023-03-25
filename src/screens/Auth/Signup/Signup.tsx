@@ -31,7 +31,7 @@ const Signup = () => {
                     height={hp('5%')}
                     backgroundColor='white'
                     textColor="black"
-                    image={require('../../../assets/googlelogo.png')}
+                    image={require('../../../../assets/googlelogo.png')}
                 />
                 <Button
                     onPress={() => { alert('Pressed') }}
@@ -40,7 +40,7 @@ const Signup = () => {
                     text='Sign up with Facebook'
                     width={wp('80%')}
                     height={hp('5%')}
-                    image={require('../../../assets/facebooklogo.png')}
+                    image={require('../../../../assets/facebooklogo.png')}
                     backgroundColor="#0062E0"
 
                 />

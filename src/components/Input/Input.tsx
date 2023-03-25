@@ -11,7 +11,7 @@ import { AntDesign, Ionicons, FontAwesome, Entypo, MaterialCommunityIcons, FontA
 
 
 type Props = {
-    size?: 'small' | 'medium' | 'large' | 'Xlarge';
+    size?: 'small' | 'medium' | 'large' | 'Xlarge'|'Xsmall'|'xlarge';
     placeholder?: string;
     icon?: string
     iconPosition?: 'right' | 'left'
@@ -66,9 +66,12 @@ const Input: React.FC<Props> = ({
     let minWidth = parseInt(wp(`${min}%`).toString())
     let width = wp('75%')
     if (size == 'Xlarge') { width = wp('90%'), height=hp('12%') }
+    if (size == 'xlarge') { width = wp('90%') }
     if (size == 'large') { width = wp('80%') }
     if (size == 'medium') { width = wp('60%') }
     if (size == 'small') { width = wp('40%') }
+    if (size == 'Xsmall') { width = wp('28%') }
+
 
 
     if (type == 'email') {
@@ -121,7 +124,7 @@ const Input: React.FC<Props> = ({
             {!icon &&
 
                 <View>
-                    {title && <Text style={[tw`px-5 py-1`, { fontFamily: 'PoppinsSemiBold' }]}>{title}</Text>}
+                    {title && <Text style={[tw`px-5 py-1`, { fontFamily: 'PoppinsMedium' }]}>{title}</Text>}
 
                     <TextInput
                         testID='Input'

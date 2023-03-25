@@ -8,7 +8,15 @@ interface Props<T> extends Omit<FlatListProps<T>, 'renderItem'> {
 }
 
 const HorizontalList = <T extends {}>({ data, renderItem, ...rest }: Props<T>) => {
-  return <FlatList<T> data={data} renderItem={renderItem} horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{padding:hp('2%')}} {...rest} />;
+  return( 
+  <FlatList<T> 
+  data={data} 
+  renderItem={renderItem} 
+  horizontal 
+  showsHorizontalScrollIndicator={false} 
+  contentContainerStyle={{paddingVertical:hp('1%'),paddingHorizontal:hp('2')}} 
+  {...rest}
+   />)
 };
 
 export default HorizontalList

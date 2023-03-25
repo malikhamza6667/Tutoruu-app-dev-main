@@ -11,6 +11,7 @@ import tw from 'twrnc'
 import { Card } from "../Card/Card";
 type Props = {
     title: string,
+    caption: string
     children: React.ReactNode
     subTitle?: string
     onPressSubtitle?: () => void
@@ -20,7 +21,7 @@ type Props = {
 
 }
 
-const Auth: React.FC<Props> = ({ title, children, subTitle, footerTitle, pressableSubtitleText, onPressSubtitle, onPressfooterTitle }) => {
+const Auth: React.FC<Props> = ({ title, children, subTitle, footerTitle, pressableSubtitleText, onPressSubtitle, onPressfooterTitle, caption }) => {
     return (
         <View style={[tw`flex-1 justify-between`, { backgroundColor: Colors.orange }]}>
 
@@ -33,11 +34,18 @@ const Auth: React.FC<Props> = ({ title, children, subTitle, footerTitle, pressab
             </View>
 
             <View style={[tw`justify-center  `, { flex: footerTitle ? 0.7 : 0.8 }]}>
-                <View style={tw`p-2 my-3`}>
+               
                     <Text
                         style={[tw`text-white self-center text-xl`, { fontFamily: 'PoppinsBold' }]}
 
                     >{title}</Text>
+
+               
+                <View style={tw`p-2 px-14`}>
+                    <Text
+                        style={[tw`text-white self-center text-sm text-center`, { fontFamily: 'PoppinsRegular' }]}
+
+                    >{caption}</Text>
 
                 </View>
 

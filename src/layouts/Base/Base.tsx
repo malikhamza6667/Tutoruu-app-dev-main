@@ -1,38 +1,38 @@
 import React from "react";
 
-import {View,Text,StyleSheet} from 'react-native'
-import { heightPercentageToDP as hp,widthPercentageToDP as wp } from 'react-native-responsive-screen'
+import { View, Text, StyleSheet } from 'react-native'
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
 import tw from 'twrnc';
 import Colors from "../../../assets/Colors";
 import { Icon } from "../../components/Icon/Icon";
 
-type Props={
+type Props = {
     children: React.ReactNode,
     userName: string
     isTutor: boolean
-   
+
 }
-const Base:React.FC<Props>=({
+const Base: React.FC<Props> = ({
     children,
     userName,
     isTutor
-})=>{
-    return(
-<View style={[tw`flex-1`,{top: hp('2%')}]}>
-<View style={styles.container}>
-            <Text 
-            className="text-[30px]"
-            style={[styles.text, { marginLeft: wp('5%') }]}>Hey</Text>
-            <Text 
-              className="text-[30px]"
-            style={[styles.text, { color: Colors.orange }]}>{userName}</Text>
-            <View style={styles.status} ></View>
-            <View style={styles.studentContainer}>
-                <Text style={styles.student}>{isTutor? 'Tutor':  'Student'}</Text>
+}) => {
+    return (
+        <View style={[tw`flex-1`, { top: hp('2%')}]}>
+            <View style={styles.container}>
+                <Text
+                    className="text-[30px]"
+                    style={[styles.text, { marginLeft: wp('5%') }]}>Hey</Text>
+                <Text
+                    className="text-[30px]"
+                    style={[styles.text, { color: Colors.orange }]}> {userName}</Text>
+                <View style={styles.status} ></View>
+                <View style={styles.studentContainer}>
+                    <Text style={styles.student}>{isTutor ? 'Tutor' : 'Student'}</Text>
+                </View>
             </View>
+            {children}
         </View>
-    {children}
-</View>
     )
 }
 
@@ -42,9 +42,9 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: Colors.white,
         flexDirection: 'row',
-        alignItems:'center',
+        alignItems: 'center',
         width: wp('100%'),
-        height: hp('15%'),
+        height: hp('10%'),
         paddingTop: hp('3'),
 
     },

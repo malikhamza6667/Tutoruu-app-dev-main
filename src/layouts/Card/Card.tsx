@@ -10,10 +10,10 @@ type Props = {
 }
 
 
-export const Card: React.FC<Props> = ({children}) => {
+export const Card: React.FC<Props> = ({ children }) => {
     return (
-        <View 
-        style={{
+        <View
+            style={{
                 // height: hp('15%'),
                 width: wp('90%'),
                 alignSelf: 'center',
@@ -23,12 +23,13 @@ export const Card: React.FC<Props> = ({children}) => {
                 elevation: 7,
                 borderRadius: 20,
                 shadowRadius: 5,
+                margin:hp('1'),
                 justifyContent: 'center',
-            //    paddingHorizontal: wp('3%'),
+                //    paddingHorizontal: wp('3%'),
                 backgroundColor: "#fff", // Add backgroundColor property
             }}
             testID="card" >
-{children}
+            {children}
         </View>
     )
 }
