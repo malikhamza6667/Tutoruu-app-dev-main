@@ -1,19 +1,22 @@
 import React, { useState } from "react";
-import { View } from "react-native";
+import { AsyncStorage, View,Text } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Auth from "../../../layouts/Auth/Auth"
 import Button from "../../../components/Button/Button";
 import Input from "../../../components/Input/Input";
 
-
+import i18n from "../../../localization/LocalizedStrings/LocalizedStrings";
+import {reloadAsync} from 'expo-updates'
 const Login = () => {
     const [email, setEmail] = useState('')
-    return (<Auth
-        title='Welcome Back'
-        subTitle='Already have Account ?'
-        pressableSubtitleText='Sign Up'
+    return (
+    <Auth
+
+        title={i18n.t('Welcome Back')}
+        subTitle={i18n.translate("Don't Have Account ?")}
+        pressableSubtitleText={i18n.t('Sign Up')}
         onPressSubtitle={() => { alert('Pressed') }}
-        footerTitle='Reset-Password'
+        footerTitle={'Reset-Password'}
         onPressfooterTitle={() => { alert('Pressed') }}
     >
         <View className='py-3 justify-center items-center'>
@@ -40,7 +43,11 @@ const Login = () => {
             <View className='my-2 self-center items-center'>
 
                 <Button
-                    onPress={() => { alert('Pressed') }}
+                    onPress={() => {
+                        AsyncStorage.setItem("Language","ar").then(()=>{
+                            reloadAsync()
+                        })
+                     }}
                     // icon={'AntDesign arrowright 24 white'}
                     shape='default'
                     text='Login'
@@ -48,7 +55,7 @@ const Login = () => {
                     height={hp('5%')}
                     testID='login-button'
                 />
-               
+                <Text>{i18n.t('Sign Up')}</Text>               
             </View>
 
         </View>

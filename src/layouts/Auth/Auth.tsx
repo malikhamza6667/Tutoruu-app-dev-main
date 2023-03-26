@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity, AsyncStorage, I18nManager } from 'react-native'
 import {
     heightPercentageToDP as hp,
     widthPercentageToDP as wp
@@ -9,9 +9,10 @@ import {
 import Colors from "../../../assets/Colors";
 import tw from 'twrnc'
 import { Card } from "../Card/Card";
+import i18n from "../../localization/LocalizedStrings/LocalizedStrings";
 type Props = {
     title: string,
-    caption: string
+    caption?: string
     children: React.ReactNode
     subTitle?: string
     onPressSubtitle?: () => void
@@ -22,6 +23,7 @@ type Props = {
 }
 
 const Auth: React.FC<Props> = ({ title, children, subTitle, footerTitle, pressableSubtitleText, onPressSubtitle, onPressfooterTitle, caption }) => {
+  
     return (
         <View style={[tw`flex-1 justify-between`, { backgroundColor: Colors.orange }]}>
 

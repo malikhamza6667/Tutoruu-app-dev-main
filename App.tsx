@@ -2,7 +2,7 @@
 import React, { useCallback, useState } from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { NavigationContainer } from '@react-navigation/native';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, AsyncStorage,I18nManager } from 'react-native';
 
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
@@ -41,6 +41,7 @@ import About from './src/screens/About/About';
 import Feed from './src/screens/Feed/Feed';
 import Seacrh from './src/screens/Search/Search';
 import Marketplace from './src/screens/Marketplace/Marketplace';
+import i18n from './src/localization/LocalizedStrings/LocalizedStrings';
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
 
@@ -75,10 +76,31 @@ const MyApp = () => {
   const handleCloseModal = () => {
     const opened = false;
   };
+  const selectedLanguage=async(lan:string)=>{
+i18n.locale= lan
+if(i18n.locale==='ar'){
+I18nManager.forceRTL(false)
+await SplashScreen.hideAsync();
+}
+else{
+  I18nManager.forceRTL(false)
+await SplashScreen.hideAsync();
+}
+  }
 
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
-      await SplashScreen.hideAsync();
+      AsyncStorage.getItem("Language").then((val)=>{
+        console.log("value"+ val)
+if(val=="ar"){
+
+selectedLanguage('ar')
+}
+else{
+  selectedLanguage('en') 
+}
+      })
+     
     }
   }, [fontsLoaded]);
   if (!fontsLoaded) {
@@ -173,81 +195,85 @@ const MyApp = () => {
     //  />
 
     //     </View>
-    <View style={{ flex: 1, justifyContent: 'center' }} onLayout={onLayoutRootView}>
-      {/* <ChatMessage 
-text='Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world  '
- date='2020-01-01'
- sender_image='https://i.pravatar.cc/300'
- mine={true} /> */}
+//     <View style={{ flex: 1, justifyContent: 'center' }} onLayout={onLayoutRootView}>
+//       {/* <ChatMessage 
+// text='Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world  '
+//  date='2020-01-01'
+//  sender_image='https://i.pravatar.cc/300'
+//  mine={true} /> */}
 
 
-      {/* <Review text='Explains very well and helped me a lot' 
-author_name='John Doe'
- author_image='https://i.pravatar.cc/300'
-  class_name='Calculas 1' date='01/01/2023' rating={5} /> */}
-      {/* <Text>hello</Text> */}
-      {/* <Input
-        size='Xlarge'
-        value={email}
-        onChangeText={(text) => { setEmail(text) }}
-        // title='Password'
-        placeholder='Doe'
-        height={'70%'}
+//       {/* <Review text='Explains very well and helped me a lot' 
+// author_name='John Doe'
+//  author_image='https://i.pravatar.cc/300'
+//   class_name='Calculas 1' date='01/01/2023' rating={5} /> */}
+//       {/* <Text>hello</Text> */}
+//       {/* <Input
+//         size='Xlarge'
+//         value={email}
+//         onChangeText={(text) => { setEmail(text) }}
+//         // title='Password'
+//         placeholder='Doe'
+//         height={'70%'}
 
-      /> */}
-      {/* <TouchableOpacity>
-        <Text>create post</Text>
-      </TouchableOpacity> */}
-      {/* <PostPopup
-        opened={true}
-        post={{ text: 'Hello world', tags: ['tag1', 'tag2'], attachment: 'https://i.pravatar.cc/300' }}
-        onClose={() => console.log('PostPopup closed')}
-        onOpen={() => console.log('PostPopup opened')}
-      /> */}
-      {/* <Separator type='line' /> */}
-      {/* <Auth
-           title='Sign Up For Tutoruu'
-           subTitle='Already have Account ?'
-           pressableSubtitleText='Login'
-           onPressSubtitle={()=>{alert('Pressed')}}
-            footerTitle='Reset-Password'
-            onPressfooterTitle={()=>{alert('Pressed')}}
-           >
-             <View className='py-3 justify-center items-center'>
+//       /> */}
+//       {/* <TouchableOpacity>
+//         <Text>create post</Text>
+//       </TouchableOpacity> */}
+//       {/* <PostPopup
+//         opened={true}
+//         post={{ text: 'Hello world', tags: ['tag1', 'tag2'], attachment: 'https://i.pravatar.cc/300' }}
+//         onClose={() => console.log('PostPopup closed')}
+//         onOpen={() => console.log('PostPopup opened')}
+//       /> */}
+//       {/* <Separator type='line' /> */}
+//       {/* <Auth
+//            title='Sign Up For Tutoruu'
+//            subTitle='Already have Account ?'
+//            pressableSubtitleText='Login'
+//            onPressSubtitle={()=>{alert('Pressed')}}
+//             footerTitle='Reset-Password'
+//             onPressfooterTitle={()=>{alert('Pressed')}}
+//            >
+//              <View className='py-3 justify-center items-center'>
 
-     <Input
-     size='large'
-     value={email}
-     onChangeText={(text)=>{setEmail(text)}}
-     title='Password'
-     placeholder='Doe'
-     />
+//      <Input
+//      size='large'
+//      value={email}
+//      onChangeText={(text)=>{setEmail(text)}}
+//      title='Password'
+//      placeholder='Doe'
+//      />
 
-     <View className='my-2 self-center items-center'>
+//      <View className='my-2 self-center items-center'>
 
-     <Button
-     onPress={()=>{alert('Pressed')}}
-     icon={'AntDesign arrowright 24 white'}
-     shape='default'
-     text='Create Account'
-     width={wp('80%')}
-     height={hp('5%')}
-     />
-     </View>
+//      <Button
+//      onPress={()=>{alert('Pressed')}}
+//      icon={'AntDesign arrowright 24 white'}
+//      shape='default'
+//      text='Create Account'
+//      width={wp('80%')}
+//      height={hp('5%')}
+//      />
+//      </View>
 
-             </View>
-           </Auth> */}
-      {/* <Login/> */}
-      {/* <Signup/> */}
-      {/* <ResetPassword /> */}
-      {/* <CompleteRegistration/> */}
-      {/* <UpdatePassword/> */}
-      {/* <MagicLink/> */}
-      {/* <About/> */}
-      {/* <Feed /> */}
-      <Seacrh/>
-      {/* <Marketplace/> */}
-    </View>
+//              </View>
+//            </Auth> */}
+    
+//       {/* <Signup/> */}
+//       {/* <ResetPassword /> */}
+//       {/* <CompleteRegistration/> */}
+//       {/* <UpdatePassword/> */}
+//       {/* <MagicLink/> */}
+//       {/* <About/> */}
+//       {/* <Feed /> */}
+//       <Seacrh/>
+//       {/* <Marketplace/> */}
+//     </View>
+
+<View style={{ flex: 1, justifyContent: 'center' }} onLayout={onLayoutRootView}>
+    <Login/>
+</View>
   );
 };
 export default MyApp;
