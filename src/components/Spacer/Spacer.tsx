@@ -9,7 +9,7 @@ const Spacer = () => {
         <View
 
             style={[
-                tw`py-2`
+                tw``, { marginVertical: hp('0.5') }
             ]}
         ></View>
     )

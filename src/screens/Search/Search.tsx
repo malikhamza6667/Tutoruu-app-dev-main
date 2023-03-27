@@ -1,6 +1,13 @@
 import React, { useState } from "react";
-import { View, FlatList, ScrollView } from "react-native";
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {
+    View,
+    FlatList,
+    ScrollView
+} from "react-native";
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp
+} from 'react-native-responsive-screen';
 import tw from 'twrnc';
 import ClassCard from "../../components/ClassCard/ClassCard";
 import Heading from "../../components/Heading/Heading";
@@ -10,16 +17,17 @@ import Spacer from "../../components/Spacer/Spacer";
 import TutorCard from "../../components/TutorCard/TutorCard";
 import Details from "../../layouts/Details/Details";
 import HorizontalList from "../../layouts/HorizontalList/HorizontalList";
-import { TutorInfo, TutorSubjects, user, tutorData, ClassInfo, postsData } from "../DummyData";
+import {
+    TutorInfo,
+    TutorSubjects,
+    user,
+    tutorData,
+    ClassInfo,
+    postsData
+} from "../DummyData";
 
 
-
-
-
-
-
-
-const Seacrh = () => {
+const Search = () => {
     const renderItem = ({ item }) => (
         <Post
             text={item.text}
@@ -131,4 +139,4 @@ const Seacrh = () => {
     )
 }
 
-export default Seacrh
+export default Search
