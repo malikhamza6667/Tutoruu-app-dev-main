@@ -48,6 +48,7 @@ import Successful from './src/screens/PaymentStatus/Successful/Successful';
 import Failed from './src/screens/PaymentStatus/Failed/Failed';
 import SupportSubmitted from './src/screens/SupportSubmitted/SupportSubmitted';
 import NotificationScreen from './src/screens/Notification/Notification';
+import MyPost from './src/components/MyPost/MyPost';
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
 
@@ -298,7 +299,9 @@ const MyApp = () => {
        method='Card' 
       /> */}
       {/* <SupportSubmitted/> */}
-      <NotificationScreen/>
+      {/* <NotificationScreen/> */}
+      {/* <MyPost/> */}
+      <Feed/>
     </View>
   );
 };

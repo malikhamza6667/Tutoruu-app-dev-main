@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, ScrollView } from "react-native";
+import MyPost from "../../components/MyPost/MyPost";
 import Post from "../../components/Post/PostCard";
 import { Separator } from "../../components/Separator/Separator";
 import Base from "../../layouts/Base/Base";
@@ -41,13 +42,20 @@ const Feed = () => {
 
     return (
         <Base isTutor={false} userName="Maryam">
+
             <Separator type="line" />
-            <FlatList
+            <ScrollView
                 showsVerticalScrollIndicator={false}
-                data={postsData}
-                renderItem={renderItem}
-                keyExtractor={(item) => item.id}
-            />
+            >
+
+                <MyPost />
+                <FlatList
+                    showsVerticalScrollIndicator={false}
+                    data={postsData}
+                    renderItem={renderItem}
+                    keyExtractor={(item) => item.id}
+                />
+            </ScrollView>
         </Base>
     );
 };

@@ -5,7 +5,7 @@ import { Image, View } from 'react-native';
 type Props = {
     size: 'small' | 'medium' | 'large';
     showCap: boolean;
-    image: any;
+    image: string;
 };
 
 const Avatar: React.FC<Props> = ({ size, showCap, image }) => {
@@ -51,14 +51,14 @@ const Avatar: React.FC<Props> = ({ size, showCap, image }) => {
                     (<View style={[tw` w-5rem  items-center justify-center`]}>
                         <Image
 
-                            source={image} style={[tw`${avatarStyles}`, { marginBottom: marginBottom, marginRight: marginRight }]} resizeMode="contain" testID="avatarImage" />
-                        <Image source={capImage}
+                            source={{ uri: image }} style={[tw`${avatarStyles}`, { marginBottom: marginBottom, marginRight: marginRight }]} testID="avatarImage" />
+                        <Image source={{ uri: image }}
 
 
-                            style={[tw`${capStylesTailwind}`, { zIndex: 1 }]} resizeMode="contain" testID="capImage" />
+                            style={[tw`${capStylesTailwind}`, { zIndex: 1 }]} testID="capImage" />
                     </View>)
                     :
-                    <Image source={image} style={tw`${avatarStyles}`} resizeMode="contain" testID="avatarImage" />
+                    <Image source={{ uri: image }} style={tw`${avatarStyles}`} testID="avatarImage" />
             }
         </View>
 
