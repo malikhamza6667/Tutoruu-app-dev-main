@@ -49,6 +49,7 @@ import Failed from './src/screens/PaymentStatus/Failed/Failed';
 import SupportSubmitted from './src/screens/SupportSubmitted/SupportSubmitted';
 import NotificationScreen from './src/screens/Notification/Notification';
 import MyPost from './src/components/MyPost/MyPost';
+import BAP from './src/screens/BAP/BAP';
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
 
@@ -301,7 +302,8 @@ const MyApp = () => {
       {/* <SupportSubmitted/> */}
       {/* <NotificationScreen/> */}
       {/* <MyPost/> */}
-      <Feed/>
+      {/* <Feed/> */}
+      <BAP/>
     </View>
   );
 };
