@@ -28,7 +28,7 @@ type Props = {
     min?: number;
     step?: number;
     title?: string
-    height: any
+    height?: any
     onFocus?: () => void;
     onBlur?: () => void;
     onChangeText: (text: string) => void;
@@ -127,7 +127,7 @@ const Input: React.FC<Props> = ({
                     {title && <Text style={[tw`px-5 py-1`, { fontFamily: 'PoppinsMedium' }]}>{title}</Text>}
 
                     <TextInput
-                        testID='Input'
+                       
                         style={[tw` items-center border border border-gray-400 rounded-3xl px-3 `, { fontFamily: 'PoppinsRegular', width: width, height: height }]}
                         placeholder={placeholder}
                         value={text}
@@ -142,7 +142,7 @@ const Input: React.FC<Props> = ({
                         onFocus={onFocus}
                         onBlur={onBlur}
                         onChangeText={handleTextChange}
-                        testID={testID}
+                        testID={testID?testID:'Input'}
                     />
                 </View>
 

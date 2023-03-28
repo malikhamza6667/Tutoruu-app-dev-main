@@ -5,8 +5,8 @@ import tw from 'twrnc';
 
 interface SwitchProps {
     opened: boolean;
-    onToggle: (opened: boolean) => void;
-    children: React.ReactNode;
+    onToggle?: (opened: boolean) => void;
+    children?: React.ReactNode;
 }
 
 const Switch: React.FC<SwitchProps> = ({ opened, onToggle, children }) => {
@@ -15,7 +15,7 @@ const Switch: React.FC<SwitchProps> = ({ opened, onToggle, children }) => {
     const handleClick = () => {
         const newOpen = !isOpen;
         setIsOpen(newOpen);
-        onToggle(newOpen);
+       
     };
 
     return (

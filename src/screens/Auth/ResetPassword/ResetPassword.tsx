@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { View } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Auth from "../../../layouts/Auth/Auth";
-import Button from "../../../components/Button/Button";
+
 import Input from "../../../components/Input/Input";
+import Button from "../../../components/Button/Button";
 
 // const ResetPassword = () => {
 //     const [email, setEmail] = useState('')
@@ -75,10 +76,9 @@ const ResetPassword = () => {
             <Button
               onPress={()=>{}} // Pass onPress prop to Button component
               icon={'AntDesign arrowright 24 white'}
-              shape='default'
+              shape='full'
               text='Send password reset link'
-              width={wp('80%')}
-              height={hp('5%')}
+              iconPosition="right"
             />
           </View>
         </View>

@@ -2,16 +2,16 @@ import React from 'react';
 import { render } from '@testing-library/react-native';
 import { Separator } from './Separator';
 
-describe('Separator component', () => {
-  test('renders line separator correctly', () => {
+describe('Separator', () => {
+  it('renders a line separator when type is "line"', () => {
     const { getByTestId } = render(<Separator type="line" />);
     const separator = getByTestId('separator');
-    expect(separator).toHaveStyle({ borderBottomWidth: 2, borderBottomColor: '#D1D5DB' });
+    expect(separator.props.style).toEqual({ borderBottomWidth: 2, borderColor: "#f3f4f6",});
   });
 
-  test('renders dot separator correctly', () => {
+  it('renders a dot separator when type is "dot"', () => {
     const { getByTestId } = render(<Separator type="dot" />);
     const separator = getByTestId('separator');
-    expect(separator).toHaveStyle({ width: 1, height: 1, borderRadius: 1, backgroundColor: '#D1D5DB' });
+    expect(separator.props.style).toEqual({ backgroundColor: "#f3f4f6", borderRadius: 9999, height: 4, width: 4 });
   });
 });

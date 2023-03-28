@@ -142,10 +142,12 @@ import { Icon } from '../Icon/Icon';
 
 type TagProps = {
     type: 'primary' | 'secondary' | 'neutral';
+    name?: string
     shape: 'round' | 'square';
     icon?: string;
     iconPosition?: 'left' | 'right';
     onPress?: () => void;
+    isPressed?: boolean
     children: React.ReactNode;
 };
 
@@ -153,6 +155,8 @@ const Tag: React.FC<TagProps> = ({
     type = 'neutral',
     shape = 'round',
     icon,
+    name,
+    isPressed,
     iconPosition = 'left',
     onPress,
     children,

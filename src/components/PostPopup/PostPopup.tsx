@@ -8,9 +8,12 @@ import tw from 'twrnc';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Avatar from '../Avatar/Avatar';
 import Input from '../Input/Input';
-import { Tag } from '../Tag/Tag';
-import { Switch } from '../Switch/Switch';
+
+
 import Button from '../Button/Button';
+import Switch from '../Switch/Switch';
+import Tag from '../Tag/Tag';
+
 
 interface PostPopupProps {
     opened: boolean;
@@ -102,7 +105,9 @@ export const PostPopup: React.FC<PostPopupProps> = ({
                         <Text
                             style={{ fontFamily: 'PoppinsRegular' }}
                         >Post anonymously</Text>
-                        <Switch opened={true} />
+                        <Switch opened={true} >
+
+                        </Switch>
                     </View>
 
                     <Button

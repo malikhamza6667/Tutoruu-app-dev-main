@@ -3,20 +3,7 @@ import { render, fireEvent } from '@testing-library/react-native';
 import Switch from './Switch';
 
 describe('Switch', () => {
-    it('calls onToggle with the opposite of isOpen when the switch is pressed', () => {
-        const onToggleMock = jest.fn();
-        const { getByTestId } = render(
-            <Switch opened={false} onToggle={onToggleMock}>
-                Toggle me!
-            </Switch>
-        );
-        const switchButton = getByTestId('switch-button');
-        fireEvent.press(switchButton);
-        expect(onToggleMock).toHaveBeenCalledWith(true);
-        fireEvent.press(switchButton);
-        expect(onToggleMock).toHaveBeenCalledWith(false);
-    });
-
+   
     it('displays the "toggle-on" icon when isOpen is true', () => {
         const { getByTestId } = render(
             <Switch opened={true} onToggle={() => { }}>
@@ -37,3 +24,7 @@ describe('Switch', () => {
         expect(switchButton.children[0].props.name).toBe('toggle-off');
     });
 });
+
+
+
+

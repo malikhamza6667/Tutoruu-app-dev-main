@@ -16,8 +16,8 @@ export const Notification: React.FC<NotificationProps> = ({ text, image, is_read
             onClick();
         }
     };
-    const handlePress = () => {
-        Linking.openURL(link);
+    const handlePress = (url:string) => {
+        Linking.openURL(url);
     };
 
     const notificationStyle = tw`flex-row items-center p-2 py-3`;
@@ -28,7 +28,7 @@ export const Notification: React.FC<NotificationProps> = ({ text, image, is_read
     const notificationImageStyle = tw`w-12 h-12 rounded-full mx-4 bg-red-300`;
     const timeTextStyle = tw`text-gray-800  p-1`;
     return (
-        <TouchableOpacity onPress={handlePress} activeOpacity={0.8} testID="notification">
+        <TouchableOpacity onPress={()=>{handlePress(link)}} activeOpacity={0.8} testID="notification">
             <View style={[notificationStyle, notificationBackgroundStyle]}>
                 <Image source={{ uri: image }} style={notificationImageStyle} />
                 <View style={tw` flex-row`}>

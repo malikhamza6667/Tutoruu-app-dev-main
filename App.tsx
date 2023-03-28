@@ -2,11 +2,11 @@
 import React, { useCallback, useState } from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { NavigationContainer } from '@react-navigation/native';
-import { View, Text, TouchableOpacity, AsyncStorage, I18nManager } from 'react-native';
+import { View, Text, TouchableOpacity, AsyncStorage, I18nManager, SafeAreaView } from 'react-native';
 
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
-import Button from './src/components/Button/Button';
+
 import Colors from './assets/Colors';
 
 import { Button as Buttonnn } from '@rneui/base';
@@ -54,6 +54,8 @@ import Switch from './src/components/Switch/Switch';
 import Tag from './src/components/Tag/Tag';
 import { Notification } from './src/components/Notification/Notification';
 import ActionLink from './src/components/ActionLink/ActionLink';
+import Button from './src/components/Button/Button';
+
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
 
@@ -126,241 +128,53 @@ const MyApp = () => {
   const query = "status=success&amount=10.99&currency=USD"; // Sample query string, you can replace it with your own
 
   return (
-    //     <View style={{ flex: 1, justifyContent:'center'}} onLayout={onLayoutRootView} >
+ <SafeAreaView 
+ style={{flex:1 ,justifyContent:'center'}}
+ onLayout={onLayoutRootView}
+ >
+  <Button
+  shape='default'
+  onPress={()=>{alert('Pressed')}}
+  text='Login'
+  />
+  <View style={{padding: hp('2%')}}>
 
-    //  {/* <Post text='Hello world This Is New Post' user={{ name: 'John Doe',
-    //  image: 'https://i.pravatar.cc/300', username: '@john johndoe',
-    //   bio: 'Hello world This Is New Post', is_tutor: true }} 
-    //   date='2020-01-01' comments_count={3} likes_count={3}
-    //    dislikes_count={3} is_liked={islike} is_disliked={isDislike} is_saved={isSaved} 
-    //    on_dislike_Pressed={()=>{setisDisLiked(!isDislike)}}
-    //    on_like_Pressed={()=>{setisLiked(!islike)}}
-    //    onSaved={()=>{setisSaved(!isSaved)}}
-    // is_anonymous={false} tags={['tag1', 'Note']} 
-    // attachement='https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-837358.jpg&fm=jpg'
-    //  /> */}
+  </View>
 
-    //     {/* <View className='p-3'>
+  <Button
+   shape='default'
+   onPress={()=>{alert('Pressed')}}
+   text='Login'
+     icon={'AntDesign arrowright 24 white'}
+   iconPosition={'right'}
+  />
+  <View style={{padding: hp('2%')}}>
 
-    //       <Avatar
-    //       showCap
-    //       size='small'
-    //       image={"https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?cs=srgb&dl=pexels-pixabay-39866.jpg&fm=jpg"}
-    //       />
-    //     </View>
-    //     <View className='p-3'>
-    //       <Avatar
-    //       showCap
-    //       size='medium'
-    //       image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMLOPnljLnmpKl2N8pnDHZvxmF06ndBeGXQhZawvYMdjajyMu-gZx6ukTiYpPOBtgCEqI&usqp=CAU"}
-    //       />
-    //       </View>
+  </View>
 
-    //       <View className='p-3'>
-    //       <Avatar
-    //       showCap
-    //       size='large'
-    //       image={"https://images.pexels.com/photos/2726111/pexels-photo-2726111.jpeg?cs=srgb&dl=pexels-masha-raymers-2726111.jpg&fm=jpg"}
-    //       />
-    //       </View> */}
-    //       {/* <Auth
-    //       title='Sign Up For Tutoruu'
-    //       subTitle='Already have Account ?'
-    //       pressableSubtitleText='Login'
-    //       onPressSubtitle={()=>{alert('Pressed')}}
-    //        footerTitle='Reset-Password'
-    //        onPressfooterTitle={()=>{alert('Pressed')}}
-    //       >
-    //         <View className='py-3 justify-center items-center'>
+  <Button
+   shape='full'
+   disabled={true}
+   onPress={()=>{alert('Pressed')}}
+   text='Login'
+  />
+  <View style={{padding: hp('2%')}}>
 
-    // <Input
-    // size='large'
-    // value={email}
-    // onChangeText={(text)=>{setEmail(text)}}
-    // title='Password'
-    // placeholder='Doe'
-    // />
+  </View>
 
-    // <View className='my-2 self-center items-center'>
-
-    // <Button
-    // onPress={()=>{alert('Pressed')}}
-    // icon={'AntDesign arrowright 24 white'}
-    // shape='default'
-    // text='Create Account'
-    // width={wp('80%')}
-    // height={hp('5%')}
-    // />
-    // </View>
-
-    //         </View>
-    //       </Auth> */}
-
-    // {/* <View className='my-3 p-2'>
-    //  <SessionCard 
-    //         class_name='Math' with='John Doe' created_date='2020-01-01' time='12:00 P.M' day='Monday' is_accepted={false} 
-    //          is_completed={false} payment_fulfilled={false} payment_amount={"200"} location='123 Main St' />   
-
-    // </View> */}
-    // <TutorCard
-    //  classes={TutorSubjects}
-    //  user={user}
-    //  num_sessions={4}
-    //  rating={2}
-    //  onPress={()=>{alert('Pressed')}}
-    //  rate={'270 EGP'}
-    //  text={'PhD student in the Industrial & Systems Engineering Department…'}
-    //  />
-
-    //     </View>
-    //     <View style={{ flex: 1, justifyContent: 'center' }} onLayout={onLayoutRootView}>
-    //       {/* <ChatMessage 
-    // text='Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world  '
-    //  date='2020-01-01'
-    //  sender_image='https://i.pravatar.cc/300'
-    //  mine={true} /> */}
-
-
-    //       {/* <Review text='Explains very well and helped me a lot' 
-    // author_name='John Doe'
-    //  author_image='https://i.pravatar.cc/300'
-    //   class_name='Calculas 1' date='01/01/2023' rating={5} /> */}
-    //       {/* <Text>hello</Text> */}
-    //       {/* <Input
-    //         size='Xlarge'
-    //         value={email}
-    //         onChangeText={(text) => { setEmail(text) }}
-    //         // title='Password'
-    //         placeholder='Doe'
-    //         height={'70%'}
-
-    //       /> */}
-    //       {/* <TouchableOpacity>
-    //         <Text>create post</Text>
-    //       </TouchableOpacity> */}
-    //       {/* <PostPopup
-    //         opened={true}
-    //         post={{ text: 'Hello world', tags: ['tag1', 'tag2'], attachment: 'https://i.pravatar.cc/300' }}
-    //         onClose={() => console.log('PostPopup closed')}
-    //         onOpen={() => console.log('PostPopup opened')}
-    //       /> */}
-    //       {/* <Separator type='line' /> */}
-    //       {/* <Auth
-    //            title='Sign Up For Tutoruu'
-    //            subTitle='Already have Account ?'
-    //            pressableSubtitleText='Login'
-    //            onPressSubtitle={()=>{alert('Pressed')}}
-    //             footerTitle='Reset-Password'
-    //             onPressfooterTitle={()=>{alert('Pressed')}}
-    //            >
-    //              <View className='py-3 justify-center items-center'>
-
-    //      <Input
-    //      size='large'
-    //      value={email}
-    //      onChangeText={(text)=>{setEmail(text)}}
-    //      title='Password'
-    //      placeholder='Doe'
-    //      />
-
-    //      <View className='my-2 self-center items-center'>
-
-    //      <Button
-    //      onPress={()=>{alert('Pressed')}}
-    //      icon={'AntDesign arrowright 24 white'}
-    //      shape='default'
-    //      text='Create Account'
-    //      width={wp('80%')}
-    //      height={hp('5%')}
-    //      />
-    //      </View>
-
-    //              </View>
-    //            </Auth> */}
-
-    //       {/* <Signup/> */}
-    //       {/* <ResetPassword /> */}
-    //       {/* <CompleteRegistration/> */}
-    //       {/* <UpdatePassword/> */}
-    //       {/* <MagicLink/> */}
-    //       {/* <About/> */}
-    //       {/* <Feed /> */}
-    //       <Seacrh/>
-    //       {/* <Marketplace/> */}
-    //     </View>
-
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center'
-      }}
-      onLayout={onLayoutRootView}
-    >
-      {/* <Search /> */}
-      {/* <Settings/> */}
-      {/* <Successful 
-      amount='10' 
-      currency='USD' 
-      method='Card' 
-      />  */}
-      {/* <Failed
-       amount='20' 
-       currency='USD' 
-       method='Card' 
-      /> */}
-      {/* <SupportSubmitted/> */}
-      {/* <NotificationScreen/> */}
-      {/* <MyPost/> */}
-      {/* <Feed/> */}
-      {/* <BAP/> */}
-      {/* <Button
-          onPress={()=>{alert('Pressed')}}
-          icon={'AntDesign arrowright 24 white'}
-          shape='default'
-          text='Create Account'
-          width={wp('80%')}
-          height={hp('5%')}
-          /> */}
-      {/* < Switch opened={true}  /> */}
-      {/* <Switch opened={isSwitchOn} onToggle={handleSwitchToggle}>
-      <Text>Click me</Text>  
-      </Switch> */}
-      {/* <Notification
-                text="This is a notification!"
-                link='https://google.com'
-                is_read={false}
-                image='https://img.freepik.com/free-photo/young-stylish-woman-model-casual-summer-clothes-with-red-lips-posing-near-blue-wall-showing-peace-sign_158538-7430.jpg?size=626&ext=jpg&ga=GA1.1.1081558094.1677063520&semt=ais'
-            /> */}
-      {/* <Tag
-        isPressed={true}
-        name='search'
-        icon='FontAwesome'
-        shape='round'
-        type='neutral'
-        width={50}
-      >
-        helo
-      </Tag> */}
-      {/* <Tag 
-      type="neutral" 
-      shape="round" 
-      icon="arrow-right" 
-      iconPosition="right" 
-      onPress={() => console.log('Tag clicked')}>
-        Click me
-      </Tag> */}
-      {/* <ActionLink
-text='password'
- link='https://google.com'
-icon='search'
-family='FontAwesome'
-onPress={() => console.log('actionlink clicked')}
-/> */}
-
-
-
-
-    </View>
-  ); <p></p>
+  <Button
+  
+   shape='full'
+textColor='black'
+backgroundColor='white'
+   text='Sign Up With Google'
+   onPress={()=>{alert('Pressed')}}
+   //icon={'AntDesign arrowright 24 white'}
+   //iconPosition={'left'}
+   imagePosition={'left'}
+   image={'data:image/png;base64,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'}
+  />
+  </SafeAreaView>
+  )
 };
 export default MyApp;
