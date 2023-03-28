@@ -7,6 +7,7 @@ const Spacer = () => {
 
     return (
         <View
+        testID="spacer"
 
             style={[
                 tw``, { marginVertical: hp('0.5') }

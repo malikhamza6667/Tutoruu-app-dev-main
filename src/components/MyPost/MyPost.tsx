@@ -16,6 +16,7 @@ const MyPost = () => {
                 style={[
                     tw`p-3 flex-row mx-1 items-center`
                 ]}
+                testID='my-post'
             >
                 <Avatar
                     showCap={false}
@@ -43,7 +44,7 @@ const MyPost = () => {
                 >
 
                 <Button
-                    onPress={() => { alert('Pressed') }}
+                   onPress={() => console.log('actionlink clicked')}
                     icon={'AntDesign arrowright 18 white'}
                     shape='round'
                     // text='Create Account'

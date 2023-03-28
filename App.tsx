@@ -349,13 +349,13 @@ const MyApp = () => {
       onPress={() => console.log('Tag clicked')}>
         Click me
       </Tag> */}
-      <ActionLink
+      {/* <ActionLink
 text='password'
-link='https://google.com'
+ link='https://google.com'
 icon='search'
 family='FontAwesome'
 onPress={() => console.log('actionlink clicked')}
-/>
+/> */}
 
 
 
