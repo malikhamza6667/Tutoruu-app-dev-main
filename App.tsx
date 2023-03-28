@@ -50,6 +50,10 @@ import SupportSubmitted from './src/screens/SupportSubmitted/SupportSubmitted';
 import NotificationScreen from './src/screens/Notification/Notification';
 import MyPost from './src/components/MyPost/MyPost';
 import BAP from './src/screens/BAP/BAP';
+import Switch from './src/components/Switch/Switch';
+import Tag from './src/components/Tag/Tag';
+import { Notification } from './src/components/Notification/Notification';
+import ActionLink from './src/components/ActionLink/ActionLink';
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
 
@@ -68,6 +72,11 @@ const data: Item[] = [
 
 const MyApp = () => {
   const [enableButton, setEnableButton] = useState(true)
+  const [isSwitchOn, setIsSwitchOn] = useState<boolean>(false);
+
+  const handleSwitchToggle = (isOpen: boolean) => {
+    setIsSwitchOn(isOpen);
+  };
   const [email, setEmail] = useState('')
   const [fontsLoaded] = useFonts({
     'Poppins': require('./assets/fonts/Poppins-ExtraLight.ttf'),
@@ -289,7 +298,7 @@ const MyApp = () => {
     >
       {/* <Search /> */}
       {/* <Settings/> */}
-       {/* <Successful 
+      {/* <Successful 
       amount='10' 
       currency='USD' 
       method='Card' 
@@ -303,8 +312,55 @@ const MyApp = () => {
       {/* <NotificationScreen/> */}
       {/* <MyPost/> */}
       {/* <Feed/> */}
-      <BAP/>
+      {/* <BAP/> */}
+      {/* <Button
+          onPress={()=>{alert('Pressed')}}
+          icon={'AntDesign arrowright 24 white'}
+          shape='default'
+          text='Create Account'
+          width={wp('80%')}
+          height={hp('5%')}
+          /> */}
+      {/* < Switch opened={true}  /> */}
+      {/* <Switch opened={isSwitchOn} onToggle={handleSwitchToggle}>
+      <Text>Click me</Text>  
+      </Switch> */}
+      {/* <Notification
+                text="This is a notification!"
+                link='https://google.com'
+                is_read={false}
+                image='https://img.freepik.com/free-photo/young-stylish-woman-model-casual-summer-clothes-with-red-lips-posing-near-blue-wall-showing-peace-sign_158538-7430.jpg?size=626&ext=jpg&ga=GA1.1.1081558094.1677063520&semt=ais'
+            /> */}
+      {/* <Tag
+        isPressed={true}
+        name='search'
+        icon='FontAwesome'
+        shape='round'
+        type='neutral'
+        width={50}
+      >
+        helo
+      </Tag> */}
+      {/* <Tag 
+      type="neutral" 
+      shape="round" 
+      icon="arrow-right" 
+      iconPosition="right" 
+      onPress={() => console.log('Tag clicked')}>
+        Click me
+      </Tag> */}
+      <ActionLink
+text='password'
+link='https://google.com'
+icon='search'
+family='FontAwesome'
+onPress={() => console.log('actionlink clicked')}
+/>
+
+
+
+
     </View>
-  );
+  ); <p></p>
 };
 export default MyApp;

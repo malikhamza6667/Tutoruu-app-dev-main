@@ -12,16 +12,18 @@ import {
     MaterialIcons
 } from '@expo/vector-icons';
 import Colors from "../../../assets/Colors";
+import { Icon } from "../Icon/Icon";
 
 type Props = {
     text: string;
     icon: string;
-    // link: string;
+    link: string;
+    family: string
+    onPress?: () => void;
 }
 const ActionLink: React.FC<Props> = (props) => {
     let [iconFamily, icon,] = props.icon ? props.icon.split(' ') : ['', ''];
     if (props.icon != undefined) {
-
         [iconFamily, icon,] = props.icon.split(' ');
     }
     const IconFamily = {
@@ -39,12 +41,18 @@ const ActionLink: React.FC<Props> = (props) => {
             style={[
                 tw`flex-row items-center justify-between p-4 py-5`, { backgroundColor: Colors.background }
             ]}
+            onPress={props.onPress}
         >
-            <IconFamily
+            {/* <IconFamily
                 name={icon}
                 size={hp('2.5')}
                 color={Colors.black}
-
+            /> */}
+            <Icon
+                family={props.family}
+                name={props.icon}
+                size='small'
+                color='black'
             />
             <Text
                 style={[

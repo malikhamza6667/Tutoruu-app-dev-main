@@ -12,11 +12,13 @@ const NotificationScreen = () => {
             <Spacer />
             <Notification
                 text="This is a notification!"
+                link=""
                 is_read={false}
                 image='https://img.freepik.com/free-photo/young-stylish-woman-model-casual-summer-clothes-with-red-lips-posing-near-blue-wall-showing-peace-sign_158538-7430.jpg?size=626&ext=jpg&ga=GA1.1.1081558094.1677063520&semt=ais'
             />
             <Notification
                 text="This is a notification!"
+                link=""
                 is_read={false}
                 image='https://img.freepik.com/free-photo/young-stylish-woman-model-casual-summer-clothes-with-red-lips-posing-near-blue-wall-showing-peace-sign_158538-7430.jpg?size=626&ext=jpg&ga=GA1.1.1081558094.1677063520&semt=ais'
             />

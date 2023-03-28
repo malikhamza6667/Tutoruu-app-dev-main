@@ -14,7 +14,6 @@ const BAP = () => {
                     tw`items-center`
                 ]}
             >
-
                 <Text
                     style={[
                         { fontFamily: 'PoppinsBold', fontSize: hp('2.3') }
