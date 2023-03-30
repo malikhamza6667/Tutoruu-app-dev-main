@@ -62,7 +62,7 @@ const Button: React.FC<ButtonProps> = (props) => {
         buttonStyles = 'h-13 w-48 bg-transparent '
     }
     if (props.shape == 'full') {
-        buttonStyles = 'py-2  w-fit flex-row  justify-evenly rounded-full py-3 px-6 items-center'
+        buttonStyles = 'py-2 h-13 w-full flex-row  justify-evenly rounded-full py-4 px-6 items-center'
     }
     if (props.shape == 'default') {
         buttonStyles = 'px-5 py-2 flex-row items-center self-center  rounded-full'

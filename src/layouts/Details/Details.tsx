@@ -20,7 +20,7 @@ const Details: React.FC<Props> = ({
 }) => {
     return (
         <SafeAreaView style={[tw`flex-1`, { backgroundColor: Colors.white }]}>
-            <View style={[tw`flex-row  justify-between items-center`, { height: hp('12%'), paddingHorizontal: wp('5%') }]}>
+            <View style={[tw`flex-row  justify-between items-center`, { height: hp('10%'), paddingHorizontal: wp('5%') }]}>
                 <View style={{ width: wp('20%') }}>
 
                     <TouchableOpacity

@@ -23,9 +23,9 @@ const Avatar: React.FC<Props> = ({ size, showCap, image }) => {
         marginBottom = -4
 
     } else if (size === 'large') {
-        avatarStyles = "rounded-full  w-20 h-20 "
+        avatarStyles = "rounded-full  w-[18.2] h-[18.2]"
         marginRight = -5
-        marginBottom = -5.5
+        marginBottom = -10
 
     }
     // Choose the appropriate cap style based on size prop value
@@ -38,7 +38,7 @@ const Avatar: React.FC<Props> = ({ size, showCap, image }) => {
         capStylesTailwind = 'absolute w-16 h-16 '
 
     } else if (size === 'large') {
-        capStylesTailwind = 'absolute w-24 h-24 '
+        capStylesTailwind = 'absolute w-[25] h-[25] '
 
 
     }
@@ -52,7 +52,7 @@ const Avatar: React.FC<Props> = ({ size, showCap, image }) => {
                         <Image
 
                             source={{ uri: image }} style={[tw`${avatarStyles}`, { marginBottom: marginBottom, marginRight: marginRight }]} testID="avatarImage" />
-                        <Image source={{ uri: image }}
+                        <Image source={ capImage }
 
 
                             style={[tw`${capStylesTailwind}`, { zIndex: 1 }]} testID="capImage" />

@@ -33,6 +33,7 @@ type Props = {
     onBlur?: () => void;
     onChangeText: (text: string) => void;
     testID?: string;
+    multiline?: boolean
 };
 
 const Input: React.FC<Props> = ({
@@ -57,7 +58,8 @@ const Input: React.FC<Props> = ({
     onChangeText,
     iconPosition,
     onIconPressed,
-    iconBackground
+    iconBackground,
+    multiline
 }) => {
     const [text, setText] = useState(value);
     let keyboardtype = 'default'
@@ -66,10 +68,10 @@ const Input: React.FC<Props> = ({
     let minWidth = parseInt(wp(`${min}%`).toString())
     let width = wp('75%')
     if (size == 'Xlarge') { width = wp('90%'), height=hp('12%') }
-    if (size == 'xlarge') { width = wp('90%') }
+    if (size == 'xlarge') { width = wp('88%') }
     if (size == 'large') { width = wp('80%') }
-    if (size == 'medium') { width = wp('60%') }
-    if (size == 'small') { width = wp('40%') }
+    if (size == 'medium') { width = wp('55%') }
+    if (size == 'small') { width = wp('30%') }
     if (size == 'Xsmall') { width = wp('28%') }
 
 
@@ -128,7 +130,7 @@ const Input: React.FC<Props> = ({
 
                     <TextInput
                        
-                        style={[tw` items-center border border border-gray-400 rounded-3xl px-3 `, { fontFamily: 'PoppinsRegular', width: width, height: height }]}
+                        style={[tw` items-center border border border-gray-400 rounded-3xl px-3 py-2`, { fontFamily: 'PoppinsRegular', width: width, height: height }]}
                         placeholder={placeholder}
                         value={text}
                         secureTextEntry={invisbilePassword}
@@ -136,6 +138,7 @@ const Input: React.FC<Props> = ({
                         clearButtonMode={clearable ? 'always' : 'never'}
                         autoCompleteType={autocomplete}
                         editable={!disabled && !readonly}
+                        multiline={multiline}
                         maxLength={maxwidth ? maxwidth : wp('90%')}
                         minLength={minWidth ? minWidth : wp('30%')}
                         step={step}
@@ -154,7 +157,7 @@ const Input: React.FC<Props> = ({
                     {title && <Text style={[tw`px-5 py-1`, { fontFamily: 'PoppinsSemiBold' }]}>{title}</Text>}
                     <View
                         testID='Input'
-                        style={[tw`flex-row justify-between items-center border border border-gray-400 rounded-3xl `, { width: width, height: hp('5%') }]} >
+                        style={[tw`flex-row justify-between items-center border border border-gray-400 px-1  rounded-3xl `, { width: width, height: hp('5.5%') }]} >
 
                         <TextInput
                             style={{ fontFamily: 'PoppinsRegular' }}
@@ -194,7 +197,7 @@ const Input: React.FC<Props> = ({
                     {title && <Text style={[tw`px-5 py-1`, { fontFamily: 'PoppinsSemiBold' }]}>{title}</Text>}
                     <View
                         testID='Input'
-                        style={[tw`flex-row justify-between items-center border border border-gray-400 rounded-3xl `, { width: width, height: hp('5%') }]} >
+                        style={[tw`flex-row justify-between items-center border border border-gray-400 px-1 rounded-3xl `, { width: width, height: hp('5.5%') }]} >
                         <TouchableOpacity
                             className='flex-[0.15]'
                             onPress={onIconPressed}
