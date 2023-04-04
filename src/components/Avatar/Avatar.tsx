@@ -6,9 +6,10 @@ type Props = {
     size: 'small' | 'medium' | 'large';
     showCap: boolean;
     image: string;
+    testId?:string
 };
 
-const Avatar: React.FC<Props> = ({ size, showCap, image }) => {
+const Avatar: React.FC<Props> = ({ size, showCap, image,testId }) => {
     let avatarStyles = "rounded-full";
     let marginBottom = 0
     let marginRight = 0
@@ -58,7 +59,7 @@ const Avatar: React.FC<Props> = ({ size, showCap, image }) => {
                             style={[tw`${capStylesTailwind}`, { zIndex: 1 }]} testID="capImage" />
                     </View>)
                     :
-                    <Image source={{ uri: image }} style={tw`${avatarStyles}`} testID="avatarImage" />
+                    <Image source={{ uri: image }} style={tw`${avatarStyles}`} testID={testId?testId:"avatarImage"} />
             }
         </View>
 

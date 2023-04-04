@@ -9,16 +9,17 @@ type Props={
     isDisable?: boolean
     numStars?: number
     size?: number
+    testId?:string
 
 }
 
-const StarRatings:React.FC<Props> =({rating,isDisable,numStars,size})=>{
+const StarRatings:React.FC<Props> =({rating,isDisable,numStars,testId,size})=>{
     const [starCount,setStartCount]=useState(rating)
 const onStarRatingPress=(rating: number)=>{
     setStartCount(rating)
 }
     return(
-<View  >
+<View testID={testId?testId:''} >
 
       <AirbnbRating
       

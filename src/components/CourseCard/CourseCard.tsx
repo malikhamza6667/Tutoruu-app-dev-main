@@ -18,7 +18,7 @@ import StarRatings from "../StarRatings/StarRatings";
 
  type Props={
     name: string
-    desc: string
+    desc?: string
     rating: number
     reviews_count: number
     num_sessions: number
@@ -44,8 +44,16 @@ const CourseCard:React.FC<Props>=({
     <Text style={[tw``,{fontFamily:'PoppinsRegular',color:Colors.orange}]}>{in_person? 'In Person':'Online'}</Text>
 </View>
     <View style={[tw`flex-row items-end px-1 `,{justifyContent:'flex-end'}]}>
-    <Text style={[tw`text-xs`,{fontFamily:'PoppinsRegular',color:Colors.orange}]}>{reviews_count}.</Text>
+        <View style={tw`flex-row`}>
+    <Text
+    testID="reviews-count"
+    
+    style={[tw`text-xs`,{fontFamily:'PoppinsRegular',color:Colors.orange}]}>{reviews_count}</Text>
+    <Text
+    style={[tw`text-xs`,{fontFamily:'PoppinsRegular',color:Colors.orange}]}>.</Text>
+            </View>
     <StarRatings
+testId="rating-stars"
     rating={rating}
     isDisable
     size={14}
@@ -60,11 +68,15 @@ const CourseCard:React.FC<Props>=({
         <Text style={[tw`text-base`,{fontFamily:'PoppinsMedium',color:Colors.black}]}>{name}</Text>
         <Text style={[tw``,{fontFamily:'PoppinsMedium',textTransform:'uppercase',color:Colors.gray}]}>{desc}</Text>
         </View>
-        <View>
-        <Text style={[tw`text-xs`,{fontFamily:'PoppinsMedium',color:Colors.orange}]}>{num_sessions}
+        <View style={tw`flex-row`}>
+        <Text 
+        
+        testID="num-sessions"
+        style={[tw`text-xs`,{fontFamily:'PoppinsMedium',color:Colors.orange}]}>{num_sessions}
+        
+        </Text>
         <Text style={[tw`text-xs`,{fontFamily:'PoppinsMedium',color:Colors.gray}]}>
             sessions
-        </Text>
         </Text>
         </View>
     </View>

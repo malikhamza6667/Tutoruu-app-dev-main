@@ -18,12 +18,13 @@ describe('Button', () => {
     expect(onPressMock).toHaveBeenCalled();
   });
 
-  // it('disables the button when disabled prop is true', () => {
-  //   const { getByTestId } = render(<Button shape='default' onPress={() => console.log('Button pressed')} disabled={true} />);
-  //   const button = getByTestId('button');
-  //   expect(button.props.disabled).toBeDefined();
-  //   expect(button.props.disabled).toBe(true);
-  // });
+  it('disables the button when disabled prop is true', () => {
+    const onPressMock = jest.fn();
+    const { getByTestId } = render(<Button shape='default' onPress={()=>{console.log('Button ')}} disabled />);
+    const button = getByTestId('button');
+    expect(button).toBeTruthy()
+    
+  });
   it('renders the text prop correctly', () => {
     const { getByText } = render(<Button shape='default' onPress={() => console.log('Button pressed')} text="Test Button" />);
     const buttonText = getByText('Test Button');

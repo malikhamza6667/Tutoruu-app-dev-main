@@ -28,4 +28,47 @@ describe('ChatMessage', () => {
     expect(messageText).toBeDefined();
     expect(avatar).toBeDefined();
   });
+
+
+  // it("renders the date prop correctly", () => {
+  //   const { getByText } = render(<ChatMessage {...messageProps} />);
+  //   const dateText = getByText("2022-03-23");
+  //   expect(dateText).toBeTruthy();
+  // });
+
+  it("renders the sender_image prop correctly", () => {
+    const { getByTestId } = render(<ChatMessage {...messageProps} />);
+    const avatar = getByTestId('avatar');
+    // expect(avatar.props.image).toEqual(messageProps.sender_image);
+    expect(avatar.props.source.uri).toEqual(messageProps.sender_image);
+  });
+  it("applies the correct styles based on the mine prop", () => {
+    const { getByTestId } = render(<ChatMessage {...messageProps} />);
+    const messageContainer = getByTestId("message-container");
+    expect(messageContainer.props.style[1]).toHaveProperty(
+      "backgroundColor",
+      "#FFFFFF"
+    );
+});
+
+it("renders the text prop correctly", () => {
+  const { getByText } = render(<ChatMessage {...messageProps} />);
+  const messageText = getByText("Hello world!");
+  expect(messageText).toBeTruthy();
+});
+
+
+it("renders correctly when text prop is an empty string", () => {
+  const emptyTextProps = { ...messageProps, text: "" };
+  const { getByTestId } = render(<ChatMessage {...emptyTextProps} />);
+  const messageContainer = getByTestId("message-container");
+  expect(messageContainer.children.length).toEqual(1);
+});
+
+it("renders correctly when text prop is a string with only spaces", () => {
+  const spaceTextProps = { ...messageProps, text: "   " };
+  const { getByTestId } = render(<ChatMessage {...spaceTextProps} />);
+  const messageContainer = getByTestId("message-container");
+  expect(messageContainer.children.length).toEqual(1);
+});
 });

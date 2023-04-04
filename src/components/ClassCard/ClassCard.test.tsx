@@ -14,6 +14,15 @@ describe('ClassCard', () => {
     expect(getByText('Test class')).toBeDefined();
     expect(getByText('Test description')).toBeDefined();
   });
+  it('should render the correct name and description', () => {
+    const name = 'Test Class';
+    const desc = 'Test description';
+
+    const { getByText } = render(<ClassCard name={name} desc={desc} />);
+
+    expect(getByText(name)).toBeDefined();
+    expect(getByText(desc)).toBeDefined();
+  });
 
   it('calls onPress when the "View" button is pressed', () => {
     const { getByText } = render(<ClassCard {...defaultProps} />);

@@ -26,33 +26,43 @@ type Props={
         <View >
             {
                 mine ? 
-              (  <View style={[tw`flex-row items-end justify-end m-3`,{}]}>
+              (  <View
+             
+              style={[tw`flex-row items-end justify-end m-3`,{}]}>
 
 
 
-        <View style={[tw` mx-2 rounded-lg justify-center`,styles.mine,styles.container]}>
+        <View 
+         testID="message-container"
+        style={[tw` mx-2 rounded-lg justify-center`,styles.mine,styles.container]}>
             <Text style={{fontFamily:'PoppinsMedium'}}>{text}</Text>
         </View>
-        <View testID="avatar" >
+        <View  >
         <Avatar
-showCap={false}
-image={sender_image}
-size='small'
-/>
+        testId="avatar"
+        showCap={false}
+        image={sender_image}
+        size='small'
+        />
             </View>
                 </View>)
 
         :
-        (  <View  style={[tw`flex-row items-end justify-start m-3`,{}]}>
-<View  testID="avatar">
+        (  <View 
+            
+        style={[tw`flex-row items-end justify-start m-3`,{}]}>
+<View >
         <Avatar
+        testId="avatar"
         showCap={false}
         image={sender_image}
         size='small'
         />
     </View>
         
-                <View style={[tw`mx-2 rounded-lg justify-center`,styles.notMine,styles.container]}>
+                <View 
+                testID="message-container"
+                style={[tw`mx-2 rounded-lg justify-center`,styles.notMine,styles.container]}>
                     <Text style={{fontFamily:'PoppinsMedium'}}>{text}</Text>
                 </View>
                         </View>)
