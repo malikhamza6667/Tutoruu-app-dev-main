@@ -30,23 +30,38 @@ const ChatPreview:React.FC<Props>=({
     onPress
 })=>{
    
-     
+    // function formatTimeAgo(date: Date): string {
+    //     const now = new Date();
+    //     const diff = (now.getTime() - date.getTime()) / 1000; // in seconds
+      
+    //     if (diff < 60) {
+    //       return 'just now';
+    //     } else if (diff < 60 * 60) {
+    //       const minutes = Math.floor(diff / 60);
+    //       return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+    //     } else {
+    //       const hours = Math.floor(diff / (60 * 60));
+    //       return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+    //     }
+    //   }
+
+    //   const timeAgo = formatTimeAgo(last_message_date)  
       
     return(
 <TouchableOpacity 
 testID="chat-preview"
 onPress={onPress}
-style={[tw`flex-row justify-between px-3 my-0.1`,{height:hp('8%'),backgroundColor:unread_count==0? Colors.gray:Colors.lightorange}]}>
+style={[tw`flex-row justify-between px-3`,{height:hp('8%'),backgroundColor:unread_count==0? Colors.white:Colors.lightorange}]}>
    <View className="flex-row items-center self-center">
    <Avatar
-   size='small'
+   size='medium'
    image={user.image}
    showCap={false}
    />
    <View style={[tw`mx-2`]}>
 
     <Text style={[tw`text-base`,{fontFamily:'PoppinsRegular'}]}>{user.name}</Text>
-    <Text  style={[tw`text-sm `,{fontFamily:'Poppins'}]}>{last_message.length < 15? last_message: last_message.split(' ').slice(0, 3).join(' ') + '...'}</Text>
+    <Text  style={[tw`text-sm `,{fontFamily:'Poppins'}]}>{last_message.length <= 15? last_message: last_message.split(' ').slice(0, 3).join(' ') + '...'}</Text>
    </View>
    </View>
    <View style={[tw`justify-between items-center my-1`]}>

@@ -157,7 +157,7 @@ const Input: React.FC<Props> = ({
                     {title && <Text style={[tw`px-5 py-1`, { fontFamily: 'PoppinsSemiBold' }]}>{title}</Text>}
                     <View
                         testID='Input'
-                        style={[tw`flex-row justify-between items-center border border border-gray-400 px-1  rounded-3xl `, { width: width, height: hp('5.5%') }]} >
+                        style={[tw`flex-row justify-between items-center border border border-gray-400 px-1 py-2  rounded-3xl `, { width: width, height: hp('5.5%') }]} >
 
                         <TextInput
                             style={{ fontFamily: 'PoppinsRegular' }}
@@ -180,7 +180,7 @@ const Input: React.FC<Props> = ({
                             className='flex-[0.15]'
                             onPress={onIconPressed}
                             testID='input-icon'
-                            style={[tw`rounded-full justify-center items-center py-1.5 mx-1`, { backgroundColor: iconBackground ? iconBackground : 'transparent' }]}
+                            style={[tw`rounded-full  justify-center items-center py-1.5  mx-1`, { backgroundColor: iconBackground ? iconBackground : 'transparent' }]}
                         >
                             <IconFamily name={iconName} size={parseInt(Iconsize)} color={color} />
 
@@ -197,7 +197,7 @@ const Input: React.FC<Props> = ({
                     {title && <Text style={[tw`px-5 py-1`, { fontFamily: 'PoppinsSemiBold' }]}>{title}</Text>}
                     <View
                         testID='Input'
-                        style={[tw`flex-row justify-between items-center border border border-gray-400 px-1 rounded-3xl `, { width: width, height: hp('5.5%') }]} >
+                        style={[tw`flex-row  justify-between items-center border border border-gray-400 px-1 rounded-3xl `, { width: width, height: hp('5.5%') }]} >
                         <TouchableOpacity
                             className='flex-[0.15]'
                             onPress={onIconPressed}
@@ -237,7 +237,7 @@ const Input: React.FC<Props> = ({
                     {title && <Text style={[tw`px-5 py-1`, { fontFamily: 'PoppinsSemiBold' }]}>{title}</Text>}
                     <View
                         testID='Input'
-                        style={[tw`flex-row justify-between items-center border border border-gray-400 rounded-3xl `, { width: width, height: hp('5%') }]}
+                        style={[tw`flex-row justify-between items-center py-2 border border border-gray-400 rounded-3xl `, { width: width, height: hp('6%') }]}
                     >
 
                         <TextInput
@@ -262,7 +262,7 @@ const Input: React.FC<Props> = ({
                             className='flex-[0.15]'
                             onPress={onIconPressed}
                             testID='input-icon'
-                            style={[tw`rounded-full justify-center items-center py-1.5 mx-1`, { backgroundColor: iconBackground ? iconBackground : 'transparent' }]}
+                            style={[tw`rounded-full justify-center items-center h-10 mx-1`, { backgroundColor: iconBackground ? iconBackground : 'transparent' }]}
                         >
                             <IconFamily
 

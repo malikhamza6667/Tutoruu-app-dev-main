@@ -57,6 +57,8 @@ import ActionLink from './src/components/ActionLink/ActionLink';
 import Button from './src/components/Button/Button';
 import Section from './src/layouts/Section/Section';
 import ApplicationQuestionnare from './src/screens/ApplicationQuestionnaire/ApplicationQuestionnaire';
+import Chats from './src/screens/Chats/Chats';
+import Chat from './src/screens/Chat/Chat';
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
@@ -135,9 +137,12 @@ const MyApp = () => {
  style={{flex:1 ,justifyContent:'center'}}
  onLayout={onLayoutRootView}
  >
-<ApplicationQuestionnare
+{/* <ApplicationQuestionnare
 
-/>
+/> */}
+
+{/* <Chats/> */}
+<Chat />
 
 
   </SafeAreaView>

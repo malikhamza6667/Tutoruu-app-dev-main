@@ -33,7 +33,7 @@ describe('ChatPreview', () => {
     });
   })
 
-  it('has gray background color when unread_count is not passed or is a negative number', () => {
+  it('has white background color when unread_count is not passed or is a negative number', () => {
     const noUnreadCountProps = {
       ...props,
       unread_count: undefined,
@@ -44,11 +44,11 @@ describe('ChatPreview', () => {
     };
     const { getByTestId } = render(<ChatPreview {...noUnreadCountProps} />);
     expect(getByTestId('chat-preview')).toHaveStyle({
-      backgroundColor: '#FFE0BF',
+      backgroundColor: '#FFFFFF',
     });
     const { getByTestId: getByTestIdNegative } = render(<ChatPreview {...negativeUnreadCountProps} />);
     expect(getByTestIdNegative('chat-preview')).toHaveStyle({
-      backgroundColor: '#FFE0BF',
+      backgroundColor: '#FFFFFF',
     });
   });
 
