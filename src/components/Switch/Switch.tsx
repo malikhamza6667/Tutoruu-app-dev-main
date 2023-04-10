@@ -9,12 +9,15 @@ interface SwitchProps {
     children?: React.ReactNode;
 }
 
-const Switch: React.FC<SwitchProps> = ({ opened, onToggle, children }) => {
+const Switch: React.FC<SwitchProps> = ({ opened,  children }) => {
     const [isOpen, setIsOpen] = useState<boolean>(opened);
 
     const handleClick = () => {
+        // console.log('opened is',opened)
         const newOpen = !isOpen;
         setIsOpen(newOpen);
+        console.log('opened is',newOpen)
+
        
     };
 
@@ -25,7 +28,7 @@ const Switch: React.FC<SwitchProps> = ({ opened, onToggle, children }) => {
             ) : (
                 <FontAwesome name="toggle-off" style={tw`text-6xl text-orange-500`} />
             )}
-            <Text>{children}</Text>
+            <Text testID='switch-label'>{children}</Text>
         </TouchableOpacity>
     );
 };

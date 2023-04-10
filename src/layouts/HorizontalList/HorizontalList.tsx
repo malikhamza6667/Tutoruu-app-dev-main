@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList, ListRenderItem, FlatListProps } from 'react-native';
 import {heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native-responsive-screen'
 
+
 interface Props<T> extends Omit<FlatListProps<T>, 'renderItem'> {
   data: T[];
   renderItem: ListRenderItem<T>;
@@ -10,6 +11,7 @@ interface Props<T> extends Omit<FlatListProps<T>, 'renderItem'> {
 const HorizontalList = <T extends {}>({ data, renderItem, ...rest }: Props<T>) => {
   return( 
   <FlatList<T> 
+  testID='horizontal-list'
   data={data} 
   renderItem={renderItem} 
   horizontal 

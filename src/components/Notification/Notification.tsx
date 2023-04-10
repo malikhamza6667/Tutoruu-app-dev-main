@@ -30,9 +30,10 @@ export const Notification: React.FC<NotificationProps> = ({ text, image, is_read
     return (
         <TouchableOpacity onPress={()=>{handlePress(link)}} activeOpacity={0.8} testID="notification">
             <View style={[notificationStyle, notificationBackgroundStyle]}>
-                <Image source={{ uri: image }} style={notificationImageStyle} />
+                <Image source={{ uri: image }} style={notificationImageStyle} testID='notification-image' />
                 <View style={tw` flex-row`}>
                     <Text
+                    testID='notification-text'
                         style={[tw``, notificationTextStyle, { fontFamily: 'PoppinsMedium' }]}
                     >{text}</Text>
                     <Text style={timeTextStyle}>1 hr ago</Text>

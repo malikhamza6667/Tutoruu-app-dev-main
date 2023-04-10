@@ -18,7 +18,7 @@ type Props = {
     text: string;
     icon: string;
     link: string;
-    family: string
+    // family: string
     onPress?: () => void;
 }
 const ActionLink: React.FC<Props> = (props) => {

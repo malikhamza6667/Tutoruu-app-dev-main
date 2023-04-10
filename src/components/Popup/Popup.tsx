@@ -22,7 +22,7 @@ export const Popup: React.FC<PopupProps> = ({ opened, closeModal, children }) =>
     };
 
     return (
-        <Modal visible={isVisible} transparent={true} animationType="fade">
+        <Modal visible={isVisible} transparent={true} animationType="fade" testID='popup'>
             <View style={tw`flex-1 justify-center items-center bg-opacity-50 bg-gray-500`}>
                 <View
                     style={[

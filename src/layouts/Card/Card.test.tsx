@@ -1,12 +1,12 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 import { Card } from './Card';
-import {View,Text} from 'react-native'
+import { View, Text, Image } from 'react-native'
 describe('Card', () => {
   it('renders correctly', () => {
     const { getByTestId } = render(<Card>
       <View>
-        <Text>Hey</Text>
+        <Text>Lorem </Text>
       </View>
     </Card>);
     const card = getByTestId('card');
@@ -21,6 +21,42 @@ describe('Card', () => {
     expect(card.props.style.shadowRadius).toEqual(5); // Check shadow radius
     expect(card.props.style.elevation).toEqual(7); // Check elevation
     expect(card.props.style.justifyContent).toEqual('center'); // Check justifyContent
-   
+
   });
+
+
+  it('should render with no errors when no children are provided', () => {
+    const { getByTestId } = render(<Card />);
+    const card = getByTestId('card');
+
+    expect(card).toBeTruthy();
+  });
+
+
+  it('should render with no errors when a Text component is provided as a child', () => {
+    const { getByTestId } = render(<Card><Text>Some Text</Text></Card>);
+    const card = getByTestId('card');
+
+    expect(card).toBeTruthy();
+  });
+
+  it('should render with no errors when an Image component is provided as a child', () => {
+    const { getByTestId } = render(<Card><Image source={{ uri: 'https://example.com/image.png' }} /></Card>);
+    const card = getByTestId('card');
+
+    expect(card).toBeTruthy();
+  });
+
+
+
+  // it('should render with a default value when invalid children are provided', () => {
+  //   const { getByTestId } = render(<Card>Invalid Children</Card>);
+  //   const card = getByTestId('card');
+  //   const defaultText = getByTestId('default-text');
+
+  //   expect(card).toBeTruthy();
+  //   expect(defaultText).toBeTruthy();
+  // });
+
+
 });

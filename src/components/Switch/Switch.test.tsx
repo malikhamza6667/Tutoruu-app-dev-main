@@ -1,6 +1,11 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 import Switch from './Switch';
+import '@testing-library/jest-native/extend-expect';
+
+
+
+
 
 describe('Switch', () => {
    
@@ -23,6 +28,10 @@ describe('Switch', () => {
         const switchButton = getByTestId('switch-button');
         expect(switchButton.children[0].props.name).toBe('toggle-off');
     });
+
+
+
+
 });
 
 

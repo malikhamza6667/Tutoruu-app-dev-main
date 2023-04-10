@@ -18,7 +18,7 @@ const Base: React.FC<Props> = ({
     isTutor
 }) => {
     return (
-        <View style={[tw`flex-1`, { top: hp('2%')}]}>
+        <View style={[tw`flex-1`, { top: hp('2%')}]} testID='base-container'>
             <View style={styles.container}>
                 <Text
                     className="text-[30px]"
@@ -28,7 +28,7 @@ const Base: React.FC<Props> = ({
                     style={[styles.text, { color: Colors.orange }]}> {userName}</Text>
                 <View style={styles.status} ></View>
                 <View style={styles.studentContainer}>
-                    <Text style={styles.student}>{isTutor ? 'Tutor' : 'Student'}</Text>
+                    <Text testID="student-text" style={styles.student}>{isTutor ? 'Tutor' : 'Student'}</Text>
                 </View>
             </View>
             {children}

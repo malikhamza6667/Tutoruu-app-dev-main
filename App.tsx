@@ -133,20 +133,26 @@ const MyApp = () => {
   const query = "status=success&amount=10.99&currency=USD"; // Sample query string, you can replace it with your own
 
   return (
-<SafeAreaView 
- style={{flex:1 ,justifyContent:'center'}}
- onLayout={onLayoutRootView}
- >
-{/* <ApplicationQuestionnare
+    <SafeAreaView
+      style={{ flex: 1 }}
+      onLayout={onLayoutRootView}
+    >
+      {/* <ApplicationQuestionnare
 
 /> */}
 
-{/* <Chats/> */}
-<Chat />
+      {/* <Chats/> */}
+      {/* <Chat /> */}
+      {/* <About/> */}
+      {/* <BAP/> */}
+      {/* <Settings/> */}
+      {/* <Feed/> */}
+      {/* <Notification text='helo' is_read={true} link='' onClick={() => { }} image='https://img.freepik.com/free-photo/blue-sport-sedan-parked-yard_114579-5078.jpg?size=626&ext=jpg&uid=R94214209&ga=GA1.1.1081558094.1677063520&semt=sph' /> */}
+      {/* <Text>hello</Text> */}
+<Switch opened={true}/>
 
+    </SafeAreaView>
 
-  </SafeAreaView>
-  
   )
 };
 export default MyApp;
