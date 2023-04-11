@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, TouchableOpacity, View, Text, TextInput } from 'react-native';
+import { Modal, TouchableOpacity, View, Text, TextInput ,Alert} from 'react-native';
 import {
     heightPercentageToDP as hp,
     widthPercentageToDP as wp,
@@ -99,11 +99,11 @@ export const PostPopup: React.FC<PostPopupProps> = ({
                         <Tag shape='round' type='primary' name='caretdown' icon='AntDesign' isPressed={true}>GENERAL</Tag>
                     </View>
                     <View
-                        style={tw`flex-row justify-between items-center`}
+                        style={tw`flex-row justify-between items-center`} 
                     >
 
                         <Text
-                            style={{ fontFamily: 'PoppinsRegular' }}
+                            style={{ fontFamily: 'PoppinsRegular' }} 
                         >Post anonymously</Text>
                         <Switch opened={true} >
 

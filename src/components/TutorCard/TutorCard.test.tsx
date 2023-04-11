@@ -22,39 +22,39 @@ describe('TutorCard', () => {
 
   it('should render tutor name', () => {
     const { getByText } = render(<TutorCard onPress={function (): void {
-        throw new Error('Function not implemented.');
-    } } {...mockProps} />);
+      throw new Error('Function not implemented.');
+    }} {...mockProps} />);
     expect(getByText(mockProps.user.name)).not.toBeNull();
   });
 
   it('should render tutor bio', () => {
     const { getByText } = render(<TutorCard onPress={function (): void {
-        throw new Error('Function not implemented.');
-    } } {...mockProps} />);
+      throw new Error('Function not implemented.');
+    }} {...mockProps} />);
     expect(getByText('Bio')).not.toBeNull();
     expect(getByText(mockProps.text)).not.toBeNull();
   });
 
   it('should render tutor classes', () => {
     const { getByText } = render(<TutorCard onPress={function (): void {
-        throw new Error('Function not implemented.');
-    } } {...mockProps} />);
+      throw new Error('Function not implemented.');
+    }} {...mockProps} />);
     expect(getByText(mockProps.classes[0].name)).not.toBeNull();
     expect(getByText(mockProps.classes[1].name)).not.toBeNull();
     expect(getByText(`+${mockProps.classes.length - 2}`)).not.toBeNull();
   });
 
-//   it('should show all tutor classes when "more" button is pressed', () => {
-//     const { getByText, queryByText } = render(<TutorCard onPress={function (): void {
-//         throw new Error('Function not implemented.');
-//     } } {...mockProps} />);
-//      expect(queryByText(mockProps.classes[2].name)).toBeNull();
-//     fireEvent.press(getByText(`+${mockProps.classes.length - 2}`));
-//     mockProps.classes.forEach((classItem) => {
-//       expect(getByText(classItem.name)).not.toBeNull();
-//     });
-//   });
- 
+  it('should show all tutor classes when "more" button is pressed', () => {
+    const { getByText, queryByText } = render(<TutorCard onPress={function (): void {
+      throw new Error('Function not implemented.');
+    }} {...mockProps} />);
+    expect(queryByText(mockProps.classes[2].name)).toBeNull();
+    fireEvent.press(getByText(`+${mockProps.classes.length - 2}`));
+    mockProps.classes.forEach((classItem) => {
+      expect(getByText(classItem.name)).not.toBeNull();
+    });
+  });
+
 
   it('should call onPress function when "View Profile" button is pressed', () => {
     const onPress = jest.fn();
@@ -64,4 +64,19 @@ describe('TutorCard', () => {
     fireEvent.press(getByText('View Profile'));
     expect(onPress).toHaveBeenCalled();
   });
+
+
+  it('displays the profile image correctly', () => {
+    const user = { id: 1, name: 'John Doe', image: 'https://example.com/profile.jpg' };
+    const { getByTestId } = render(<TutorCard text="Bio" user={user} num_sessions={10} classes={[]} rating={4} rate="$10/hr" onPress={() => { }} />);
+    const imageElement = getByTestId('profile-image');
+    expect(imageElement).toBeTruthy();
+    expect(imageElement.props.source.uri).toBe(user.image);
+  });
+
+
+
+
+
+
 });

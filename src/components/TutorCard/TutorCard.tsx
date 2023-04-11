@@ -135,6 +135,7 @@ const TutorCard: React.FC<Props> = ({
                             source={{ uri: user.image }}
                             style={tw`rounded-full h-10 w-10 self-end`}
                             resizeMode='contain'
+                            testID='profile-image'
                         />
                         <View style={tw`justify-center`}>
                             <Text
@@ -146,7 +147,7 @@ const TutorCard: React.FC<Props> = ({
                         </View>
 
                     </View>
-                    <View style={tw`self-center`}>
+                    <View style={tw`self-center`} testID='tutor-rating'>
                         <StarRatings isDisable rating={rating} />
                     </View>
                 </View>
