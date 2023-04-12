@@ -3,6 +3,7 @@ import { render, fireEvent } from '@testing-library/react-native';
 import { Notification } from './Notification';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { Linking } from 'react-native';
+import { ColorValue } from 'react-native';
 import tw from 'twrnc';
 import '@testing-library/jest-native/extend-expect';
 describe('Notification Component', () => {
@@ -63,7 +64,7 @@ describe('Notification Component', () => {
       fontSize: 18,
     });
   });
-  
+
   it('opens the notification link in a browser when clicked', () => {
     const mockOpenURL = jest.spyOn(Linking, 'openURL');
     const notificationText = 'New notification';
@@ -83,4 +84,5 @@ describe('Notification Component', () => {
     mockOpenURL.mockRestore();
   });
   
+
 });

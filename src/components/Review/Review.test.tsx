@@ -11,6 +11,7 @@ describe('Review component', () => {
     class_name: 'Mathematics',
     date: '2022-03-24',
     rating: 3,
+    onPress: jest.fn(),
   };
 
   it('should render the correct text and rating', () => {

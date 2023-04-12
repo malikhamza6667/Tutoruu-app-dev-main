@@ -18,39 +18,46 @@ const MyPost = () => {
                 ]}
                 testID='my-post'
             >
-                <Avatar
-                    showCap={false}
-                    size='medium'
-                    image='https://img.freepik.com/free-photo/fascinating-european-female-model-casual-checkered-shirt-posing-with-pleasure-yard-autumn_197531-6933.jpg?size=626&ext=jpg&ga=GA1.1.1081558094.1677063520&semt=ais'
-                />
-                <View
-                style={[
-                    tw`ml-1`,
-                ]}
-                >
+                <View >
 
-                <Input
-                    size='medium'
-                    value={email}
-                    onChangeText={(text) => { setEmail(text) }}
-                    placeholder='Doe'
-                    height={hp('5')}
-                />
+                    <Avatar
+                        testId='my-post-avatar'
+                        showCap={false}
+                        size='medium'
+                        image='https://img.freepik.com/free-photo/fascinating-european-female-model-casual-checkered-shirt-posing-with-pleasure-yard-autumn_197531-6933.jpg?size=626&ext=jpg&ga=GA1.1.1081558094.1677063520&semt=ais'
+                    />
                 </View>
                 <View
-                style={[
-                    tw`p-2`
-                ]}
+
+                    style={[
+                        tw`ml-1`,
+                    ]}
                 >
 
-                <Button
-                   onPress={() => console.log('actionlink clicked')}
-                    icon={'AntDesign arrowright 18 white'}
-                    shape='round'
-                    // text='Create Account'
-                    width={wp('8%')}
-                    height={hp('4%')}
-                />
+                    <Input
+                        size='medium'
+                        value={email}
+                        onChangeText={(text) => { setEmail(text) }}
+                        placeholder='Doe'
+                        height={hp('5')}
+                        testID="my-post-input"
+                    />
+                </View>
+                <View
+                    style={[
+                        tw`p-2`
+                    ]}
+                >
+
+                    <Button
+                        onPress={() => console.log('actionlink clicked')}
+                        icon={'AntDesign arrowright 18 white'}
+                        shape='round'
+                        // text='Create Account'
+                        width={wp('8%')}
+                        height={hp('4%')}
+                        testID='my-post-button'
+                    />
                 </View>
             </View>
 

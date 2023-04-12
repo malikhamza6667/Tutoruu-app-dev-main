@@ -16,7 +16,7 @@ describe('ClassCard', () => {
     expect(getByText('Test description')).toBeDefined();
   });
   it('should render the correct name and description', () => {
-    const name = 'Test Name';
+    const name = 'Test Class';
     const desc = 'Test description';
 
     const { getByText } = render(<ClassCard name={name} desc={desc} />);

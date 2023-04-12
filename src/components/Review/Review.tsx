@@ -30,7 +30,6 @@ const Review: React.FC<Props> = ({
             <View
                 style={[{ paddingHorizontal: hp('3%'), paddingVertical: hp('2%') }]} testID='review-card'>
                 <View style={[tw`justify-evenly`]} testID='star-ratings'>
-
                     <StarRatings isDisable rating={rating} />
                     <Text style={[tw`text-sm m-0.5`, { fontFamily: 'PoppinsRegular' }]} testID='class-name'>{class_name}</Text>
                     <Text style={[tw`text-base  m-0.5`, { fontFamily: 'PoppinsMedium' }]} testID='review-text'>{text}</Text>
