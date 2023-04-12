@@ -77,7 +77,7 @@ const Post: React.FC<Props> = ({
                 />
                 <Text
 
-                >time</Text>
+                >{date}</Text>
             </View>
 
             <View className='flex-row ' style={{ paddingHorizontal: wp('3%') }}>
@@ -123,12 +123,13 @@ const Post: React.FC<Props> = ({
                 <View style={[tw`flex-row items-center`]}>
                     <Text style={[tw`p-1`, { color: Colors.orange, fontFamily: 'PoppinsMedium' }]}>{comments_count > 0 ? comments_count : ''}</Text>
                     <TouchableOpacity
-                        testID='comment-icon'
+                        testID='comment-icon-view'
                         onPress={on_comment}
                     >
 
                         <Icon
-                            testID='comment-icon'
+                        onPressIcon={on_comment}
+                            testId='comment-icon'
                             color={Colors.orange}
                             family='FontAwesome5'
                             name='comment-alt'
@@ -138,37 +139,39 @@ const Post: React.FC<Props> = ({
                 </View>
                 <View style={[tw`flex-row`]}>
                     <Text style={[tw`p-1`, { color: Colors.orange, fontFamily: 'PoppinsMedium' }]}>{likes_count > 0 ? likes_count : ''}</Text>
-                    <TouchableOpacity
-                        testID='like-icon'
-                        onPress={on_like_Pressed}
+                    <View
+                        testID='like-icon-view'
+                       
                     >
 
                         <Icon
-                            testID='like-icon'
+                        onPressIcon={on_like_Pressed}
+                            testId='like-icon'
                             color={is_liked ? Colors.orange : Colors.lightorange}
                             family='AntDesign'
                             name='like2'
                             size={'small'}
                         />
-                    </TouchableOpacity>
+                    </View>
                 </View>
                 <View style={[tw`flex-row`]}>
                     <Text style={[tw`p-1`, { color: Colors.orange, fontFamily: 'PoppinsMedium' }]}>{dislikes_count > 0 ? dislikes_count : ''}</Text>
 
-                    <TouchableOpacity
-                        onPress={on_dislike_Pressed}
-                        testID='dislike-icon'
+                    <View
+                       
+                        testID='dislike-icon-view'
                     >
 
                         <Icon
+                         onPressIcon={on_dislike_Pressed}
                             color={is_disliked ? Colors.orange : Colors.lightorange}
 
-                            testID='dislike-icon'
+                            testId='dislike-icon'
                             family='AntDesign'
                             name='dislike2'
                             size={'small'}
                         />
-                    </TouchableOpacity>
+                    </View>
                 </View>
 
 
@@ -176,17 +179,17 @@ const Post: React.FC<Props> = ({
 
 
 
-                <TouchableOpacity onPress={onSaved} testID='save-icon'>
+                <View testID='save-icon-view' >
 
                     <Icon
-
+                    onPressIcon={onSaved}
                         color={is_saved ? Colors.orange : Colors.lightorange}
-                        testID='save-icon'
+                        testId='save-icon'
                         family='Entypo'
                         name='bookmark'
                         size={'medium'}
                     />
-                </TouchableOpacity>
+                </View>
             </View>
         </Card>
     )

@@ -59,6 +59,7 @@ import Section from './src/layouts/Section/Section';
 import ApplicationQuestionnare from './src/screens/ApplicationQuestionnaire/ApplicationQuestionnaire';
 import Chats from './src/screens/Chats/Chats';
 import Chat from './src/screens/Chat/Chat';
+import { Icon } from './src/components/Icon/Icon';
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
@@ -134,7 +135,7 @@ const MyApp = () => {
 
   return (
     <SafeAreaView
-      style={{ flex: 1 }}
+      style={{ flex: 1,justifyContent:'center' }}
       onLayout={onLayoutRootView}
     >
       {/* <ApplicationQuestionnare
@@ -149,8 +150,33 @@ const MyApp = () => {
       {/* <Feed/> */}
       {/* <Notification text='helo' is_read={true} link='' onClick={() => { }} image='https://img.freepik.com/free-photo/blue-sport-sedan-parked-yard_114579-5078.jpg?size=626&ext=jpg&uid=R94214209&ga=GA1.1.1081558094.1677063520&semt=sph' /> */}
       {/* <Text>hello</Text> */}
-<Switch opened={true}/>
+{/* <Switch opened={true}/> */}
+{/* <Icon
+                    onPressIcon={()=>{setisSaved(!isSaved)}}
+                        color={ isSaved? Colors.orange: Colors.lightorange }
+                        testId='save-icon'
+                        family='Entypo'
+                        name='bookmark'
+                        size={'medium'}
+                    /> */}
 
+
+  <Post text='Hello world This Is New Post' user={{ name: 'John Doe',
+     image: 'https://i.pravatar.cc/300', username: '@john johndoe',
+      bio: 'Hello world This Is New Post', is_tutor: true }} 
+      date='2020-01-01' comments_count={3} likes_count={3}
+       dislikes_count={3} is_liked={islike} is_disliked={isDislike} is_saved={isSaved} 
+       on_dislike_Pressed={()=>{setisDisLiked(!isDislike)}}
+       on_like_Pressed={()=>{setisLiked(!islike)}}
+       onSaved={()=>{setisSaved(!isSaved)}}
+    is_anonymous={false} tags={['tag1', 'Note']} 
+    attachement='https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-837358.jpg&fm=jpg'
+      />
+
+
+ <SessionCard 
+           class_name='Math' with='John Doe' created_date='2020-01-01' time='12:00 P.M' day='Monday' is_accepted={true} 
+             is_completed={false} payment_fulfilled={false} payment_amount={"200"} location='123 Main St' />
     </SafeAreaView>
 
   )

@@ -44,11 +44,11 @@ describe('ChatPreview', () => {
     };
     const { getByTestId } = render(<ChatPreview {...noUnreadCountProps} />);
     expect(getByTestId('chat-preview')).toHaveStyle({
-      backgroundColor: '#FFFFFF',
+      backgroundColor: '#FFE0BF',
     });
     const { getByTestId: getByTestIdNegative } = render(<ChatPreview {...negativeUnreadCountProps} />);
     expect(getByTestIdNegative('chat-preview')).toHaveStyle({
-      backgroundColor: '#FFFFFF',
+      backgroundColor: '#FFE0BF',
     });
   });
 

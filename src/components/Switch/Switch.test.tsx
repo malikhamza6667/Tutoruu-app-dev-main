@@ -30,7 +30,14 @@ describe('Switch', () => {
     });
 
 
-
+    it('handles unexpected values for the opened prop', () => {
+        const { getByTestId } = render(<Switch opened={null} />);
+        const switchButton = getByTestId('switch-button');
+    
+        fireEvent.press(switchButton);
+    
+        expect(getByTestId('switch-button')).toBeDefined();
+      });
 
 });
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react-native';
 import { Card } from './Card';
 import { View, Text, Image } from 'react-native'
+import '@testing-library/jest-native/extend-expect';
 describe('Card', () => {
   it('renders correctly', () => {
     const { getByTestId } = render(<Card>
@@ -47,16 +48,9 @@ describe('Card', () => {
     expect(card).toBeTruthy();
   });
 
+ 
 
-
-  // it('should render with a default value when invalid children are provided', () => {
-  //   const { getByTestId } = render(<Card>Invalid Children</Card>);
-  //   const card = getByTestId('card');
-  //   const defaultText = getByTestId('default-text');
-
-  //   expect(card).toBeTruthy();
-  //   expect(defaultText).toBeTruthy();
-  // });
+  
 
 
 });

@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 import { Icon } from './Icon';
+import Colors from '../../../assets/Colors';
 
 describe('Icon', () => {
-  it('calls onPress prop when clicked', () => {
-    const onPressMock = jest.fn();
+  it('calls onPressIcon when icon is pressed', () => {
+    const onPressIconMock = jest.fn();
     const { getByTestId } = render(
-      <Icon onPress={onPressMock} name="arrow-right" family="FontAwesome" size="medium" color='orange' />
+      <Icon name="bookmark" size="medium" color={Colors.orange} family="Entypo" onPressIcon={onPressIconMock} />
     );
-    const icon = getByTestId('icon');
-    fireEvent.press(icon);
-    expect(onPressMock).toHaveBeenCalled();
-  });
 
+    fireEvent.press(getByTestId('icon'));
+    expect(onPressIconMock).toHaveBeenCalled();
+  });
   test('renders the correct icon size', () => {
     const { getByTestId } = render(<Icon family="FontAwesome" name="star" color="red" size="medium" />);
     const icon = getByTestId('icon');
