@@ -14,9 +14,9 @@ const HorizontalList = <T extends {}>({ data, renderItem, ...rest }: Props<T>) =
   testID='horizontal-list'
   data={data} 
   renderItem={renderItem} 
-  horizontal 
+  horizontal
   showsHorizontalScrollIndicator={false} 
-  contentContainerStyle={{paddingVertical:hp('1%'),paddingHorizontal:hp('2')}} 
+  //  contentContainerStyle={{paddingVertical:hp('1%'),paddingHorizontal:hp('1%')}} 
   {...rest}
    />)
 };

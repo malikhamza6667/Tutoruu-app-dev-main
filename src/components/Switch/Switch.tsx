@@ -5,24 +5,27 @@ import tw from 'twrnc';
 
 interface SwitchProps {
     opened: boolean;
-    onToggle?: (opened: boolean) => void;
+    onToggle?: (isOpen: boolean) => void;
     children?: React.ReactNode;
 }
 
-const Switch: React.FC<SwitchProps> = ({ opened,  children }) => {
+const Switch: React.FC<SwitchProps> = ({ opened,  children,onToggle }) => {
     const [isOpen, setIsOpen] = useState<boolean>(opened);
 
     const handleClick = () => {
-        // console.log('opened is',opened)
         const newOpen = !isOpen;
         setIsOpen(newOpen);
-        console.log('opened is',newOpen)
-
-       
-    };
+        if (onToggle) {
+          onToggle(newOpen);
+        }
+      };
+    
 
     return (
-        <TouchableOpacity onPress={handleClick} testID="switch-button">
+        <TouchableOpacity onPress={()=>{
+            onToggle
+            handleClick()
+        }} testID="switch-button">
             {isOpen ? (
                 <FontAwesome name="toggle-on" style={tw`text-6xl text-orange-500`} />
             ) : (

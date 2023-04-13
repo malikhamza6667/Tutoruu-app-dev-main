@@ -60,8 +60,10 @@ const Post: React.FC<Props> = ({
         <Card>
             <View style={[tw`self-center flex-row pt-2`, { width: wp('60%'), }]}>
 
-                <HorizontalList
 
+                <HorizontalList
+                horizontal={false}
+contentContainerStyle={{flexDirection:'row'}}
                     data={tags}
                     renderItem={({ item }) => {
                         return (
@@ -75,6 +77,7 @@ const Post: React.FC<Props> = ({
                     }}
                     keyExtractor={(item, index) => { return index.toString() }}
                 />
+
                 <Text
 
                 >{date}</Text>

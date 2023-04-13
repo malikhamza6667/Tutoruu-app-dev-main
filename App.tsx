@@ -12,6 +12,10 @@ import Colors from './assets/Colors';
 import Login from './src/screens/Auth/Login/Login';
 import i18n from './src/localization/LocalizedStrings/LocalizedStrings';
 import { reloadAsync } from 'expo-updates';
+import Class from './src/screens/Class/Class';
+import Search from './src/screens/Search/Search';
+import ApplicationStatus from './src/screens/ApplicationStatus/ApplicationStatus';
+import StartApplication from './src/screens/StartApplication/StartApplication';
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
@@ -97,10 +101,12 @@ const MyApp = () => {
   return (
   
       <SafeAreaView
-      style={{flex:1}}
+      style={{flex:1,justifyContent:'center'}}
         onLayout={onLayoutRootView}
       >
-        <Login />
+      {/* <Class/> */}
+      {/* <ApplicationStatus/> */}
+      <StartApplication/>
       </SafeAreaView>
   
   );
