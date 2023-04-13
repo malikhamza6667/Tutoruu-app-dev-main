@@ -44,9 +44,9 @@ const Login = () => {
 
                 <Button
                     onPress={() => {
-                        AsyncStorage.setItem("Language","ar").then(()=>{
-                            i18n.locale='ar'
-                            I18nManager.forceRTL(true)
+                        AsyncStorage.setItem("Language","en").then(()=>{
+                            i18n.locale='en'
+                            I18nManager.forceRTL(false)
                             reloadAsync()
                         })
                      }}
