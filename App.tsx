@@ -1,90 +1,23 @@
 /// <reference types="nativewind/types"/>
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { NavigationContainer } from '@react-navigation/native';
-import { View, Text, TouchableOpacity, AsyncStorage, I18nManager, SafeAreaView, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, I18nManager, SafeAreaView, Alert } from 'react-native';
 
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Colors from './assets/Colors';
-
-import { Button as Buttonnn } from '@rneui/base';
-import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
-import TutorCard from './src/components/TutorCard/TutorCard';
-import { Card } from './src/layouts/Card/Card';
-import { TutorSubjects, user } from './src/screens/DummyData';
-import HorizontalList from './src/layouts/HorizontalList/HorizontalList';
-import SessionCard from './src/components/SessionCard/SessionCard';
-import Auth from './src/layouts/Auth/Auth';
-import Input from './src/components/Input/Input';
-import Avatar from './src/components/Avatar/Avatar';
-import Post from './src/components/Post/PostCard';
-import ChatMessage from './src/components/ChatMessage/ChatMessage';
-import ChatPreview from './src/components/ChatPreview/ChatPreview';
-import Review from './src/components/Review/Review';
-import Details from './src/layouts/Details/Details';
-import Base from './src/layouts/Base/Base';
-import SlotsCard from './src/components/SlotsCard/SlotsCard';
-import ClassCard from './src/components/ClassCard/ClassCard';
-import CourseCard from './src/components/CourseCard/CourseCard';
-import { Popup } from './src/components/Popup/Popup';
-import { PostPopup } from './src/components/PostPopup/PostPopup';
-import { Separator } from './src/components/Separator/Separator';
 import Login from './src/screens/Auth/Login/Login';
-import Signup from './src/screens/Auth/Signup/Signup';
-import ResetPassword from './src/screens/Auth/ResetPassword/ResetPassword';
-import CompleteRegistration from './src/screens/Auth/CompleteRegistration/CompleteRegistration';
-import UpdatePassword from './src/screens/Auth/UpdatePassword/UpdatePassword';
-import MagicLink from './src/screens/Auth/MagicLink/MagicLink';
-import About from './src/screens/About/About';
-import Feed from './src/screens/Feed/Feed';
-import Seacrh from './src/screens/Search/Search';
-import Marketplace from './src/screens/Marketplace/Marketplace';
 import i18n from './src/localization/LocalizedStrings/LocalizedStrings';
-import Search from './src/screens/Search/Search';
-import Settings from './src/screens/Settings/Settings';
-import Successful from './src/screens/PaymentStatus/Successful/Successful';
-import Failed from './src/screens/PaymentStatus/Failed/Failed';
-import SupportSubmitted from './src/screens/SupportSubmitted/SupportSubmitted';
-import NotificationScreen from './src/screens/Notification/Notification';
-import MyPost from './src/components/MyPost/MyPost';
-import BAP from './src/screens/BAP/BAP';
-import Switch from './src/components/Switch/Switch';
-import Tag from './src/components/Tag/Tag';
-import { Notification } from './src/components/Notification/Notification';
-import ActionLink from './src/components/ActionLink/ActionLink';
-import Button from './src/components/Button/Button';
-import Section from './src/layouts/Section/Section';
-import ApplicationQuestionnare from './src/screens/ApplicationQuestionnaire/ApplicationQuestionnaire';
-import Chats from './src/screens/Chats/Chats';
-import Chat from './src/screens/Chat/Chat';
-import { Icon } from './src/components/Icon/Icon';
+import { reloadAsync } from 'expo-updates';
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'en';
 
-
-interface Item {
-  id: number;
-  name: string;
-}
-
-const data: Item[] = [
-  { id: 1, name: 'Item 1' },
-  { id: 2, name: 'Item 2' },
-  { id: 3, name: 'Item 3' },
-];
-
-
 const MyApp = () => {
-  const [enableButton, setEnableButton] = useState(true)
-  const [isSwitchOn, setIsSwitchOn] = useState<boolean>(false);
-
-  const handleSwitchToggle = (isOpen: boolean) => {
-    setIsSwitchOn(isOpen);
-  };
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('');
   const [fontsLoaded] = useFonts({
     'Poppins': require('./assets/fonts/Poppins-ExtraLight.ttf'),
     'PoppinsBold': require('./assets/fonts/Poppins-ExtraBold.ttf'),
@@ -92,93 +25,85 @@ const MyApp = () => {
     'PoppinsMedium': require('./assets/fonts/Poppins-Medium.ttf'),
     'PoppinsSemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
   });
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [islike, setisLiked] = useState(false)
-  const [isDislike, setisDisLiked] = useState(false)
-  const [isSaved, setisSaved] = useState(false)
-  const [commented, setIsCommented] = useState(false)
-  const handleCloseModal = () => {
-    const opened = false;
-  };
-  const selectedLanguage = async (lan: string) => {
-    i18n.locale = lan
-    if (i18n.locale === 'ar') {
-      I18nManager.forceRTL(false)
-      await SplashScreen.hideAsync();
-    }
-    else {
-      I18nManager.forceRTL(false)
-      await SplashScreen.hideAsync();
-    }
-  }
+ 
+  const [isRTL, setIsRTL] = useState(i18n.locale === 'ar' ? true : false);
+  const[localeValue,setLocaleValue]=useState(i18n.locale)
 
+  const loadLanguage = useCallback(async () => {
+  
+    console.log("Value of I18 isss   " +i18n.locale)
+    console.log("Value of I18 locale is   " +localeValue)
+  
+    setTimeout(async() => {
+      AsyncStorage.getItem('Language').then(async(val)=>{
+        if(val==='ar'){
+          console.log('Is Already RTL   ',I18nManager.isRTL)
+          i18n.locale='ar'
+          I18nManager.forceRTL(true)
+          setLocaleValue('ar')
+         
+          console.log("Layout Changed   " +i18n.locale)
+          setIsRTL(true)
+          await SplashScreen.hideAsync();
+        }
+        else{
+          console.log('Is Already RTL in en   ',I18nManager.isRTL)
+          i18n.locale='en'
+          I18nManager.forceRTL(false)
+          setLocaleValue('en')
+         
+          setIsRTL(false)
+          await SplashScreen.hideAsync();
+        }
+      })
+    }, 1500);
+   
+  }, [isRTL]);
+
+  useEffect(() => {
+   AsyncStorage.getItem('Language').then((val)=>{
+    if(val=='ar'){
+      i18n.locale='ar'
+    }
+    else{
+      i18n.locale='en'
+    }
+   })
+  }, []);
+
+  // useEffect(() => {
+  //   if (i18n.locale === 'ar') {
+  //     setIsRTL(true);
+  //     I18nManager.forceRTL(true);
+  //   } else {
+  //     setIsRTL(false);
+  //     I18nManager.allowRTL(false);
+      
+  //   }
+  // }, [i18n.locale]);
+  
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
       await SplashScreen.hideAsync();
-      // AsyncStorage.getItem("Language").then((val) => {
-      //   console.log("value" + val)
-      //   if (val == "en") {
-
-      //     selectedLanguage('ar')
-      //   }
-      //   else {
-      //     selectedLanguage('en')
-      //   }
-      // })
-
+      // loadLanguage();
+      
     }
   }, [fontsLoaded]);
+  
   if (!fontsLoaded) {
     return null;
   }
-  const query = "status=success&amount=10.99&currency=USD"; // Sample query string, you can replace it with your own
 
   return (
-    <SafeAreaView
-      style={{ flex: 1,justifyContent:'center' }}
-      onLayout={onLayoutRootView}
-    >
-      {/* <ApplicationQuestionnare
-
-/> */}
-
-      {/* <Chats/> */}
-      {/* <Chat /> */}
-      {/* <About/> */}
-      {/* <BAP/> */}
-      {/* <Settings/> */}
-      {/* <Feed/> */}
-      {/* <Notification text='helo' is_read={true} link='' onClick={() => { }} image='https://img.freepik.com/free-photo/blue-sport-sedan-parked-yard_114579-5078.jpg?size=626&ext=jpg&uid=R94214209&ga=GA1.1.1081558094.1677063520&semt=sph' /> */}
-      {/* <Text>hello</Text> */}
-{/* <Switch opened={true}/> */}
-{/* <Icon
-                    onPressIcon={()=>{setisSaved(!isSaved)}}
-                        color={ isSaved? Colors.orange: Colors.lightorange }
-                        testId='save-icon'
-                        family='Entypo'
-                        name='bookmark'
-                        size={'medium'}
-                    /> */}
-
-
-  <Post text='Hello world This Is New Post' user={{ name: 'John Doe',
-     image: 'https://i.pravatar.cc/300', username: '@john johndoe',
-      bio: 'Hello world This Is New Post', is_tutor: true }} 
-      date='2020-01-01' comments_count={3} likes_count={3}
-       dislikes_count={3} is_liked={islike} is_disliked={isDislike} is_saved={isSaved} 
-       on_dislike_Pressed={()=>{setisDisLiked(!isDislike)}}
-       on_like_Pressed={()=>{setisLiked(!islike)}}
-       onSaved={()=>{setisSaved(!isSaved)}}
-    is_anonymous={false} tags={['tag1', 'Note']} 
-    attachement='https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-837358.jpg&fm=jpg'
-      />
-
-
- <SessionCard 
-           class_name='Math' with='John Doe' created_date='2020-01-01' time='12:00 P.M' day='Monday' is_accepted={true} 
-             is_completed={false} payment_fulfilled={false} payment_amount={"200"} location='123 Main St' />
-    </SafeAreaView>
-
-  )
+  
+      <SafeAreaView
+      style={{flex:1}}
+        onLayout={onLayoutRootView}
+      >
+        <Login />
+      </SafeAreaView>
+  
+  );
 };
+
 export default MyApp;

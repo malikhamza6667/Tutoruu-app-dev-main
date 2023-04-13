@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { AsyncStorage, View,Text } from "react-native";
+import { View,Text, I18nManager } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Auth from "../../../layouts/Auth/Auth"
 import Button from "../../../components/Button/Button";
 import Input from "../../../components/Input/Input";
-
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import i18n from "../../../localization/LocalizedStrings/LocalizedStrings";
 import {reloadAsync} from 'expo-updates'
 const Login = () => {
@@ -40,22 +40,24 @@ const Login = () => {
                 testID='password-input'
             />
 
-            <View className='my-2 self-center items-center'>
+            <View className='my-2 mx-3 self-center items-center'>
 
                 <Button
                     onPress={() => {
                         AsyncStorage.setItem("Language","ar").then(()=>{
+                            i18n.locale='ar'
+                            I18nManager.forceRTL(true)
                             reloadAsync()
                         })
                      }}
                     // icon={'AntDesign arrowright 24 white'}
-                    shape='default'
+                    shape='full'
                     text='Login'
-                    width={wp('80%')}
+                    
                     height={hp('5%')}
                     testID='login-button'
                 />
-                <Text>{i18n.t('Sign Up')}</Text>               
+                             
             </View>
 
         </View>

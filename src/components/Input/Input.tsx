@@ -126,11 +126,11 @@ const Input: React.FC<Props> = ({
             {!icon &&
 
                 <View>
-                    {title && <Text style={[tw`px-5 py-1`, { fontFamily: 'PoppinsMedium' }]}>{title}</Text>}
+                    {title && <Text style={[tw`px-5 py-1 self-start`, { fontFamily: 'PoppinsMedium' }]}>{title}</Text>}
 
                     <TextInput
                        
-                        style={[tw` items-center border border border-gray-400 rounded-3xl px-3 py-2`, { fontFamily: 'PoppinsRegular', width: width, height: height }]}
+                        style={[tw` items-center border border-gray-400 rounded-3xl px-3 py-2`, { fontFamily: 'PoppinsRegular', width: width, height: height }]}
                         placeholder={placeholder}
                         value={text}
                         secureTextEntry={invisbilePassword}

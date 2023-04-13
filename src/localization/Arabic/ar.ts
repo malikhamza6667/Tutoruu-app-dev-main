@@ -1,6 +1,8 @@
-const ar={    "Welcome Back": 'مرحبًا بعودتك',
+const ar={    
+    "Welcome Back": 'مرحبًا بعودتك',
     "Don't Have Account ?" : 'ليس لديك حساب ؟',
-    "Sign Up": 'اشتراك'
+    "Sign Up": 'اشتراك',
+     "Reset Password":'إعادة تعيين كلمة المرور'
 }
 
 export default ar;
