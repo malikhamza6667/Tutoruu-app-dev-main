@@ -20,6 +20,8 @@ import AuthStack from './src/navigation/AuthFLow/AuthStack';
 import TutorStack from './src/navigation/TutorFlow/TutorStack';
 import TutorAccepted from './src/screens/TutorAccepted/TutorAccepted';
 import DrawerNav from './src/navigation/Drawer/Drawer';
+import SessionConfirmation from './src/screens/SessionConfirmation/SessionConfirmation';
+import TutorRequested from './src/screens/TutorRequested/TutorRequested';
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'ar';
@@ -108,20 +110,24 @@ const MyApp = () => {
       style={{ flex: 1, justifyContent: 'center', backgroundColor: Colors.white }}
       onLayout={onLayoutRootView}
     >
-
-        {/* <Class/> */}
-        {/* <ApplicationStatus/> */}
-        {/* <StartApplication/> */}
-        {/* <TutorAccepted/> */}
-      <NavigationContainer>
-        {/* <StudentStackMain /> */}
-        {/* <AuthStack/> */}
-        <DrawerNav/>
-        {/* <TutorStack/> */}
-      </NavigationContainer>
+{/* <SessionConfirmation/> */}
+    <TutorRequested/>
     </SafeAreaView>
 
   );
 };
 
 export default MyApp;
+
+
+
+// {/* <Class/> */}
+// {/* <ApplicationStatus/> */}
+// {/* <StartApplication/> */}
+// {/* <TutorAccepted/> */}
+// <NavigationContainer>
+// <StudentStackMain />
+// {/* <AuthStack/> */}
+
+// {/* <TutorStack/> */}
+// </NavigationContainer>

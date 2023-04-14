@@ -8,8 +8,10 @@ import Colors from "../../../assets/Colors";
 import Avatar from "../../components/Avatar/Avatar";
 import Button from "../../components/Button/Button";
 import { Card } from "../../layouts/Card/Card";
-
-const ApplicationStatus = ({navigation}) => {
+type Props={
+    navigation: any
+}
+const ApplicationStatus:React.FC <Props>= ({navigation}) => {
 
     const status = false
     return (

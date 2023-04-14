@@ -26,7 +26,7 @@ export const Popup: React.FC<PopupProps> = ({ opened, closeModal, children }) =>
             <View style={tw`flex-1 justify-center items-center bg-opacity-50 bg-gray-500`}>
                 <View
                     style={[
-                        tw`bg-white p-20 shadow-lg`,
+                        tw`bg-white px-5 py-20 shadow-lg`,
                         { width: wp('90%'), height: hp('35%'), borderRadius: wp('7%') }
                     ]}
                 >

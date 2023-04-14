@@ -19,12 +19,12 @@ const ClassCard: React.FC<Props> = ({ name, desc, onPress }) => {
     return (
         <Card>
             <View style={[tw`flex-row justify-between`, { paddingHorizontal: hp('3%'), paddingVertical: hp('3%') }]}>
-                <View style={{ width: wp('50%') }}>
+                <View style={{ width: onPress? wp('50%'): wp('100%') }}>
                     <Text style={[tw`text-xs m-1`, { fontFamily: 'PoppinsMedium', textTransform: 'uppercase', color: Colors.orange }]}>{desc}</Text>
                     <Text style={[tw`text-base m-1`, { fontFamily: 'PoppinsRegular', textTransform: 'capitalize', color: Colors.black }]}>{name}</Text>
                 </View>
 
-                <View style={[tw`flex-row self-end justify-between items-center`, { width: wp('18%') }]}>
+             { onPress &&  <View style={[tw`flex-row self-end justify-between items-center`, { width: wp('18%') }]}>
                     <TouchableOpacity
                         onPress={onPress}
                     >
@@ -36,7 +36,7 @@ const ClassCard: React.FC<Props> = ({ name, desc, onPress }) => {
                         size="xsmall"
                         color={Colors.orange}
                     />
-                </View>
+                </View>}
             </View>
         </Card>
     )

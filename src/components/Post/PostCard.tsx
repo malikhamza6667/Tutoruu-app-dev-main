@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
 import Colors from '../../../assets/Colors'
 import { Card } from '../../layouts/Card/Card'
@@ -61,7 +61,7 @@ const Post: React.FC<Props> = ({
             <View style={[tw`self-center flex-row pt-2`, { width: wp('60%'), }]}>
 
 
-                <HorizontalList
+                {/* <HorizontalList
                 horizontal={false}
 contentContainerStyle={{flexDirection:'row'}}
                     data={tags}
@@ -76,8 +76,22 @@ contentContainerStyle={{flexDirection:'row'}}
                         )
                     }}
                     keyExtractor={(item, index) => { return index.toString() }}
-                />
-
+                /> */}
+<ScrollView horizontal={true}  contentContainerStyle={{justifyContent:'center',alignItems:'center'}}>
+{
+    tags.map((item,index: number )=>{
+        return(
+            <View
+key={index}
+            style={[tw`rounded-lg p-0.5 justify-center items-center mx-1 px-2 py-1`, { backgroundColor: Colors.lightorange }]}
+        >
+            <Text style={{ color: Colors.orange, fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}>{item}</Text>
+        </View>    
+        )
+    })
+}
+    
+</ScrollView>
                 <Text
 
                 >{date}</Text>
