@@ -11,7 +11,7 @@ import { AntDesign, Ionicons, FontAwesome, Entypo, MaterialCommunityIcons, FontA
 
 
 type Props = {
-    size?: 'small' | 'medium' | 'large' | 'Xlarge'|'Xsmall'|'xlarge';
+    size?: 'small' | 'medium' | 'large' | 'Xlarge' | 'Xsmall' | 'xlarge';
     placeholder?: string;
     icon?: string
     iconPosition?: 'right' | 'left'
@@ -67,7 +67,7 @@ const Input: React.FC<Props> = ({
     let maxwidth = parseInt(wp(`${max}%`).toString())
     let minWidth = parseInt(wp(`${min}%`).toString())
     let width = wp('75%')
-    if (size == 'Xlarge') { width = wp('90%'), height=hp('12%') }
+    if (size == 'Xlarge') { width = wp('90%'), height = hp('12%') }
     if (size == 'xlarge') { width = wp('88%') }
     if (size == 'large') { width = wp('80%') }
     if (size == 'medium') { width = wp('55%') }
@@ -129,7 +129,7 @@ const Input: React.FC<Props> = ({
                     {title && <Text style={[tw`px-5 py-1 self-start`, { fontFamily: 'PoppinsMedium' }]}>{title}</Text>}
 
                     <TextInput
-                       
+
                         style={[tw` items-center border border-gray-400 rounded-3xl px-3 py-2`, { fontFamily: 'PoppinsRegular', width: width, height: height }]}
                         placeholder={placeholder}
                         value={text}
@@ -145,7 +145,7 @@ const Input: React.FC<Props> = ({
                         onFocus={onFocus}
                         onBlur={onBlur}
                         onChangeText={handleTextChange}
-                        testID={testID?testID:'Input'}
+                        testID={testID ? testID : 'Input'}
                     />
                 </View>
 

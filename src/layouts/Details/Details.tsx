@@ -25,7 +25,8 @@ const Details: React.FC<Props> = ({
 
                     <TouchableOpacity
                         testID="back-icon"
-                        onPress={() => { navigation.goBack() }}
+                        onPress={() =>  {navigation.goBack()} }
+                        // style={{backgroundColor:'red'}}
                     >
                         <Icon
                             testID="back-icon"

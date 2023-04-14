@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-
+import { SafeAreaView } from "react-native-safe-area-context";
 import { View, Text, Image, TouchableOpacity, AsyncStorage, I18nManager } from 'react-native'
 import {
     heightPercentageToDP as hp,

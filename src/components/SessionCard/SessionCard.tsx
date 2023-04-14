@@ -23,7 +23,8 @@ interface Props {
     onPress?: () => void
 }
 
-const SessionCard: React.FC<Props> = ({ time,
+const SessionCard: React.FC<Props> = ({ 
+    time,
     location,
     class_name,
     day,

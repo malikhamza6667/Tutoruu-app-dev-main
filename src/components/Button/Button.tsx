@@ -23,7 +23,7 @@ import {
 
 
 type ButtonProps = {
-    shape: 'default' | 'ghost' | 'round' | 'full',
+    shape: 'default' | 'ghost' | 'round' | 'full'|'medium',
     icon?: string,
     iconPosition?: 'left' | 'right',
     text?: string,
@@ -54,8 +54,8 @@ const Button: React.FC<ButtonProps> = (props) => {
         MaterialIcons,
         FontAwesome5
     }[iconFamily];
-    let iconButtonStylesFull='flex-row items-center flex-1 justify-center '
-    let iconButtonStylesDefault='flex-row items-center justify-center '
+    let iconButtonStylesFull = 'flex-row items-center flex-1 justify-center '
+    let iconButtonStylesDefault = 'flex-row items-center justify-center '
     let buttonStyles = 'h-13 w-48 bg-orange-400';
     let textStyles = 'text-sm'
     if (props.shape == 'ghost') {
@@ -70,10 +70,13 @@ const Button: React.FC<ButtonProps> = (props) => {
     if (props.shape == 'round') {
         buttonStyles = 'self-center px-3 py-3 justify-center  rounded-full items-center'
     }
+    if (props.shape == 'medium') {
+        buttonStyles = 'py-1 h-12 w-full flex-row  justify-evenly rounded-full px-6 items-center'
+    }
     return (
         <TouchableOpacity
-        disabled={props.disabled}
-        testID={props.testID?props.testID: 'button'}
+            disabled={props.disabled}
+            testID={props.testID ? props.testID : 'button'}
             onPress={props.onPress}
             className={buttonStyles}
             style={[{ backgroundColor: props.disabled ? Colors.neutralShadow : props.backgroundColor ? props.backgroundColor : Colors.orange, elevation: 5 }]}
@@ -102,24 +105,24 @@ const Button: React.FC<ButtonProps> = (props) => {
                 props.iconPosition == 'right' ?
                     props.shape != 'round' &&
                     props.icon &&
-                    <View style={[props.shape=='default'?tw`${iconButtonStylesDefault}`:tw`${iconButtonStylesFull}`,]}>
+                    <View style={[props.shape == 'default' ? tw`${iconButtonStylesDefault}` : tw`${iconButtonStylesFull}`,]}>
                         {props.text != '' && <View
-                            style={props.shape =='default' ? [tw`items-center justify-center self-center mx-3`]:[tw`items-center justify-center self-center`,{flex:1}]}>
+                            style={props.shape == 'default' ? [tw`items-center justify-center self-center mx-3`] : [tw`items-center justify-center self-center`, { flex: 1 }]}>
                             <Text style={[tw`${textStyles}`, { fontFamily: 'PoppinsBold', color: props.textColor ? props.textColor : Colors.white }]}>{props.text}</Text>
                         </View>
                         }
                         <View testID="icon" style={[tw`items-center  justify-center`,]}>
                             <IconFamily name={iconName} size={parseInt(size)} color={color} />
                         </View>
-                    </View> 
+                    </View>
                     :
                     // Icon On The Left
                     props.icon && props.shape != 'round' &&
-                    <View style={[props.shape=='default'?tw`${iconButtonStylesDefault}`:tw`${iconButtonStylesFull}`,]}>
+                    <View style={[props.shape == 'default' ? tw`${iconButtonStylesDefault}` : tw`${iconButtonStylesFull}`,]}>
                         <View testID="icon" style={[tw` self-center  justify-center `]}>
-                            <IconFamily  name={iconName} size={parseInt(size)} color={color} />
+                            <IconFamily name={iconName} size={parseInt(size)} color={color} />
                         </View>
-                        {props.text && <View  style={props.shape =='default' ? [tw`items-center justify-center self-center mx-3`]:[tw`items-center justify-center self-center`,{flex:1}]}>
+                        {props.text && <View style={props.shape == 'default' ? [tw`items-center justify-center self-center mx-3`] : [tw`items-center justify-center self-center`, { flex: 1 }]}>
                             <Text style={[tw`${textStyles}`, { fontFamily: 'PoppinsBold', color: props.textColor ? props.textColor : Colors.white }]}>{props.text}</Text>
                         </View>
                         }
@@ -133,15 +136,15 @@ const Button: React.FC<ButtonProps> = (props) => {
                     props.shape != 'round' &&
                     props.image &&
                     <View
-                    style={[props.shape=='default'?tw`${iconButtonStylesDefault}`:tw`${iconButtonStylesFull}`,]}>
+                        style={[props.shape == 'default' ? tw`${iconButtonStylesDefault}` : tw`${iconButtonStylesFull}`,]}>
                         {props.text != '' && <View
-                            style={props.shape =='default' ? [tw`items-center justify-center self-center mx-3`]:[tw`items-center justify-center self-center`,{flex:1}]}>
+                            style={props.shape == 'default' ? [tw`items-center justify-center self-center mx-3`] : [tw`items-center justify-center self-center`, { flex: 1 }]}>
                             <Text style={[tw`${textStyles}`, { fontFamily: 'PoppinsBold', color: props.textColor ? props.textColor : Colors.white }]}>{props.text}</Text>
                         </View>
                         }
                         <View style={[tw`items-center  justify-center`,]}>
                             <Image
-                            testID="image"
+                                testID="image"
                                 source={{ uri: props.image }}
                                 resizeMode='contain'
                                 style={[tw`rounded-full h-8 w-8`]}
@@ -152,10 +155,10 @@ const Button: React.FC<ButtonProps> = (props) => {
                     :
                     // Image On The Left
                     props.image && props.shape != 'round' &&
-                    <View style={[props.shape=='default'?tw`${iconButtonStylesDefault}`:tw`${iconButtonStylesFull}`,]}>
+                    <View style={[props.shape == 'default' ? tw`${iconButtonStylesDefault}` : tw`${iconButtonStylesFull}`,]}>
                         <View style={[tw` self-center  justify-center `]}>
                             <Image
-                            testID="image"
+                                testID="image"
                                 source={{ uri: props.image }}
                                 resizeMode='contain'
                                 style={[tw`rounded-full h-8 w-8`]}
@@ -163,7 +166,7 @@ const Button: React.FC<ButtonProps> = (props) => {
                             />
                         </View>
                         {props.text && <View
-                             style={props.shape =='default' ? [tw`items-center justify-center self-center mx-3`]:[tw`items-center justify-center self-center`,{flex:1}]}>
+                            style={props.shape == 'default' ? [tw`items-center justify-center self-center mx-3`] : [tw`items-center justify-center self-center`, { flex: 1 }]}>
                             <Text style={[tw`${textStyles}`, { fontFamily: 'PoppinsBold', color: props.textColor ? props.textColor : Colors.white }]}>{props.text}</Text>
                         </View>
                         }

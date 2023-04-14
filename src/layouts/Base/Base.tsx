@@ -18,7 +18,7 @@ const Base: React.FC<Props> = ({
     isTutor
 }) => {
     return (
-        <View style={[tw`flex-1`, { top: hp('2%')}]} testID='base-container'>
+        <View style={[tw`flex-1 `, { top: hp('2%'), backgroundColor: Colors.white }]} testID='base-container'>
             <View style={styles.container}>
                 <Text
                     className="text-[30px]"

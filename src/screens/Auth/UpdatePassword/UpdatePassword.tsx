@@ -7,7 +7,7 @@ import Button from "../../../components/Button/Button";
 import Input from "../../../components/Input/Input";
 
 
-const UpdatePassword = () => {
+const UpdatePassword = ({navigation}) => {
     const [email, setEmail] = useState('')
     return (
         <Auth
@@ -38,14 +38,14 @@ const UpdatePassword = () => {
                     testID='update-password-input'
                 />
 
-                <View className='my-2 self-center items-center'>
+                <View style={tw` w-73 mt-3`}>
 
                     <Button
-                        onPress={() => { alert('Pressed') }}
+                        onPress={() => navigation.navigate('MagicLink')}
                         icon={'AntDesign arrowright 24 white'}
-                        shape='default'
+                        shape='medium'
                         text='Update password'
-                        width={wp('80%')}
+                        // width={wp('80%')}
                         height={hp('5%')}
                         testID='update-password-button'
                     />

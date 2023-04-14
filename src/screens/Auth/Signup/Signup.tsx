@@ -6,15 +6,15 @@ import Button from "../../../components/Button/Button";
 import Input from "../../../components/Input/Input";
 
 
-const Signup = () => {
+const Signup = ({navigation}) => {
     const [email, setEmail] = useState('')
     return (<Auth
         title='Sign Up to Tutoruu'
         subTitle='Already have Account ?'
-        pressableSubtitleText='Sign Up'
-        onPressSubtitle={() => { alert('Pressed') }}
+        pressableSubtitleText='Log in'
+        onPressSubtitle={() => navigation.navigate('Login')}
         footerTitle='Reset-Password'
-        onPressfooterTitle={() => { alert('Pressed') }}
+        onPressfooterTitle={() => navigation.navigate('ResetPassword')}
     >
         <View className='py-3 justify-center items-center'>
 
@@ -31,7 +31,7 @@ const Signup = () => {
                     height={hp('5%')}
                     backgroundColor='white'
                     textColor="black"
-                    image={require('../../../../assets/googlelogo.png')}
+                    // image={require('../../../../assets/googlelogo.png')}
                 />
                 <Button
                     onPress={() => { alert('Pressed') }}
@@ -40,7 +40,7 @@ const Signup = () => {
                     text='Sign up with Facebook'
                     width={wp('80%')}
                     height={hp('5%')}
-                    image={require('../../../../assets/facebooklogo.png')}
+                    // image={require('../../../../assets/facebooklogo.png')}
                     backgroundColor="#0062E0"
 
                 />
@@ -51,7 +51,6 @@ const Signup = () => {
                     text='Sign up with university email'
                     width={wp('80%')}
                     height={hp('5%')}
-
                 />
 
             </View>

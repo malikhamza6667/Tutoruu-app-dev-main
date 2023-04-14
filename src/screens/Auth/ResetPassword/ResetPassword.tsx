@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Auth from "../../../layouts/Auth/Auth";
-
+import tw from 'twrnc';
 import Input from "../../../components/Input/Input";
 import Button from "../../../components/Button/Button";
 
@@ -54,7 +54,7 @@ import Button from "../../../components/Button/Button";
 
 
 
-const ResetPassword = () => {
+const ResetPassword = ({navigation}) => {
     const [email, setEmail] = useState('')
     return (
       <Auth
@@ -73,13 +73,19 @@ const ResetPassword = () => {
               placeholder='Doe'
               height={hp('5%')}
             />
+            <View
+            style={[tw` mt-4 w-74`]}
+            >
+
             <Button
-              onPress={()=>{}} // Pass onPress prop to Button component
+              onPress={()=>navigation.navigate(('UpdatePassword'))} // Pass onPress prop to Button component
               icon={'AntDesign arrowright 24 white'}
-              shape='full'
+              shape='medium'
               text='Send password reset link'
               iconPosition="right"
-            />
+              height={hp('4%')}
+              />
+              </View>
           </View>
         </View>
       </Auth>

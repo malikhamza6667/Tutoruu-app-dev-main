@@ -54,13 +54,13 @@ const Class: React.FC = () => {
 
         <Details headerTitle="CSCE 312" >
             {
-                totalStudents > 0 && 
-                    <View className="justify-between">
-              <ScrollView>
+                totalStudents > 0 &&
+                <View className="justify-between">
+                    <ScrollView>
                         <View >
 
                             <HorizontalList
-contentContainerStyle={{paddingHorizontal:hp('2%'),paddingVertical:hp('1%')}}
+                                contentContainerStyle={{ paddingHorizontal: hp('2%'), paddingVertical: hp('1%') }}
                                 data={ClassesData.slice(0, 4)}
                                 renderItem={({ item, index }) => {
                                     return (
@@ -90,89 +90,91 @@ contentContainerStyle={{paddingHorizontal:hp('2%'),paddingVertical:hp('1%')}}
                                 style={[tw`text-sm`, { fontFamily: "PoppinsMedium" }]}
 
                             >{totalStudents} Students</Text>
-<View >
+                            <View >
 
-                            <HorizontalList
-contentContainerStyle={{paddingHorizontal:hp('2%'),paddingVertical:hp('1%')}}
-                                data={ClassStudents.slice(0, 5)}
-                                renderItem={({ item }) => {
-                                    return (
-                                        <View
-                                            
-                                            style={{ borderWidth: 2, borderRadius: 50, backgroundColor: 'gray', borderColor: Colors.white, marginLeft: -15, }}
-                                        >
+                                <HorizontalList
+                                    contentContainerStyle={{ paddingHorizontal: hp('2%'), paddingVertical: hp('1%') }}
+                                    data={ClassStudents.slice(0, 5)}
+                                    renderItem={({ item }) => {
+                                        return (
+                                            <View
 
-                                            <Avatar
-                                                image={item.image}
-                                                size="small"
-                                                showCap={false}
-                                            />
+                                                style={{ borderWidth: 2, borderRadius: 50, backgroundColor: 'gray', borderColor: Colors.white, marginLeft: -15, }}
+                                            >
 
-                                        </View>
-                                    )
-                                }}
-                                keyExtractor={(item, index) => { return index.toString() }}
-                            />
-</View>
+                                                <Avatar
+                                                    image={item.image}
+                                                    size="small"
+                                                    showCap={false}
+                                                />
+
+                                            </View>
+                                        )
+                                    }}
+                                    keyExtractor={(item, index) => { return index.toString() }}
+                                />
+                            </View>
                         </View>
-                    
-
-                            <View>
-           <Section title="Posts">
-               <HorizontalList
-               data={Data}
-               renderItem={({item})=>{
-       return(
-           <Post text='Hello world This Is New Post' user={{ name: 'John Doe',
-             image: 'https://i.pravatar.cc/300', username: '@john johndoe',
-              bio: 'Hello world This Is New Post', is_tutor: true }} 
-              date='2020-01-01' comments_count={3} likes_count={3}
-               dislikes_count={3} is_liked={islike} is_disliked={isDislike} is_saved={isSaved} 
-               on_dislike_Pressed={()=>{setisDisLiked(!isDislike)}}
-               on_like_Pressed={()=>{setisLiked(!islike)}}
-               onSaved={()=>{setisSaved(!isSaved)}}
-            is_anonymous={false} tags={['tag1', 'Note']} 
-          
-             />
-       )
-               }}
-        keyExtractor={(item)=>{return item.id.toString()}}       
-               />
-            
-           </Section>
-       </View>
 
 
-       <View >
-           <Section title="Tutors">
-               <HorizontalList
-               contentContainerStyle={{paddingVertical:hp('3.5%')}}
-               data={Data}
-               renderItem={({item})=>{
-       return(
-        <TutorCard
-        classes={TutorSubjects}
-        user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe', bio: 'Hello world', is_tutor: true }}
-        num_sessions={4}
-        rating={2}
-        onPress={() => { alert('Pressed') }}
-        rate={'270 EGP'}
-        text={'PhD student in the Industrial & Systems Engineering Department…'}
-    />
-       )
-               }}
-        keyExtractor={(item)=>{return item.id.toString()}}       
-               />
-            
-           </Section>
-       </View>
+                        <View>
+                            <Section title="Posts">
+                                <HorizontalList
+                                    data={Data}
+                                    renderItem={({ item }) => {
+                                        return (
+                                            <Post text='Hello world This Is New Post' user={{
+                                                name: 'John Doe',
+                                                image: 'https://i.pravatar.cc/300', username: '@john johndoe',
+                                                bio: 'Hello world This Is New Post', is_tutor: true
+                                            }}
+                                                date='2020-01-01' comments_count={3} likes_count={3}
+                                                dislikes_count={3} is_liked={islike} is_disliked={isDislike} is_saved={isSaved}
+                                                on_dislike_Pressed={() => { setisDisLiked(!isDislike) }}
+                                                on_like_Pressed={() => { setisLiked(!islike) }}
+                                                onSaved={() => { setisSaved(!isSaved) }}
+                                                is_anonymous={false} tags={['tag1', 'Note']}
+
+                                            />
+                                        )
+                                    }}
+                                    keyExtractor={(item) => { return item.id.toString() }}
+                                />
+
+                            </Section>
+                        </View>
+
+
+                        <View >
+                            <Section title="Tutors">
+                                <HorizontalList
+                                    contentContainerStyle={{ paddingVertical: hp('3.5%') }}
+                                    data={Data}
+                                    renderItem={({ item }) => {
+                                        return (
+                                            <TutorCard
+                                                classes={TutorSubjects}
+                                                user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe', bio: 'Hello world', is_tutor: true }}
+                                                num_sessions={4}
+                                                rating={2}
+                                                onPress={() => { alert('Pressed') }}
+                                                rate={'270 EGP'}
+                                                text={'PhD student in the Industrial & Systems Engineering Department…'}
+                                            />
+                                        )
+                                    }}
+                                    keyExtractor={(item) => { return item.id.toString() }}
+                                />
+
+                            </Section>
+                        </View>
                     </ScrollView>
 
-                 
-                        
-                  
-                
-                  </View>
+
+
+
+
+                </View>
             }
 
             {totalStudents == 0 &&
