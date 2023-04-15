@@ -22,6 +22,12 @@ import TutorAccepted from './src/screens/TutorAccepted/TutorAccepted';
 import DrawerNav from './src/navigation/Drawer/Drawer';
 import SessionConfirmation from './src/screens/SessionConfirmation/SessionConfirmation';
 import TutorRequested from './src/screens/TutorRequested/TutorRequested';
+import ClassSelection from './src/screens/ClassSelection/ClassSelection';
+import TimeSelection from './src/screens/TimeSelection/TimeSelection';
+import TopicSelection from './src/screens/TopicSelection/TopicSelection';
+import Support from './src/screens/Support/Support';
+import Chats from './src/screens/Chats/Chats';
+import Chat from './src/screens/Chat/Chat';
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'ar';
@@ -110,8 +116,15 @@ const MyApp = () => {
       style={{ flex: 1, justifyContent: 'center', backgroundColor: Colors.white }}
       onLayout={onLayoutRootView}
     >
-{/* <SessionConfirmation/> */}
-    <TutorRequested/>
+      {/* <SessionConfirmation/> */}
+      {/* <TutorRequested/> */}
+      {/* <Search/> */}
+      {/* <ClassSelection /> */}
+      {/* <TimeSelection/> */}
+      {/* <TopicSelection/> */}
+      {/* <Support/> */}
+      {/* <Chats/> */}
+      <Chat/>
     </SafeAreaView>
 
   );
