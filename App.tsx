@@ -28,6 +28,10 @@ import TopicSelection from './src/screens/TopicSelection/TopicSelection';
 import Support from './src/screens/Support/Support';
 import Chats from './src/screens/Chats/Chats';
 import Chat from './src/screens/Chat/Chat';
+import TutorProfile from './src/screens/TutorProfile/TutorProfile';
+import UserProfile from './src/screens/UserProfile/UserProfile';
+import TutorDashboard from './src/screens/TutorDashboard/TutorDashboard';
+import Sessions from './src/screens/Sessions/Sessions';
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'ar';
@@ -124,7 +128,11 @@ const MyApp = () => {
       {/* <TopicSelection/> */}
       {/* <Support/> */}
       {/* <Chats/> */}
-      <Chat/>
+      {/* <TutorProfile/> */}
+      {/* <UserProfile/> */}
+      {/* <Chat/> */}
+      {/* <TutorDashboard/> */}
+    <Sessions/>
     </SafeAreaView>
 
   );

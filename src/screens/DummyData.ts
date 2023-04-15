@@ -220,50 +220,93 @@ export const SubjectsOffered = [
   },
 ];
 
+
+ //  <SessionCard 
+    //         class_name='Math' with='John Doe' created_date='2020-01-01' time='12:00 P.M' day='Monday' is_accepted={false} 
+    //          is_completed={false} payment_fulfilled={false} payment_amount={"200"} location='123 Main St' />
+
 export const sessions = [
   {
     id: 0,
-    type: "online",
-    status: "awaiting comfirmation",
-    time: "2.30 PM",
-    day: "Monday",
-    title: "Macro Economics 135",
+    class_name: 'Math',
+    with: 'John Doe',
+    created_date: '2020-01-01',
+    time: '12:00 P.M',
+    day: 'Monday',
+    is_accepted: false,
+    is_completed: false,
+    isTutor: true,
+
+    payment_fulfilled: false,
+    payment_amount: "200",
+    location: '123 Main St'
   },
   {
     id: 1,
-    type: "online",
-    status: "comfirmed",
-    time: "2.30 PM",
-    day: "Monday",
-    title: "Macro Economics 135",
+    class_name: 'Math',
+    with: 'John Doe',
+    created_date: '2020-01-01',
+    time: '12:00 P.M',
+    day: 'Monday',
+    
+    isTutor: false,
+    is_accepted: true,
+    is_completed: true,
+    payment_fulfilled: false,
+    payment_amount: "200",
+    location: '123 Main St'
   },
+ 
 ];
 
 export const completedSessions = [
-  {
-    id: 0,
-    type: "online",
-    status: "completed",
-    time: "2.30 PM",
-    day: "Monday",
-    title: "Macro Economics 135",
-  },
+  
   {
     id: 1,
-    type: "online",
-    status: "completed",
-    time: "2.30 PM",
-    day: "Monday",
-    title: "Macro Economics 135",
+    class_name: 'Math',
+    with: 'John Doe',
+    created_date: '2020-01-01',
+    time: '12:00 P.M',
+    day: 'Monday',
+    
+    isTutor: false,
+    is_accepted: true,
+    is_completed: true,
+    payment_fulfilled: false,
+    payment_amount: "200",
+    location: '123 Main St'
   },
   {
     id: 2,
-    type: "online",
-    status: "completed",
-    time: "2.30 PM",
-    day: "Monday",
-    title: "Macro Economics 135",
+    class_name: 'Math',
+    with: 'John Doe',
+    created_date: '2020-01-01',
+    time: '12:00 P.M',
+    day: 'Monday',
+    
+    isTutor: false,
+    is_accepted: true,
+    is_completed: true,
+    payment_fulfilled: false,
+    payment_amount: "200",
+    location: '123 Main St'
   },
+  {
+    id: 3,
+    class_name: 'Math',
+    with: 'John Doe',
+    created_date: '2020-01-01',
+    time: '12:00 P.M',
+    day: 'Monday',
+    
+    isTutor: false,
+    is_accepted: true,
+    is_completed: true,
+    payment_fulfilled: false,
+    payment_amount: "200",
+    location: '123 Main St'
+  },
+
 ];
 
 export const SearchCatagories = [

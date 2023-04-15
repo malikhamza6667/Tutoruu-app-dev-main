@@ -19,6 +19,7 @@ interface Props {
     payment_amount?: string
     location: string
     with?: string
+    isTutor?:boolean
 
     onPress?: () => void
 }
@@ -30,6 +31,7 @@ const SessionCard: React.FC<Props> = ({
     day,
     is_accepted,
     is_completed,
+    isTutor,
     payment_amount,
     payment_fulfilled,
     created_date,
@@ -92,8 +94,8 @@ const SessionCard: React.FC<Props> = ({
 
 
                     </View>
-                    {/* {
-                                  !is_accepted && 
+                    {
+                               onPress &&   !is_accepted  &&  isTutor &&
                                   <Button
                                   shape='default'
                                   text='Reply'
@@ -101,7 +103,7 @@ const SessionCard: React.FC<Props> = ({
                                   onPress={onPress}
                                   width={wp('30%')}
                                   />
-                                } */}
+                                }
 
                 </View>
 
