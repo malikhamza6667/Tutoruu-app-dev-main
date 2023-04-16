@@ -30,6 +30,8 @@ import Chats from './src/screens/Chats/Chats';
 import Chat from './src/screens/Chat/Chat';
 import TutorDashboard from './src/screens/TutorDashboard/TutorDashboard';
 import Sessions from './src/screens/Sessions/Sessions';
+import SessionCompleted from './src/screens/SessionCompleted/SessionCompleted';
+import SessionRequest from './src/screens/SessionRequest/SessionsRequest';
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'ar';
@@ -128,7 +130,9 @@ const MyApp = () => {
       {/* <Chats/> */}
       {/* <Chat/> */}
       {/* <TutorDashboard/> */}
-    <Sessions/>
+    {/* <Sessions/> */}
+    {/* <SessionCompleted/> */}
+   <SessionRequest/>
     </SafeAreaView>
 
   );

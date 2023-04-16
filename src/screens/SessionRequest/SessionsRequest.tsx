@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import {View,Text,TouchableOpacity,Modal,StyleSheet} from 'react-native'
+import {View,Text,TouchableOpacity,Modal,StyleSheet, ScrollView} from 'react-native'
 import Details from "../../layouts/Details/Details";
 import { SessionInfo } from "../DummyData";
 import Colors from "../../../assets/Colors";
@@ -43,9 +43,6 @@ const SessionRequest:React.FC=()=>{
                                     <Text className='mx-1' style={{ fontFamily: 'PoppinsBold' }}>{item.Timing}</Text>
                                 </View>
 
-                                <View>
-                                    <FontAwesome name="edit" size={20} color={Colors.orange} />
-                                </View>
                             </View>
 
 
@@ -78,6 +75,8 @@ const SessionRequest:React.FC=()=>{
                 </View>
             </Section>
         </View>
+        <ScrollView>
+
         <View style={[tw`my-1`]}>
             <Section title="Payment">
             <View className='px-6 pr-7 flex-row justify-between items-center'>
@@ -155,7 +154,9 @@ name="Introduction to Computer Science"
 />
             </Section>
         </View>
-        <View style={tw`pb-5 px-3`}>
+        </ScrollView>
+
+        <View style={tw`pb-3 px-3 justify-between`}>
             <Button
             onPress={()=>{alert('Pressed')}}
             shape="full"
@@ -163,7 +164,7 @@ name="Introduction to Computer Science"
             />
         <TouchableOpacity
             onPress={()=>{setModalVisible(!modalVisible)}}
-                className='p-1 justify-center items-center'
+                className=' my-3 justify-center items-center'
             >
                 <Text
                     style={{ color: Colors.orange, fontFamily: 'PoppinsBold' }}

@@ -57,15 +57,33 @@ const SessionCompleted:React.FC=()=>{
                         <Card>
 
                         <View style={[tw`px-4 py-6`]}>
+                        <View
+                        style={{
+                            backgroundColor: Colors.lightorange,
+                            borderRadius: 5,
+                            marginTop: hp('1'),
+                            alignSelf:'flex-start'
+                        }}
+                    >
+
+                        <Text
+                           
+                            style={[tw`p-0.5 px-2`, {
+                                color: Colors.orange,
+                                textTransform: 'uppercase',
+                                fontFamily: 'PoppinsMedium',
+
+                            }]}>Completed</Text>
+                    </View>
                             <View className='flex-row justify-between'>
+                           
                                 <View className='flex-row'>
+                          
                                     <Text style={{ fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}>Timing:</Text>
                                     <Text className='mx-1' style={{ fontFamily: 'PoppinsBold' }}>{item.Timing}</Text>
                                 </View>
 
-                                <View>
-                                    <FontAwesome name="edit" size={20} color={Colors.orange} />
-                                </View>
+                               
                             </View>
 
 
@@ -107,13 +125,7 @@ const SessionCompleted:React.FC=()=>{
         <Text
             className='text-base'
             style={{ fontFamily: 'PoppinsMedium' }}>170 EGP</Text>
-            <Button
-              shape="default"
-                text='Pay Now'
-            
-               onPress={()=>{alert('Pressed')}}
-               
-            />
+           
       
     
 
