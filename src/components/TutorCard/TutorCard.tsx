@@ -65,48 +65,48 @@ const TutorCard: React.FC<Props> = ({
                             showFullList ?
 
 
-<ScrollView horizontal={true}  contentContainerStyle={{justifyContent:'center',alignItems:'center'}}>
-{
-    classesList.map((item: ListData,index: number )=>{
-        return(
-            <TouchableOpacity
-key={index}
-            style={{ backgroundColor: Colors.lightorange }}
-            className=' rounded-full self-center py-2 px-2 m-0.5 items-center '>
-            <Text
+                                <ScrollView horizontal={true} contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
+                                    {
+                                        classesList.map((item: ListData, index: number) => {
+                                            return (
+                                                <TouchableOpacity
+                                                    key={index}
+                                                    style={{ backgroundColor: Colors.lightorange }}
+                                                    className=' rounded-full self-center py-2 px-2 m-0.5 items-center '>
+                                                    <Text
 
-                style={{ color: Colors.orange, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}
-                className='text-sm '>{item.name}</Text>
-        </TouchableOpacity>      
-        )
-    })
-}
-    
-</ScrollView>
-                          
+                                                        style={{ color: Colors.orange, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}
+                                                        className='text-sm '>{item.name}</Text>
+                                                </TouchableOpacity>
+                                            )
+                                        })
+                                    }
+
+                                </ScrollView>
+
                                 :
-                                <ScrollView horizontal={true}  contentContainerStyle={{justifyContent:'center',alignItems:'center'}}>
+                                <ScrollView horizontal={true} contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
 
-    <HorizontalList
-horizontal={false}
-contentContainerStyle={{flexDirection:'row',}}
-data={classesList.slice(0, 2)}
-        renderItem={({ item }: { item: ListData }) =>
-            <TouchableOpacity
+                                    <HorizontalList
+                                        horizontal={false}
+                                        contentContainerStyle={{ flexDirection: 'row', }}
+                                        data={classesList.slice(0, 2)}
+                                        renderItem={({ item }: { item: ListData }) =>
+                                            <TouchableOpacity
 
-                style={{ backgroundColor: Colors.lightorange }}
-                className=' rounded-full self-center py-2 px-2 m-0.5 items-center '>
-                <Text
+                                                style={{ backgroundColor: Colors.lightorange }}
+                                                className=' rounded-full self-center py-2 px-2 m-0.5 items-center '>
+                                                <Text
 
-                    style={{ color: Colors.orange, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}
-                    className='text-sm '>{item.name}</Text>
-            </TouchableOpacity>
+                                                    style={{ color: Colors.orange, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}
+                                                    className='text-sm '>{item.name}</Text>
+                                            </TouchableOpacity>
 
-        }
-        keyExtractor={(item: { id: { toString: () => any } }) => { return item.id.toString() }}
-    />
-</ScrollView>
-                              
+                                        }
+                                        keyExtractor={(item: { id: { toString: () => any } }) => { return item.id.toString() }}
+                                    />
+                                </ScrollView>
+
 
 
                         }

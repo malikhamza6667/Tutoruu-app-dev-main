@@ -32,6 +32,10 @@ import TutorDashboard from './src/screens/TutorDashboard/TutorDashboard';
 import Sessions from './src/screens/Sessions/Sessions';
 import SessionCompleted from './src/screens/SessionCompleted/SessionCompleted';
 import SessionRequest from './src/screens/SessionRequest/SessionsRequest';
+import FollowList from './src/screens/FollowList/FollowList';
+import Settings from './src/screens/Settings/Settings';
+import MyPost from './src/components/MyPost/MyPost';
+import { PostPopup } from './src/components/PostPopup/PostPopup';
 
 SplashScreen.preventAutoHideAsync();
 const defaultLanguage = 'ar';
@@ -132,7 +136,8 @@ const MyApp = () => {
       {/* <TutorDashboard/> */}
     {/* <Sessions/> */}
     {/* <SessionCompleted/> */}
-   <SessionRequest/>
+   {/* <SessionRequest/> */}
+   <FollowList/>
     </SafeAreaView>
 
   );

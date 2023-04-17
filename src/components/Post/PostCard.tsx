@@ -77,21 +77,21 @@ contentContainerStyle={{flexDirection:'row'}}
                     }}
                     keyExtractor={(item, index) => { return index.toString() }}
                 /> */}
-<ScrollView horizontal={true}  contentContainerStyle={{justifyContent:'center',alignItems:'center'}}>
-{
-    tags.map((item,index: number )=>{
-        return(
-            <View
-key={index}
-            style={[tw`rounded-lg p-0.5 justify-center items-center mx-1 px-2 py-1`, { backgroundColor: Colors.lightorange }]}
-        >
-            <Text style={{ color: Colors.orange, fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}>{item}</Text>
-        </View>    
-        )
-    })
-}
-    
-</ScrollView>
+                <ScrollView horizontal={true} contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
+                    {
+                        tags.map((item, index: number) => {
+                            return (
+                                <View
+                                    key={index}
+                                    style={[tw`rounded-lg p-0.5 justify-center items-center mx-1 px-2 py-1`, { backgroundColor: Colors.lightorange }]}
+                                >
+                                    <Text style={{ color: Colors.orange, fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}>{item}</Text>
+                                </View>
+                            )
+                        })
+                    }
+
+                </ScrollView>
                 <Text
 
                 >{date}</Text>
@@ -145,7 +145,7 @@ key={index}
                     >
 
                         <Icon
-                        onPressIcon={on_comment}
+                            onPressIcon={on_comment}
                             testId='comment-icon'
                             color={Colors.orange}
                             family='FontAwesome5'
@@ -158,11 +158,11 @@ key={index}
                     <Text style={[tw`p-1`, { color: Colors.orange, fontFamily: 'PoppinsMedium' }]}>{likes_count > 0 ? likes_count : ''}</Text>
                     <View
                         testID='like-icon-view'
-                       
+
                     >
 
                         <Icon
-                        onPressIcon={on_like_Pressed}
+                            onPressIcon={on_like_Pressed}
                             testId='like-icon'
                             color={is_liked ? Colors.orange : Colors.lightorange}
                             family='AntDesign'
@@ -175,14 +175,13 @@ key={index}
                     <Text style={[tw`p-1`, { color: Colors.orange, fontFamily: 'PoppinsMedium' }]}>{dislikes_count > 0 ? dislikes_count : ''}</Text>
 
                     <View
-                       
+
                         testID='dislike-icon-view'
                     >
 
                         <Icon
-                         onPressIcon={on_dislike_Pressed}
+                            onPressIcon={on_dislike_Pressed}
                             color={is_disliked ? Colors.orange : Colors.lightorange}
-
                             testId='dislike-icon'
                             family='AntDesign'
                             name='dislike2'
@@ -199,7 +198,7 @@ key={index}
                 <View testID='save-icon-view' >
 
                     <Icon
-                    onPressIcon={onSaved}
+                        onPressIcon={onSaved}
                         color={is_saved ? Colors.orange : Colors.lightorange}
                         testId='save-icon'
                         family='Entypo'

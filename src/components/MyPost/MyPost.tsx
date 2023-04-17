@@ -6,6 +6,7 @@ import { Card } from "../../layouts/Card/Card";
 import Avatar from "../Avatar/Avatar";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
+import PostPopup from '../PostPopup/PostPopup'
 
 
 const MyPost = () => {
@@ -50,7 +51,7 @@ const MyPost = () => {
                 >
 
                     <Button
-                        onPress={() => console.log('actionlink clicked')}
+                        onPress={() => <PostPopup opened={true} /> }
                         icon={'AntDesign arrowright 18 white'}
                         shape='round'
                         // text='Create Account'
