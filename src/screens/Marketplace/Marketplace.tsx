@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { Separator } from "../../components/Separator/Separator";
 import Spacer from "../../components/Spacer/Spacer";
@@ -14,8 +14,11 @@ import SessionCard from "../../components/SessionCard/SessionCard";
 import Input from "../../components/Input/Input";
 import Colors from "../../../assets/Colors";
 
-
-const Marketplace = ({ navigation }) => {
+const ClassesData = [
+    'CSCE-1521',
+    'RHET-32'
+]
+const Marketplace = ({ navigation:any }) => {
     const Data = [
         {
 
@@ -29,6 +32,7 @@ const Marketplace = ({ navigation }) => {
         },
 
     ]
+    const[newClass,setNewClass]=useState('')
     return (
         <Base
             userName='Maryam'
@@ -42,6 +46,8 @@ const Marketplace = ({ navigation }) => {
                 style={tw`items-center mt-4`}>
 
                 <Input
+                value={newClass}
+                onChangeText={(text)=>{setNewClass(text)}}
                     size="xlarge"
                     placeholder="Add class "
                     iconPosition="right"
@@ -49,7 +55,30 @@ const Marketplace = ({ navigation }) => {
 
                 />
                 <View>
-                    <Section title='Upcoming Sessions'>
+                <View  style={[tw`px-3 mt-1`,{width:wp('90%'), height: hp('7%') }]}>
+
+<HorizontalList
+
+    data={ClassesData.slice(0, 4)}
+    renderItem={({ item }) => {
+        return (
+            <View
+
+                style={[tw`rounded-full self-center py-1 px-2  m-0.5  items-center`,{ backgroundColor: Colors.gray }]}
+                >
+                <Text
+
+                    style={{ color: Colors.black, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}
+                    className='text-sm '>{item}</Text>
+            </View>
+        )
+    }}
+    keyExtractor={(item, index) => { return index.toString() }}
+/>
+</View>  
+                </View>
+                <View style={[tw`px-3`]}>
+                    <Section title='Upcoming Sessions' pressableSubtitle="View All Sessions">
                         <SessionCard
                             time="2.30Pm"
                             location="online"
@@ -60,24 +89,12 @@ const Marketplace = ({ navigation }) => {
                     </Section>
                 </View>
 
-                <TouchableOpacity
-                    onPress={() => { alert('pressed')}}
-                >
-
-                    <Text
-                        style={[tw``, { color: Colors.orange, fontFamily: 'PoppinsBold' }]}
-                    >View all sessions</Text>
-                </TouchableOpacity>
+              
 
 
-                <View >
+                <View style={[tw`px-3`]}>
                     <Section title="Tutors Recommendations">
-                        <HorizontalList
-                            contentContainerStyle={{ paddingVertical: hp('3.5%') }}
-                            data={Data}
-                            renderItem={({ item }) => {
-                                return (
-                                    <TutorCard
+                    <TutorCard
                                         classes={TutorSubjects}
                                         user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe', bio: 'Hello world', is_tutor: true }}
                                         num_sessions={4}
@@ -86,10 +103,6 @@ const Marketplace = ({ navigation }) => {
                                         rate={'270 EGP'}
                                         text={'PhD student in the Industrial & Systems Engineering Department…'}
                                     />
-                                )
-                            }}
-                            keyExtractor={(item) => { return item.id.toString() }}
-                        />
 
                     </Section>
                 </View>

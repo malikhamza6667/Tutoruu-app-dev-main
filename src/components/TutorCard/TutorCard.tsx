@@ -71,12 +71,12 @@ const TutorCard: React.FC<Props> = ({
                                             return (
                                                 <TouchableOpacity
                                                     key={index}
-                                                    style={{ backgroundColor: Colors.lightorange }}
-                                                    className=' rounded-full self-center py-2 px-2 m-0.5 items-center '>
+                                                    style={[tw`rounded-full self-center py-2 px-2 m-0.5 items-center`,{ backgroundColor: Colors.lightorange }]}
+                                                   >
                                                     <Text
 
-                                                        style={{ color: Colors.orange, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}
-                                                        className='text-sm '>{item.name}</Text>
+                                                        style={[tw`text-sm`,{ color: Colors.orange, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }]}
+                                                        >{item.name}</Text>
                                                 </TouchableOpacity>
                                             )
                                         })
@@ -94,12 +94,11 @@ const TutorCard: React.FC<Props> = ({
                                         renderItem={({ item }: { item: ListData }) =>
                                             <TouchableOpacity
 
-                                                style={{ backgroundColor: Colors.lightorange }}
-                                                className=' rounded-full self-center py-2 px-2 m-0.5 items-center '>
+                                                style={[tw`rounded-full self-center py-2 px-2 m-0.5 items-center`,{ backgroundColor: Colors.lightorange }]}
+                                               >
                                                 <Text
 
-                                                    style={{ color: Colors.orange, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}
-                                                    className='text-sm '>{item.name}</Text>
+style={[tw`text-sm`,{ color: Colors.orange, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }]}>{item.name}</Text>
                                             </TouchableOpacity>
 
                                         }
@@ -110,14 +109,14 @@ const TutorCard: React.FC<Props> = ({
 
 
                         }
-                        <TouchableOpacity
+                      { size >0 && <TouchableOpacity
                             onPress={() => { showFullListData() }}
-                            style={{ backgroundColor: Colors.lightorange, }}
-                            className=' rounded-full self-center py-2 px-4    m-0.5  items-center '>
+                            style={[tw`rounded-full self-center py-2 px-4    m-0.5  items-center`,{ backgroundColor: Colors.lightorange, }]}
+                           >
                             <Text
-                                style={{ color: Colors.orange, textTransform: "capitalize", fontFamily: 'PoppinsMedium' }}
-                                className='text-sm self-center '>{moreLabel}</Text>
-                        </TouchableOpacity>
+                                style={[tw`text-sm self-center `,{ color: Colors.orange, textTransform: "capitalize", fontFamily: 'PoppinsMedium' }]}
+                                >{moreLabel}</Text>
+                        </TouchableOpacity>}
                     </View>
                     <ImageBackground
                         style={{ height: hp('11%'), width: wp('18%'), justifyContent: 'center', bottom: hp('7%'), alignSelf: 'flex-end' }}
@@ -125,7 +124,7 @@ const TutorCard: React.FC<Props> = ({
                         resizeMode='contain'
                     >
                         <View >
-                            <Text className="self-center text-xs " style={{ fontFamily: 'PoppinsBold' }}>{rate}</Text>
+                            <Text  style={[tw`self-center text-xs`,{ fontFamily: 'PoppinsBold' }]}>{rate}</Text>
 
                         </View>
 
@@ -163,11 +162,11 @@ const TutorCard: React.FC<Props> = ({
 
                 <View style={tw` px-4 py-2 justify-center`}>
                     <Text
-                        style={{ fontFamily: 'PoppinsMedium' }}
-                        className="text-sm  ">Bio</Text>
+                        style={[tw`text-xs `,{ fontFamily: 'PoppinsMedium' }]}
+                        >Bio</Text>
                     <Text
-                        style={{ fontFamily: 'PoppinsRegular' }}
-                        className="text-xs  ">{text}</Text>
+                        style={[tw`text-xs `,{ fontFamily: 'PoppinsRegular' }]}
+                        >{text}</Text>
                 </View>
 
                 <View>
@@ -175,8 +174,6 @@ const TutorCard: React.FC<Props> = ({
                         shape="default"
                         backgroundColor={Colors.orange}
                         text='View Profile'
-                        height={hp('5%')}
-                        width={wp('40%')}
                         onPress={onPress}
                     />
                 </View>

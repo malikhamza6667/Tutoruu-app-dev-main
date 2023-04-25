@@ -78,9 +78,11 @@ const Button: React.FC<ButtonProps> = (props) => {
             disabled={props.disabled}
             testID={props.testID ? props.testID : 'button'}
             onPress={props.onPress}
-            className={buttonStyles}
-            style={[{ backgroundColor: props.disabled ? Colors.neutralShadow : props.backgroundColor ? props.backgroundColor : Colors.orange, elevation: 5 }]}
-        >
+           
+            // className={buttonStyles}
+            style={[tw`${buttonStyles}`,{ backgroundColor: props.disabled ? Colors.neutralShadow : props.backgroundColor ? props.backgroundColor : Colors.orange, elevation: 5 }]}
+           
+       >
 
             {/* For Showing Only The Text */}
             {

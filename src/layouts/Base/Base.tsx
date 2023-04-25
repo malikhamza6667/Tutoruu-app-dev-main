@@ -18,14 +18,14 @@ const Base: React.FC<Props> = ({
     isTutor
 }) => {
     return (
-        <View style={[tw`flex-1 `, { top: hp('2%'), backgroundColor: Colors.white }]} testID='base-container'>
+        <View style={[tw`flex-1 `, { backgroundColor: Colors.white }]} testID='base-container'>
             <View style={styles.container}>
                 <Text
-                    className="text-[30px]"
-                    style={[styles.text, { marginLeft: wp('5%') }]}>Hey</Text>
+                    
+                    style={[tw`text-[30px]`,styles.text, { marginLeft: wp('5%') }]}>Hey</Text>
                 <Text
-                    className="text-[30px]"
-                    style={[styles.text, { color: Colors.orange }]}> {userName}</Text>
+                   
+                    style={[tw`text-[30px]`,styles.text, { color: Colors.orange }]}> {userName}</Text>
                 <View style={styles.status} ></View>
                 <View style={styles.studentContainer}>
                     <Text testID="student-text" style={styles.student}>{isTutor ? 'Tutor' : 'Student'}</Text>

@@ -97,7 +97,7 @@ contentContainerStyle={{flexDirection:'row'}}
                 >{date}</Text>
             </View>
 
-            <View className='flex-row ' style={{ paddingHorizontal: wp('3%') }}>
+            <View  style={[tw`flex-row`,{ paddingHorizontal: wp('3%') }]}>
                 <View className='flex-[0.2] items-center' >
 
                     <Avatar
@@ -107,8 +107,8 @@ contentContainerStyle={{flexDirection:'row'}}
                     />
                 </View>
 
-                <View className='flex-[0.8] justify-center mb-3'>
-                    <View className='flex-row justify-between pr-6' style={{ height: hp('4%') }}>
+                <View  style={[tw` justify-center mb-3`,{flex:0.8}]}>
+                    <View  style={[tw`flex-row justify-between pr-6`,{ height: hp('4%') }]}>
                         <View >
                             <Text style={[tw`p-1 text-base`, { fontFamily: 'PoppinsRegular' }]}>{user.name}</Text>
 
@@ -118,7 +118,7 @@ contentContainerStyle={{flexDirection:'row'}}
                             <Text style={[tw`py-1`, { color: Colors.orange, fontFamily: 'PoppinsRegular' }]}>{user.username}</Text>
                         </View>
                     </View>
-                    <View className='flex-row '>
+                    <View className='flex-row ' style={tw`flex-row`}>
                         <Text style={[tw`p-1 text-base`, { fontFamily: 'PoppinsRegular' }]}>{text}</Text>
                     </View>
                 </View>
@@ -135,7 +135,7 @@ contentContainerStyle={{flexDirection:'row'}}
                     />
                 </View>
             }
-            <View className='flex-row self-end justify-evenly items-center ' style={[{ height: hp('6%'), width: wp('80%'), paddingHorizontal: hp('3%') }]}>
+            <View style={[tw`flex-row self-end justify-evenly items-center`,{ height: hp('6%'), width: wp('80%'), paddingHorizontal: hp('3%') }]}>
                 {/* <Feather name="thumbs-up" size={24} color="black" /> */}
                 <View style={[tw`flex-row items-center`]}>
                     <Text style={[tw`p-1`, { color: Colors.orange, fontFamily: 'PoppinsMedium' }]}>{comments_count > 0 ? comments_count : ''}</Text>

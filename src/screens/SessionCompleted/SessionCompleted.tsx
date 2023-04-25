@@ -46,7 +46,7 @@ const SessionCompleted:React.FC=()=>{
                   </View>
             </Popup>
         }
-        <View style={[tw`my-1`]}>
+        <View style={[tw`my-1 bg-red-400`]}>
             <Section title="Session Info">
                 <View style={[tw`px-3`]}>
 

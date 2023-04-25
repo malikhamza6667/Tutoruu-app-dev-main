@@ -160,8 +160,8 @@ const Input: React.FC<Props> = ({
                         style={[tw`flex-row justify-between items-center border border border-gray-400 px-1 py-2  rounded-3xl `, { width: width, height: hp('5.5%') }]} >
 
                         <TextInput
-                            style={{ fontFamily: 'PoppinsRegular' }}
-                            className=' flex-1  px-3'
+                            style={[tw`flex-1  px-3`,{ fontFamily: 'PoppinsRegular' }]}
+                            
                             placeholder={placeholder}
                             value={text}
                             secureTextEntry={invisbilePassword}
@@ -177,10 +177,10 @@ const Input: React.FC<Props> = ({
                             onChangeText={handleTextChange}
                         />
                         <TouchableOpacity
-                            className='flex-[0.15]'
+                            // className='flex-[0.15]'
                             onPress={onIconPressed}
                             testID='input-icon'
-                            style={[tw`rounded-full  justify-center items-center py-1.5  mx-1`, { backgroundColor: iconBackground ? iconBackground : 'transparent' }]}
+                            style={[tw`rounded-full  justify-center items-center py-1.5  mx-1`, {flex: 0.15, backgroundColor: iconBackground ? iconBackground : 'transparent' }]}
                         >
                             <IconFamily name={iconName} size={parseInt(Iconsize)} color={color} />
 
@@ -208,8 +208,8 @@ const Input: React.FC<Props> = ({
 
                         </TouchableOpacity>
                         <TextInput
-                            style={{ fontFamily: 'PoppinsRegular' }}
-                            className=' flex-1  px-3'
+                            style={[tw`flex-1  px-3`,{ fontFamily: 'PoppinsRegular' }]}
+                            
                             placeholder={placeholder}
                             value={text}
                             secureTextEntry={invisbilePassword}
@@ -241,8 +241,8 @@ const Input: React.FC<Props> = ({
                     >
 
                         <TextInput
-                            className=' flex-1  px-3'
-                            style={{ fontFamily: 'PoppinsRegular' }}
+                            className=' '
+                            style={[tw`flex-1  px-3`,{ fontFamily: 'PoppinsRegular' }]}
                             placeholder={placeholder}
                             value={text}
                             secureTextEntry={invisbilePassword}
@@ -262,7 +262,7 @@ const Input: React.FC<Props> = ({
                             className='flex-[0.15]'
                             onPress={onIconPressed}
                             testID='input-icon'
-                            style={[tw`rounded-full justify-center items-center h-10 mx-1`, { backgroundColor: iconBackground ? iconBackground : 'transparent' }]}
+                            style={[tw`rounded-full justify-center items-center h-10 mx-1`, { flex: 0.15,backgroundColor: iconBackground ? iconBackground : 'transparent' }]}
                         >
                             <IconFamily
 
