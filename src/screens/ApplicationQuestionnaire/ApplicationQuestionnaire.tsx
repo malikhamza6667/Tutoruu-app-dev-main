@@ -80,9 +80,9 @@ const ApplicationQuestionnare: React.FC<Props> = ({
     }
 
     return (
-        <SafeAreaView className="flex-1">
+        
             <Details headerTitle="Tutor Application">
-                <View className="px-4 flex-row">
+                <View  style={[tw`px-4 py-1 flex-row`]}>
                     <View>
                         {
                             pickedImage ?
@@ -116,8 +116,8 @@ const ApplicationQuestionnare: React.FC<Props> = ({
                 <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
                     <ScrollView contentContainerStyle={{ paddingBottom: 10 }}>
 
-                        <View className="p-1 pt-4 justify-evenly" >
-                            <View className="self-center">
+                        <View  style={[tw`p-1 pt-4 justify-evenly`]}>
+                            <View  style={[tw`self-center`]}>
 
                                 <Input
                                     value={bio}
@@ -144,12 +144,12 @@ const ApplicationQuestionnare: React.FC<Props> = ({
                                     size='small'
                                 />
                             </View>
-                            <View className="self-center">
+                            <View style={[tw`self-center`]}>
                                 <Input
                                     value={newClass}
                                     title={'Classes'}
                                     placeholder={'Add Classes...'}
-                                    icon={'Entypo plus 24 gray'}
+                                    icon={'Entypo plus 18 gray'}
                                     onIconPressed={() => {
                                         ClassesData.push(newClass)
 
@@ -157,7 +157,7 @@ const ApplicationQuestionnare: React.FC<Props> = ({
                                     onChangeText={(text) => { setNewClass(text) }}
                                     size='xlarge'
                                 />
-                                <View className="mt-1" style={{ height: hp('7%') }}>
+                                <View  style={[tw`mt-1`,{height:hp('7%')}]} >
 
                                     <HorizontalList
 
@@ -166,12 +166,12 @@ const ApplicationQuestionnare: React.FC<Props> = ({
                                             return (
                                                 <View
 
-                                                    style={{ backgroundColor: Colors.gray }}
-                                                    className=' rounded-full self-center py-2 px-2 bg-green-400 m-0.5  items-center '>
+                                                    style={[tw`rounded-full self-center py-2 px-2 m-0.5  items-center`,{ backgroundColor: Colors.gray }]}
+                                                   >
                                                     <Text
 
-                                                        style={{ color: Colors.black, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}
-                                                        className='text-sm '>{item}</Text>
+                                                        style={[tw`text-sm`,{ color: Colors.black, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }]}
+                                                        >{item}</Text>
                                                 </View>
                                             )
                                         }}
@@ -196,12 +196,12 @@ const ApplicationQuestionnare: React.FC<Props> = ({
                                 />
                             </View>
 
-                            <View className=" py-3">
+                            <View  style={[tw`py-3`]}>
                                 <Text style={[tw`px-6 text-base py-3`, { fontFamily: 'PoppinsMedium' }]}>Tutoring Information</Text>
                                 <Separator type="line" />
                                 <Card >
                                     <View style={tw`flex-row justify-between px-4`}>
-                                        <View className='py-3 ' style={{ width: wp('60%') }}>
+                                        <View  style={[tw`py-3`,{ width: wp('60%') }]}>
                                             <Text style={{ fontFamily: 'PoppinsMedium' }} >Transcript</Text>
                                             <Text style={{ fontFamily: 'PoppinsRegular' }}>{pickedDocName}</Text>
                                         </View>
@@ -226,7 +226,7 @@ const ApplicationQuestionnare: React.FC<Props> = ({
                                     <Text style={[tw`text-xs px-4 py-1`, { fontFamily: 'PoppinsMedium', color: Colors.orange, textTransform: 'uppercase' }]}>You will get: 92.5</Text>
 
                                 </View>
-                                <View className=" flex-row items-center mr-4 mt-4 pt-1 ">
+                                <View style={tw`flex-row items-center mr-4 mt-4 pt-1`}>
                                     <Switch
                                         opened
 
@@ -236,7 +236,7 @@ const ApplicationQuestionnare: React.FC<Props> = ({
                                 </View>
                             </View>
 
-                            <View className="self-center py-2">
+                            <View style={[tw`self-center py-2`]} >
 
                                 <Input
                                     value={longQuestionOne}
@@ -247,7 +247,7 @@ const ApplicationQuestionnare: React.FC<Props> = ({
                                     size='Xlarge'
                                 />
                             </View>
-                            <View className="self-center  py-2">
+                            <View style={[tw`self-center  py-2`]}>
 
                                 <Input
                                     value={longQuestionTwo}
@@ -258,7 +258,7 @@ const ApplicationQuestionnare: React.FC<Props> = ({
                                     size='Xlarge'
                                 />
                             </View>
-                            <View className="self-center  py-2">
+                            <View  style={[tw`self-center  py-2`]}>
 
                                 <Input
                                     value={longQuestionThree}
@@ -269,11 +269,11 @@ const ApplicationQuestionnare: React.FC<Props> = ({
                                     size='Xlarge'
                                 />
                             </View>
-                            <View className="px-4 py-2">
+                            <View  style={[tw`px-4 py-2`]}>
 
                                 <Button
                                     shape="full"
-                                    onPress={() => navigation.navigate('ApplicationStatus')}
+                                    onPress={() => {navigation.navigate('ApplicationStatus')}}
                                     text='Save'
                                 />
                             </View>
@@ -281,7 +281,7 @@ const ApplicationQuestionnare: React.FC<Props> = ({
                     </ScrollView>
                 </KeyboardAvoidingView>
             </Details>
-        </SafeAreaView>
+    
     )
 }
 

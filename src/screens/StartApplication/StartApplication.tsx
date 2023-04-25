@@ -8,33 +8,35 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-nat
 import Colors from "../../../assets/Colors";
 import Switch from "../../components/Switch/Switch";
 import Button from "../../components/Button/Button";
-
-const StartApplication: React.FC = ({ navigation }) => {
+type Props={
+    navigation?:any
+}
+const StartApplication: React.FC<Props> = ({ navigation }) => {
     const [isOn, setIsOn] = useState(false)
     return (
         <Details headerTitle="Start Application">
 
-            <View className='px-5 '>
-                <View className='flex-row '>
+            <View  style={[tw`px-5`]}>
+                <View  style={[tw`flex-row`]}>
 
-                    <Text style={{ fontFamily: 'PoppinsBold', textTransform: 'capitalize' }} className='text-3xl px-2' >Hey</Text>
-                    <Text style={{ fontFamily: 'PoppinsBold', textTransform: 'capitalize', color: Colors.orange }} className='text-3xl' >Ragnar</Text>
-                    <Text style={{ fontFamily: 'PoppinsBold', textTransform: 'capitalize' }} className='text-3xl'>!</Text>
+                    <Text style={[tw`text-3xl px-2`,{ fontFamily: 'PoppinsBold', textTransform: 'capitalize' }]}  >Hey</Text>
+                    <Text style={[tw`text-3xl`,{ fontFamily: 'PoppinsBold', textTransform: 'capitalize', color: Colors.orange }]} >Ragnar</Text>
+                    <Text style={[tw`text-3xl`,{ fontFamily: 'PoppinsBold', textTransform: 'capitalize' }]} >!</Text>
                 </View>
 
-                <Text style={{ fontFamily: 'PoppinsBold', textTransform: 'capitalize' }} className=' text-3xl'>Welcome to the Tutoruu family </Text>
+                <Text style={[tw`text-3xl`,{ fontFamily: 'PoppinsBold', textTransform: 'capitalize' }]} >Welcome to the Tutoruu family </Text>
 
             </View>
-            <View className='px-6 pb-5 '>
+            <View  style={[tw`px-6 pb-5`]}>
                 <Text style={{ fontFamily: 'PoppinsRegular' }} className='text-sm'>
                     Before you begin your application, you’ll need to make sure you have read through our code of conduct below. Standardizing the quality of student-led tutoring sessions is foundational to the supportive, trustworthy community that we are building, and that you are part of!
                 </Text>
             </View>
 
-            <View className='px-5 py-3'>
-                <Text style={{ fontFamily: 'PoppinsBold', textTransform: 'capitalize' }} className='text-base px-3 py-3'>Code Of Conduct</Text>
+            <View  style={[tw`px-5 py-3`]}>
+                <Text style={[tw`text-base px-3 py-3`,{ fontFamily: 'PoppinsBold', textTransform: 'capitalize' }]} >Code Of Conduct</Text>
 
-                <View style={{ height: hp('30%'), backgroundColor: '#FCF6EB' }} className='p-5  rounded-3xl'>
+                <View style={[tw`p-5  rounded-3xl`,{ height: hp('30%'), backgroundColor: '#FCF6EB' }]} >
 
                     <ScrollView
                         showsVerticalScrollIndicator={false}

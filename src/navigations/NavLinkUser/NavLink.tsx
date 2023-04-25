@@ -11,6 +11,8 @@ import Colors from "../../../assets/Colors";
 import tw from 'twrnc';
 import { Icon } from "../../components/Icon/Icon";
 import Profile from "../../screens/Profile/Profile";
+import SavedPosts from "../../screens/SavedPosts/SavedPosts";
+import TutorApplicationFlow from "../TutorApplicationFlow/TutorApplicationFlow";
 const drawer= createDrawerNavigator()
 type Props= {
     navigation?: any;
@@ -197,6 +199,57 @@ options={{
               <Icon
               family="FontAwesome"
               name="user"
+              color={focused? Colors.orange: Colors.black}
+              size="small"
+              
+              />
+                
+              
+            ),
+           
+            
+             
+              
+          }} 
+/>
+
+<drawer.Screen
+
+name="SavedPosts"
+component={SavedPosts}
+options={{
+  drawerLabel:'Saved Posts',
+  headerShown:false,
+            drawerIcon: ({ focused, size }) => (
+           
+              <Icon
+              family="Entypo"
+              name="bookmark"
+              color={focused? Colors.orange: Colors.black}
+              size="small"
+              
+              />
+                
+              
+            ),
+           
+            
+             
+              
+          }} 
+/>
+<drawer.Screen
+
+name="TutorApplicationFlow"
+component={TutorApplicationFlow}
+options={{
+  drawerLabel:'Become A Tutor',
+  headerShown:false,
+            drawerIcon: ({ focused, size }) => (
+              
+              <Icon
+              family="MaterialIcons"
+              name="collections-bookmark"
               color={focused? Colors.orange: Colors.black}
               size="small"
               

@@ -37,6 +37,8 @@ import tw from 'twrnc';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer'
 import NavLinkUser from './src/navigations/NavLinkUser/NavLink';
+import ApplicationQuestionnare from './src/screens/ApplicationQuestionnaire/ApplicationQuestionnaire';
+import TutorApplicationFlow from './src/navigations/TutorApplicationFlow/TutorApplicationFlow';
 
 
 SplashScreen.preventAutoHideAsync();
@@ -150,10 +152,10 @@ const MyApp = () => {
     {/* <SessionCompleted/> */}
    {/* <SessionRequest/> */}
    <NavigationContainer>
-
- <NavLinkUser/>
+<NavLinkUser/>
+{/* <TutorApplicationFlow/> */}
    </NavigationContainer>
-   
+ 
    
     </SafeAreaView>
 

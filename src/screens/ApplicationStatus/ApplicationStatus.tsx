@@ -15,7 +15,7 @@ const ApplicationStatus:React.FC <Props>= ({navigation}) => {
 
     const status = false
     return (
-        <Details headerTitle="Application Status">
+        <Details headerTitle="Application Status" >
             {status ?
                 <View style={[tw`flex-1 justify-center items-center`]}>
                     <Image

@@ -11,12 +11,15 @@ type Props = {
     navigation?: any
     headerTitle: string
     ChatIcon?: boolean
+    
+    
 }
 const Details: React.FC<Props> = ({
     children,
     navigation,
     headerTitle,
-    ChatIcon
+    ChatIcon,
+ 
 }) => {
     return (
         <SafeAreaView style={[tw`flex-1 `, { backgroundColor: Colors.white }]}>
@@ -25,7 +28,7 @@ const Details: React.FC<Props> = ({
 
                     <TouchableOpacity
                         testID="back-icon"
-                        onPress={() =>  {navigation.goBack()} }
+                        onPress={()=>{navigation.goBack()}}
                         // style={{backgroundColor:'red'}}
                     >
                         <Icon
