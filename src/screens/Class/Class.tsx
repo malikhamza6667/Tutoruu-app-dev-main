@@ -13,6 +13,7 @@ import Post from "../../components/Post/PostCard";
 import TutorCard from "../../components/TutorCard/TutorCard";
 import { Card } from "../../layouts/Card/Card";
 import Button from "../../components/Button/Button";
+import { useNavigation } from "@react-navigation/native";
 const ClassesData = [
     'AUC',
     'Computer Science'
@@ -47,7 +48,7 @@ const Class: React.FC = () => {
     const [isSaved, setisSaved] = useState(false)
 
     const totalStudents = ClassStudents.length
-
+const navigation= useNavigation()
     //   const totalStudents= 0
     return (
 
@@ -55,7 +56,7 @@ const Class: React.FC = () => {
         <Details headerTitle="CSCE 312" >
             {
                 totalStudents > 0 &&
-                <View className="justify-between">
+                <View className="justify-between" style={[tw`justify-between`]}>
                     <ScrollView>
                         <View >
 
@@ -66,16 +67,19 @@ const Class: React.FC = () => {
                                     return (
                                         <TouchableOpacity
                                             onPress={() => { setSelectedCatagoryIdx(index) }}
-                                            style={{
+                                            style={[
+                                                tw`rounded-3xl self-center py-2 px-3  m-0.5  items-center`,
+                                                {
                                                 backgroundColor: index == selectedCategoryIdx ? Colors.orange : Colors.gray,
 
 
-                                            }}
-                                            className=' rounded-3xl self-center py-2 px-3  m-0.5  items-center '>
+                                            }]}
+                                            
+                                            >
                                             <Text
 
-                                                style={{ color: index == selectedCategoryIdx ? Colors.white : Colors.black, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}
-                                                className='text-sm '>{item}</Text>
+                                                style={[tw`text-sm`,{ color: index == selectedCategoryIdx ? Colors.white : Colors.black, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }]}
+                                                >{item}</Text>
                                         </TouchableOpacity>
                                     )
                                 }}
@@ -157,7 +161,7 @@ const Class: React.FC = () => {
                                                 user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe', bio: 'Hello world', is_tutor: true }}
                                                 num_sessions={4}
                                                 rating={2}
-                                                onPress={() => { alert('Pressed') }}
+                                                onPress={()=>{navigation.navigate('TutorProfile') }}
                                                 rate={'270 EGP'}
                                                 text={'PhD student in the Industrial & Systems Engineering Department…'}
                                             />

@@ -12,9 +12,12 @@ import tw from 'twrnc';
 import StarRatings from "../StarRatings/StarRatings";
 import Button from "../Button/Button";
 type User = {
-    id: number,
+
     name: string,
-    image: string
+    image: string,
+    username?: string
+    bio?: string
+    is_tutor:boolean
 }
 type Props = {
     text: string;

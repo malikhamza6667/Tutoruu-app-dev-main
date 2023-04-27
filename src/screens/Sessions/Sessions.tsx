@@ -8,8 +8,12 @@ import tw from 'twrnc';
 import HorizontalList from "../../layouts/HorizontalList/HorizontalList";
 import { completedSessions, sessions } from "../DummyData";
 import SessionCard from "../../components/SessionCard/SessionCard";
-
-const Sessions:React.FC=()=>{
+type Props={
+    navigation?:any
+    route?:any
+}
+const Sessions:React.FC<Props>=({navigation,route})=>{
+    const {is_Tutor}=route.params
     return(
         <Details headerTitle="Sessions">
 <View style={[tw`pt-2 py-1`]}>
@@ -30,7 +34,7 @@ const Sessions:React.FC=()=>{
 class_name={item.class_name}
 day={item.day}
 onPress={()=>{alert('Pressed')}}
-isTutor={item.isTutor}
+isTutor={is_Tutor}
 is_accepted={item.is_accepted}
 location={item.location}
 created_date={item.created_date}

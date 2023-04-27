@@ -7,10 +7,12 @@ import Input from "../../components/Input/Input";
 import Section from "../../layouts/Section/Section";
 import Spacer from "../../components/Spacer/Spacer";
 import Button from "../../components/Button/Button";
-
-const Support = () => {
+type Props={
+    navigation:any
+}
+const Support:React.FC<Props> = ({navigation}) => {
     return (
-        <Details headerTitle="Support">
+        <Details headerTitle="Support" onPressBackIcon={()=>{navigation.toggleDrawer}}>
             <View
                 style={[tw`flex-0.9 self-center`, { width: wp('95%') }]}
             >
@@ -42,6 +44,7 @@ const Support = () => {
                         <Spacer />
                         <Spacer />
                         <Button
+                        onPress={()=>{navigation.goBack()}}
                             shape="default"
                             text="Submit"
                         />

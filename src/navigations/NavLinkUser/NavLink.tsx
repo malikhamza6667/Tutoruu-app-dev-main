@@ -13,6 +13,11 @@ import { Icon } from "../../components/Icon/Icon";
 import Profile from "../../screens/Profile/Profile";
 import SavedPosts from "../../screens/SavedPosts/SavedPosts";
 import TutorApplicationFlow from "../TutorApplicationFlow/TutorApplicationFlow";
+import Settings from "../../screens/Settings/Settings";
+import Support from "../../screens/Support/Support";
+import BAP from "../../screens/BAP/BAP";
+
+
 const drawer= createDrawerNavigator()
 type Props= {
     navigation?: any;
@@ -95,22 +100,22 @@ return(
               [<View style={styles.icon} >
                 <TouchableOpacity
                 style={[tw`p-2 mx-1 rounded-full`,{backgroundColor: Colors.lightorange,}]}
-                  onPress={() => navigation.navigate('Notification')}>
-                 <Icon
-                 family="FontAwesome"
+                  onPress={() => {navigation.navigate('NotificationScreen')}}>
+                    
+                 <FontAwesome
+               
                  name="bell-o"
-                 size="small"
+                 size={20}
                  color={color}
                  />
                       
                 </TouchableOpacity>
                 <TouchableOpacity
                  style={[tw`p-2 mx-1 rounded-full`,{backgroundColor: Colors.lightorange,}]}
-                  onPress={() => navigation.navigate('Search')}>
-                   <Icon
-                 family="Ionicons"
+                  onPress={() => {navigation.navigate('Search')}}>
+                   <Ionicons
                  name="search-outline"
-                 size="small"
+                 size={20}
                  color={color}
                  />
                     
@@ -156,32 +161,32 @@ drawerLabel:'Find Tutors',
             />,
           headerTitleAlign: 'center',
           headerRight: () =>
-            [<View style={styles.icon} >
-              <TouchableOpacity
-              style={[tw`p-2 mx-1 rounded-full`,{backgroundColor: Colors.lightorange,}]}
-                onPress={() => navigation.navigate('Notification')}>
-               <Icon
-               family="FontAwesome"
-               name="bell-o"
-               size="small"
-               color={color}
-               />
-                    
-              </TouchableOpacity>
-              <TouchableOpacity
-               style={[tw`p-2 mx-1 rounded-full`,{backgroundColor: Colors.lightorange,}]}
-                onPress={() => navigation.navigate('Search')}>
-                 <Icon
-               family="Ionicons"
-               name="search-outline"
-               size="small"
-               color={color}
-               />
+          [<View style={styles.icon} >
+            <TouchableOpacity
+            style={[tw`p-2 mx-1 rounded-full`,{backgroundColor: Colors.lightorange,}]}
+              onPress={() => {navigation.navigate('NotificationScreen')}}>
+                
+             <FontAwesome
+           
+             name="bell-o"
+             size={20}
+             color={color}
+             />
                   
-               
-              </TouchableOpacity>
-            </View>
-            ],
+            </TouchableOpacity>
+            <TouchableOpacity
+             style={[tw`p-2 mx-1 rounded-full`,{backgroundColor: Colors.lightorange,}]}
+              onPress={() => {navigation.navigate('Search')}}>
+               <Ionicons
+             name="search-outline"
+             size={20}
+             color={color}
+             />
+                
+             
+            </TouchableOpacity>
+          </View>
+          ],
            
             
         }} 
@@ -250,6 +255,81 @@ options={{
               <Icon
               family="MaterialIcons"
               name="collections-bookmark"
+              color={focused? Colors.orange: Colors.black}
+              size="small"
+              
+              />
+                
+              
+            ),
+           
+            
+             
+              
+          }} 
+/>
+<drawer.Screen
+
+name="Settings"
+component={Settings}
+options={{
+  drawerLabel:'Settings',
+  headerShown:false,
+            drawerIcon: ({ focused, size }) => (
+             
+              <Icon
+              family="Ionicons"
+              name="settings"
+              color={focused? Colors.orange: Colors.black}
+              size="small"
+              
+              />
+                
+              
+            ),
+           
+            
+             
+              
+          }} 
+/>
+<drawer.Screen
+
+name="Support"
+component={Support}
+options={{
+  drawerLabel:'Support',
+  headerShown:false,
+            drawerIcon: ({ focused, size }) => (
+              
+              <Icon
+              family="MaterialCommunityIcons"
+              name="alert"
+              color={focused? Colors.orange: Colors.black}
+              size="small"
+              
+              />
+                
+              
+            ),
+           
+            
+             
+              
+          }} 
+/>
+<drawer.Screen
+
+name="BAP"
+component={BAP}
+options={{
+  drawerLabel:'Brand Ambassadors',
+  headerShown:false,
+            drawerIcon: ({ focused, size }) => (
+             
+              <Icon
+              family="FontAwesome"
+              name="star"
               color={focused? Colors.orange: Colors.black}
               size="small"
               

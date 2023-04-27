@@ -7,7 +7,7 @@ import Colors from "../../../assets/Colors";
 import { Card } from "../../layouts/Card/Card";
 import { Icon } from "../Icon/Icon";
 
-
+import AntDesign from 'react-native-vector-icons/AntDesign'
 
 type Props = {
     name: string
@@ -30,12 +30,15 @@ const ClassCard: React.FC<Props> = ({ name, desc, onPress }) => {
                     >
                         <Text style={[tw`text-sm`, { fontFamily: 'PoppinsBold', color: Colors.orange }]}>View</Text>
                     </TouchableOpacity>
-                    <Icon
+                    {/* <Icon
                         family="AntDesign"
                         name="arrowright"
                         size="xsmall"
                         color={Colors.orange}
-                    />
+                    /> */}
+                    <AntDesign name="arrowright"
+                        size={12}
+                        color={Colors.orange}/>
                 </View>}
             </View>
         </Card>

@@ -35,7 +35,7 @@ const TutorProfile:React.FC=()=>{
         <Details headerTitle='Tutor' ChatIcon>
             <View>
             <View style={[tw`flex-row justify-evenly px-3 py-1`]}>
-                <View className=' flex-[0.4]'>
+                <View className=' flex-[0.4]' style={[{flex:0.4}]}>
 
                 <Avatar
                 showCap
@@ -44,19 +44,19 @@ const TutorProfile:React.FC=()=>{
                 
                 />
                 </View>
-                <View className='flex-[0.8]'>
+                <View className='flex-[0.8]' style={[{flex:0.8}]}>
                 <HorizontalList
                 data={tags}
                 renderItem={({item,index})=>{
                     return(
                         <View
                         key={index}
-                                    style={{ backgroundColor: Colors.lightorange }}
-                                    className=' rounded-full self-center py-2 px-4 m-0.5 items-center '>
+                                    style={[tw` rounded-full self-center py-2 px-4 m-0.5 items-center`,{ backgroundColor: Colors.lightorange }]}
+                                  >
                                     <Text
                         
-                                        style={{ color: Colors.orange, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}
-                                        className='text-sm '>{item}</Text>
+                                        style={[tw`text-sm`,{ color: Colors.orange, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }]}
+                                        >{item}</Text>
                                 </View>     
                     )
                 }}
@@ -79,23 +79,23 @@ const TutorProfile:React.FC=()=>{
                 <View style={[tw`flex-row`]}>
                 <View
                         
-                                    style={{ backgroundColor: Colors.gray }}
-                                    className=' rounded-[5px] self-center py-1 px-2 m-0.5 items-center '>
+                                    style={[tw`rounded-[5px] self-center py-1 px-2 m-0.5 items-center`,{ backgroundColor: Colors.gray }]}
+                                    >
                                     <Text
                         
-                                        style={{ color: Colors.black, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}
-                                        className='text-sm '>Tutor</Text>
+                                        style={[tw`text-sm`,{ color: Colors.black, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }]}
+                                        >Tutor</Text>
                                 </View>  
                 <View
                         
-                                    style={{ backgroundColor: Colors.gray }}
+                                    style={[tw`rounded-[5px] self-center py-1 px-2 m-0.5 items-center`,{ backgroundColor: Colors.gray }]}
                                     className=' rounded-[5px] self-center py-1 px-2 m-0.5 items-center '>
                                     <Text
                         
-                                        style={{ color: Colors.black, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}
+                                        style={[tw`text-sm`,{ color: Colors.black, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }]}
                                         className='text-sm '>300 EGP</Text>
                                 </View> 
-                                <View className='px-10 self-center'>
+                                <View className='px-10 self-center' style={[tw`px-10 self-center`]}>
                                     <StarRatings numStars={5} rating={4} isDisable/>
                                     </View> 
                 </View>
@@ -164,7 +164,7 @@ const TutorProfile:React.FC=()=>{
             <ScrollView>
             <View style={[tw`py-1 px-5`]}>
                 <Text style={[tw`text-base py-2`,{fontFamily:'PoppinsMedium',textTransform:'capitalize'}]}>Classes Ragnar Tutors In</Text>
-         <View className='flex-row px-1 '>
+         <View className='flex-row px-1 ' style={[tw`flex-row px-1`]}>
 
            <HorizontalList
          
@@ -175,13 +175,13 @@ const TutorProfile:React.FC=()=>{
     return (
         <TouchableOpacity
             onPress={() => { setSelectedClassIdx(index) }}
-            style={{
+            style={[tw`rounded-3xl  py-2 px-3  my-1 mx-1  items-center`,{
                 backgroundColor: index == selectedClassIdx ? Colors.orange : Colors.gray,
 
 
-            }}
+            }]}
            
-            className=' rounded-3xl  py-2 px-3  my-1 mx-1  items-center '>
+            >
             <Text
 
                 style={{ color: index == selectedClassIdx ? Colors.white : Colors.black, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}

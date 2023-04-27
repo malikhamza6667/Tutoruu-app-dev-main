@@ -18,7 +18,10 @@ const ClassesData = [
     'CSCE-1521',
     'RHET-32'
 ]
-const Marketplace = ({ navigation:any }) => {
+type Props={
+    navigation:any
+}
+const Marketplace:React.FC<Props> = ({ navigation }) => {
     const Data = [
         {
 
@@ -78,7 +81,9 @@ const Marketplace = ({ navigation:any }) => {
 </View>  
                 </View>
                 <View style={[tw`px-3`]}>
-                    <Section title='Upcoming Sessions' pressableSubtitle="View All Sessions">
+                    <Section title='Upcoming Sessions' pressableSubtitle="View All Sessions" onPressSubtitle={()=>{navigation.navigate('Sessions',{
+                        is_Tutor:false
+                    })}}>
                         <SessionCard
                             time="2.30Pm"
                             location="online"
@@ -99,7 +104,8 @@ const Marketplace = ({ navigation:any }) => {
                                         user={{ name: 'John Doe', image: 'https://i.pravatar.cc/300', username: 'johndoe', bio: 'Hello world', is_tutor: true }}
                                         num_sessions={4}
                                         rating={2}
-                                        onPress={() => { alert('Pressed') }}
+                                       
+                                         onPress={() => { navigation.navigate('TutorProfile') }}
                                         rate={'270 EGP'}
                                         text={'PhD student in the Industrial & Systems Engineering Department…'}
                                     />

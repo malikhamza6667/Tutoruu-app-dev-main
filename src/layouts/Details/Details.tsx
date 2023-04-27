@@ -1,34 +1,43 @@
 import React from "react";
 
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableWithoutFeedback, TouchableOpacity } from 'react-native'
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
 import tw from 'twrnc';
 import Colors from "../../../assets/Colors";
 import { Icon } from "../../components/Icon/Icon";
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { useNavigation } from "@react-navigation/native";
+import Button from "../../components/Button/Button";
+
+import Ionicons from 'react-native-vector-icons/Ionicons'
 type Props = {
     children: React.ReactNode,
     navigation?: any
     headerTitle: string
     ChatIcon?: boolean
+    onPressChatIcon?:()=>void
+    onPressBackIcon?:()=>void
     
     
 }
 const Details: React.FC<Props> = ({
     children,
-    navigation,
+    // navigation,
     headerTitle,
     ChatIcon,
- 
+ onPressBackIcon,
+ onPressChatIcon
 }) => {
+    const navigation= useNavigation()
     return (
         <SafeAreaView style={[tw`flex-1 `, { backgroundColor: Colors.white }]}>
             <View style={[tw`flex-row  justify-between items-center`, { height: hp('7%'), paddingHorizontal: wp('5%') }]}>
                 <View style={{ width: wp('20%') }}>
 
-                    <TouchableOpacity
+                    {/* <TouchableWithoutFeedback
                         testID="back-icon"
-                        onPress={()=>{navigation.goBack()}}
+                        //  onPress={onPressBackIcon}
+                         onPress={()=>{alert('Preessed')}}
                         // style={{backgroundColor:'red'}}
                     >
                         <Icon
@@ -38,7 +47,12 @@ const Details: React.FC<Props> = ({
                             size='medium'
                             color={Colors.black}
                         />
-                    </TouchableOpacity>
+                    </TouchableWithoutFeedback> */}
+                   <TouchableOpacity
+                   onPress={()=>{navigation.goBack()}}
+                   >
+<Ionicons name="md-chevron-back-outline" size={30} color="black" />
+                   </TouchableOpacity>
                 </View>
                 <View style={{ width: wp('40%') }}>
 
@@ -51,16 +65,17 @@ const Details: React.FC<Props> = ({
                             ChatIcon &&
                             <TouchableOpacity
                                 testID="chat-icon"
-                                style={{ backgroundColor: Colors.lightorange, width: wp('10%') }}
+                                style={{  width: wp('10%') }}
                                 className='p-2 rounded-full'
-                                onPress={() => { navigation.goBack() }}
+                                onPress={() => { navigation.navigate('Chat') }}
                             >
-                                <Icon
+                                {/* <Icon
                                     family="Ionicons"
                                     name="chatbubbles"
                                     size='small'
                                     color={Colors.orange}
-                                />
+                                /> */}
+                             <Ionicons name="chatbubbles" size={20} color={Colors.orange} />
                             </TouchableOpacity>
 
                         }

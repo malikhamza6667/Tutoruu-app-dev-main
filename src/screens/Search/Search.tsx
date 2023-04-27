@@ -25,9 +25,12 @@ import {
     ClassInfo,
     postsData
 } from "../DummyData";
+import { useNavigation } from "@react-navigation/native";
+
 
 
 const Search = () => {
+    const navigation= useNavigation()
     const renderItem = ({ item }) => (
         <Post
             text={item.text}
@@ -96,9 +99,10 @@ const Search = () => {
                                     user={item.user}
                                     num_sessions={item.num_sessions}
                                     rating={item.rating}
-                                    onPress={item.onPress}
+                                    onPress={()=>{navigation.navigate('TutorProfile')}}
                                     rate={item.rate}
                                     text={item.text}
+
                                 />
 
                             </View>
@@ -119,6 +123,7 @@ const Search = () => {
                             <View>
                                 <ClassCard
                                     name={item.Title}
+                                    onPress={()=>{navigation.navigate('Class')}}
                                     desc={item.Desc}
                                 />
                             </View>

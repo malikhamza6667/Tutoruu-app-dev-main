@@ -39,6 +39,8 @@ import {createDrawerNavigator} from '@react-navigation/drawer'
 import NavLinkUser from './src/navigations/NavLinkUser/NavLink';
 import ApplicationQuestionnare from './src/screens/ApplicationQuestionnaire/ApplicationQuestionnaire';
 import TutorApplicationFlow from './src/navigations/TutorApplicationFlow/TutorApplicationFlow';
+import UserMainFlow from './src/navigations/UserMainStack/UserMainFlow';
+import MainAppRoutes from './src/navigations/AppRoutesMain/AppRoutes';
 
 
 SplashScreen.preventAutoHideAsync();
@@ -152,7 +154,7 @@ const MyApp = () => {
     {/* <SessionCompleted/> */}
    {/* <SessionRequest/> */}
    <NavigationContainer>
-<NavLinkUser/>
+<MainAppRoutes/>
 {/* <TutorApplicationFlow/> */}
    </NavigationContainer>
  
