@@ -26,6 +26,7 @@ import {
     postsData
 } from "../DummyData";
 import { useNavigation } from "@react-navigation/native";
+import Section from "../../layouts/Section/Section";
 
 
 
@@ -85,15 +86,15 @@ const Search = () => {
                     />
                 </View>
                 <Spacer />
-                <Heading heading="Tutors" />
-
-
+                {/* <Heading heading="Tutors" /> */}
+<Section title="Tutors">
+    <View style={[tw`px-3`]}>
 
                 <HorizontalList
                     data={tutorData}
                     renderItem={({ item }) => {
                         return (
-                            <View>
+                            <View style={[tw`pt-7`]}>
                                 <TutorCard
                                     classes={TutorSubjects}
                                     user={item.user}
@@ -112,11 +113,17 @@ const Search = () => {
 
 
                 />
+    </View>
+
+</Section>
+
+
 
                 <Spacer />
-                <Heading heading="Classes" />
+                <Section title="Tutors">
+    <View style={[tw`px-3`]}>
 
-                <HorizontalList
+    <HorizontalList
                     data={ClassInfo}
                     renderItem={({ item }) => {
                         return (
@@ -131,6 +138,11 @@ const Search = () => {
                     }}
                     keyExtractor={(item, index) => { return index.toString() }}
                 />
+    </View>
+
+</Section>
+
+                
                 <Spacer />
                 <Heading heading="Posts" />
                 <FlatList

@@ -9,8 +9,10 @@ import Button from "../../components/Button/Button";
 import Section from "../../layouts/Section/Section";
 import { Card } from "../../layouts/Card/Card";
 import Quest from "../../components/Quest/Quest";
-
-const TutorDashboard:React.FC=()=>{
+type Props={
+    navigation?:any
+}
+const TutorDashboard:React.FC<Props>=({navigation})=>{
     return(
 <Base isTutor userName="Ragnar">
     
@@ -36,7 +38,7 @@ const TutorDashboard:React.FC=()=>{
                <Button
                shape="default"
                text="Watch"
-               onPress={()=>{alert('Pressed')}}
+               onPress={()=>{navigation.navigate('AuthenticationStack')}}
 iconPosition="left"
 
 icon="Entypo video-camera 24 white"               
@@ -47,7 +49,9 @@ icon="Entypo video-camera 24 white"
         </Section>
     </View>
     <View style={[tw`py-2`]}>
-        <Section title="Upcoming Sessions" pressableSubtitle="View All Sessions">
+        <Section title="Upcoming Sessions" pressableSubtitle="View All Sessions" onPressSubtitle={()=>{navigation.navigate('Sessions',{
+            is_Tutor:true
+        })}}>
             <Card>
                 <View style={[tw`px-5 py-3`]}>
                     <Text style={[tw`text-base py-2`,{fontFamily:'PoppinsMedium',textTransform:'capitalize'}]}>No upcoming sessions</Text>

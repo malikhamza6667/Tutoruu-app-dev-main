@@ -24,7 +24,11 @@ const classes=[
     'Fundamentals of computer science',
     'Principles of Accounting'
 ]
-const TutorProfile:React.FC=()=>{
+type Props={
+    navigation?:any
+    
+}
+const TutorProfile:React.FC<Props>=({navigation})=>{
     const[selectedClassIdx,setSelectedClassIdx]=useState(0)
 
     const [islike, setisLiked] = useState(false)
@@ -244,7 +248,7 @@ return(
             <View style={tw`pb-5 px-3`}>
                 <Button
                 shape='full'
-                onPress={()=>{alert('Pressed')}}
+                onPress={()=>{navigation.navigate('TopicSelection')}}
                 text='Request a Session'
                 
                 />

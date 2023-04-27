@@ -18,7 +18,11 @@ import Avatar from "../../components/Avatar/Avatar";
 import StarRatings from "../../components/StarRatings/StarRatings";
 import ClassCard from "../../components/ClassCard/ClassCard";
 import { Popup } from "../../components/Popup/Popup";
-const SessionRequest:React.FC=()=>{
+
+type Props={
+    navigation?:any
+}
+const SessionRequest:React.FC<Props>=({navigation})=>{
     const[modalVisible,setModalVisible]=useState(false)
 
     
@@ -37,31 +41,31 @@ const SessionRequest:React.FC=()=>{
                         <Card>
 
                         <View style={[tw`px-4 py-6`]}>
-                            <View className='flex-row justify-between'>
-                                <View className='flex-row'>
+                            <View  style={[tw`flex-row justify-between`]}>
+                                <View style={[tw`flex-row`]}>
                                     <Text style={{ fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}>Timing:</Text>
-                                    <Text className='mx-1' style={{ fontFamily: 'PoppinsBold' }}>{item.Timing}</Text>
+                                    <Text  style={[tw`mx-1`,{ fontFamily: 'PoppinsBold' }]}>{item.Timing}</Text>
                                 </View>
 
                             </View>
 
 
-                            <View className='flex-row'>
+                            <View style={[tw`flex-row`]}>
                                 <Text
                                     style={{ fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}
                                 >Location:</Text>
                                 <Text
-                                    className='mx-1'
-                                    style={{ fontFamily: 'PoppinsBold', color: Colors.orange }}
+                                    
+                                    style={[tw`mx-1`,{ fontFamily: 'PoppinsBold', color: Colors.orange }]}
                                 >{item.Location}</Text>
                             </View>
-                            <View className='flex-row'>
+                            <View style={[tw`flex-row`]}>
                                 <Text
                                     style={{ fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}
                                 >Topic:</Text>
                                 <Text
-                                    className='mx-1'
-                                    style={{ fontFamily: 'PoppinsBold' }}
+                                   
+                                    style={[tw`mx-1`,{ fontFamily: 'PoppinsBold' }]}
                                 >{item.Topic}</Text>
                             </View>
 
@@ -79,13 +83,13 @@ const SessionRequest:React.FC=()=>{
 
         <View style={[tw`my-1`]}>
             <Section title="Payment">
-            <View className='px-6 pr-7 flex-row justify-between items-center'>
+            <View style={[tw`px-6 pr-7 flex-row justify-between items-center`]}>
         
 
                   
         <Text
-            className='text-base'
-            style={{ fontFamily: 'PoppinsMedium' }}>170 EGP</Text>
+            
+            style={[tw`text-base`,{ fontFamily: 'PoppinsMedium' }]}>170 EGP</Text>
     
 
 </View>
@@ -124,8 +128,8 @@ const SessionRequest:React.FC=()=>{
                     <View >
 
                         <Text
-                            style={{ fontFamily: 'PoppinsBold' }}
-                            className='text-base'
+                            style={[tw`text-base`,{ fontFamily: 'PoppinsBold' }]}
+                           
                         >Youseff Haroon</Text>
                         <View style={[tw`self-center  pr-7`]}>
 
@@ -137,7 +141,7 @@ const SessionRequest:React.FC=()=>{
 
               <Button
               shape="default"
-              onPress={()=>{alert('Pressed')}}
+              onPress={()=>{navigation.navigate('UserProfile')}}
               text='View Profile'
               />
 </View>
@@ -156,7 +160,7 @@ name="Introduction to Computer Science"
         </View>
         </ScrollView>
 
-        <View style={tw`pb-3 px-3 justify-between`}>
+        <View style={[tw`pb-3 px-3 justify-between`,{}]}>
             <Button
             onPress={()=>{alert('Pressed')}}
             shape="full"
@@ -164,7 +168,8 @@ name="Introduction to Computer Science"
             />
         <TouchableOpacity
             onPress={()=>{setModalVisible(!modalVisible)}}
-                className=' my-3 justify-center items-center'
+            style={[tw` my-3 justify-center items-center`]}
+             
             >
                 <Text
                     style={{ color: Colors.orange, fontFamily: 'PoppinsBold' }}

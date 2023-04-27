@@ -1,12 +1,20 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import Details from "../../layouts/Details/Details";
 import SlotsCard from "../../components/SlotsCard/SlotsCard";
-
-const TimeSelection = () => {
+type Props={
+    navigation?:any
+}
+const TimeSelection:React.FC<Props> = ({navigation}) => {
     return (
         <Details headerTitle="Pick A Time">
-            <SlotsCard slots={0} />
+            <TouchableOpacity
+            onPress={()=>{navigation.navigate('SessionConfirmation')}}
+            >
+
+            <SlotsCard slots={[{ date: '2020-01-01', available_times: [12, 13, 14] }]} />
+            </TouchableOpacity>
+            {/* <SlotsCard  slots={0} /> */}
         </Details>
     )
 }

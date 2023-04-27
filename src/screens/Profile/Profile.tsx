@@ -21,9 +21,11 @@ import Tag from "../../components/Tag/Tag";
 import Review from "../../components/Review/Review";
 import HorizontalList from "../../layouts/HorizontalList/HorizontalList";
 import Input from "../../components/Input/Input";
+type Props={
+    navigation?:any
+}
 
-
-const Profile = () => {
+const Profile:React.FC<Props> = ({navigation}) => {
     const [pickedImage, setPickedImage] = useState('')
     const [pickedDocUri, setPickedDocUri] = useState('')
     const [pickedDocName, setPickedDocName] = useState('Upload Your Transcript')
@@ -164,11 +166,11 @@ const Profile = () => {
                                             name="edit"
                                             size="xsmall"
                                             color={Colors.orange}
-                                            onPressIcon={() => alert('Pressed')}
+                                            onPressIcon={() => {navigation.navigate('EditProfile')}}
                                         />
                                     </View>
                                     <Text style={[tw`text-xl`, { fontFamily: 'PoppinsBold' }]}>Ragnar</Text>
-                                    <View style={tw`flex-row`}>
+                                    <View style={[tw`flex-row`]}>
                                         <Tag type="neutral">Tutor</Tag>
                                         <Tag type="neutral">300 EGP</Tag>
                                     </View>
@@ -183,7 +185,7 @@ const Profile = () => {
                                                 name="checkcircle"
                                                 size="small"
                                                 color={Colors.orange}
-                                                onPressIcon={() => alert('Pressed')}
+                                                onPressIcon={() => {navigation.navigate('EditProfile')}}
                                             />
                                             <View style={spaceStyle}>
                                                 <Text style={{ fontFamily: 'PoppinsMedium' }}>360 </Text>
@@ -196,7 +198,7 @@ const Profile = () => {
                                                 name="user"
                                                 size="small"
                                                 color={Colors.orange}
-                                                onPressIcon={() => alert('Pressed')}
+                                                onPressIcon={() => {navigation.navigate('FollowList')}}
                                             />
 
                                             <View style={spaceStyle}>
@@ -242,7 +244,7 @@ const Profile = () => {
                                     <Input
                                         size="xlarge"
                                         placeholder="Add Classes"
-                                        icon="AntDesign plus 20 gray"
+                                        icon="AntDesign plus 16 gray"
                                     />
                                     <View
                                         style={[tw`flex-row py-2`, { width: wp('90') }]}
@@ -339,14 +341,16 @@ const Profile = () => {
                                             name="edit"
                                             size="xsmall"
                                             color={Colors.orange}
-                                            onPressIcon={() => alert('Pressed')}
+                                            onPressIcon={() =>{navigation.navigate('EditProfile')}}
                                         />
 
                                     </View>
 
                                     <Text style={[tw`text-xl`, { fontFamily: 'PoppinsBold' }]}>Ragnar</Text>
 
-                                    <TouchableOpacity>
+                                    <TouchableOpacity
+                                    onPress={()=>{navigation.navigate('FollowList')}}
+                                    >
                                         <Text style={[tw``, { textTransform: 'uppercase', color: Colors.orange, fontFamily: 'PoppinsMedium' }]}>100 followers</Text>
                                     </TouchableOpacity>
 

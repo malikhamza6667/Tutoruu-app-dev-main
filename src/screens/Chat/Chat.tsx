@@ -85,7 +85,7 @@ const Chat: React.FC<Props> = ({ navigation }) => {
             <Details headerTitle="Chat">
                
                     <TouchableOpacity
-                        style={{
+                        style={[tw`py-2 px-4 flex-row`,{
                             flex: 0.15,
                             shadowColor: "gray",
                             shadowOpacity: 0.2,
@@ -94,13 +94,13 @@ const Chat: React.FC<Props> = ({ navigation }) => {
                             borderColor: Colors.white,
                             borderWidth: 2,
                             backgroundColor: Colors.white,
-                        }}
+                        }]}
                         onPress={() => {
                             navigation.navigate("StudentProfileScreen", { name: "Ragnar" });
                         }}
-                        className=" py-2 px-4 flex-row "
+                        
                     >
-                        <View className="justify-center">
+                        <View style={tw`justify-center`}>
 
                         <Avatar
                         size="large"
@@ -109,11 +109,11 @@ const Chat: React.FC<Props> = ({ navigation }) => {
                         />
                         </View>
                         
-                        <View className="px-3 justify-center">
-                            <View className="flex-row">
+                        <View  style={[tw`px-3 justify-center`]}>
+                            <View  style={[tw`flex-row`]}>
                                 <Text
-                                    style={{ fontFamily: "PoppinsBold" }}
-                                    className="text-xl mr-2 justify-between"
+                                    style={[tw`text-xl mr-2 justify-between`,{ fontFamily: "PoppinsBold" }]}
+                                    
                                 >
                                     Ragnar Lothbrok
                                 </Text>

@@ -259,7 +259,7 @@ const Input: React.FC<Props> = ({
                         />
 
                         <TouchableOpacity
-                            className='flex-[0.15]'
+                            
                             onPress={onIconPressed}
                             testID='input-icon'
                             style={[tw`rounded-full justify-center items-center h-10 mx-1`, { flex: 0.15,backgroundColor: iconBackground ? iconBackground : 'transparent' }]}

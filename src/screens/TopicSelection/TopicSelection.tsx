@@ -19,8 +19,11 @@ const data = [
     },
 
 ]
-const TopicSelection = () => {
-    const [focused, setFocused] = useState()
+type Props={
+    navigation?:any
+}
+const TopicSelection:React.FC<Props> = ({navigation}) => {
+    const [focused, setFocused] = useState(0)
     return (
         <Details headerTitle="Pick A Topic">
             <HorizontalList
@@ -32,7 +35,9 @@ const TopicSelection = () => {
                     return (
 
                         <TouchableOpacity
-                            onPress={() => setFocused(item.id)}
+                            onPress={() =>{ setFocused(item.id)
+                            navigation.navigate('TimeSelection')
+                            }}
                             key={item.id}
                             style={item.id === focused ? styles.activeCard : styles.card}
                         >

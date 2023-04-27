@@ -65,8 +65,8 @@ const Details: React.FC<Props> = ({
                             ChatIcon &&
                             <TouchableOpacity
                                 testID="chat-icon"
-                                style={{  width: wp('10%') }}
-                                className='p-2 rounded-full'
+                                style={[tw`p-2 rounded-full`,{  backgroundColor:Colors.lightorange,width: wp('10%') }]}
+                                className=''
                                 onPress={() => { navigation.navigate('Chat') }}
                             >
                                 {/* <Icon

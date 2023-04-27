@@ -7,8 +7,13 @@ import Input from "../../../components/Input/Input";
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import i18n from "../../../localization/LocalizedStrings/LocalizedStrings";
 import { reloadAsync } from 'expo-updates'
-const Login = ({ navigation }) => {
+import tw from 'twrnc';
+type Props={
+    navigation?:any
+}
+const Login:React.FC<Props> = ({ navigation }) => {
     const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     return (
         <Auth
 
@@ -19,28 +24,32 @@ const Login = ({ navigation }) => {
             footerTitle={'Reset-Password'}
             onPressfooterTitle={() => navigation.navigate('ResetPassword')}
         >
-            <View className='py-3 justify-center items-center'>
-
+            <View style={[tw`py-3 justify-center items-center`]}>
+<View >
+<View style={[tw`px-2 self-center items-center bg-red-400`]}>
                 <Input
-                    size='large'
+                    size='xlarge'
                     value={email}
                     onChangeText={(text) => { setEmail(text) }}
                     title='Email'
                     placeholder='Doe'
-                    height={hp('5%')}
+                 
                     testID='email-input'
                 />
+
+</View>
                 <Input
-                    size='large'
+                    size='xlarge'
                     value={email}
                     onChangeText={(text) => { setEmail(text) }}
                     title='Password'
                     placeholder='Doe'
-                    height={hp('5%')}
+                   
                     testID='password-input'
                 />
+</View>
 
-                <View className='my-2 mt-3 mx-3 self-center items-center'>
+                <View style={[tw`my-2 mt-3 mx-1 self-center items-center`]}>
 
                     <Button
                         onPress={() => {
@@ -54,7 +63,7 @@ const Login = ({ navigation }) => {
                         shape='full'
                         text='Login'
 
-                        height={hp('4%')}
+                        
                         testID='login-button'
                     />
 

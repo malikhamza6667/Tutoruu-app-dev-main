@@ -46,8 +46,8 @@ const Class: React.FC = () => {
     const [islike, setisLiked] = useState(false)
     const [isDislike, setisDisLiked] = useState(false)
     const [isSaved, setisSaved] = useState(false)
-
-    const totalStudents = ClassStudents.length
+let students=[]
+    const totalStudents = students.length
 const navigation= useNavigation()
     //   const totalStudents= 0
     return (
@@ -186,22 +186,22 @@ const navigation= useNavigation()
                     <View style={tw``}>
 
                         <HorizontalList
-
+ contentContainerStyle={{ paddingHorizontal: hp('2%'), paddingVertical: hp('1%') }}
                             data={ClassesData.slice(0, 4)}
                             renderItem={({ item, index }) => {
                                 return (
                                     <TouchableOpacity
                                         onPress={() => { setSelectedCatagoryIdx(index) }}
-                                        style={{
+                                        style={[tw`rounded-3xl self-center py-2 px-3  m-0.5  items-center`,{
                                             backgroundColor: index == selectedCategoryIdx ? Colors.orange : Colors.gray,
 
 
-                                        }}
-                                        className=' rounded-3xl self-center py-2 px-3  m-0.5  items-center '>
+                                        }]}
+                                        >
                                         <Text
 
-                                            style={{ color: index == selectedCategoryIdx ? Colors.white : Colors.black, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}
-                                            className='text-sm '>{item}</Text>
+                                            style={[tw`text-sm`,{ color: index == selectedCategoryIdx ? Colors.white : Colors.black, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }]}
+                                           >{item}</Text>
                                     </TouchableOpacity>
                                 )
                             }}
@@ -228,7 +228,7 @@ const navigation= useNavigation()
                                     >No Tutors yet. Don’t Worry, if you need a tutor we’ll find you one.</Text>
                                     <Button
                                         shape="default"
-                                        onPress={() => { alert('Pressed') }}
+                                        onPress={() => { navigation.navigate('TutorRequested') }}
                                         text="Request A Tutor"
 
 

@@ -33,7 +33,7 @@ const Tag: React.FC<TagProps> = ({
         return (
             <View
                 style={[
-                    tw`px-2`
+                    tw`px-2 mx-0.5`
                 ]}
                 testID='tag-icon'
             >
@@ -54,7 +54,7 @@ const Tag: React.FC<TagProps> = ({
     ${shape === 'round' ? 'rounded-full' : 'rounded-md'}
 
     ${type === 'neutral' ? 'border-gray-400' : 'border-transparent'}
-    px-3 py-1
+    px-3 py-1 mx-0.5
     flex
     ${iconPosition === 'left' ? 'flex-row' : 'flex-row-reverse'}
     items-center`;

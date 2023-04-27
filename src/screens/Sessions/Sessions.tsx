@@ -33,7 +33,7 @@ const Sessions:React.FC<Props>=({navigation,route})=>{
 <SessionCard
 class_name={item.class_name}
 day={item.day}
-onPress={()=>{alert('Pressed')}}
+onPress={()=>{navigation.navigate('SessionRequest')}}
 isTutor={is_Tutor}
 is_accepted={item.is_accepted}
 location={item.location}

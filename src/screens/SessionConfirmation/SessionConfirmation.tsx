@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import {View,Text,TouchableOpacity,Modal,StyleSheet} from 'react-native'
+import {View,Text,TouchableOpacity,Modal,StyleSheet, Alert} from 'react-native'
 import Details from "../../layouts/Details/Details";
 import { SessionInfo } from "../DummyData";
 import Colors from "../../../assets/Colors";
@@ -18,7 +18,10 @@ import Avatar from "../../components/Avatar/Avatar";
 import StarRatings from "../../components/StarRatings/StarRatings";
 import ClassCard from "../../components/ClassCard/ClassCard";
 import { Popup } from "../../components/Popup/Popup";
-const SessionConfirmation:React.FC=()=>{
+type Props={
+    navigation?:any
+}
+const SessionConfirmation:React.FC<Props>=({navigation})=>{
     const[modalVisible,setModalVisible]=useState(false)
 
     
@@ -73,11 +76,13 @@ const SessionConfirmation:React.FC=()=>{
         {
             modalVisible && <Popup opened={modalVisible} closeModal={()=>{setModalVisible(!modalVisible)}}>
   <View style={styles.modalView}>
-                  <Text style={{fontFamily:'PoppinsBold'}}
-                  className='text-center'
+                  <Text style={[tw`text-center`,{fontFamily:'PoppinsBold'}]}
+                 
                   >Are you sure you want to cancel this session?</Text>
-                  <Text style={{fontFamily:'PoppinsRegular'}}
-                  className='text-center'
+                  <Text 
+
+style={[tw`text-center`,{fontFamily:'PoppinsRegular'}]}
+                 
                   >You Can Always Book An Other Session With Youseff Haroon</Text>
                   <View style={[tw`px-4 py-2`]}>
 
@@ -103,10 +108,10 @@ const SessionConfirmation:React.FC=()=>{
                         <Card>
 
                         <View style={[tw`px-4 py-6`]}>
-                            <View className='flex-row justify-between'>
-                                <View className='flex-row'>
+                            <View  style={[tw`flex-row justify-between`]}>
+                                <View style={[tw`flex-row`]}>
                                     <Text style={{ fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}>Timing:</Text>
-                                    <Text className='mx-1' style={{ fontFamily: 'PoppinsBold' }}>{item.Timing}</Text>
+                                    <Text style={[tw`mx-1`,{ fontFamily: 'PoppinsBold' }]}>{item.Timing}</Text>
                                 </View>
 
                                 <View>
@@ -115,22 +120,20 @@ const SessionConfirmation:React.FC=()=>{
                             </View>
 
 
-                            <View className='flex-row'>
+                            <View style={[tw`flex-row`]}>
                                 <Text
                                     style={{ fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}
                                 >Location:</Text>
                                 <Text
-                                    className='mx-1'
-                                    style={{ fontFamily: 'PoppinsBold', color: Colors.orange }}
+                                  style={[tw`mx-1`,{ fontFamily: 'PoppinsBold',color:Colors.orange }]}
                                 >{item.Location}</Text>
                             </View>
-                            <View className='flex-row'>
+                            <View style={tw`flex-row`}>
                                 <Text
                                     style={{ fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}
                                 >Topic:</Text>
                                 <Text
-                                    className='mx-1'
-                                    style={{ fontFamily: 'PoppinsBold' }}
+                                    style={[tw`mx-1`,{ fontFamily: 'PoppinsBold' }]}
                                 >{item.Topic}</Text>
                             </View>
 
@@ -146,7 +149,7 @@ const SessionConfirmation:React.FC=()=>{
         </View>
         <View style={[tw`my-1`]}>
             <Section title="Payment">
-            <View className='px-6 pr-7 flex-row justify-between items-center'>
+            <View style={tw`px-6 pr-7 flex-row justify-between items-center`}>
         
 
                   
@@ -157,7 +160,8 @@ const SessionConfirmation:React.FC=()=>{
               shape="default"
                 text='Pay Now'
             
-               onPress={()=>{alert('Pressed')}}
+            //    onPress={()=>{navigation.navigate('PaymentStatus')}}
+               onPress={()=>{Alert.alert('Pressed')}}
                
             />
       
@@ -212,7 +216,7 @@ const SessionConfirmation:React.FC=()=>{
 
               <Button
               shape="default"
-              onPress={()=>{alert('Pressed')}}
+              onPress={()=>{navigation.navigate('TutorProfile')}}
               text='View Profile'
               />
 </View>
@@ -232,7 +236,8 @@ name="Introduction to Computer Science"
         <View style={[tw`my-1`]}>
         <TouchableOpacity
             onPress={()=>{setModalVisible(!modalVisible)}}
-                className='p-1 justify-center items-center'
+            style={tw`p-1 justify-center items-center`}
+               
             >
                 <Text
                     style={{ color: Colors.red, fontFamily: 'PoppinsBold' }}

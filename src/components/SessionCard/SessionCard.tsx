@@ -101,7 +101,7 @@ const SessionCard: React.FC<Props> = ({
                                   text='Reply'
                                   backgroundColor={Colors.orange}
                                   onPress={onPress}
-                                  width={wp('30%')}
+                                  
                                   />
                                 }
 

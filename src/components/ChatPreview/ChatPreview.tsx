@@ -52,7 +52,7 @@ const ChatPreview:React.FC<Props>=({
 testID="chat-preview"
 onPress={onPress}
 style={[tw`flex-row justify-between px-3`,{height:hp('8%'),backgroundColor:unread_count==0? Colors.white:Colors.lightorange}]}>
-   <View className="flex-row items-center self-center">
+   <View  style={[tw`flex-row items-center self-center`]}>
    <Avatar
    size='medium'
    image={user.image}

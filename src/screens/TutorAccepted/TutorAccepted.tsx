@@ -7,8 +7,10 @@ import Details from "../../layouts/Details/Details";
 import Colors from "../../../assets/Colors";
 import Button from "../../components/Button/Button";
 
-
-const TutorAccepted = () => {
+type Props={
+    navigation?:any
+}
+const TutorAccepted:React.FC<Props> = ({navigation}) => {
 
     return (
         <Details headerTitle="Application Status">
@@ -37,7 +39,7 @@ const TutorAccepted = () => {
                 style={tw`mt-3`}
                 >
                     <Button
-                        onPress={() => { alert('predded') }}
+                        onPress={() => {navigation.navigate('TutorMainFLow')  }}
                         text='Take me there'
                         shape="default"
 

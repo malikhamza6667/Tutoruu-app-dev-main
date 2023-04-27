@@ -37,7 +37,7 @@ const UserProfile:React.FC=()=>{
         <Details headerTitle='Ragnar Lothbrok' ChatIcon>
             <View>
             <View style={[tw`flex-row justify-start px-3 py-1`]}>
-                <View className=' flex-[0.3] justify-center'>
+                <View className=' flex-[0.3] justify-center' style={[tw`justify-center`,{flex:0.3}]}>
 
                 <Avatar
                 showCap={false}
@@ -46,15 +46,15 @@ const UserProfile:React.FC=()=>{
                 
                 />
                 </View>
-                <View className='flex-[1]'>
+                <View className='flex-[1]' style={[tw`justify-center`,{flex:1}]}>
                 <HorizontalList
                 data={tags}
                 renderItem={({item,index})=>{
                     return(
                         <View
                         key={index}
-                                    style={{ backgroundColor: Colors.lightorange }}
-                                    className=' rounded-full self-center py-2 px-4 m-0.5 items-center '>
+                                    style={[tw`rounded-full self-center py-2 px-4 m-0.5 items-center`,{ backgroundColor: Colors.lightorange }]}
+                                    >
                                     <Text
                         
                                         style={{ color: Colors.orange, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }}
@@ -135,7 +135,7 @@ const UserProfile:React.FC=()=>{
                 <Text style={[tw`text-sm`,{fontFamily:'PoppinsMedium',textTransform:'capitalize'}]}>Mi velit sollicitudin bibendum semper non arcu fames viverra dicyum</Text>
             </View>
             <Separator type='line'/>
-            <View className=' flex-1 justify-evenly'>
+            <View  style={[tw`flex-1 justify-evenly`]}>
 
          <Section title='Classes Ragnar Is Taking'>
 

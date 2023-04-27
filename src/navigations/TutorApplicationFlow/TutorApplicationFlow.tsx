@@ -17,7 +17,7 @@ type Props={
 
 const LoadingScreen:React.FC<Props>=({navigation})=>{
     const[applicationSent,setApplicationSent]=useState(true)
-    const[applicationAccepted,setApplicationAccepted]=useState(false)
+    const[applicationAccepted,setApplicationAccepted]=useState(true)
     const[initialRoute,setinitialRoute]=useState('')
     const[loading,setLoading]=useState(true)
     useEffect(()=>{

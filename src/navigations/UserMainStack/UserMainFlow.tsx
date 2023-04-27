@@ -19,6 +19,8 @@ import UserProfile from "../../screens/UserProfile/UserProfile";
 import TutorProfile from "../../screens/TutorProfile/TutorProfile";
 import TutorRequested from "../../screens/TutorRequested/TutorRequested";
 import Details from "../../layouts/Details/Details";
+import PaymentStatus from "../../screens/PaymentStatus/PaymentStatus";
+import TutorMainFLow from "../TutorMainStack/TutorMainFlow";
 
 
 const stack= createNativeStackNavigator()
@@ -45,6 +47,8 @@ const UserMainFlow=()=>{
             <stack.Screen name="UserProfile" component={UserProfile} />
             <stack.Screen name="TutorProfile" component={TutorProfile} />
             <stack.Screen name="TutorRequested" component={TutorRequested} />
+            <stack.Screen name="PaymentStatus" component={PaymentStatus} />
+            <stack.Screen name="TutorMainFLow" component={TutorMainFLow} />
             
         </stack.Navigator>
     )
