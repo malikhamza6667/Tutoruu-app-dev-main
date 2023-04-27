@@ -41,6 +41,7 @@ import ApplicationQuestionnare from './src/screens/ApplicationQuestionnaire/Appl
 import TutorApplicationFlow from './src/navigations/TutorApplicationFlow/TutorApplicationFlow';
 import UserMainFlow from './src/navigations/UserMainStack/UserMainFlow';
 import MainAppRoutes from './src/navigations/AppRoutesMain/AppRoutes';
+import PaymentStatus from './src/screens/PaymentStatus/PaymentStatus';
 
 
 SplashScreen.preventAutoHideAsync();
@@ -157,6 +158,7 @@ const MyApp = () => {
 <MainAppRoutes/>
 {/* <TutorApplicationFlow/> */}
    </NavigationContainer>
+
  
    
     </SafeAreaView>

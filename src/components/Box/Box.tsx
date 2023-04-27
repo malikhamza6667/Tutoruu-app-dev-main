@@ -62,7 +62,7 @@ const Box: React.FC<Props> = ({ text }) => {
 
 const styles = StyleSheet.create({
     box: {
-        width: wp('95%'),
+        width: wp('90%'),
         height: hp('8'),
         borderRadius: 4,
         backgroundColor: Colors.background,
