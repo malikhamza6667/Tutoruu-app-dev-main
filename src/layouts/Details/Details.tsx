@@ -15,20 +15,20 @@ type Props = {
     navigation?: any
     headerTitle: string
     ChatIcon?: boolean
-    onPressChatIcon?:()=>void
-    onPressBackIcon?:()=>void
-    
-    
+    onPressChatIcon?: () => void
+    onPressBackIcon?: () => void
+
+
 }
 const Details: React.FC<Props> = ({
     children,
     // navigation,
     headerTitle,
     ChatIcon,
- onPressBackIcon,
- onPressChatIcon
+    onPressBackIcon,
+    onPressChatIcon
 }) => {
-    const navigation= useNavigation()
+    const navigation = useNavigation()
     return (
         <SafeAreaView style={[tw`flex-1 `, { backgroundColor: Colors.white }]}>
             <View style={[tw`flex-row  justify-between items-center`, { height: hp('7%'), paddingHorizontal: wp('5%') }]}>
@@ -48,11 +48,11 @@ const Details: React.FC<Props> = ({
                             color={Colors.black}
                         />
                     </TouchableWithoutFeedback> */}
-                   <TouchableOpacity
-                   onPress={()=>{navigation.goBack()}}
-                   >
-<Ionicons name="md-chevron-back-outline" size={30} color="black" />
-                   </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => { navigation.goBack() }}
+                    >
+                        <Ionicons name="md-chevron-back-outline" size={30} color="black" />
+                    </TouchableOpacity>
                 </View>
                 <View style={{ width: wp('40%') }}>
 
@@ -65,7 +65,7 @@ const Details: React.FC<Props> = ({
                             ChatIcon &&
                             <TouchableOpacity
                                 testID="chat-icon"
-                                style={[tw`p-2 rounded-full`,{  backgroundColor:Colors.lightorange,width: wp('10%') }]}
+                                style={[tw`p-2 rounded-full`, { backgroundColor: Colors.lightorange, width: wp('10%') }]}
                                 className=''
                                 onPress={() => { navigation.navigate('Chat') }}
                             >
@@ -75,7 +75,7 @@ const Details: React.FC<Props> = ({
                                     size='small'
                                     color={Colors.orange}
                                 /> */}
-                             <Ionicons name="chatbubbles" size={20} color={Colors.orange} />
+                                <Ionicons name="chatbubbles" size={20} color={Colors.orange} />
                             </TouchableOpacity>
 
                         }

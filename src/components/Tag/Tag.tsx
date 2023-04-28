@@ -39,8 +39,8 @@ const Tag: React.FC<TagProps> = ({
             >
 
                 <Icon
-                    family='FontAwesome'
-                    name='search'
+                    family='AntDesign'
+                    name='caretdown'
                     onPress={() => console.log('icon clicked')}
                     size='small'
                     color='orange'
@@ -65,7 +65,7 @@ const Tag: React.FC<TagProps> = ({
         <TouchableOpacity onPress={onPress} testID='tag-container' >
             <View style={containerStyle}>
                 {renderIcon()}
-                <Text style={[textStyle,{fontFamily:'PoppinsMedium', textTransform:'uppercase'}]}>{children}</Text>
+                <Text style={[textStyle, { fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }]}>{children}</Text>
             </View>
         </TouchableOpacity>
     );

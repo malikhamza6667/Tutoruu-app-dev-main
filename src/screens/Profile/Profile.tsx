@@ -21,11 +21,11 @@ import Tag from "../../components/Tag/Tag";
 import Review from "../../components/Review/Review";
 import HorizontalList from "../../layouts/HorizontalList/HorizontalList";
 import Input from "../../components/Input/Input";
-type Props={
-    navigation?:any
+type Props = {
+    navigation?: any
 }
 
-const Profile:React.FC<Props> = ({navigation}) => {
+const Profile: React.FC<Props> = ({ navigation }) => {
     const [pickedImage, setPickedImage] = useState('')
     const [pickedDocUri, setPickedDocUri] = useState('')
     const [pickedDocName, setPickedDocName] = useState('Upload Your Transcript')
@@ -132,28 +132,31 @@ const Profile:React.FC<Props> = ({navigation}) => {
                     <View>
                         <ScrollView>
                             <View
-                                style={[tw`flex-row mx-2`, {}]}
+                                style={[tw`flex-row mx-1 pt-2`, {}]}
                             >
                                 <View>
                                     {
                                         pickedImage ?
                                             <Avatar
                                                 image={pickedImage}
-                                                showCap={false}
+                                                showCap
                                                 size="large"
                                             />
                                             :
                                             <Avatar
                                                 image="https:encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu7fWIFm7j2Oz0gFHTNp1fskSWJDbi_EUD2Q&usqp=CAU"
                                                 size="large"
-                                                showCap={false}
+                                                showCap
                                             />
                                     }
                                 </View>
 
                                 <View style={tw`p-2 `}>
-                                    <View style={[tw`flex-row`, { justifyContent: 'space-between', width: wp('70') }]}>
-                                        {/* <Text>auc</Text> */}
+                                    {/* <View style={[tw`flex-row`, { justifyContent: 'space-between', width: wp('70') }]}> */}
+                                    {/* <Text>auc</Text> */}
+                                    <View
+                                        style={[tw``, { width: wp('18') }]}
+                                    >
 
                                         <Tag
                                             type="primary"
@@ -161,14 +164,25 @@ const Profile:React.FC<Props> = ({navigation}) => {
                                         >
                                             AUC
                                         </Tag>
+                                    </View>
+
+
+                                    <View
+                                        style={[tw`p-2 rounded-full`, { backgroundColor: Colors.lightorange, position: 'absolute', alignSelf: 'flex-end' }]}
+                                    >
+
                                         <Icon
                                             family="Feather"
                                             name="edit"
-                                            size="xsmall"
+                                            size="medium"
                                             color={Colors.orange}
-                                            onPressIcon={() => {navigation.navigate('EditProfile')}}
+                                            onPressIcon={() => { navigation.navigate('EditProfile') }}
                                         />
                                     </View>
+
+
+
+                                    {/* </View> */}
                                     <Text style={[tw`text-xl`, { fontFamily: 'PoppinsBold' }]}>Ragnar</Text>
                                     <View style={[tw`flex-row`]}>
                                         <Tag type="neutral">Tutor</Tag>
@@ -185,7 +199,7 @@ const Profile:React.FC<Props> = ({navigation}) => {
                                                 name="checkcircle"
                                                 size="small"
                                                 color={Colors.orange}
-                                                onPressIcon={() => {navigation.navigate('EditProfile')}}
+                                                onPressIcon={() => { navigation.navigate('EditProfile') }}
                                             />
                                             <View style={spaceStyle}>
                                                 <Text style={{ fontFamily: 'PoppinsMedium' }}>360 </Text>
@@ -198,7 +212,7 @@ const Profile:React.FC<Props> = ({navigation}) => {
                                                 name="user"
                                                 size="small"
                                                 color={Colors.orange}
-                                                onPressIcon={() => {navigation.navigate('FollowList')}}
+                                                onPressIcon={() => { navigation.navigate('FollowList') }}
                                             />
 
                                             <View style={spaceStyle}>
@@ -223,17 +237,17 @@ const Profile:React.FC<Props> = ({navigation}) => {
                                 </View>
                             </View>
                             <Section title="">
-                                <Box text="Some text here" />
+                                <Box text="Connect to your google calendar to sync your sessions with your schedule. " />
                             </Section>
                             <View
-                                    style={[tw`self-center pt-3.5`, { width: wp('87')}]}
+                                style={[tw`self-center pt-3.5`, { width: wp('87') }]}
+                            >
+                                <Text style={[tw`text-base `, { fontFamily: 'PoppinsMedium', fontSize: hp('2') }]}>Bio</Text>
+                                <Text
+                                    style={[tw``, { fontFamily: 'PoppinsRegular' }]}
                                 >
-                                    <Text style={[tw`text-base `,{fontFamily:'PoppinsMedium', fontSize:hp('2')}]}>Bio</Text>
-                                    <Text
-                                        style={[tw``, { fontFamily: 'PoppinsRegular' }]}
-                                    >
-                                        Mi velit sollicitudin bibendum semper non arcu fames viverra dicyum</Text>
-                                </View>
+                                    Mi velit sollicitudin bibendum semper non arcu fames viverra dicyum</Text>
+                            </View>
                             <Spacer />
                             <Separator type="line" />
                             <Section title="Classes You are Teaching">
@@ -340,7 +354,7 @@ const Profile:React.FC<Props> = ({navigation}) => {
                                             name="edit"
                                             size="xsmall"
                                             color={Colors.orange}
-                                            onPressIcon={() =>{navigation.navigate('EditProfile')}}
+                                            onPressIcon={() => { navigation.navigate('EditProfile') }}
                                         />
 
                                     </View>
@@ -348,7 +362,7 @@ const Profile:React.FC<Props> = ({navigation}) => {
                                     <Text style={[tw`text-xl`, { fontFamily: 'PoppinsBold' }]}>Ragnar</Text>
 
                                     <TouchableOpacity
-                                    onPress={()=>{navigation.navigate('FollowList')}}
+                                        onPress={() => { navigation.navigate('FollowList') }}
                                     >
                                         <Text style={[tw``, { textTransform: 'uppercase', color: Colors.orange, fontFamily: 'PoppinsMedium' }]}>100 followers</Text>
                                     </TouchableOpacity>
@@ -356,19 +370,19 @@ const Profile:React.FC<Props> = ({navigation}) => {
                                 </View>
                             </View>
                             <Section title="">
-                                <Box text="Some text here" />
+                                <Box text="Connect to your google calendar to sync your sessions with your schedule." />
                             </Section>
                             {/* <Section title="Bio" > */}
 
-                                <View
-                                    style={[tw`self-center pt-3.5`, { width: wp('87')}]}
+                            <View
+                                style={[tw`self-center pt-3.5`, { width: wp('87') }]}
+                            >
+                                <Text style={[tw`text-base `, { fontFamily: 'PoppinsMedium', fontSize: hp('2') }]}>Bio</Text>
+                                <Text
+                                    style={[tw``, { fontFamily: 'PoppinsRegular' }]}
                                 >
-                                    <Text style={[tw`text-base `,{fontFamily:'PoppinsMedium', fontSize:hp('2')}]}>Bio</Text>
-                                    <Text
-                                        style={[tw``, { fontFamily: 'PoppinsRegular' }]}
-                                    >
-                                        Mi velit sollicitudin bibendum semper non arcu fames viverra dicyum</Text>
-                                </View>
+                                    Mi velit sollicitudin bibendum semper non arcu fames viverra dicyum</Text>
+                            </View>
 
                             {/* </Section> */}
                             <Spacer />
