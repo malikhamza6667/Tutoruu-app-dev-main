@@ -156,6 +156,7 @@ const MyApp = () => {
    {/* <SessionRequest/> */}
    <NavigationContainer>
 <MainAppRoutes/>
+{/* <PaymentStatus /> */}
 {/* <TutorApplicationFlow/> */}
    </NavigationContainer>
 

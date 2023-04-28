@@ -8,7 +8,7 @@ import SessionCard from "../../components/SessionCard/SessionCard";
 import Details from "../../layouts/Details/Details";
 import Button from "../../components/Button/Button";
 
-type Props = {
+interface Props  {
     amount: string
     currency: string
     method: string
@@ -28,7 +28,7 @@ const PaymentStatus: React.FC<Props> = ({ amount, currency, method }) => {
 
     return (
         <Details headerTitle="Payment Status">
-            <View style={[tw`  `, { flex: '0.7', marginTop: hp('10') }]}>
+            <View style={[tw``, { flex: 0.7, marginTop: hp('10') }]}>
                 <Image
                     source={isSuccessful ? require('../../../assets/payment.jpg') : require('../../../assets/failed.jpg')}
                     resizeMode='contain'

@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         height: hp('1.2'),
         width: wp('2.3'),
         borderRadius: 50,
-        marginTop: hp('2.5'),
+        marginTop: hp('1'),
         marginHorizontal: hp('2')
     }
 })

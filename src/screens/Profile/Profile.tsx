@@ -29,7 +29,7 @@ const Profile:React.FC<Props> = ({navigation}) => {
     const [pickedImage, setPickedImage] = useState('')
     const [pickedDocUri, setPickedDocUri] = useState('')
     const [pickedDocName, setPickedDocName] = useState('Upload Your Transcript')
-    const [isTutor, setIsTutor] = useState(false)
+    const [isTutor, setIsTutor] = useState(true)
     const pickImage = async () => {
         // No permissions request is necessary for launching the image library
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -225,16 +225,15 @@ const Profile:React.FC<Props> = ({navigation}) => {
                             <Section title="">
                                 <Box text="Some text here" />
                             </Section>
-                            <Section title="Bio" >
-                                <View
-                                    style={[tw`self-center`, { width: wp('90') }]}
+                            <View
+                                    style={[tw`self-center pt-3.5`, { width: wp('87')}]}
                                 >
+                                    <Text style={[tw`text-base `,{fontFamily:'PoppinsMedium', fontSize:hp('2')}]}>Bio</Text>
                                     <Text
                                         style={[tw``, { fontFamily: 'PoppinsRegular' }]}
                                     >
                                         Mi velit sollicitudin bibendum semper non arcu fames viverra dicyum</Text>
                                 </View>
-                            </Section>
                             <Spacer />
                             <Separator type="line" />
                             <Section title="Classes You are Teaching">
@@ -359,17 +358,19 @@ const Profile:React.FC<Props> = ({navigation}) => {
                             <Section title="">
                                 <Box text="Some text here" />
                             </Section>
-                            <Section title="Bio" >
+                            {/* <Section title="Bio" > */}
+
                                 <View
-                                    style={[tw`self-center`, { width: wp('90') }]}
+                                    style={[tw`self-center pt-3.5`, { width: wp('87')}]}
                                 >
+                                    <Text style={[tw`text-base `,{fontFamily:'PoppinsMedium', fontSize:hp('2')}]}>Bio</Text>
                                     <Text
                                         style={[tw``, { fontFamily: 'PoppinsRegular' }]}
                                     >
                                         Mi velit sollicitudin bibendum semper non arcu fames viverra dicyum</Text>
                                 </View>
 
-                            </Section>
+                            {/* </Section> */}
                             <Spacer />
                             <Separator type="line" />
 
