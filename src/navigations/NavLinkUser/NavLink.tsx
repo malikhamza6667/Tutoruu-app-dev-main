@@ -16,6 +16,7 @@ import TutorApplicationFlow from "../TutorApplicationFlow/TutorApplicationFlow";
 import Settings from "../../screens/Settings/Settings";
 import Support from "../../screens/Support/Support";
 import BAP from "../../screens/BAP/BAP";
+import RuuAiScreen from "../../screens/RuuAi/RuuAi";
 
 
 const drawer= createDrawerNavigator()
@@ -332,6 +333,31 @@ options={{
               <Icon
               family="FontAwesome"
               name="star"
+              color={focused? Colors.orange: Colors.black}
+              size="small"
+              
+              />
+                
+              
+            ),
+           
+            
+             
+              
+          }} 
+/>
+<drawer.Screen
+
+name="RuuAiScreen"
+component={RuuAiScreen}
+options={{
+  drawerLabel:'Ruu Ai',
+  headerShown:false,
+            drawerIcon: ({ focused, size }) => (
+             
+              <Icon
+              family="MaterialCommunityIcons"
+              name="bird"
               color={focused? Colors.orange: Colors.black}
               size="small"
               
