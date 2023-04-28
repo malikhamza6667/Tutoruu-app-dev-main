@@ -69,12 +69,12 @@ const TutorProfile:React.FC<Props>=({navigation})=>{
                  <Text style={[tw`text-xl`,{fontFamily:'PoppinsBold'}]}>Ragnar</Text>
 
                 </View>
-                <View className=' flex-[0.5]'>
+                <View style={{flex:0.55,paddingBottom:hp('2%')}}>
 
                 <Button
                 shape='default'
                 onPress={()=>{alert('Preesed!')}}
-                text='Follwing'
+                text='Following'
                 />
                 </View>
                
@@ -93,7 +93,7 @@ const TutorProfile:React.FC<Props>=({navigation})=>{
                 <View
                         
                                     style={[tw`rounded-[5px] self-center py-1 px-2 m-0.5 items-center`,{ backgroundColor: Colors.gray }]}
-                                    className=' rounded-[5px] self-center py-1 px-2 m-0.5 items-center '>
+                                    >
                                     <Text
                         
                                         style={[tw`text-sm`,{ color: Colors.black, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }]}

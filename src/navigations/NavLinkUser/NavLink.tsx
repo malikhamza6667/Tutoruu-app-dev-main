@@ -47,9 +47,11 @@ const NavLinkUser:React.FC<Props>=({navigation})=>{
   }
 return(
     <drawer.Navigator
+
     drawerContent={customeDrawerContent}
     initialRouteName='Feed'
     screenOptions={({ navigation }) => ({
+      
       headerLeft: () =>
         <Entypo
           name='menu'
