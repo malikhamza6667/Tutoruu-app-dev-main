@@ -68,7 +68,7 @@ const Input: React.FC<Props> = ({
     let minWidth = parseInt(wp(`${min}%`).toString())
     let width = wp('75%')
     if (size == 'Xlarge') { width = wp('90%'), height = hp('12%') }
-    if (size == 'xlarge') { width = wp('88%') }
+    if (size == 'xlarge') { width = wp('85%') }
     if (size == 'large') { width = wp('80%') }
     if (size == 'medium') { width = wp('55%') }
     if (size == 'small') { width = wp('30%') }

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { View, Text, Image, TouchableOpacity, AsyncStorage, I18nManager } from 'react-native'
+import { View, Text, Image, TouchableOpacity, AsyncStorage, I18nManager, ScrollView } from 'react-native'
 import {
     heightPercentageToDP as hp,
     widthPercentageToDP as wp
@@ -19,15 +19,19 @@ type Props = {
     footerTitle?: string
     onPressfooterTitle?: () => void
     pressableSubtitleText?: string
+    fullSizeSubView?:boolean
 
 }
 
-const Auth: React.FC<Props> = ({ title, children, subTitle, footerTitle, pressableSubtitleText, onPressSubtitle, onPressfooterTitle, caption }) => {
+const Auth: React.FC<Props> = ({ title, children, subTitle, footerTitle, pressableSubtitleText, fullSizeSubView,onPressSubtitle, onPressfooterTitle, caption }) => {
 
     return (
-        <View style={[tw`flex-1 justify-between`, { backgroundColor: Colors.orange }]}>
+      
+        
 
-            <View style={[tw`justify-center `, { flex: 0.2 }]}>
+        <View style={[tw`flex-1 justify-between`,{backgroundColor: Colors.orange } ]}>
+
+            <View style={[tw`justify-center`, { flex: fullSizeSubView? 0.1:0.2,marginTop:fullSizeSubView?hp('2%'):0 }]}>
                 <Image
                     source={require('./../../../assets/authlogo.png')}
                     style={[tw`self-center`, { height: hp('10%'), width: wp('50%') }]}
@@ -35,7 +39,11 @@ const Auth: React.FC<Props> = ({ title, children, subTitle, footerTitle, pressab
                 />
             </View>
 
-            <View style={[tw`justify-center  `, { flex: footerTitle ? 0.7 : 0.8 }]}>
+            <View style={[tw`justify-center  `, { flex: footerTitle ? 0.7 : fullSizeSubView? 0.9:0.8 }]}>
+            <View style={[tw`justify-center  `,]}>
+            <ScrollView
+            
+          >
 
                 <Text
                     style={[tw`text-white self-center text-xl`, { fontFamily: 'PoppinsBold' }]}
@@ -68,10 +76,11 @@ const Auth: React.FC<Props> = ({ title, children, subTitle, footerTitle, pressab
                         >{pressableSubtitleText}</Text>
                     </TouchableOpacity>
                 </View>
+          </ScrollView>
             </View>
-
+            </View>
             {footerTitle &&
-                <View className="flex-[0.1] justify-center">
+                <View  style={[tw` justify-center`,{flex:0.1}]}>
                     <TouchableOpacity
                         onPress={onPressfooterTitle}
                     >
@@ -83,6 +92,9 @@ const Auth: React.FC<Props> = ({ title, children, subTitle, footerTitle, pressab
                 </View>
             }
         </View>
+           
+
+     
     )
 }
 

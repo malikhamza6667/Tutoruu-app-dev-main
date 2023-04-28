@@ -16,6 +16,7 @@ import {
     Ionicons,
     FontAwesome,
     Entypo,
+    EvilIcons,
     MaterialCommunityIcons,
     FontAwesome5,
     MaterialIcons
@@ -52,6 +53,7 @@ const Button: React.FC<ButtonProps> = (props) => {
         Entypo,
         MaterialCommunityIcons,
         MaterialIcons,
+        EvilIcons,
         FontAwesome5
     }[iconFamily];
     let iconButtonStylesFull = 'flex-row items-center flex-1 justify-center '

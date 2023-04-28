@@ -53,8 +53,10 @@ import Button from "../../../components/Button/Button";
 
 
 
-
-const ResetPassword = ({navigation}) => {
+type Props={
+  navigation?:any
+}
+const ResetPassword:React.FC<Props> = ({navigation}) => {
     const [email, setEmail] = useState('')
     return (
       <Auth
@@ -63,18 +65,18 @@ const ResetPassword = ({navigation}) => {
         onPressfooterTitle={() => { alert('Pressed') }}
         caption='Leave your email and we’ll send you  a link to update your password and log into your account'
       >
-        <View className='py-3 justify-center items-center'>
-          <View className='my-2 self-center items-center'>
+        <View style={[tw`py-3 justify-center items-center`]}>
+          <View style={[tw`my-2 self-center items-center`]} >
             <Input
-              size='large'
+              size='xlarge'
               value={email}
               onChangeText={(text) => { setEmail(text) }}
               title='Email'
               placeholder='Doe'
-              height={hp('5%')}
+              height={hp('6%')}
             />
             <View
-            style={[tw` mt-4 w-74`]}
+            style={[tw` mt-4 mx-3`]}
             >
 
             <Button

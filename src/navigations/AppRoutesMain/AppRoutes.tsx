@@ -9,8 +9,8 @@ const stack=createNativeStackNavigator()
 const MainAppRoutes=()=>{
     return(
         <stack.Navigator screenOptions={{headerShown:false}} >
-            <stack.Screen name="UserMainFlow" component={UserMainFlow} />
             <stack.Screen name="AuthenticationStack" component={AuthenticationStack} />
+            <stack.Screen name="UserMainFlow" component={UserMainFlow} />
             <stack.Screen name="TutorMainFLow" component={TutorMainFLow} />
         </stack.Navigator>
     )
