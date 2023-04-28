@@ -11,6 +11,11 @@ import PostPopup from '../PostPopup/PostPopup'
 
 const MyPost = () => {
     const [email, setEmail] = useState('')
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+    const handlePostButtonPress = () => {
+        setIsModalVisible(true);
+    };
     return (
         <Card>
             <View
@@ -51,7 +56,8 @@ const MyPost = () => {
                 >
 
                     <Button
-                        onPress={() => <PostPopup opened={true} /> }
+                        // onPress={handlePostButtonPress}
+                        onPress={()=>alert('Pressed')}
                         icon={'AntDesign arrowright 18 white'}
                         shape='round'
                         // text='Create Account'
@@ -59,6 +65,14 @@ const MyPost = () => {
                         height={hp('4%')}
                         testID='my-post-button'
                     />
+                    {/* {isModalVisible && (
+                        <PostPopup
+                            opened={true}
+                            post={{}}
+                            onClose={() => setIsModalVisible(false)}
+                            onSubmit={(data) => console.log(data)}
+                        />
+                    )} */}
                 </View>
             </View>
 

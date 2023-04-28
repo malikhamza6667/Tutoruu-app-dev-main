@@ -26,7 +26,7 @@ interface PostPopupProps {
     onSubmit: (post: { text: string; tags: string[]; attachment: string }) => void;
 }
 
-export const PostPopup: React.FC<PostPopupProps> = ({
+const PostPopup: React.FC<PostPopupProps> = ({
     opened,
     post,
     onClose,
@@ -124,3 +124,6 @@ export const PostPopup: React.FC<PostPopupProps> = ({
         </Modal>
     );
 };
+
+
+export default PostPopup

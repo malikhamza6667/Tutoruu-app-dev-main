@@ -58,32 +58,16 @@ const Post: React.FC<Props> = ({
     attachement }) => {
     return (
         <Card>
-            <View style={[tw`self-center flex-row pt-2`, { width: wp('60%'), }]}>
+            <View style={[tw`self-end flex-row pt-3 px-4`, { width: wp('80%'), justifyContent: 'space-between' }]}>
 
 
-                {/* <HorizontalList
-                horizontal={false}
-contentContainerStyle={{flexDirection:'row'}}
-                    data={tags}
-                    renderItem={({ item }) => {
-                        return (
-                            <View
-
-                                style={[tw`rounded-lg p-0.5 justify-center items-center mx-1 px-2 py-1`, { backgroundColor: Colors.lightorange }]}
-                            >
-                                <Text style={{ color: Colors.orange, fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}>{item}</Text>
-                            </View>
-                        )
-                    }}
-                    keyExtractor={(item, index) => { return index.toString() }}
-                /> */}
-                <ScrollView horizontal={true} contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
+                <ScrollView horizontal={true} contentContainerStyle={{ justifyContent: 'center', alignItems: 'center', marginLeft: wp('5') }}>
                     {
                         tags.map((item, index: number) => {
                             return (
                                 <View
                                     key={index}
-                                    style={[tw`rounded-lg p-0.5 justify-center items-center mx-1 px-2 py-1`, { backgroundColor: Colors.lightorange }]}
+                                    style={[tw`rounded-lg  justify-center items-center mx-1 px-2 `, { backgroundColor: Colors.lightorange }]}
                                 >
                                     <Text style={{ color: Colors.orange, fontFamily: 'PoppinsMedium', textTransform: 'uppercase' }}>{item}</Text>
                                 </View>
@@ -92,12 +76,11 @@ contentContainerStyle={{flexDirection:'row'}}
                     }
 
                 </ScrollView>
-                <Text
 
-                >{date}</Text>
+                <Text style={{ color: Colors.neutralShadow }}>{date}</Text>
             </View>
 
-            <View  style={[tw`flex-row`,{ paddingHorizontal: wp('3%') }]}>
+            <View style={[tw`flex-row`, { paddingHorizontal: wp('3%') }]}>
                 <View className='flex-[0.2] items-center' >
 
                     <Avatar
@@ -107,8 +90,8 @@ contentContainerStyle={{flexDirection:'row'}}
                     />
                 </View>
 
-                <View  style={[tw` justify-center mb-3`,{flex:0.8}]}>
-                    <View  style={[tw`flex-row justify-between pr-6`,{ height: hp('4%') }]}>
+                <View style={[tw` justify-center mb-3`, { flex: 0.8 }]}>
+                    <View style={[tw`flex-row justify-between pr-6`, { height: hp('4%') }]}>
                         <View >
                             <Text style={[tw`p-1 text-base`, { fontFamily: 'PoppinsRegular' }]}>{user.name}</Text>
 
@@ -135,7 +118,7 @@ contentContainerStyle={{flexDirection:'row'}}
                     />
                 </View>
             }
-            <View style={[tw`flex-row self-end justify-evenly items-center`,{ height: hp('6%'), width: wp('80%'), paddingHorizontal: hp('3%') }]}>
+            <View style={[tw`flex-row self-end justify-evenly items-center`, { height: hp('6%'), width: wp('80%'), paddingHorizontal: hp('3%') }]}>
                 {/* <Feather name="thumbs-up" size={24} color="black" /> */}
                 <View style={[tw`flex-row items-center`]}>
                     <Text style={[tw`p-1`, { color: Colors.orange, fontFamily: 'PoppinsMedium' }]}>{comments_count > 0 ? comments_count : ''}</Text>

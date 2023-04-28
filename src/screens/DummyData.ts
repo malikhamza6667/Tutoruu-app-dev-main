@@ -374,9 +374,9 @@ export const postsData = [
       id: "1",
       text: "Hello world This Is New Post ",
       user: {
-          name: "Maryam Khan",
+          name: "John Doe",
           image: "https://i.pravatar.cc/300",
-          username: "@maryam khan",
+          username: "@john",
           bio: "Hello world This Is  New Post",
           is_tutor: true,
       },
