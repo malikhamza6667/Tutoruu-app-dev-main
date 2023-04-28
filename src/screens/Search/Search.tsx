@@ -130,7 +130,26 @@ const Search = () => {
                             <View>
                                 <ClassCard
                                     name={item.Title}
-                                    onPress={()=>{navigation.navigate('Class')}}
+                                    onPress={()=>{
+                                        const randomNum = Math.floor(Math.random() * 2) + 1;   
+                                        console.log(randomNum)
+                                        if(randomNum==1){
+
+                                             navigation.navigate('Class',{
+                                                isTutor:true
+                                             })
+                                        }
+                                        else if(randomNum==2){
+                                            navigation.navigate('Class',{
+                                                isTutor:false
+                                             })
+                                        }
+                                        else{
+                                            navigation.navigate('Class',{
+                                                isTutor:true
+                                             }) 
+                                        }
+                                    }}
                                     desc={item.Desc}
                                 />
                             </View>

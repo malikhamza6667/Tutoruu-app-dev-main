@@ -39,15 +39,25 @@ const user = {
     image: 'https://i.pravatar.cc/300', username: '@john johndoe',
     bio: 'Hello world This Is New Post', is_tutor: true
 }
-
-const Class: React.FC = () => {
+type Props={
+    route?:any 
+}
+const Class: React.FC<Props> = ({route}) => {
+    const {isTutor}=route.params
     const [selectedCategoryIdx, setSelectedCatagoryIdx] = useState(0)
 
     const [islike, setisLiked] = useState(false)
     const [isDislike, setisDisLiked] = useState(false)
     const [isSaved, setisSaved] = useState(false)
-let students=[]
-    const totalStudents = students.length
+    let totalStudents;
+    if(isTutor){
+
+         totalStudents = ClassStudents.length
+    }
+    else{
+        totalStudents = 0
+    }
+
 const navigation= useNavigation()
     //   const totalStudents= 0
     return (
@@ -123,6 +133,8 @@ const navigation= useNavigation()
 
                         <View>
                             <Section title="Posts">
+                                <View style={[tw`px-2`]}>
+
                                 <HorizontalList
                                     data={Data}
                                     renderItem={({ item }) => {
@@ -144,6 +156,7 @@ const navigation= useNavigation()
                                     }}
                                     keyExtractor={(item) => { return item.id.toString() }}
                                 />
+                                </View>
 
                             </Section>
                         </View>
@@ -151,6 +164,8 @@ const navigation= useNavigation()
 
                         <View >
                             <Section title="Tutors">
+                            <View style={[tw`px-2`]}>
+
                                 <HorizontalList
                                     contentContainerStyle={{ paddingVertical: hp('3.5%') }}
                                     data={Data}
@@ -169,6 +184,7 @@ const navigation= useNavigation()
                                     }}
                                     keyExtractor={(item) => { return item.id.toString() }}
                                 />
+                            </View>
 
                             </Section>
                         </View>

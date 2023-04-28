@@ -160,8 +160,8 @@ const SessionConfirmation: React.FC<Props> = ({ navigation }) => {
                             shape="default"
                             text='Pay Now'
 
-                            //    onPress={()=>{navigation.navigate('PaymentStatus')}}
-                            onPress={() => { Alert.alert('Pressed') }}
+                               onPress={()=>{navigation.navigate('PaymentStatus')}}
+                            // onPress={() => { Alert.alert('Pressed') }}
 
                         />
 

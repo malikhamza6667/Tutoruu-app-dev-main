@@ -42,6 +42,7 @@ import TutorApplicationFlow from './src/navigations/TutorApplicationFlow/TutorAp
 import UserMainFlow from './src/navigations/UserMainStack/UserMainFlow';
 import MainAppRoutes from './src/navigations/AppRoutesMain/AppRoutes';
 import PaymentStatus from './src/screens/PaymentStatus/PaymentStatus';
+import AuthenticationStack from './src/navigations/AuthenticationFlow/AuthenticationStack';
 
 
 SplashScreen.preventAutoHideAsync();
@@ -154,12 +155,10 @@ const MyApp = () => {
     {/* <Sessions/> */}
     {/* <SessionCompleted/> */}
    {/* <SessionRequest/> */}
+   
    <NavigationContainer>
 <MainAppRoutes/>
-{/* <PaymentStatus /> */}
-{/* <TutorApplicationFlow/> */}
-   </NavigationContainer>
-
+ </NavigationContainer>
  
    
     </SafeAreaView>
@@ -181,3 +180,7 @@ export default MyApp;
 
 // {/* <TutorStack/> */}
 // </NavigationContainer>
+// {/* <NavigationContainer>
+// <MainAppRoutes/>
+
+//    </NavigationContainer> */}
