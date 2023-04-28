@@ -92,7 +92,9 @@ const MyPost = () => {
                     />
                 </View>
             </View>
-            <Modal visible={isModalVisible} transparent={true} animationType="fade">
+            <Modal
+            onRequestClose={() => setIsModalVisible(false)}
+             visible={isModalVisible} transparent={true} animationType="fade">
                 <TouchableWithoutFeedback onPress={() => setIsModalVisible(false)}>
                     <View style={tw`flex-1 justify-center items-center bg-opacity-50 bg-gray-500`}>
                         <View
