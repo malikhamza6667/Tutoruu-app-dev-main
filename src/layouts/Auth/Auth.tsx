@@ -31,7 +31,9 @@ const Auth: React.FC<Props> = ({ title, children, subTitle, footerTitle, pressab
 
         <View style={[tw`flex-1 justify-between`,{backgroundColor: Colors.orange } ]}>
 
-            <View style={[tw`justify-center`, { flex: fullSizeSubView? 0.1:0.2,marginTop:fullSizeSubView?hp('2%'):0 }]}>
+            <View 
+            style={[tw`justify-center`, { flex: fullSizeSubView? 0.1:0.2,marginTop:fullSizeSubView?hp('2%'):0 }]}
+            >
                 <Image
                     source={require('./../../../assets/authlogo.png')}
                     style={[tw`self-center`, { height: hp('10%'), width: wp('50%') }]}

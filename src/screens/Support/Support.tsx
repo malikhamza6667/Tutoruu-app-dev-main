@@ -16,10 +16,10 @@ const Support: React.FC<Props> = ({ navigation }) => {
             <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
                 <ScrollView contentContainerStyle={{ paddingBottom: hp('10') }} showsVerticalScrollIndicator={false}>
                     <View
-                        style={[tw` flex-0.9  self-center`, { width: wp('95%') }]}
+                        style={[tw` flex-0.9  self-center`, { width: wp('95%') , alignItems:'center'}]}
                     >
                         <Text style={[tw``, { fontFamily: 'PoppinsRegular' }]}>
-                            The Tutoruu Fam prioritizes YOUR wellbeing, first and foremost. Let us know how we can help at anytime, We love to chat!
+                            The Tutoruu Fam prioritizes YOUR wellbeing, first and foremost. Let us know how we can help at anytime, We love to chat!{"\n"}{"\n"}
 
                             Send us a message on Messenger by clicking the button below</Text>
                         <View style={[tw``, { marginTop: hp('20') }]} >
@@ -34,6 +34,7 @@ const Support: React.FC<Props> = ({ navigation }) => {
                                     placeholder="Doe"
                                     size="xlarge"
                                 />
+                                <Spacer/>
                                 <Input
                                     title="Message"
                                     placeholder="Doe"
