@@ -19,7 +19,7 @@ type User = {
 }
 
 type Props = {
-    user: User
+    user?: User
     text: string
     date: string
     comments_count: number
@@ -28,6 +28,7 @@ type Props = {
     on_dislike_Pressed?: () => void
     on_comment?: () => void
     onSaved?: () => void
+    onShare?: () => void
     likes_count: number
     is_disliked: boolean
     dislikes_count: number
@@ -55,6 +56,7 @@ const Post: React.FC<Props> = ({
     on_dislike_Pressed,
     on_comment,
     onSaved,
+    onShare,
     attachement }) => {
     return (
         <Card>
@@ -80,32 +82,40 @@ const Post: React.FC<Props> = ({
                 <Text style={{ color: Colors.neutralShadow }}>{date}</Text>
             </View>
 
-            <View style={[tw`flex-row`, { paddingHorizontal: wp('3%') }]}>
-                <View className='flex-[0.2] items-center' >
+          { is_anonymous &&
+            <View >
+            <Text style={[tw`p-1 text-base self-center`, { fontFamily: 'PoppinsRegular' }]}>Anonymous</Text>
 
-                    <Avatar
+        </View>
+    }{!is_anonymous &&
+          <View style={[tw`flex-row `, { paddingHorizontal: wp('3%') }]}>
+                <View  style={[tw`items-center`, { flex:0.2}]} >
+
+                  { user && <Avatar
                         size='medium'
                         showCap={false}
                         image={user.image}
-                    />
+                    />}
                 </View>
 
                 <View style={[tw` justify-center mb-3`, { flex: 0.8 }]}>
                     <View style={[tw`flex-row justify-between pr-6`, { height: hp('4%') }]}>
                         <View >
-                            <Text style={[tw`p-1 text-base`, { fontFamily: 'PoppinsRegular' }]}>{user.name}</Text>
+                            <Text style={[tw`p-1 text-base`, { fontFamily: 'PoppinsRegular' }]}>{user &&user.name}</Text>
 
                         </View>
                         <View >
 
-                            <Text style={[tw`py-1`, { color: Colors.orange, fontFamily: 'PoppinsRegular' }]}>{user.username}</Text>
+                            <Text style={[tw`py-1`, { color: Colors.orange, fontFamily: 'PoppinsRegular' }]}>{user &&user.username}</Text>
                         </View>
                     </View>
-                    <View className='flex-row ' style={tw`flex-row`}>
+                    <View style={tw`flex-row`}>
                         <Text style={[tw`p-1 text-base`, { fontFamily: 'PoppinsRegular' }]}>{text}</Text>
                     </View>
                 </View>
             </View>
+            
+            }
 
 
             {
@@ -118,9 +128,9 @@ const Post: React.FC<Props> = ({
                     />
                 </View>
             }
-            <View style={[tw`flex-row self-end justify-evenly items-center`, { height: hp('6%'), width: wp('80%'), paddingHorizontal: hp('3%') }]}>
+            <View style={[tw`flex-row self-end justify-evenly  items-center`, { height: hp('6%'),width:wp('90%'), paddingHorizontal: hp('2%') }]}>
                 {/* <Feather name="thumbs-up" size={24} color="black" /> */}
-                <View style={[tw`flex-row items-center`]}>
+                <View style={[tw`flex-row items-center justify-center`]}>
                     <Text style={[tw`p-1`, { color: Colors.orange, fontFamily: 'PoppinsMedium' }]}>{comments_count > 0 ? comments_count : ''}</Text>
                     <TouchableOpacity
                         testID='comment-icon-view'
@@ -137,8 +147,8 @@ const Post: React.FC<Props> = ({
                         />
                     </TouchableOpacity>
                 </View>
-                <View style={[tw`flex-row`]}>
-                    <Text style={[tw`p-1`, { color: Colors.orange, fontFamily: 'PoppinsMedium' }]}>{likes_count > 0 ? likes_count : ''}</Text>
+                <View style={[tw`flex-row  items-center`]}>
+                    <Text style={[tw`py-4 px-1`, { color: Colors.orange, fontFamily: 'PoppinsMedium' }]}>{likes_count > 0 ? likes_count : ''}</Text>
                     <View
                         testID='like-icon-view'
 
@@ -154,8 +164,8 @@ const Post: React.FC<Props> = ({
                         />
                     </View>
                 </View>
-                <View style={[tw`flex-row`]}>
-                    <Text style={[tw`p-1`, { color: Colors.orange, fontFamily: 'PoppinsMedium' }]}>{dislikes_count > 0 ? dislikes_count : ''}</Text>
+                <View style={[tw`flex-row items-center justify-center`]}>
+                    <Text style={[tw`py-3 px-1`, { color: Colors.orange, fontFamily: 'PoppinsMedium' }]}>{dislikes_count > 0 ? dislikes_count : ''}</Text>
 
                     <View
 
@@ -172,23 +182,42 @@ const Post: React.FC<Props> = ({
                         />
                     </View>
                 </View>
+                <View testID='save-icon-view' style={[tw`flex-row items-center justify-center`]} >
 
+<Icon
+    onPressIcon={onSaved}
+    color={is_saved ? Colors.orange : Colors.lightorange}
+    testId='save-icon'
+    family='Entypo'
+    name='bookmark'
+    size={'medium'}
+/>
+</View>
+                <View style={[tw`flex-row items-center justify-center`]}>
 
+                    <View
 
+                        testID='share-icon-view'
+                    >
 
-
-
-                <View testID='save-icon-view' >
-
-                    <Icon
-                        onPressIcon={onSaved}
-                        color={is_saved ? Colors.orange : Colors.lightorange}
-                        testId='save-icon'
-                        family='Entypo'
-                        name='bookmark'
-                        size={'medium'}
-                    />
+                        <Icon
+                           
+                           onPressIcon={onShare} 
+                            color={Colors.lightorange}
+                            testId='share-icon'
+                            family='FontAwesome'
+                            name='share'
+                            size={'small'}
+                        />
+                    </View>
                 </View>
+
+
+
+
+
+
+              
             </View>
         </Card>
     )

@@ -168,7 +168,7 @@ const TutorProfile: React.FC<Props> = ({ navigation }) => {
             <ScrollView>
                 <View style={[tw`py-1 px-5`]}>
                     <Text style={[tw`text-base py-2`, { fontFamily: 'PoppinsMedium', textTransform: 'capitalize' }]}>Classes Ragnar Tutors In</Text>
-                    <View className='flex-row px-1 ' style={[tw`flex-row px-1`]}>
+                    <View style={[tw`flex-row px-1`]}>
 
                         <HorizontalList
 
@@ -229,12 +229,13 @@ const TutorProfile: React.FC<Props> = ({ navigation }) => {
                                     image: 'https://i.pravatar.cc/300', username: '@john johndoe',
                                     bio: 'Hello world This Is New Post', is_tutor: true
                                 }}
+                                
                                     date='2020-01-01' comments_count={3} likes_count={3}
                                     dislikes_count={3} is_liked={islike} is_disliked={isDislike} is_saved={isSaved}
                                     on_dislike_Pressed={() => { setisDisLiked(!isDislike) }}
                                     on_like_Pressed={() => { setisLiked(!islike) }}
                                     onSaved={() => { setisSaved(!isSaved) }}
-                                    is_anonymous={false} tags={['tag1', 'Note']}
+                                    is_anonymous={true} tags={['tag1', 'Note']}
 
                                 />
                             )

@@ -21,6 +21,8 @@ import Tag from "../../components/Tag/Tag";
 import Review from "../../components/Review/Review";
 import HorizontalList from "../../layouts/HorizontalList/HorizontalList";
 import Input from "../../components/Input/Input";
+import { postsData } from "../DummyData";
+import Post from "../../components/Post/PostCard";
 type Props = {
     navigation?: any
 }
@@ -29,7 +31,11 @@ const Profile: React.FC<Props> = ({ navigation }) => {
     const [pickedImage, setPickedImage] = useState('')
     const [pickedDocUri, setPickedDocUri] = useState('')
     const [pickedDocName, setPickedDocName] = useState('Upload Your Transcript')
-    const [isTutor, setIsTutor] = useState(true)
+    const [isTutor, setIsTutor] = useState(false)
+    const [islike, setisLiked] = useState(false);
+    const [isDislike, setisDisLiked] = useState(false);
+    const [isSaved, setisSaved] = useState(false);
+    const [commented, setIsCommented] = useState(false);
     const pickImage = async () => {
         // No permissions request is necessary for launching the image library
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -316,7 +322,7 @@ const Profile: React.FC<Props> = ({ navigation }) => {
                 :
                 (
                     <View>
-                        <ScrollView>
+                        <ScrollView contentContainerStyle={{paddingBottom:hp('3%')}}>
                             <View
                                 style={[tw`flex-row mx-2`, {}]}
                             >
@@ -387,8 +393,11 @@ const Profile: React.FC<Props> = ({ navigation }) => {
                             {/* </Section> */}
                             <Spacer />
                             <Separator type="line" />
-
-                            <Section title="Enrolled Classes">
+                           
+                            <Section title="Enrolled Classes"
+                            onPressButton={()=>{alert('Button Is Pressed')}}
+                            button={{shape:'round', icon:'plus',iconFamily:'FontAwesome5',className:'#FFE0BF #FE8303'}}
+                            >
                                 <View >
 
                                     <HorizontalList
@@ -409,7 +418,45 @@ const Profile: React.FC<Props> = ({ navigation }) => {
 
                             </Section>
                             <Separator type="line" />
-                            <Section title="Recent Posts" button={{ shape: 'round', icon: '+', className: 'bg-secondary text-primary' }}>
+                            <Section title="Recent Posts" 
+                             onPressButton={()=>{alert('Posts Button Is Pressed')}}
+                             button={{shape:'round', icon:'plus',iconFamily:'FontAwesome5',className:'#FFE0BF #FE8303'}}
+                            >
+                                 <HorizontalList
+                                        contentContainerStyle={{ paddingHorizontal: hp('2%'), paddingBottom: hp('5%') }}
+                                        data={postsData}
+                                        renderItem={({ item }) => {
+                                            return (
+                                                <Post
+            text={item.text}
+            user={item.user}
+            date={item.date}
+            comments_count={item.comments_count}
+            likes_count={item.likes_count}
+            dislikes_count={item.dislikes_count}
+            is_liked={item.is_liked}
+            is_disliked={item.is_disliked}
+            is_saved={item.is_saved}
+            on_dislike_Pressed={() => {
+                setisDisLiked(!isDislike);
+            }}
+            on_like_Pressed={() => {
+                setisLiked(!islike);
+            }}
+            onSaved={() => {
+                setisSaved(!isSaved);
+            }}
+            is_anonymous={item.is_anonymous}
+            tags={item.tags}
+           
+            key={item.id}
+
+        />
+                                            )
+                                        }}
+                                        keyExtractor={(item, index) => { return index.toString() }}
+                                    />
+
                             </Section>
                         </ScrollView>
 

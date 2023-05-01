@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import { Separator } from "../../components/Separator/Separator";
 import Spacer from "../../components/Spacer/Spacer";
 import TutorCard from "../../components/TutorCard/TutorCard";
@@ -43,18 +43,21 @@ const Marketplace:React.FC<Props> = ({ navigation }) => {
         >
             <Separator type="line" />
             <Spacer />
+<ScrollView contentContainerStyle={{paddingBottom:hp('2%')}}>
 
             <View
 
-                style={tw`items-center mt-4`}>
+                style={tw`items-center mt-2`}>
 
                 <Input
                 value={newClass}
+                onIconPressed={()=>{alert('New Class Added !')}}
                 onChangeText={(text)=>{setNewClass(text)}}
-                    size="xlarge"
-                    placeholder="Add class "
+                    size="Xlarge"
+                   height={hp('5%')}
+                    placeholder="Add class"
                     iconPosition="right"
-                    icon="AntDesign plus 20 gray"
+                    icon="AntDesign plus 18 gray"
 
                 />
                 <View>
@@ -113,6 +116,7 @@ const Marketplace:React.FC<Props> = ({ navigation }) => {
                     </Section>
                 </View>
             </View>
+</ScrollView>
         </Base>
     )
 }

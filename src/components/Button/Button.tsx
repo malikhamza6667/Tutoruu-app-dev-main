@@ -19,7 +19,8 @@ import {
     EvilIcons,
     MaterialCommunityIcons,
     FontAwesome5,
-    MaterialIcons
+    MaterialIcons,
+    Feather
 } from '@expo/vector-icons';
 
 
@@ -37,6 +38,7 @@ type ButtonProps = {
     textColor?: string,
     imagePosition?: 'left' | 'right'
     testID?: string
+    roundButtonPadding?:string
 }
 
 
@@ -54,7 +56,8 @@ const Button: React.FC<ButtonProps> = (props) => {
         MaterialCommunityIcons,
         MaterialIcons,
         EvilIcons,
-        FontAwesome5
+        FontAwesome5,
+        Feather
     }[iconFamily];
     let iconButtonStylesFull = 'flex-row items-center flex-1 justify-center '
     let iconButtonStylesDefault = 'flex-row items-center justify-center '
@@ -99,7 +102,10 @@ const Button: React.FC<ButtonProps> = (props) => {
 
             {
                 props.shape == 'round' &&
-                <IconFamily name={iconName} size={parseInt(size)} color={color} />
+                <View style={tw`${props.roundButtonPadding?props.roundButtonPadding:'px-0'}`}>
+
+                    <IconFamily name={iconName} size={parseInt(size)} color={color} />
+                </View>
 
             }
 

@@ -34,7 +34,7 @@ const CustomInputToolbar = (props: any) => {
  alignSelf:'center',
 //  height:hp('7%'),
        borderWidth:2,
-        marginHorizontal:hp('2%'),
+        marginHorizontal:hp('1%'),
         padding:3,
         marginBottom:hp('4%'),
 borderColor:Colors.orange,
@@ -57,7 +57,7 @@ borderColor:Colors.orange,
         renderTime={() => null} 
 containerStyle={{
     left:{
-    backgroundColor:Colors.white,
+
    
         justifyContent:'center',
         
@@ -81,7 +81,8 @@ containerStyle={{
             shadowOpacity: 0.1,
             shadowOffset: { width: 2, height: 5 },
             elevation: 10,
-            padding:15,
+            paddingVertical:hp('2%'),
+            paddingHorizontal:hp('1%'),
            justifyContent:'center',
            alignItems:'center',
             borderBottomLeftRadius:15,
@@ -93,7 +94,8 @@ containerStyle={{
           },
           left:{
             backgroundColor: 'rgba(254, 131, 3, 0.6)',
-            padding:hp('2%'),
+            paddingVertical:hp('2%'),
+            paddingHorizontal:hp('1%'),
             shadowColor: 'gray',
             shadowOpacity: 0.2,
             shadowOffset: { width: 2, height: 5 },
@@ -186,17 +188,13 @@ const RuuAiScreen: React.FC<Props> = ({navigation,route}) => {
     ])
   }, [])
   return (
-    <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-  style={{flex:1}}
-    >
+  //  
 
          <Details headerTitle='RUU AI'>
 
  
 
-          
-     
+       <View style={[tw`flex-1 justify-between`]}>
   <View
                         style={[tw`py-2 px-4 flex-row`,{
                             flex: 0.15,
@@ -239,9 +237,10 @@ const RuuAiScreen: React.FC<Props> = ({navigation,route}) => {
       
            
         
-      <View style={{flex:0.9,justifyContent:'space-evenly'}}>
-
+      <View style={{flex:0.85,justifyContent:'space-evenly'}}>
+   
   <GiftedChat
+  
             messages={messages}
             onSend={onSend}
             user={{
@@ -253,13 +252,16 @@ const RuuAiScreen: React.FC<Props> = ({navigation,route}) => {
           renderSend={renderSend}
     renderAvatar={renderAvatar}
     
-    messagesContainerStyle={{ paddingBottom:hp('7%'),}}
+    messagesContainerStyle={{ paddingBottom:hp('10%')}}
     renderComposer={renderComposer}
    
-    maxComposerHeight={hp('40%')}
+    maxComposerHeight={hp('30%')}
           showUserAvatar
        
-     alwaysShowSend   
+     alwaysShowSend  
+     minInputToolbarHeight={50}
+     inverted={true}
+   
          />
 
   
@@ -270,8 +272,10 @@ const RuuAiScreen: React.FC<Props> = ({navigation,route}) => {
         
            
          </View>
+        </View>   
+     
          </Details>
-    </KeyboardAvoidingView>
+
   
 
          
@@ -282,38 +286,9 @@ const RuuAiScreen: React.FC<Props> = ({navigation,route}) => {
 export default RuuAiScreen;
 
 
-{/* <KeyboardAvoidingView style={{flex:1}} contentContainerStyle={{flexGrow:1,}} behavior='height'>
-<View style={{height: hp('60%')}} className='justify-end' >
-    <ScrollView>
-         <MessageBox radiusLeft={2} color={Colors.lightorange} message='Lorem ipsum dolor sit amit?' image={ImageAdress}/>
-         <MessageBox radiusRight={2} directionRight={true}  message='Lorem ipsum dolor sit amit?' image={ImageAdress}/>
-         <MessageBox radiusLeft={2} color={Colors.lightorange} message='Lorem ipsum dolor sit amit?' image={ImageAdress}/>
-         <MessageBox radiusRight={2} directionRight={true}  message='Lorem ipsum dolor sit amit?' image={ImageAdress}/>
-       
-</ScrollView>
-</View>
 
-        <View style={{height: hp('15%')}} className='justify-center'>
-           <View
-           
-           className=' flex-row justify-between items-center gap-x-4  m-4 my-1  p-1 rounded-full border border-gray-300'>
-
-<TextInput
-    style={{ fontFamily: 'PoppinsMedium' }}
-    className=' flex-1'
-    placeholder='Enter A Message'
-    placeholderTextColor={Colors.gray}
-   
-/>
-<TouchableOpacity
-    style={{backgroundColor: Colors.orange}}
-    className="rounded-full p-2"
->
-
-<AntDesign name="arrowright" size={24} color={Colors.white} />
-</TouchableOpacity>
-</View>
-          </View>   
-
-    
-           </KeyboardAvoidingView> */}
+{/* <KeyboardAvoidingView
+//       behavior={Platform.OS === "ios" ? "padding" : "height"}
+  
+// style={{flex:1}}
+//   > */}

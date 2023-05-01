@@ -10,6 +10,7 @@ export const messageData = [
   {
     id: 2,
     sender: "Jane",
+    is_anonymous: true,
     text: "I'm doing well, thanks for asking. How about you?",
     senderType: "other",
     avatar: "https://www.bootdey.com/img/Content/avatar/avatar2.png",
