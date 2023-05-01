@@ -1,12 +1,32 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import tw from 'twrnc';
 import Details from "../../layouts/Details/Details";
+import bridge from "../../Services/BaseURL/Baseurl";
 
 
 
 const BAP = () => {
+    useEffect(()=>{
+
+        bridge.getUserByEmail(
+            /* Datapoints needed for screen */ `
+            name
+            email
+            phone
+            bio
+            
+            university {
+            name
+            }
+            `,
+            /* username */ 'mariam.fathi369@gmail.com',
+            ).then((user) => {
+           console.log('User Details Are  ',user)
+            });
+            
+     },[])
     return (
         <Details headerTitle="About">
             <View style={[{ width: wp('95'), alignSelf: 'center' }]}>

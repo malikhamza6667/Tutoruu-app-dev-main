@@ -1,9 +1,13 @@
-import React from "react";
+import React  from "react";
 import { View, Text, Image } from "react-native";
 import tw from 'twrnc';
 import Details from "../../layouts/Details/Details";
 
+
+
 const About = () => {
+ 
+ 
     return (
         <Details
             headerTitle="About"
