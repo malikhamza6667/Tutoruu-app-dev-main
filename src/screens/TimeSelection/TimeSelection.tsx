@@ -7,6 +7,7 @@ import SlotsCard from "../../components/SlotsCard/SlotsCard";
 import Button from "../../components/Button/Button";
 import HorizontalList from "../../layouts/HorizontalList/HorizontalList";
 import Colors from "../../../assets/Colors";
+import Tag from "../../components/Tag/Tag";
 type Props = {
     navigation?: any
 }
@@ -32,30 +33,86 @@ const data = [
     },
 
 ]
+const TimeSelectionArray=[
+    {
+        id: 0,
+        data: 
+  {     date: '2020-01-05', 
+       available_times: [12, 13, 14]  } 
+    },
+    {
+        id: 1,
+       data:{date: '2020-01-04', 
+       available_times: [11,8,9, 12, 13]  } 
+    },
+    {
+        id: 2,
+      data : { date: '2020-01-01', 
+       available_times: [10,11,12, 13, 14]  } 
+    },
+]
 const TimeSelection: React.FC<Props> = ({ navigation }) => {
     const [focused, setFocused] = useState(0);
+    const [focusedTime, setFocusedTime] = useState(0);
+
     
     return (
         <Details headerTitle="Pick A Time">
             <HorizontalList
                 horizontal={false}
-                data={data}
-                renderItem={({ item }) => {
+                data={TimeSelectionArray}
+                renderItem={({ item,index }) => {
                     // const background = item.id === focused ? styles.activeCard : styles.card;
                     const text = item.id === focused ? Colors.orange : Colors.black;
                     return (
 
-                        <View
+                     
+<TouchableOpacity
+style={{backgroundColor:Colors.white}}
+onPress={()=>{setFocused(index)}}
+>
 
-                        // key={item.id}
-                        // style={item.id === focused ? styles.activeCard : styles.card}
-                        >
-                            <SlotsCard 
-                            // slots={[{date: '2020-01-01'}, available_times: [12, 13, 14] }]}  
-                            id={item.id} 
-                            date={item.date}
-                            />
-                        </View>
+    <SlotsCard 
+    isFocused={index==focused?true:false}
+ slots={item.data}
+    
+    />
+    {
+        focused==index && <View style={[tw`items-center`]}>
+            <HorizontalList
+            data={item.data.available_times}
+            contentContainerStyle={{paddingHorizontal:hp('2%'),paddingVertical:hp('2%')}}
+            renderItem={({item,index})=>{
+                return(
+                    <TouchableOpacity
+
+                    onPress={() => { setFocusedTime(index) }}
+                    style={[
+                        tw`rounded-3xl self-center py-3 px-5  m-0.5 mx-1 my-2 items-center`,
+                        {
+                        backgroundColor: index == focusedTime ? Colors.lightorange : Colors.gray,
+                        width:wp('20%')
+
+
+                    }]}
+                    
+                    >
+                    <Text
+
+                        style={[tw`text-sm`,{ color: index == focusedTime ? Colors.orange : Colors.black, textTransform: "uppercase", fontFamily: 'PoppinsMedium' }]}
+                        >{item}</Text>
+                </TouchableOpacity>
+                )
+            }}
+            keyExtractor={(item,index)=>{return index.toString()}}
+            
+            />
+        </View>
+    }
+</TouchableOpacity>
+                       
+                           
+                       
 
 
                         // <TouchableOpacity

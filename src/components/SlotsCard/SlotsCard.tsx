@@ -6,32 +6,34 @@ import tw from 'twrnc';
 import Colors from "../../../assets/Colors";
 import { Card } from "../../layouts/Card/Card";
 
-
-type Props = {
-    // slots: any[]
-    id: any
-    date: any
+type Slots={
+    date: string,
+    available_times:number[]
+}
+type Props = { 
+    slots: Slots
+    id?: any
+  isFocused:boolean
+   
 }
 
 // [{ date: '2020-01-01', available_times: [12, 13, 14] }]
-const SlotsCard: React.FC<Props> = ({ id, date }) => {
-    // const num_of_slots = slots[0].available_times.length
-    // const date = slots[0].date
-    const [focused, setFocused] = useState(0);
-    // const [focused, setFocused] = useState(false)
-    // useEffect(() => {
-    //     setFocused(id);
-    // }, [id]);
-    const text = id === focused ? Colors.orange : Colors.black;
+const SlotsCard: React.FC<Props> = ({ id, slots,isFocused }) => {
+    const num_of_slots = slots.available_times.length
+    const date = slots.date
+   
+   
     return (
-        <TouchableOpacity
-            onPress={() => { setFocused(id); console.log('key is', id) }}
-            key={id}
-            style={id === focused ? styles.activeCard : styles.card}
-        >
-            <Text style={[tw`text-sm text-center`, { color: text, fontFamily: 'PoppinsRegular', }]}> Slots</Text>
-            <Text style={[tw`text-base`, { color: text, fontFamily: 'PoppinsMedium' }]}>{date}</Text>
-        </TouchableOpacity>
+       <Card>
+<View
+
+style={[tw`items-center py-4 rounded-2xl`,{backgroundColor:isFocused? Colors.lightorange:Colors.white}]}>
+
+           <Text style={[tw`text-sm text-center`, { color: Colors.orange, fontFamily: 'PoppinsRegular', }]}> {num_of_slots} Slots</Text>
+           <Text style={[tw`text-base`, { color:isFocused?Colors.orange: Colors.black, fontFamily: 'PoppinsMedium' }]}>{date}</Text>
+</View>
+       </Card>
+    
     )
 }
 const styles = StyleSheet.create({
