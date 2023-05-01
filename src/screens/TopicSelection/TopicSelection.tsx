@@ -7,6 +7,7 @@ import Details from "../../layouts/Details/Details";
 import { Card } from "../../layouts/Card/Card";
 import HorizontalList from "../../layouts/HorizontalList/HorizontalList";
 import Colors from "../../../assets/Colors";
+import Button from "../../components/Button/Button";
 
 const data = [
     {
@@ -17,12 +18,16 @@ const data = [
         id: 2,
         topic: 'Assignments'
     },
+    {
+        id: 3,
+        topic: 'Essays'
+    },
 
 ]
-type Props={
-    navigation?:any
+type Props = {
+    navigation?: any
 }
-const TopicSelection:React.FC<Props> = ({navigation}) => {
+const TopicSelection: React.FC<Props> = ({ navigation }) => {
     const [focused, setFocused] = useState(0)
     return (
         <Details headerTitle="Pick A Topic">
@@ -35,9 +40,7 @@ const TopicSelection:React.FC<Props> = ({navigation}) => {
                     return (
 
                         <TouchableOpacity
-                            onPress={() =>{ setFocused(item.id)
-                            navigation.navigate('TimeSelection')
-                            }}
+                            onPress={() => { setFocused(item.id) }}
                             key={item.id}
                             style={item.id === focused ? styles.activeCard : styles.card}
                         >
@@ -47,6 +50,17 @@ const TopicSelection:React.FC<Props> = ({navigation}) => {
                     )
                 }}
             />
+            <View
+                style={[tw` p-2 w-95 self-center`]}
+            >
+
+                <Button
+                    onPress={() => { navigation.navigate('TimeSelection') }}
+                    shape="full"
+                    text="Next"
+
+                />
+            </View>
 
 
         </Details>
