@@ -40,7 +40,7 @@ export const Notification: React.FC<NotificationProps> = ({ text, image, is_read
                     <View style={tw` flex-row`}>
                         <Text
                             testID='notification-text'
-                            style={[tw``, notificationTextStyle, { fontFamily: 'PoppinsMedium' }]}
+                            style={[tw``, notificationTextStyle, { fontFamily: 'PoppinsRegular' }]}
                         >{text}</Text>
                         <Text style={timeTextStyle}>1 hr ago</Text>
                     </View>
