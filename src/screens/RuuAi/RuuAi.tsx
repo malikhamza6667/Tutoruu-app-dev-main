@@ -32,7 +32,7 @@ const CustomInputToolbar = (props: any) => {
         borderTopColor:Colors.orange,
  marginTop:hp('1%'),
  alignSelf:'center',
- height:hp('7%'),
+//  height:hp('7%'),
        borderWidth:2,
         marginHorizontal:hp('2%'),
         padding:3,
@@ -256,7 +256,7 @@ const RuuAiScreen: React.FC<Props> = ({navigation,route}) => {
     messagesContainerStyle={{ paddingBottom:hp('7%'),}}
     renderComposer={renderComposer}
    
-    
+    maxComposerHeight={hp('40%')}
           showUserAvatar
        
      alwaysShowSend   

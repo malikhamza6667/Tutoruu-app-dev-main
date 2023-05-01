@@ -9,7 +9,7 @@ import { useFonts } from 'expo-font';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Colors from './assets/Colors';
 import Login from './src/screens/Auth/Login/Login';
-import i18n from './src/localization/LocalizedStrings/LocalizedStrings';
+// import i18n from './src/localization/LocalizedStrings/LocalizedStrings';
 import { reloadAsync } from 'expo-updates';
 import Class from './src/screens/Class/Class';
 import Search from './src/screens/Search/Search';
@@ -68,50 +68,50 @@ const MyApp = () => {
     'PoppinsSemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
   });
 
-  const [isRTL, setIsRTL] = useState(i18n.locale === 'ar' ? true : false);
-  const [localeValue, setLocaleValue] = useState(i18n.locale)
+  // const [isRTL, setIsRTL] = useState(i18n.locale === 'ar' ? true : false);
+  // const [localeValue, setLocaleValue] = useState(i18n.locale)
 
-  const loadLanguage = useCallback(async () => {
+  // const loadLanguage = useCallback(async () => {
 
-    console.log("Value of I18 isss   " + i18n.locale)
-    console.log("Value of I18 locale is   " + localeValue)
+  //   console.log("Value of I18 isss   " + i18n.locale)
+  //   console.log("Value of I18 locale is   " + localeValue)
 
-    setTimeout(async () => {
-      AsyncStorage.getItem('Language').then(async (val) => {
-        if (val === 'ar') {
-          console.log('Is Already RTL   ', I18nManager.isRTL)
-          i18n.locale = 'ar'
-          I18nManager.forceRTL(true)
-          setLocaleValue('ar')
+  //   setTimeout(async () => {
+  //     AsyncStorage.getItem('Language').then(async (val) => {
+  //       if (val === 'ar') {
+  //         console.log('Is Already RTL   ', I18nManager.isRTL)
+  //         i18n.locale = 'ar'
+  //         I18nManager.forceRTL(true)
+  //         setLocaleValue('ar')
 
-          console.log("Layout Changed   " + i18n.locale)
-          setIsRTL(true)
-          await SplashScreen.hideAsync();
-        }
-        else {
-          console.log('Is Already RTL in en   ', I18nManager.isRTL)
-          i18n.locale = 'en'
-          I18nManager.forceRTL(false)
-          setLocaleValue('en')
+  //         console.log("Layout Changed   " + i18n.locale)
+  //         setIsRTL(true)
+  //         await SplashScreen.hideAsync();
+  //       }
+  //       else {
+  //         console.log('Is Already RTL in en   ', I18nManager.isRTL)
+  //         i18n.locale = 'en'
+  //         I18nManager.forceRTL(false)
+  //         setLocaleValue('en')
 
-          setIsRTL(false)
-          await SplashScreen.hideAsync();
-        }
-      })
-    }, 1500);
+  //         setIsRTL(false)
+  //         await SplashScreen.hideAsync();
+  //       }
+  //     })
+  //   }, 1500);
 
-  }, [isRTL]);
+  // }, [isRTL]);
 
-  useEffect(() => {
-    AsyncStorage.getItem('Language').then((val) => {
-      if (val == 'ar') {
-        i18n.locale = 'ar'
-      }
-      else {
-        i18n.locale = 'en'
-      }
-    })
-  }, []);
+  // useEffect(() => {
+  //   AsyncStorage.getItem('Language').then((val) => {
+  //     if (val == 'ar') {
+  //       i18n.locale = 'ar'
+  //     }
+  //     else {
+  //       i18n.locale = 'en'
+  //     }
+  //   })
+  // }, []);
 
   // useEffect(() => {
   //   if (i18n.locale === 'ar') {
