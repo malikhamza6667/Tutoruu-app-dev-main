@@ -10,7 +10,7 @@ import bridge from "../../Services/BaseURL/Baseurl";
 const BAP = () => {
     useEffect(()=>{
 
-        bridge.getUserByEmail(
+        bridge.getUserByUsername(
             /* Datapoints needed for screen */ `
             name
             email
@@ -21,7 +21,7 @@ const BAP = () => {
             name
             }
             `,
-            /* username */ 'mariam.fathi369@gmail.com',
+            /* username */ 'Tutoruu',
             ).then((user) => {
            console.log('User Details Are  ',user)
             });

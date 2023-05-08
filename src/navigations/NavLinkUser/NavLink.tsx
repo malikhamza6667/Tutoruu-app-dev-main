@@ -17,6 +17,7 @@ import Settings from "../../screens/Settings/Settings";
 import Support from "../../screens/Support/Support";
 import BAP from "../../screens/BAP/BAP";
 import RuuAiScreen from "../../screens/RuuAi/RuuAi";
+import TestingScreen from "../../screens/TestingScreen/TestingScreen";
 
 
 const drawer= createDrawerNavigator()
@@ -352,6 +353,31 @@ name="RuuAiScreen"
 component={RuuAiScreen}
 options={{
   drawerLabel:'Ruu Ai',
+  headerShown:false,
+            drawerIcon: ({ focused, size }) => (
+             
+              <Icon
+              family="MaterialCommunityIcons"
+              name="bird"
+              color={focused? Colors.orange: Colors.black}
+              size="small"
+              
+              />
+                
+              
+            ),
+           
+            
+             
+              
+          }} 
+/>
+<drawer.Screen
+
+name="TestingScreen"
+component={TestingScreen}
+options={{
+  drawerLabel:'TestingScreen',
   headerShown:false,
             drawerIcon: ({ focused, size }) => (
              

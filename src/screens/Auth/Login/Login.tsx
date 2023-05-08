@@ -1,31 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, I18nManager, TouchableOpacity ,Image} from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Auth from "../../../layouts/Auth/Auth"
 import Button from "../../../components/Button/Button";
 import Input from "../../../components/Input/Input";
 import AsyncStorage from '@react-native-async-storage/async-storage'
-// import i18n from "../../../localization/LocalizedStrings/LocalizedStrings";
+ import i18n from "../../../localization/LocalizedStrings/LocalizedStrings";
 import { reloadAsync } from 'expo-updates'
 import tw from 'twrnc';
 import Avatar from "../../../components/Avatar/Avatar";
 import Colors from "../../../../assets/Colors";
 import { EvilIcons } from '@expo/vector-icons';
+
+
 type Props={
     navigation?:any
 }
 const Login:React.FC<Props> = ({ navigation }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    useEffect(()=>{
+console.log("YOUR LOCALE NOW IS    "+i18n.locale)
+},[])
     return (
         <Auth
 
-            // title={i18n.t('Welcome Back')}
-            title={'Welcome Back'}
-            // subTitle={i18n.translate("Don't Have Account ?")}
-            subTitle={"Don't Have Account"}
-            // pressableSubtitleText={i18n.t('Sign Up')}
-            pressableSubtitleText={"Sign Up"}
+         title={i18n.t('Welcome Back')}
+            // title={'Welcome Back'}
+             subTitle={i18n.t("Don't Have Account ?")}
+            // subTitle={"Don't Have Account"}
+            pressableSubtitleText={i18n.t('Sign Up')}
+            // pressableSubtitleText={"Sign Up"}
             onPressSubtitle={() => navigation.navigate('SignUpMethods')}
             footerTitle={'Reset-Password'}
             onPressfooterTitle={() => navigation.navigate('ResetPassword')}
@@ -66,10 +71,13 @@ const Login:React.FC<Props> = ({ navigation }) => {
                     <Button
                         onPress={() => {
                            navigation.navigate('UserMainFlow')
+                                //                            i18n.locale = 'en'
+                                // I18nManager.forceRTL(false)
+                                // reloadAsync()
                         }}
                         // icon={'AntDesign arrowright 24 white'}
                         shape='full'
-                        text='Login'
+                        text='Logn'
 
                         
                         testID='login-button'
