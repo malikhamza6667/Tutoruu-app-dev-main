@@ -43,6 +43,7 @@ import UserMainFlow from './src/navigations/UserMainStack/UserMainFlow';
 import MainAppRoutes from './src/navigations/AppRoutesMain/AppRoutes';
 import PaymentStatus from './src/screens/PaymentStatus/PaymentStatus';
 import AuthenticationStack from './src/navigations/AuthenticationFlow/AuthenticationStack';
+import TestingScreen from './src/screens/TestingScreen/TestingScreen';
 
 
 SplashScreen.preventAutoHideAsync();
@@ -158,8 +159,13 @@ const MyApp = () => {
    
    <NavigationContainer>
 <MainAppRoutes/>
+{/* <TestingScreen/> */}
+
+
  </NavigationContainer>
  
+
+
    
     </SafeAreaView>
 

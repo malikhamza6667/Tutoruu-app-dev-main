@@ -45,9 +45,6 @@ export const Notification: React.FC<NotificationProps> = ({ text, image, is_read
                         <Text style={timeTextStyle}>1 hr ago</Text>
                     </View>
                 </View>
-
-
-
             </View>
         </TouchableOpacity>
     );

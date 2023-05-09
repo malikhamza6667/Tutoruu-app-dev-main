@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native'
 import tw from 'twrnc';
 import * as ImagePicker from 'expo-image-picker';
 import * as DocumentPicker from 'expo-document-picker';
@@ -31,7 +31,7 @@ const Profile: React.FC<Props> = ({ navigation }) => {
     const [pickedImage, setPickedImage] = useState('')
     const [pickedDocUri, setPickedDocUri] = useState('')
     const [pickedDocName, setPickedDocName] = useState('Upload Your Transcript')
-    const [isTutor, setIsTutor] = useState(false)
+    const [isTutor, setIsTutor] = useState(true)
     const [islike, setisLiked] = useState(false);
     const [isDislike, setisDisLiked] = useState(false);
     const [isSaved, setisSaved] = useState(false);
@@ -73,8 +73,9 @@ const Profile: React.FC<Props> = ({ navigation }) => {
     }
 
 
-    const rowStyle = tw`flex-row items-center`
-    const spaceStyle = tw`pl-2`
+    const rowStyle = tw`flex-row items-center pt-2`
+    const spaceStyle = tw`pl-2 pr-5`
+
 
 
 
@@ -180,7 +181,7 @@ const Profile: React.FC<Props> = ({ navigation }) => {
                                         <Icon
                                             family="Feather"
                                             name="edit"
-                                            size="medium"
+                                            size="small"
                                             color={Colors.orange}
                                             onPressIcon={() => { navigation.navigate('EditProfile') }}
                                         />
@@ -191,8 +192,16 @@ const Profile: React.FC<Props> = ({ navigation }) => {
                                     {/* </View> */}
                                     <Text style={[tw`text-xl`, { fontFamily: 'PoppinsBold' }]}>Ragnar</Text>
                                     <View style={[tw`flex-row`]}>
-                                        <Tag type="neutral">Tutor</Tag>
-                                        <Tag type="neutral">300 EGP</Tag>
+                                        <TouchableOpacity
+                                            style={[tw` rounded-lg mr-2`, { backgroundColor: Colors.neutral, padding: hp('0.6') }]}
+                                        >
+                                            <Text style={{ textTransform: 'uppercase', fontFamily: 'PoppinsMedium' }}>tutor</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity
+                                            style={[tw` rounded-lg `, { backgroundColor: Colors.neutral, padding: hp('0.6') }]}
+                                        >
+                                            <Text style={{ textTransform: 'uppercase', fontFamily: 'PoppinsMedium' }}>360 egp</Text>
+                                        </TouchableOpacity>
                                     </View>
                                     <View
                                         style={[tw`flex-row`, { justifyContent: 'space-between' }]}
@@ -203,48 +212,47 @@ const Profile: React.FC<Props> = ({ navigation }) => {
                                             <Icon
                                                 family="AntDesign"
                                                 name="checkcircle"
-                                                size="small"
+                                                size="xsmall"
                                                 color={Colors.orange}
-                                                onPressIcon={() => { navigation.navigate('EditProfile') }}
+                                            // onPressIcon={() => { navigation.navigate('EditProfile') }}
                                             />
                                             <View style={spaceStyle}>
-                                                <Text style={{ fontFamily: 'PoppinsMedium' }}>360 </Text>
-                                                <Text style={{ fontFamily: 'PoppinsMedium' }}>approves</Text>
+                                                <Text style={styles.fontStyle}>360 </Text>
+                                                <Text style={styles.fontStyle}>approves</Text>
                                             </View>
                                         </View>
                                         <View style={rowStyle}>
                                             <Icon
                                                 family="FontAwesome5"
                                                 name="user"
-                                                size="small"
+                                                size="xsmall"
                                                 color={Colors.orange}
-                                                onPressIcon={() => { navigation.navigate('FollowList') }}
+                                            // onPressIcon={() => { navigation.navigate('FollowList') }}
                                             />
 
                                             <View style={spaceStyle}>
-                                                <Text style={{ fontFamily: 'PoppinsMedium' }}>432 </Text>
-                                                <Text style={{ fontFamily: 'PoppinsMedium' }}>Follower</Text>
+                                                <Text style={styles.fontStyle}>432 </Text>
+                                                <Text style={styles.fontStyle}>Follower</Text>
                                             </View>
                                         </View>
                                         <View style={rowStyle}>
                                             <Icon
                                                 family="AntDesign"
                                                 name="like2"
-                                                size="small"
+                                                size="xsmall"
                                                 color={Colors.orange}
-                                                onPressIcon={() => alert('Pressed')}
+                                            // onPressIcon={() => alert('Pressed')}
                                             />
                                             <View style={spaceStyle}>
-                                                <Text style={{ fontFamily: 'PoppinsMedium' }}>2k </Text>
-                                                <Text style={{ fontFamily: 'PoppinsMedium' }}>likes</Text>
+                                                <Text style={styles.fontStyle}>2k </Text>
+                                                <Text style={styles.fontStyle}>likes</Text>
                                             </View>
                                         </View>
                                     </View>
                                 </View>
                             </View>
-                            <Section title="">
+                            <Spacer/>
                                 <Box text="Connect to your google calendar to sync your sessions with your schedule. " />
-                            </Section>
                             <View
                                 style={[tw`self-center pt-3.5`, { width: wp('87') }]}
                             >
@@ -322,7 +330,7 @@ const Profile: React.FC<Props> = ({ navigation }) => {
                 :
                 (
                     <View>
-                        <ScrollView contentContainerStyle={{paddingBottom:hp('3%')}}>
+                        <ScrollView contentContainerStyle={{ paddingBottom: hp('3%') }}>
                             <View
                                 style={[tw`flex-row mx-2`, {}]}
                             >
@@ -393,10 +401,10 @@ const Profile: React.FC<Props> = ({ navigation }) => {
                             {/* </Section> */}
                             <Spacer />
                             <Separator type="line" />
-                           
+
                             <Section title="Enrolled Classes"
-                            onPressButton={()=>{alert('Button Is Pressed')}}
-                            button={{shape:'round', icon:'plus',iconFamily:'FontAwesome5',className:'#FFE0BF #FE8303'}}
+                                onPressButton={() => { alert('Button Is Pressed') }}
+                                button={{ shape: 'round', icon: 'plus', iconFamily: 'FontAwesome5', className: '#FFE0BF #FE8303' }}
                             >
                                 <View >
 
@@ -418,44 +426,44 @@ const Profile: React.FC<Props> = ({ navigation }) => {
 
                             </Section>
                             <Separator type="line" />
-                            <Section title="Recent Posts" 
-                             onPressButton={()=>{alert('Posts Button Is Pressed')}}
-                             button={{shape:'round', icon:'plus',iconFamily:'FontAwesome5',className:'#FFE0BF #FE8303'}}
+                            <Section title="Recent Posts"
+                                onPressButton={() => { alert('Posts Button Is Pressed') }}
+                                button={{ shape: 'round', icon: 'plus', iconFamily: 'FontAwesome5', className: '#FFE0BF #FE8303' }}
                             >
-                                 <HorizontalList
-                                        contentContainerStyle={{ paddingHorizontal: hp('2%'), paddingBottom: hp('5%') }}
-                                        data={postsData}
-                                        renderItem={({ item }) => {
-                                            return (
-                                                <Post
-            text={item.text}
-            user={item.user}
-            date={item.date}
-            comments_count={item.comments_count}
-            likes_count={item.likes_count}
-            dislikes_count={item.dislikes_count}
-            is_liked={item.is_liked}
-            is_disliked={item.is_disliked}
-            is_saved={item.is_saved}
-            on_dislike_Pressed={() => {
-                setisDisLiked(!isDislike);
-            }}
-            on_like_Pressed={() => {
-                setisLiked(!islike);
-            }}
-            onSaved={() => {
-                setisSaved(!isSaved);
-            }}
-            is_anonymous={item.is_anonymous}
-            tags={item.tags}
-           
-            key={item.id}
+                                <HorizontalList
+                                    contentContainerStyle={{ paddingHorizontal: hp('2%'), paddingBottom: hp('5%') }}
+                                    data={postsData}
+                                    renderItem={({ item }) => {
+                                        return (
+                                            <Post
+                                                text={item.text}
+                                                user={item.user}
+                                                date={item.date}
+                                                comments_count={item.comments_count}
+                                                likes_count={item.likes_count}
+                                                dislikes_count={item.dislikes_count}
+                                                is_liked={item.is_liked}
+                                                is_disliked={item.is_disliked}
+                                                is_saved={item.is_saved}
+                                                on_dislike_Pressed={() => {
+                                                    setisDisLiked(!isDislike);
+                                                }}
+                                                on_like_Pressed={() => {
+                                                    setisLiked(!islike);
+                                                }}
+                                                onSaved={() => {
+                                                    setisSaved(!isSaved);
+                                                }}
+                                                is_anonymous={item.is_anonymous}
+                                                tags={item.tags}
 
-        />
-                                            )
-                                        }}
-                                        keyExtractor={(item, index) => { return index.toString() }}
-                                    />
+                                                key={item.id}
+
+                                            />
+                                        )
+                                    }}
+                                    keyExtractor={(item, index) => { return index.toString() }}
+                                />
 
                             </Section>
                         </ScrollView>
@@ -470,5 +478,13 @@ const Profile: React.FC<Props> = ({ navigation }) => {
 
     )
 }
+
+
+const styles = StyleSheet.create({
+    fontStyle: {
+        fontSize: hp('1.5'),
+        fontFamily: 'PoppinsMedium'
+    }
+})
 
 export default Profile

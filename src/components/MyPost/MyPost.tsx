@@ -11,6 +11,7 @@ import Switch from "../Switch/Switch";
 import Tag from "../Tag/Tag";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Entypo from 'react-native-vector-icons/Entypo'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Colors from "../../../assets/Colors";
 import { useNavigation } from "@react-navigation/native";
 
@@ -71,7 +72,9 @@ const MyPost = () => {
                         placeholder='Doe'
                         height={hp('5')}
                         testID="my-post-input"
+                     
                     />
+
                 </View>
                 <View
                     style={[
@@ -93,14 +96,14 @@ const MyPost = () => {
                 </View>
             </View>
             <Modal
-            onRequestClose={() => setIsModalVisible(false)}
-             visible={isModalVisible} transparent={true} animationType="fade">
+                onRequestClose={() => setIsModalVisible(false)}
+                visible={isModalVisible} transparent={true} animationType="fade">
                 <TouchableWithoutFeedback onPress={() => setIsModalVisible(false)}>
-                    <View style={tw`flex-1 justify-center items-center bg-opacity-50 bg-gray-500`}>
+                    <View style={tw`flex-1 justify-center items-center bg-opacity-50 bg-gray-700`}>
                         <View
                             style={[
                                 tw`bg-white py-5 px-2 shadow-lg`,
-                                { width: wp('93%'), height: hp('50%'), borderRadius: wp('7%'), },
+                                { width: wp('93%'), height: hp('47%'), borderRadius: wp('7%'), },
                             ]}
                         >
                             <View style={[tw`flex-row`]}>
@@ -114,10 +117,10 @@ const MyPost = () => {
                                 <View>
 
                                     <Text
-                                        style={{ fontFamily: 'PoppinsSemiBold' }}
+                                        style={{ fontFamily: 'PoppinsSemiBold', fontSize: hp('1.8') }}
                                     >Yasmine Kamel</Text>
                                     <Text
-                                        style={[tw`text-orange-500`, { fontFamily: 'PoppinsRegular' }]}
+                                        style={[tw`text-orange-500 mb-2`, { fontFamily: 'PoppinsRegular', fontSize: hp('1.8') }]}
                                     >@yasmine Kamel</Text>
                                 </View>
 
@@ -132,18 +135,34 @@ const MyPost = () => {
                                 // title='Password'
                                 placeholder='Doe'
                             />
+                            <TouchableOpacity
+                                style={[tw`ml-78`, { position: 'absolute', marginTop: hp('17'), }]}
+                                onPress={() => alert('pressed')}
+                            >
 
+                                <Entypo
+                                    name="attachment"
+                                    size={hp('2')}
+                                    color={Colors.orange}
+
+                                />
+                            </TouchableOpacity>
                             <Text
-                                style={[tw`pt-3`, { fontFamily: 'PoppinsRegular' }]}
+                                style={[tw`pt-3`, { fontFamily: 'PoppinsRegular', fontSize: hp('1.8') }]}
                             >Tags</Text>
 
 
                             <View
-                                style={tw`flex-row`}
+                                style={tw`flex-row pt-2`}
                             >
 
-                                <Tag shape='round' type='primary' >AUC</Tag>
-                                <Tag shape='round' type='primary'>GENERAL</Tag>
+                                <TouchableOpacity style={[tw` p-2 mr-1 rounded-full items-center`, { backgroundColor: Colors.lightorange, justifyContent: 'center' }]}>
+                                    <Text style={[tw`px-2`, { fontFamily: 'PoppinsMedium', color: Colors.orange, fontSize: hp('1.8'), textTransform: 'uppercase' }]}>auc</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={[tw`p-2 rounded-full flex-row items-center`, { backgroundColor: Colors.lightorange }]}>
+                                    <Text style={[tw`px-2`, { fontFamily: 'PoppinsMedium', color: Colors.orange, fontSize: hp('1.8'), textTransform: 'uppercase' }]}>General</Text>
+                                    <MaterialIcons name="arrow-drop-down" size={hp('3')} color={Colors.orange} />
+                                </TouchableOpacity>
 
                             </View>
                             <View
@@ -151,7 +170,7 @@ const MyPost = () => {
                             >
 
                                 <Text
-                                    style={{ fontFamily: 'PoppinsRegular' }}
+                                    style={{ fontFamily: 'PoppinsRegular', fontSize: hp('1.8') }}
                                 >Post anonymously</Text>
                                 <Switch opened={true} >
 

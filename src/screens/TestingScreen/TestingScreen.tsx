@@ -61,43 +61,43 @@ const TestingScreen: React.FC<Props> = ({ navigation }) => {
         }
       `;
 
-const input = {
-    email: "Doe123@mail.com",
-    university_id: 1,
-    password: "1hb2345678",
-    password_confirmation: "1hb2345678",
-    name: "Doe",
-    username: "Doe",
-    mobile_number: "03123456789",
-  };
-  
- bridge.register(REGISTER_MUTATION,input).then((res)=>{
-    console.log("Result Is  ",res)
- }).catch((err)=>{
-    console.log("Error Is ",err)
- })
+        const input = {
+            email: "Doe123@mail.com",
+            university_id: 1,
+            password: "1hb2345678",
+            password_confirmation: "1hb2345678",
+            name: "Doe",
+            username: "Doe",
+            mobile_number: "03123456789",
+        };
+
+        bridge.register(REGISTER_MUTATION, input).then((res) => {
+            console.log("Result Is  ", res)
+        }).catch((err) => {
+            console.log("Error Is ", err)
+        })
 
 
 
     }
-const logUser=()=>{
-    const r = `
+    const logUser = () => {
+        const r = `
     mutation RegisterMutation($email: String!,$password: String!) {
         login(email: $email,password:$password) {
        token
       }
     }
   `;
-  
-  bridge
-    .login(`token`,  "tutoruutest@gail.com","P@ssw0rd" ) 
-    .then((result) => {
-      console.log("result is   ", result);
-    }).catch((err)=>{
-        console.log('error is ',err)
-    })
-  
-}
+
+        bridge
+            .login(`token`, "tutoruutest@gmail.com", "P@ssw0rd")
+            .then((result) => {
+                console.log("result is   ", result);
+            }).catch((err) => {
+                console.log('error is ', err)
+            })
+
+    }
     return (
 
         <Details headerTitle="TestingScreen" >

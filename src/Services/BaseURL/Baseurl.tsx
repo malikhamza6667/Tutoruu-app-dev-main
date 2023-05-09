@@ -1,5 +1,6 @@
 import Bridge from 'tutoruu-bridge'
 
-const bridge = new Bridge("https://sentinel.tutoruu.com/")
+const bridge = new Bridge("https://jellyfish-app-pgqgx.ondigitalocean.app/")
+//https://jellyfish-app-pgqgx.ondigitalocean.app/
 
 export default bridge

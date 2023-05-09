@@ -8,7 +8,8 @@ const Colors = {
   fadedgray: "#CFCDCB",
   blue: '#268EED',
   red:'#FE5757',
-  neutralShadow:'rgba(207, 205, 203, 1)'
+  neutralShadow:'rgba(207, 205, 203, 1)',
+  neutral:'#F2F4F5'
 };
 
 export default Colors;
