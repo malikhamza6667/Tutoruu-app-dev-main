@@ -12,7 +12,7 @@ type TagProps = {
     iconPosition?: 'left' | 'right';
     onPress?: () => void;
     isPressed?: boolean
-    children: React.ReactNode;
+    children?: React.ReactNode;
 };
 
 const Tag: React.FC<TagProps> = ({

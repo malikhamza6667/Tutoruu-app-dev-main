@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     View,
     FlatList,
-    ScrollView
+    ScrollView,
+    TouchableOpacity,
+    Text
 } from "react-native";
 import {
     widthPercentageToDP as wp,
@@ -27,9 +29,29 @@ import {
 } from "../DummyData";
 import { useNavigation } from "@react-navigation/native";
 import Section from "../../layouts/Section/Section";
+import Tag from "../../components/Tag/Tag";
+import Colors from "../../../assets/Colors";
 
 
+const HeaderFilters=[
+    {
+        id:0,
+        tag: 'All'
+    },
+    {
+        id: 1,
+        tag: 'Classes'
+    },
+    {
+        id:2,
+        tag:'Tutors'
+    },
+    {
+        id:3,
+        tag: 'Posts'
+    }
 
+]
 const Search = () => {
     const navigation= useNavigation()
     const renderItem = ({ item }) => (
@@ -64,6 +86,38 @@ const Search = () => {
     const [isDislike, setisDisLiked] = useState(false)
     const [isSaved, setisSaved] = useState(false)
     const [commented, setIsCommented] = useState(false)
+    const[selectedFilter,setSelectedFilter]=useState(0)
+    const[selectedFilterName,setSelectedFilterName]=useState('All')
+    const[showPosts,setShowPosts]=useState(true)
+    const[showClasses,setShowClasses]=useState(true)
+    const[showTutors,setShowTutors]=useState(true)
+
+    useEffect(()=>{
+        if(selectedFilterName=='Posts'){
+            setShowPosts(true)
+            setShowClasses(false)
+setShowTutors(false)
+            
+        }
+        else  if(selectedFilterName=='Classes'){
+            setShowPosts(false)
+            setShowClasses(true)
+setShowTutors(false)
+            
+        }
+        else  if(selectedFilterName=='Tutors'){
+            setShowPosts(false)
+            setShowClasses(false)
+setShowTutors(true)
+            
+        }
+        else{
+            setShowPosts(true)
+            setShowClasses(true)
+setShowTutors(true)
+        }
+        console.log('State Value Is ',selectedFilterName)
+    },[selectedFilterName])
     return (
         <Details headerTitle="Search">
             <ScrollView
@@ -85,9 +139,27 @@ const Search = () => {
                         icon={'AntDesign search1 20 gray'}
                     />
                 </View>
+                <View style={[tw`px-7 py-2`]}>
+                    <HorizontalList
+                    data={HeaderFilters}
+                    renderItem={({item,index})=>{
+                        return(
+<TouchableOpacity
+onPress={()=>{
+    setSelectedFilter(index)
+setSelectedFilterName(item.tag)
+}}
+style={[tw`rounded-full px-3 m-1 py-2`,{backgroundColor:selectedFilter==index?Colors.lightorange: Colors.gray}]}
+>
+    <Text style={[tw`text-xs`,{fontFamily:'PoppinsMedium',textTransform:'uppercase',color:selectedFilter==index?Colors.orange: Colors.black}]}>{item.tag}</Text>
+</TouchableOpacity>
+                        )                    }}
+                    
+                    />
+                </View>
                 <Spacer />
                 {/* <Heading heading="Tutors" /> */}
-<Section title="Tutors">
+{showTutors &&<Section title="Tutors">
     <View style={[tw`px-3`]}>
 
                 <HorizontalList
@@ -115,13 +187,13 @@ const Search = () => {
                 />
     </View>
 
-</Section>
+</Section>}
 
 
 
                 <Spacer />
-                <Section title="Tutors">
-    <View style={[tw`px-3`]}>
+              {showClasses &&  <Section title="Classes">
+    <View style={[tw`px-3`]} >
 
     <HorizontalList
                     data={ClassInfo}
@@ -159,17 +231,19 @@ const Search = () => {
                 />
     </View>
 
-</Section>
+</Section>}
 
                 
                 <Spacer />
-                <Heading heading="Posts" />
+          { showPosts && <Section title="Posts">
+
                 <FlatList
                     showsVerticalScrollIndicator={false}
                     data={postsData}
                     renderItem={renderItem}
                     keyExtractor={(item) => item.id}
                 />
+             </Section>}
             </ScrollView>
         </Details>
     )

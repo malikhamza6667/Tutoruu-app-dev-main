@@ -103,7 +103,7 @@ const Signup:React.FC<Props> = ({navigation}) => {
     onChangeText={(text) => { setEmail(text) }}
 />
 </View>
-<View style={[tw`flex-row justify-between`]}>
+
 
 
 <View>
@@ -112,7 +112,7 @@ const Signup:React.FC<Props> = ({navigation}) => {
         value={userName}
         title='User Name'
         height={hp('6%')}
-        size="medium"
+        size="xlarge"
         placeholder='Enter A UserName'
         onChangeText={(text) => { setUserName(text) }}
     />
@@ -122,13 +122,13 @@ const Signup:React.FC<Props> = ({navigation}) => {
 
 <View
    
-    style={[tw`justify-center items-end `,{ width: wp('30%'),}]}>
+    style={[tw`justify-center items-start `,{ width: wp('90%'),}]}>
     <Text
-        style={[tw`text-center   text-sm  self-center py-1 pb-2`,{ fontFamily: 'PoppinsMedium' }]}
+        style={[tw`text-center  self-start text-sm  py-1 px-7 pb-2`,{ fontFamily: 'PoppinsMedium' }]}
        
-    >University</Text>
+    >University </Text>
     <View
-        style={[tw`border border-gray-300 rounded-3xl`,{ width: wp('28%'),borderWidth:1.5,borderColor:Colors.neutralShadow, justifyContent: 'center', height: hp('6%') }]}
+        style={[tw`border border-gray-300 rounded-3xl self-center`,{ width: wp('85%'),borderWidth:1.5,borderColor:Colors.neutralShadow, justifyContent: 'center', height: hp('6%') }]}
         
 
     >
@@ -148,7 +148,7 @@ const Signup:React.FC<Props> = ({navigation}) => {
     >
 </View>
 
-</View>
+
 <View>
 
 <Input
