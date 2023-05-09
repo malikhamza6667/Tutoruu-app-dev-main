@@ -11,12 +11,15 @@ import tw from 'twrnc';
 import Avatar from "../../../components/Avatar/Avatar";
 import Colors from "../../../../assets/Colors";
 import { EvilIcons } from '@expo/vector-icons';
+import { useDispatch } from "react-redux";
+import { getAuthToken, getUserName, getUserType } from "../../../Services/Redux/features/userSlice/UserSlice";
 
 
 type Props={
     navigation?:any
 }
 const Login:React.FC<Props> = ({ navigation }) => {
+const dispatch=useDispatch()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     useEffect(()=>{
@@ -70,6 +73,8 @@ console.log("YOUR LOCALE NOW IS    "+i18n.locale)
 
                     <Button
                         onPress={() => {
+                            dispatch(getUserName('MeHamza'))
+                            dispatch(getAuthToken('12345667898765'))
                            navigation.navigate('UserMainFlow')
                                 //                            i18n.locale = 'en'
                                 // I18nManager.forceRTL(false)

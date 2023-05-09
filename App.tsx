@@ -44,6 +44,8 @@ import MainAppRoutes from './src/navigations/AppRoutesMain/AppRoutes';
 import PaymentStatus from './src/screens/PaymentStatus/PaymentStatus';
 import AuthenticationStack from './src/navigations/AuthenticationFlow/AuthenticationStack';
 import TestingScreen from './src/screens/TestingScreen/TestingScreen';
+import { Provider } from 'react-redux';
+import store from './src/Services/Redux/store/Store';
 
 
 SplashScreen.preventAutoHideAsync();
@@ -138,6 +140,7 @@ const MyApp = () => {
   }
 
   return (
+<Provider store={store}>
 
     <SafeAreaView
       style={{ flex: 1, justifyContent: 'center', backgroundColor: Colors.white }}
@@ -168,6 +171,7 @@ const MyApp = () => {
 
    
     </SafeAreaView>
+</Provider>
 
   );
 };

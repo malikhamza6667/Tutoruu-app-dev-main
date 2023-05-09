@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import tw from 'twrnc';
@@ -8,11 +8,19 @@ import Section from "../../layouts/Section/Section";
 import Spacer from "../../components/Spacer/Spacer";
 import Button from "../../components/Button/Button";
 import bridge from "../../Services/BaseURL/Baseurl";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Services/Redux/store/Store";
 type Props = {
     navigation: any
 }
 const TestingScreen: React.FC<Props> = ({ navigation }) => {
+const userName= useSelector((state:RootState)=>state.userInformationReducer.name)
+const userToken= useSelector((state:RootState)=>state.userInformationReducer.token)
+useEffect(()=>{
+console.log('User Name Is    '+userName)
+console.log('User Token Is    '+userToken)
 
+},[])
     // const registerUser=()=>{
     //     const REGISTER_MUTATION = `
     //     mutation Register($input: UserRegistrationInput!) {
@@ -90,9 +98,15 @@ const TestingScreen: React.FC<Props> = ({ navigation }) => {
   `;
 
         bridge
-            .login(`token`, "tutoruutest@gmail.com", "P@ssw0rd")
+            .login(`token user{
+                name
+            email
+            is_tutor
+                
+            }`, "tutoruutest@gmail.com", "P@ssw0rd")
             .then((result) => {
                 console.log("result is   ", result);
+                
             }).catch((err) => {
                 console.log('error is ', err)
             })
@@ -110,6 +124,8 @@ const TestingScreen: React.FC<Props> = ({ navigation }) => {
                             The Tutoruu Fam prioritizes YOUR wellbeing, first and foremost. Let us know how we can help at anytime, We love to chat!{"\n"}{"\n"}
 
                             Send us a message on Messenger by clicking the button below</Text>
+                        
+                        <Text>name {userName}</Text>
                         <View style={[tw``, { marginTop: hp('20') }]} >
 
 
