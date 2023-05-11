@@ -34,6 +34,8 @@ type Props = {
     onChangeText: (text: string) => void;
     testID?: string;
     multiline?: boolean
+    invisbilePassword?:boolean
+   
 };
 
 const Input: React.FC<Props> = ({
@@ -59,11 +61,13 @@ const Input: React.FC<Props> = ({
     iconPosition,
     onIconPressed,
     iconBackground,
-    multiline
+    multiline,
+    invisbilePassword,
+  
 }) => {
     const [text, setText] = useState(value);
-    let keyboardtype = 'default'
-    let invisbilePassword = false
+   
+   let keyboardtype
     let maxwidth = parseInt(wp(`${max}%`).toString())
     let minWidth = parseInt(wp(`${min}%`).toString())
     let width = wp('75%')
@@ -79,21 +83,24 @@ const Input: React.FC<Props> = ({
     if (type == 'email') {
         keyboardtype = 'email-address'
     }
-    if (type == 'number') {
+    else if (type == 'number') {
         keyboardtype = 'numeric'
     }
-    if (type == 'password') {
+   else if (type == 'password') {
         keyboardtype = 'default'
         invisbilePassword = true
     }
-    if (type == 'tel') {
+   else  if (type == 'tel') {
         keyboardtype = 'phone-pad'
     }
-    if (type == 'url') {
+    else if (type == 'url') {
         keyboardtype = 'url'
     }
-    if (type = 'text') {
+    else if (type = 'text') {
         keyboardtype = 'default'
+    }
+    else{
+        keyboardtype='default'
     }
 
     const handleTextChange = (newText: string) => {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, I18nManager, TouchableOpacity ,Image} from "react-native";
+import { View, Text, I18nManager, TouchableOpacity ,Image, Alert, ToastAndroid} from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Auth from "../../../layouts/Auth/Auth"
 import Button from "../../../components/Button/Button";
@@ -13,6 +13,7 @@ import Colors from "../../../../assets/Colors";
 import { EvilIcons } from '@expo/vector-icons';
 import { useDispatch } from "react-redux";
 import { getAuthToken, getUserName, getUserType } from "../../../Services/Redux/features/userSlice/UserSlice";
+import bridge from "../../../Services/BaseURL/Baseurl";
 
 
 type Props={
@@ -22,9 +23,58 @@ const Login:React.FC<Props> = ({ navigation }) => {
 const dispatch=useDispatch()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    useEffect(()=>{
-console.log("YOUR LOCALE NOW IS    "+i18n.locale)
-},[])
+ 
+const LogUser=()=>{
+    if(!email ||!password){
+        alert('Email And Password Null!')
+    }
+    else{
+        const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+        const result: boolean = expression.test(email); // true
+        if(result){
+
+            bridge.login(`token user{
+                name
+                email
+               
+                id
+                
+            }`,email,password).then(async(user)=>{
+                if(!user.user||!user.token){
+                    alert('Something Went Wrong')
+                }
+                else{
+
+                    const name=user.user.name
+                    const email=user.user?.email
+                    const id=user.user?.id
+    
+                    const token= user.token
+                  
+                      
+                         await AsyncStorage.setItem('userId',id?.toString())
+                         await AsyncStorage.setItem('userName',name?.toString())
+                         await AsyncStorage.setItem('userEmail',email?.toString())
+                    
+                        await AsyncStorage.setItem('userToken',token?.toString())
+                        dispatch(getUserName(name))
+                        dispatch(getAuthToken(token))
+                        setEmail('')
+                        setPassword('')
+                        ToastAndroid.show('Login Success',ToastAndroid.LONG)
+                    
+                console.log('User    ',user)
+                }
+            }).catch((err)=>{
+                // console.log('error in login   ',err)
+                return Alert.alert('Email Or Password Incorrect!')
+            })
+        }
+        else{
+            return Alert.alert('Please Enter A Valid Email Address')
+        }
+    }
+}
     return (
         <Auth
 
@@ -59,11 +109,12 @@ console.log("YOUR LOCALE NOW IS    "+i18n.locale)
             
                  height={hp('6%')}
                     size='xlarge'
-                    value={email}
-                    onChangeText={(text) => { setEmail(text) }}
+                    value={password}
+                    clearable
+                    onChangeText={(text) => { setPassword(text) }}
                     title='Password'
                     placeholder='Doe'
-                   
+                   type="text"
                     testID='password-input'
                 />
 </View>
@@ -73,16 +124,15 @@ console.log("YOUR LOCALE NOW IS    "+i18n.locale)
 
                     <Button
                         onPress={() => {
-                            dispatch(getUserName('MeHamza'))
-                            dispatch(getAuthToken('12345667898765'))
-                           navigation.navigate('UserMainFlow')
+                           LogUser()
+                        //    navigation.navigate('UserMainFlow')
                                 //                            i18n.locale = 'en'
                                 // I18nManager.forceRTL(false)
                                 // reloadAsync()
                         }}
                         // icon={'AntDesign arrowright 24 white'}
                         shape='full'
-                        text='Logn'
+                        text='Login'
 
                         
                         testID='login-button'

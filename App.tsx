@@ -45,24 +45,17 @@ import PaymentStatus from './src/screens/PaymentStatus/PaymentStatus';
 import AuthenticationStack from './src/navigations/AuthenticationFlow/AuthenticationStack';
 import TestingScreen from './src/screens/TestingScreen/TestingScreen';
 import { Provider } from 'react-redux';
-import store from './src/Services/Redux/store/Store';
+import store, { RootState } from './src/Services/Redux/store/Store';
+import { useDispatch } from 'react-redux';
+import { getAuthToken, getUserName, getUserType } from './src/Services/Redux/features/userSlice/UserSlice';
+import { useSelector } from 'react-redux';
 
 
 SplashScreen.preventAutoHideAsync();
-const defaultLanguage = 'ar';
-   const drawer = createDrawerNavigator()
-const DrawerScreen=()=>{
-  return(
-    
-      <drawer.Navigator>
-        <drawer.Screen name='Sessions' component={SessionCompleted}/>
-      </drawer.Navigator>
-   
-  )
-}
 
 const MyApp = () => {
-  const [email, setEmail] = useState('');
+  const dispatch=useDispatch()
+ 
   const [fontsLoaded] = useFonts({
     'Poppins': require('./assets/fonts/Poppins-ExtraLight.ttf'),
     'PoppinsBold': require('./assets/fonts/Poppins-ExtraBold.ttf'),
@@ -71,65 +64,24 @@ const MyApp = () => {
     'PoppinsSemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
   });
 
-  // const [isRTL, setIsRTL] = useState(i18n.locale === 'ar' ? true : false);
-  // const [localeValue, setLocaleValue] = useState(i18n.locale)
+const getUserDetails=async()=>{
+  // These values are set at Login screen  
+const name= await AsyncStorage.getItem('userName')
+const isTutor= await AsyncStorage.getItem('UserIsTutor')
+const authToken= await AsyncStorage.getItem('userToken')
 
-  // const loadLanguage = useCallback(async () => {
-
-  //   console.log("Value of I18 isss   " + i18n.locale)
-  //   console.log("Value of I18 locale is   " + localeValue)
-
-  //   setTimeout(async () => {
-  //     AsyncStorage.getItem('Language').then(async (val) => {
-  //       if (val === 'ar') {
-  //         console.log('Is Already RTL   ', I18nManager.isRTL)
-  //         i18n.locale = 'ar'
-  //         I18nManager.forceRTL(true)
-  //         setLocaleValue('ar')
-
-  //         console.log("Layout Changed   " + i18n.locale)
-  //         setIsRTL(true)
-  //         await SplashScreen.hideAsync();
-  //       }
-  //       else {
-  //         console.log('Is Already RTL in en   ', I18nManager.isRTL)
-  //         i18n.locale = 'en'
-  //         I18nManager.forceRTL(false)
-  //         setLocaleValue('en')
-
-  //         setIsRTL(false)
-  //         await SplashScreen.hideAsync();
-  //       }
-  //     })
-  //   }, 1500);
-
-  // }, [isRTL]);
-
-  // useEffect(() => {
-  //   AsyncStorage.getItem('Language').then((val) => {
-  //     if (val == 'ar') {
-  //       i18n.locale = 'ar'
-  //     }
-  //     else {
-  //       i18n.locale = 'en'
-  //     }
-  //   })
-  // }, []);
-
-  // useEffect(() => {
-  //   if (i18n.locale === 'ar') {
-  //     setIsRTL(true);
-  //     I18nManager.forceRTL(true);
-  //   } else {
-  //     setIsRTL(false);
-  //     I18nManager.allowRTL(false);
-
-  //   }
-  // }, [i18n.locale]);
-
+dispatch(getUserName(name))
+dispatch(getUserType(isTutor))
+dispatch(getAuthToken(authToken))
+setTimeout(async() => {
+  
+  await SplashScreen.hideAsync()
+}, 1500);
+}
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
-      await SplashScreen.hideAsync();
+      getUserDetails()
+      // await SplashScreen.hideAsync();
       // loadLanguage();
 
     }
@@ -139,8 +91,8 @@ const MyApp = () => {
     return null;
   }
 
+
   return (
-<Provider store={store}>
 
     <SafeAreaView
       style={{ flex: 1, justifyContent: 'center', backgroundColor: Colors.white }}
@@ -171,12 +123,20 @@ const MyApp = () => {
 
    
     </SafeAreaView>
-</Provider>
+
 
   );
 };
 
-export default MyApp;
+const App=()=>{
+  return(
+    <Provider store={store}>
+<MyApp/>
+    </Provider>
+  )
+}
+
+export default App;
 
 
 

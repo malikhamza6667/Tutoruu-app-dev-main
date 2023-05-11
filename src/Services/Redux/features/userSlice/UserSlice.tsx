@@ -9,7 +9,7 @@ type initialStateUser={
 
 }
 const initialState:initialStateUser={
-    name: 'hamza',
+    name: '',
     isTutor:false,
     token:''
 

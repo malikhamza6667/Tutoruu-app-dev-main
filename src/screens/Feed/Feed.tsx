@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, ScrollView, TouchableOpacity } from "react-native";
 import MyPost from "../../components/MyPost/MyPost";
 import Post from "../../components/Post/PostCard";
@@ -10,6 +10,7 @@ import HorizontalList from "../../layouts/HorizontalList/HorizontalList";
 import Colors from "../../../assets/Colors";
 import tw from 'twrnc';
 import { AntDesign } from '@expo/vector-icons';
+import bridge from "../../Services/BaseURL/Baseurl";
 const categoryTags=[
     {
         id:0,
@@ -41,6 +42,7 @@ const Feed = () => {
     const[selectedFilter,setSelectedFilter]=useState(0)
     const[Posts,setPosts]=useState(postsData)
     const[selectedFilterName,setSelectedFilterName]=useState('All')
+   
     const renderItem = ({ item }) => (
         <Post
             text={item.text}

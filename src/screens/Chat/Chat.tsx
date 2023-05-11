@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { View, Text, Image, TouchableOpacity, SafeAreaView, Platform, ScrollView, FlatList, KeyboardAvoidingView } from 'react-native'
+import { View, Text, Image, TouchableOpacity, SafeAreaView, Platform, ScrollView, FlatList, KeyboardAvoidingView, SectionList } from 'react-native'
 import Details from "../../layouts/Details/Details";
 import ChatMessage from "../../components/ChatMessage/ChatMessage";
 import Colors from "../../../assets/Colors";
@@ -10,7 +10,10 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-nat
 import Input from "../../components/Input/Input";
 import Avatar from "../../components/Avatar/Avatar";
 const Messages = [
-    {
+  { 
+    
+    headerTitle:"11/12",
+    data:[ {
         id: 0,
         date: "05-04-2023",
         mine: false,
@@ -23,49 +26,42 @@ const Messages = [
         mine: true,
         sender_image: 'https://i.pravatar.cc/300',
         text: "Lorem Ispum Dolar",
-    },
-    {
-        id: 2,
-        date: "05-04-2023",
-        mine: false,
-        sender_image: 'https://i.pravatar.cc/300',
-        text: "Lorem Ispum Dolar",
-    },
-    {
-        id: 3,
-        date: "05-04-2023",
-        mine: true,
-        sender_image: 'https://i.pravatar.cc/300',
-        text: "Lorem Ispum Dolar",
-    },
-    {
-        id: 4,
-        date: "05-04-2023",
-        mine: true,
-        sender_image: 'https://i.pravatar.cc/300',
-        text: "Lorem Ispum Dolar",
-    },
-    {
-        id: 5,
-        date: "05-04-2023",
-        mine: false,
-        sender_image: 'https://i.pravatar.cc/300',
-        text: "Lorem Ispum Dolar",
-    },
-    {
-        id: 6,
-        date: "05-04-2023",
-        mine: true,
-        sender_image: 'https://i.pravatar.cc/300',
-        text: "Lorem Ispum Dolar",
-    },
-    {
-        id: 7,
-        date: "05-04-2023",
-        mine: true,
-        sender_image: 'https://i.pravatar.cc/300',
-        text: "Lorem Ispum Dolar",
-    },
+    },]},
+   
+    { 
+    
+        headerTitle:"Yesterday",
+        data:[ {
+            id: 0,
+            date: "06-04-2023",
+            mine: false,
+            sender_image: 'https://i.pravatar.cc/300',
+            text: "Lorem Ispum Dolar",
+        },
+        {
+            id: 1,
+            date: "06-04-2023",
+            mine: true,
+            sender_image: 'https://i.pravatar.cc/300',
+            text: "Lorem Ispum Dolar",
+        },]},
+        { 
+    
+            headerTitle:"Today",
+            data:[ {
+                id: 0,
+                date: "07-04-2023",
+                mine: false,
+                sender_image: 'https://i.pravatar.cc/300',
+                text: "Lorem Ispum Dolar",
+            },
+            {
+                id: 1,
+                date: "07-04-2023",
+                mine: true,
+                sender_image: 'https://i.pravatar.cc/300',
+                text: "Lorem Ispum Dolar",
+            },]},
 ]
 type Props = {
     navigation?: any
@@ -138,7 +134,7 @@ const Chat: React.FC<Props> = ({ navigation }) => {
 
 <View style={[tw``,]}>
 
-                    <FlatList
+                    {/* <FlatList
                     
                         data={Messages}
                         contentContainerStyle={{paddingVertical:hp('2%')}}
@@ -155,6 +151,29 @@ const Chat: React.FC<Props> = ({ navigation }) => {
                         keyExtractor={(item) => {
                             return item.id.toString();
                         }}
+                    /> */}
+                    <SectionList
+                    
+                    sections={Messages}
+                    renderSectionHeader={({section: {headerTitle}}) => (
+                        <View
+                        style={[tw`rounded-full self-center px-3 py-2`,{backgroundColor:Colors.lightorange}]}
+                        >
+
+                        <Text style={[tw`text-sm self-center`,{color:Colors.orange,fontFamily:'PoppinsMedium'}]}>{headerTitle}</Text>
+                        </View>
+                      )}
+                      renderItem={({item})=>{
+                        return(
+                            <ChatMessage
+                            date={item.date}
+                            mine={item.mine}
+                            sender_image={item.sender_image}
+                            text={item.text}
+                        />
+                        )
+                      }}
+                    
                     />
 </View>
 

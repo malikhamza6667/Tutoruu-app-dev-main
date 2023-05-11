@@ -21,6 +21,9 @@ import TutorRequested from "../../screens/TutorRequested/TutorRequested";
 import Details from "../../layouts/Details/Details";
 import PaymentStatus from "../../screens/PaymentStatus/PaymentStatus";
 import TutorMainFLow from "../TutorMainStack/TutorMainFlow";
+import ResetPassword from "../../screens/Auth/ResetPassword/ResetPassword";
+import UpdatePassword from "../../screens/Auth/UpdatePassword/UpdatePassword";
+import MagicLink from "../../screens/Auth/MagicLink/MagicLink";
 
 
 const stack= createNativeStackNavigator()
@@ -48,7 +51,17 @@ const UserMainFlow=()=>{
             <stack.Screen name="TutorProfile" component={TutorProfile} />
             <stack.Screen name="TutorRequested" component={TutorRequested} />
             <stack.Screen name="PaymentStatus" component={PaymentStatus} />
+            {/*This Is Tutor MainFlow We Duplicated It for the Purpose if the User Is Not Tutor,
+             He Can Be Registered As A Tutor And GO To Dashboard and On Next Login He Will be directed to TutorDashboard  */}
             <stack.Screen name="TutorMainFLow" component={TutorMainFLow} />
+            {/* These Screens Exists In The Auth Flow so we need to duplicate 
+            them here inorder to get to these screen else only logout will take to these screens
+            
+            
+            */}
+            <stack.Screen name="ResetPassword" component={ResetPassword} />
+            <stack.Screen name="UpdatePassword" component={UpdatePassword} />
+            <stack.Screen name="MagicLink" component={MagicLink} />
             
         </stack.Navigator>
     )
